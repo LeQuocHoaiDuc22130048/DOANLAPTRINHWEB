@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang đăng nhập</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:650px;
+            height:500px;
+            padding-left:auto;
+        
+        }
+        .text-center{
+            padding-top:30px;
+        }
+       .sub-text{
+        margin-left:190px;
+       }
+
+       .form-group{
+        padding-top:30px;
+        
+       }
+
+       .form-group .form-control {
+        margin-bottom: 30px; /* Tạo khoảng cách giữa các thẻ input */
+        margin-left:100px;
+        padding: 20px;       
+        border-radius: 8px;  /* Bo góc cho input */
+        border: 1px solid #ced4da; /* Đổi màu viền */
+        border-radius: 12px;
+
+    }
+    .btn-dangnhap{
+        margin-left:250px;
+    }
+    .custom-spacing {
+        margin-top: 30px;  
+        
+    }
+       /*for id*/
+       #email{
+        width:400px;
+      
+       }
+       #password{
+        width:400px;
+       }
+       
+       
+
+    </style>
+    <body>
+
+        <div class="container">
+            
+
+            <div class="text-center">
+                <h1>ĐĂNG NHẬP TÀI KHOẢN</h1>
+            </div>
+
+            <div class="sub-text">
+                <label for="username">Nhập email và mật khẩu của bạn</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="email" placeholder="Email " required>
+                <input type="text" class="form-control" id="password" placeholder="Mật khẩu " required>
+            </div>
+
+            <div class="btn-dangnhap">
+                <button type="button" class="btn btn-primary">Đăng nhập</button>
+            </div>
+
+            <div class="text-center mt-3 d-flex align-items-center justify-content-center custom-spacing">
+                <h5 class="mb-0 mr-2">Khách hàng mới</h5>
+                <a href="#">Tạo tài khoản</a>
+            </div>
+
+            <div class="text-center mt-3 d-flex align-items-center justify-content-center custom-spacing">
+                <h5 class="mb-0 mr-2">Quên mật khẩu?</h5>
+                <a href="#">Khôi phục tài khoản</a>
+            </div>
+
+
+
+        </div>
+    </body>
+</html>
