@@ -8,6 +8,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -1141,6 +1142,7 @@
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/lightbox.js"></script>
     <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/back_to_top.js"></script>
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
@@ -1162,22 +1164,5 @@
       });
     </script>
 
-    <!-- script cuộn lên đầu trang -->
-    <script>
-       window.onscroll = function() {
-        const backToTopButton = document.getElementById("backToTop");
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            backToTopButton.style.display = "block"; // Hiển thị nút
-        } else {
-            backToTopButton.style.display = "none"; // Ẩn nút
-        }
-    };
-
-    // Cuộn về đầu trang khi nhấn nút
-    document.getElementById("backToTop").onclick = function(event) {
-        event.preventDefault(); // Ngăn chặn hành động mặc định
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Cuộn lên từ từ
-    };
-    </script>
   </body>
 </html>

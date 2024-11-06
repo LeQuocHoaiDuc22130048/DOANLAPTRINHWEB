@@ -176,7 +176,6 @@ html,
 body {
   background: #fff;
   font-family: "Poppins", sans-serif;
-  /* font-family: "SF Pro Display", sans-serif; */
 }
 
 ::selection {
@@ -2351,7 +2350,7 @@ contact Us Page
 .contact-us .section-heading .last_add {
   font-size: 1rem;
   color: #807e7e;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .contact-us .section-heading .first_add {
@@ -2372,7 +2371,9 @@ contact Us Page
   font-style: normal;
 }
 
-.contact-us .section-heading .btn_tel {
+/* xíu copy vào  */
+.btn_tel {
+  display: inline-block;
   cursor: pointer;
   padding: 10px 20px;
   background-color: #0021f5;
@@ -2383,7 +2384,7 @@ contact Us Page
   font-size: 1rem;
 }
 
-.contact-us .section-heading .btn_tel:hover {
+.btn_tel:hover {
   color: #0021f5;
   background-color: #fff;
   border: 1px solid #0021f5;
@@ -2449,6 +2450,267 @@ contact Us Page
   border: 1px solid #2a2a2a;
   color: #2a2a2a;
 } */
+
+/* 
+---------------------------------------------
+giỏ hàng
+--------------------------------------------- 
+*/
+
+.gio_hang {
+  margin-top: 100px;
+  padding: 40px;
+}
+
+.gio_hang .container.no-list {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gio_hang .container .non_product {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 70px 10px 20px;
+}
+
+.gio_hang .container .non_product .btn_return {
+  font-weight: bold;
+}
+
+.gio_hang .container .non_product p {
+  font-size: 15px;
+  line-height: 25px;
+  color: #807e7e;
+}
+
+.gio_hang .container .non_product a {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.gio_hang .container .non_product p:last-child {
+  text-align: start;
+}
+
+.gio_hang .container .non_product .link_return {
+  color: #807e7e;
+}
+
+.gio_hang .cart_checkout_page {
+  max-width: 672px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+    rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .cart_form {
+  margin-bottom: 20px;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .cart_form .cart_item {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: thin solid #eee;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .cart_form .cart_item {
+  display: flex;
+}
+
+.gio_hang
+  .cart_checkout_page
+  .cart_wrapper
+  .cart_form
+  .cart_item
+  .product_thumbnail {
+  width: 132px;
+}
+
+.cart_item .product-thumbnail img {
+  border: thin solid #f5f5f5;
+}
+
+.cart_item .product_info {
+  padding-left: 50px;
+}
+
+.cart_item .product_info .product_name {
+  margin-bottom: 20px;
+}
+
+.cart_item .product_info .product_name a {
+  color: #2a2a2a;
+  font-size: 1.1rem;
+}
+
+.cart_item .product_info .product_price .so_tien {
+  color: #0021f5;
+}
+
+.cart_item .product_info .product_remove {
+  display: flex;
+  align-items: baseline;
+  cursor: pointer;
+}
+
+.cart_item .product_info .product_remove i {
+  font-size: 1rem;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+.cart_item .product_info .product_remove:hover,
+.gio_hang .cart_checkout_page .cart_wrapper .uu_dai:hover {
+  color: #0021f5;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .uu_dai {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  width: 170px;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .uu_dai i {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .uu_dai .dropdown-icon {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .uu_dai-content {
+  display: none;
+  padding: 10px;
+  transition: 0.5s ease-in-out;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .uu_dai-content table {
+  width: 100%;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .uu_dai-content table td {
+  padding: 5px;
+}
+
+.gio_hang .cart_checkout_page .cart_wrapper .uu_dai-content .apply-button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.gio_hang .cart_checkout_page .checkout_wrapper .total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.gio_hang .cart_checkout_page .checkout_wrapper .total .label {
+  font-weight: bold;
+}
+
+.gio_hang .cart_checkout_page .checkout_wrapper .total .price {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.gio_hang .cart_checkout_page .checkout_wrapper .details .customer_details,
+.gio_hang .cart_checkout_page .checkout_wrapper .details .delivery_details,
+.gio_hang .cart_checkout_page .checkout_wrapper .details .payment_method {
+  padding: 20px;
+  margin-top: 20px;
+}
+.gio_hang .cart_checkout_page .checkout_wrapper .details .customer_details h5,
+.gio_hang .cart_checkout_page .checkout_wrapper .details .delivery_details h5,
+.gio_hang .cart_checkout_page .checkout_wrapper .details .payment_method h5 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.details input {
+  background: #eeeced;
+}
+
+.gio_hang .cart_checkout_page .checkout_wrapper .details .payment_method li {
+  margin-bottom: 10px;
+}
+
+.gio_hang
+  .cart_checkout_page
+  .checkout_wrapper
+  .details
+  .payment_method
+  input[type="radio"] {
+  margin-right: 10px;
+}
+
+.gio_hang
+  .cart_checkout_page
+  .checkout_wrapper
+  .details
+  .payment_method
+  .payment_method_bank,
+.payment_method_cod {
+  background: #ececec;
+  margin: 14px 0;
+  padding: 8px 8px 8px 30px;
+  border-radius: 6px;
+}
+
+.gio_hang
+  .cart_checkout_page
+  .checkout_wrapper
+  .details
+  .payment_method
+  .payment_box {
+  display: block;
+}
+
+.gio_hang
+  .cart_checkout_page
+  .checkout_wrapper
+  .details
+  .payment_method
+  .payment_box
+  p {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.gio_hang .cart_checkout_page .checkout_wrapper .button_order {
+  background-color: #0021f5;
+  border: 1px solid #0021f5;
+  border-radius: 10px;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+  padding: 8px;
+  text-transform: uppercase;
+}
+
+.gio_hang .cart_checkout_page .checkout_wrapper .button_order:hover {
+  color: #fff;
+  background-color: #011ac0bb;
+  border: 1px solid #011ac0bb;
+}
+
+.gio_hang .cart_checkout_page .checkout_wrapper .button_order:focus {
+  outline: none;
+}
 
 /* 
 ---------------------------------------------
