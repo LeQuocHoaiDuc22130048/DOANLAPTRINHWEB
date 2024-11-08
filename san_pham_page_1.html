@@ -14,6 +14,7 @@
 
     <!-- link file css -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/font-awesome.css">
     <link rel="stylesheet" href="./assets/css/templatemo-hexashop.css">
     <link rel="stylesheet" href="./assets/css/owl-carousel.css">    
     <link rel="stylesheet" href="./assets/css/lightbox.css">
@@ -34,7 +35,7 @@
     <!-- preloader end -->
 
      <!-- ***** Header Area Start ***** -->
-     <header class="header-area header-sticky">
+     <header class="header-area header-sticky" id="top">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -94,5 +95,167 @@
         </div>
       </header>
       <!-- ***** Header Area End ***** -->
+
+      <!-- ***** Main Banner Area Start ***** -->
+    <div class="page-heading" ></div>
+    <!-- ***** Main Banner Area End ***** -->
+
+
+    <!-- ***** Products Area Starts ***** -->
+     <section class="section" id="products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Sản phẩm của chúng tôi</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+    <!-- ***** Products Area Ends ***** -->
+
+     <!-- ***** Footer Start ***** -->
+     <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 inf_first">
+              <div class="first-item">
+                <div class="logo">
+                  <img
+                    src="./assets/images/logo.png"
+                    alt="eyestyle nhom 65"
+                  />
+                </div>
+                <ul>
+                  <li>
+                    <a href="#"
+                      >Đại học Nông Lâm TPHCM</a
+                    >
+                  </li>
+                  <li><a href="#">nhom65@company.com</a></li>
+                  <li><a href="#">0123 456 789</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 inf">
+              <h4>Mua sắm &amp; Danh mục</h4>
+              <ul>
+                <li><a href="./chi_tiet_san_pham.html">Kính mát</a></li>
+                <li><a href="./chi_tiet_san_pham.html">Gọng kính</a></li>
+                <li><a href="./chi_tiet_san_pham.html">Tròng kính</a></li>
+                <li><a href="./chi_tiet_san_pham.html">Kính áp tròng</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 inf">
+              <h4>Trợ giúp &amp; Thông tin</h4>
+              <ul>
+                <li><a href="#">Sản phẩm cập nhật</a></li>
+                <li><a href="./bai_viet.html">Đời sống</a></li>
+                <li><a href="./gio_hang.html">Vận chuyển</a></li>
+                <li><a href="./lien_he.html">Liên hệ hỗ trợ</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 inf">
+              <h4>Điều hướng</h4>
+              <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="./san_pham.html">Sản phẩm</a></li>
+                <li><a href="./lien_he.html">Liên hệ</a></li>
+                <li><a href="./bai_viet.html">Bài viết</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-12">
+              <div class="under-footer">
+                <p>
+                  Group65 © 2022 HexaShop Co., Ltd. All Rights Reserved.
+  
+                  <br />Design:
+                  <a
+                    href="#"
+                    >Group 65</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--nút di chuyển lên đầu trang-->
+        <a href="#top" class="btn_di_chuyen" id="backToTop">
+          <i class="fa-solid fa-angle-up"></i>
+        </a>
+      </footer>
+    <!-- ***** Footer End ***** -->
+
+
+      <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script src="assets/js/datepicker.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    <script src="assets/js/slick.js"></script> 
+    <script src="assets/js/lightbox.js"></script> 
+    <script src="assets/js/isotope.js"></script> 
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+
+        $(function() {
+            var selectedClass = "";
+            $("p").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("."+selectedClass).fadeOut();
+            setTimeout(function() {
+              $("."+selectedClass).fadeIn();
+              $("#portfolio").fadeTo(50, 1);
+            }, 500);
+                
+            });
+        });
+
+
+
+       
+    </script>
+    <script>
+         //nút di chuyển lên đầu trang
+         window.addEventListener("scroll", () => {
+            const srollToTopButton = document.getElementById("backToTop");
+            if(window.scrollY > 300){
+                srollToTopButton.classList.add("show");
+            }else{
+                srollToTopButton.classList.remove("show");
+            }
+        });
+
+        
+    </script>
 </body>
 </html>
