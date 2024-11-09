@@ -26,10 +26,11 @@ s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, 
 figure, header, nav, section, article, aside, footer, figcaption {
   margin: 0;
   padding: 0;
-  border: 0;
-  outline: 0;
 }
 
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary{
+  display: block;
+}
 .clearfix:after {
   content: ".";
   display: block;
@@ -527,6 +528,8 @@ header
   outline: none;
 }
 
+
+
 .header-area .main-nav .nav li.gio_hang_shop a:hover {
   cursor: pointer;
   color: #5a5858;
@@ -534,6 +537,9 @@ header
   border: 1px solid #5a5858;
   
 }
+
+
+
 
 @media (max-width: 1200px) {
   .header-area .main-nav .nav li {
@@ -717,7 +723,7 @@ footer .under-footer a:hover {
   color: #c66;
 }
 
-footer #backToTop {
+footer .btn_di_chuyen {
   position: fixed;
   bottom: 20%;
   right: 5%;
@@ -729,35 +735,85 @@ footer #backToTop {
   align-content: center;
   color: #a1a1a1;
   cursor: pointer;
-  display: none;
 }
 
-footer #backToTop:hover {
+footer .btn_di_chuyen:hover {
   color: #fff;
   background-color: #a1a1a1;
 }
 
-footer #backToTop.show{
+.shop-page-title.category-page-title.featured-title.page-title{
+    margin-top: 120px;
+}
+
+.page-title-inner .flex-row .container .medium-flex-wrap .flex-has-center{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    display: block;
+    max-width: 2700px;
+}
+.flex-col.flex-center.text-center .is-large nav,
+.flex-col.flex-center.text-center .is-large  nav a,span{
+    color: #666;  
+}
+
+.is-large a:hover {
+    color: #353535;  
+}
+.container-banner-product h1{
+  font-size: 1.2em;
+  margin: 15px 0;
+  color: #666;
+}
+.shop-container{
+  max-width: 1080px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text.hide-for-small{
+  margin: 15px 0;
+}
+.text p{
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.section-title-container{
+  margin-bottom: 1.5rem;
+}
+
+.section-title{
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.section-title b{
+  background-color: currentColor;
   display: block;
+  flex: 1;
+  height: 2px;
+  opacity: 0.1;
+}
+.section-title-center span{
+  margin: 0 15px;
 }
 
-
-.page-heading{
-  margin-top: 160px;
-  margin-bottom: 30px;
-  background-image: url(../images/heading_banner.png);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 400px;
+.section-title span{
+  text-transform: uppercase;
+  font-size: 18px;
 }
-
-#products .section-heading {
-  text-align: center;
-  margin-bottom: 60px;
-  margin-top: 80px;
-}
-
-#products .item {
-  margin-bottom: 30px;
+table{
+  border-color: #ececec;
+    border-spacing: 0;
+    margin-bottom: 1em;
+    width: 100%;
 }

@@ -24,6 +24,7 @@
 
 </head>
 <body>
+  <div class="wrapper">
     <!-- preloader start -->
     <!-- <div id="preloader">
         <div class="jumper">
@@ -96,24 +97,85 @@
       </header>
       <!-- ***** Header Area End ***** -->
 
-      <!-- ***** Main Banner Area Start ***** -->
-    <div class="page-heading" ></div>
-    <!-- ***** Main Banner Area End ***** -->
-
-
-    <!-- ***** Products Area Starts ***** -->
-     <section class="section" id="products">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-heading">
-                        <h2>Sản phẩm của chúng tôi</h2>
-                    </div>
-                </div>
+      <div class="shop-page-title category-page-title featured-title page-title">
+        <div class="page-title-inner flex-row container medium-flex-wrap flex-has-center">
+          <div class="flex-col flex-center text-center">
+            <div class="is-large">
+              <nav class="woocommerce-breadcrumb breadcrumbs">
+                <a href="#">Trang Chủ</a>
+                <span class="divider">/</span>
+                Gọng kính cận
+              </nav>
             </div>
+          </div>
         </div>
-     </section>
-    <!-- ***** Products Area Ends ***** -->
+      </div>
+
+      <!-- ***** Main Banner Area Start ***** -->
+      <main id="main">
+        <div class="shop-container">
+          <div class="archive-product-wrap">
+            <div class="container-banner-product">
+              <h1 style="text-align: center;">
+                <strong>
+                  <span >
+                    Gọng kính cận đẹp: Giá, Mẫu mới, Tư vấn kiểu hợp mặt
+                  </span>
+                </strong>
+              </h1>
+              <p>
+                <img src="assets/images/gong-kinh-can-chinh-hang-banner .jpg" alt="">
+              </p>
+              <div class="text hide-for-small">
+                <p class="caption-top">
+                  <em>
+                    Gọng kính hợp mặt không chỉ đóng vai trò quan trọng
+                 trong việc gia tăng thẩm mỹ mà còn ảnh hưởng trực tiếp đến
+                  trải nghiệm thị giác của mỗi cá nhân. Ngày nay, gọng kính cận 
+                  đẹp rất đa dạng. Từ những thiết kế cơ bản như tròn, vuông, oval đến
+                   kiểu dáng phức tạp hơn như phi công, cánh bướm, mắt mèo,
+                … đều xuất hiện vô vàn trên thị trường, giúp khách hàng dễ dàng chọn lựa.
+                  </em>
+                </p>
+              </div>
+              <div class="shop-container section-title-container">
+                <h3 class="section-title section-title-center">
+                  <b></b>
+                  <span class="section-title-main">Đối tượng</span>
+                  <b></b>
+                </h3>
+              </div>
+
+              <table style="width: 100%; border-collapse: collapse;">
+                <tbody>
+                  <tr style="height: 95px;">
+                    <td style="width: 33,3%; height: 95px; text-align: center;">
+                      <a title="Gọng kính nữ" href="#">
+                        <img src="assets/images/banner-gong-kinh-can-nu-dep-chinh-hang.jpg" alt="" width="340" height="260" class="alignnone wp-image-19677 size-full">
+                      </a>
+                    </td>
+
+                    <td style="width: 33,3%; height: 95px; text-align: center;">
+                      <a title="Gọng kính nữ" href="#">
+                        <img src="assets/images/bst-gong-kinh-nam.jpg" alt="" width="340" height="260" class="alignnone wp-image-19677 size-full">
+                      </a>
+                    </td>
+
+                    <td style="width: 33,3%; height: 95px; text-align: center;">
+                      <a title="Gọng kính nữ" href="#">
+                        <img src="assets/images/bst-gong-kinh-tre-em.jpg" alt="" width="340" height="260" class="alignnone wp-image-19677 size-full">
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- ***** Main Banner Area End ***** -->
+
+    
 
      <!-- ***** Footer Start ***** -->
      <footer>
@@ -200,7 +262,7 @@
         </a>
       </footer>
     <!-- ***** Footer End ***** -->
-
+  </div>
 
       <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -220,6 +282,7 @@
     <script src="assets/js/slick.js"></script> 
     <script src="assets/js/lightbox.js"></script> 
     <script src="assets/js/isotope.js"></script> 
+    <script src="assets/js/back_to_top.js"></script>
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
@@ -239,23 +302,7 @@
                 
             });
         });
-
-
-
-       
     </script>
-    <script>
-         //nút di chuyển lên đầu trang
-         window.addEventListener("scroll", () => {
-            const srollToTopButton = document.getElementById("backToTop");
-            if(window.scrollY > 300){
-                srollToTopButton.classList.add("show");
-            }else{
-                srollToTopButton.classList.remove("show");
-            }
-        });
-
-        
-    </script>
+   
 </body>
 </html>
