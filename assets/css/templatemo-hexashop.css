@@ -1588,13 +1588,13 @@ sản phẩm
 --------------------------------------------- 
 */
 
-.div_sp_chi_tiet {
+.sp_ct {
   margin-top: 100px;
   padding-top: 30px;
   padding-bottom: 10px;
 }
 
-.div_sp_chi_tiet .nav {
+.sp_ct .nav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1602,11 +1602,11 @@ sản phẩm
   padding: 0 0 40px;
 }
 
-.div_sp_chi_tiet .nav a {
+.sp_ct .nav a {
   color: #2a2a2a;
 }
 
-.div_sp_chi_tiet .nav .divider {
+.sp_ct .nav .divider {
   font-weight: 300;
   margin: 0 0.3em;
   opacity: 0.35;
@@ -1614,24 +1614,23 @@ sản phẩm
   top: 0;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet {
+.sp_ct .content_sp_chi_tiet {
   font-weight: 400;
   font-size: 15px;
   border-bottom: 1px solid #a3a3a3;
   padding-bottom: 30px;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet .banner_sp_ct {
+.sp_ct .content_sp_chi_tiet .banner_sp_ct {
   margin-bottom: 15px;
   padding: 0;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet .banner_sp_ct img {
+.sp_ct .content_sp_chi_tiet .banner_sp_ct img {
   width: 100%;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet .section_title {
-  margin-top: 1.5em;
+.sp_ct .content_sp_chi_tiet .section_title {
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -1641,7 +1640,7 @@ sản phẩm
   width: 100%;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet .section_title b {
+.sp_ct .content_sp_chi_tiet .section_title b {
   background-color: currentColor;
   display: block;
   flex: 1;
@@ -1649,25 +1648,25 @@ sản phẩm
   opacity: 0.1;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet .section_title span {
+.sp_ct .content_sp_chi_tiet .section_title span {
   font-size: 18px;
   margin: 0 15px;
   font-weight: bold;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet .type_product_sp_ct {
+.sp_ct .content_sp_chi_tiet .type_product_sp_ct {
   margin-bottom: 50px;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet .type_product_sp_ct .img_bst img {
+.sp_ct .content_sp_chi_tiet .type_product_sp_ct .img_bst img {
   width: 100%;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet .tag_sp_ct {
+.sp_ct .content_sp_chi_tiet .tag_sp_ct {
   margin-bottom: 30px;
 }
 
-.div_sp_chi_tiet .content_sp_chi_tiet .tag_sp_ct a {
+.sp_ct .content_sp_chi_tiet .tag_sp_ct a {
   padding: 3px 6px;
   border-radius: 5px;
   margin: 5px 7px 0 0;
@@ -1675,6 +1674,10 @@ sản phẩm
   line-height: 25px;
   display: inline-block;
   font-size: 1em;
+}
+
+.sp_ct .content_sp_chi_tiet .text_sp_ct {
+  margin-bottom: 30px;
 }
 
 /* 
