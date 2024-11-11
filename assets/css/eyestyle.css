@@ -1364,10 +1364,6 @@ bo_suu_tap
   overflow: hidden;
 }
 
-/* #bo_suu_tap .leather {
-  margin-bottom: 30px;
-} */
-
 #bo_suu_tap .first-image {
   margin-bottom: 30px;
 }
@@ -1401,6 +1397,7 @@ thuong_hieu
   margin-top: 60px;
   padding-left: 15px;
   padding-right: 15px;
+  cursor: pointer;
 }
 
 #thuong_hieu .images .image_brand img {
