@@ -1579,6 +1579,132 @@ footer .btn_di_chuyen:hover {
   background-color: #a1a1a1;
 }
 
+footer #chatButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.5s;
+}
+
+/* Hamburger menu styling */
+footer #chatButton .hamburger,
+footer #chatButton .close-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+footer #chatButton .hamburger span,
+footer #chatButton .close-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Style for X icon */
+footer #chatButton .close-icon span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+footer #chatButton .close-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+footer #chatButton .close-icon span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+/* Chat box styling */
+footer #chatBox {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+footer #chatBox .status {
+  color: green;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+footer #chatBox p {
+  font-size: 14px;
+  margin: 8px 0;
+  color: #555;
+}
+
+footer #chatBox form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+footer #chatBox form input,
+footer #chatBox form textarea {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+footer #chatBox form input:focus,
+footer #chatBox form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+footer #chatBox form .submit_container {
+  padding-top: 11px;
+  padding-bottom: 21px;
+}
+
+footer #chatBox form .submit_container button.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  width: auto;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
 /* 
 ---------------------------------------------
 sản phẩm

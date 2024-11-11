@@ -37,7 +37,6 @@
     <link rel="stylesheet" href="assets/css/owl-carousel.css" />
 
     <link rel="stylesheet" href="assets/css/lightbox.css" />
-    <link rel="stylesheet" href="assets/css/thu.css" />
   
   </head>
 
@@ -1121,25 +1120,37 @@
         <i class="fa-solid fa-angle-up"></i>
       </a>
       <!-- chat box ở phần footer Start-->
-      <div id="chatButton" >
-        <span class="material-icons">chat</span>
+      <div id="chatButton">
+        <div class="hamburger" id="hamburgerIcon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="close-icon" id="closeIcon" style="display: none;">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     
       <!-- Chat Box -->
       <div id="chatBox">
-        <h3>Chuyên viên tư vấn</h3>
+        <h2>Chuyên viên tư vấn</h2>
         <div class="status">Online</div>
-        <p>Hỏi chúng tôi bất cứ điều gì</p>
+        <p>Hỏi chúng tôi bất cứ điều gì. Chúng tôi sẽ trả lời ngay lập tức</p>
         <form>
           <input type="text" placeholder="Tên của bạn" required>
           <input type="tel" placeholder="Số điện thoại" required>
-          <textarea placeholder="Tin nhắn của bạn" rows="3" required></textarea>
-          <button type="submit" class="submit-btn">
-            <span class="material-icons email-icon">email</span>
-          </button>
+          <textarea placeholder="Tin nhắn của bạn" rows="3" required style="resize: none;"></textarea>
+          <div class="submit_container">
+            <button type="submit" class="submit-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
         </form>
       </div>
       <!-- chat box ở phần footer End-->
+
     </footer>
 
     <!-- jQuery -->
