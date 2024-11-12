@@ -2455,6 +2455,7 @@ contact Us Page
 bai_viet
 --------------------------
 */
+
 .newBlog {
   display: flex;
   align-items: flex-start;
@@ -2463,16 +2464,17 @@ bai_viet
 
 .newBlog img {
   width: 100%;
-  height:450px;
+  height:500px;
   border-radius: 4px; 
+  padding-bottom:50px;
 }
 
-.blog-content {
+ .blog-content {
   display: flex;
   flex-direction: column;
   gap: 10px; 
-}
-.blog-container {
+} 
+/* .blog-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -2481,12 +2483,16 @@ bai_viet
     width: 100%;
     transition: transform 0.5s ease;
     
-}
+} */
+
 .titlepage{
   font-size: 12px;
-  padding-top:90px;
+  padding-top:120px;
   padding-bottom:50px;
 
+}
+ .text-center p{
+ font-size: 15px;
 }
 
 
@@ -2504,8 +2510,8 @@ bai_viet
  }
 
  .blog-item img {
-    width:320px;
-    height: 300px;
+    width:310px;
+    height: 270px;
     border-radius: 10px;
  }
  .blog-item .date {
@@ -2551,6 +2557,7 @@ bai_viet
 .pagination-container {
   text-align: center;
   margin-top: 20px;
+  margin-left:30px;
  
   
 }
