@@ -3,14 +3,6 @@ function showProducts(gender) {
   const sanPhamNu = document.getElementById("nu");
   const sanPhamNam = document.getElementById("nam");
 
-  //   if (gender === "nu") {
-  //     sanPhamNu.style.display = "block";
-  //     sanPhamNam.style.display = "none";
-  //   } else if (gender === "nam") {
-  //     sanPhamNu.style.display = "none";
-  //     sanPhamNam.style.display = "block";
-  //   }
-
   sanPhamNu.classList.remove("active");
   sanPhamNam.classList.remove("active");
 

@@ -1579,6 +1579,19 @@ footer .btn_di_chuyen:hover {
   background-color: #a1a1a1;
 }
 
+/* footer #chatButton::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  transform: translateX(-70%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #007bff;
+} */
+
 footer #chatButton {
   position: fixed;
   bottom: 20px;
@@ -1642,7 +1655,7 @@ footer #chatBox {
   width: 350px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  border-radius: 15px;
   padding: 20px;
   font-family: Arial, sans-serif;
   z-index: 1000;
@@ -1693,16 +1706,26 @@ footer #chatBox form .submit_container button.submit-btn {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: #007bff;
+  background-color: #2a2a2a;
   border: none;
   border-radius: 50%;
   padding: 15px;
   width: auto;
   color: white;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   margin-left: auto;
   margin-right: 20px;
+}
+
+footer #chatBox form .submit_container button.submit-btn:hover {
+  color: #2a2a2a;
+  background-color: #fff;
+  border: 1px solid #2a2a2a;
+}
+
+footer #chatBox form .submit_container button.submit-btn:active {
+  outline: none;
 }
 
 /* 
