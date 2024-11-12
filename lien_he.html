@@ -343,6 +343,42 @@
       <a href="#top" class="btn_di_chuyen" id="backToTop">
         <i class="fa-solid fa-angle-up"></i>
       </a>
+
+      <div id="chatButton">
+        <div class="hamburger" id="hamburgerIcon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="close-icon" id="closeIcon" style="display: none">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Chat Box -->
+      <div id="chatBox">
+        <h2>Chuyên viên tư vấn</h2>
+        <div class="status">Online</div>
+        <p>Hỏi chúng tôi bất cứ điều gì. Chúng tôi sẽ trả lời ngay lập tức</p>
+        <form>
+          <input type="text" placeholder="Tên của bạn" required />
+          <input type="tel" placeholder="Số điện thoại" required />
+          <textarea
+            placeholder="Tin nhắn của bạn"
+            rows="3"
+            required
+            style="resize: none"
+          ></textarea>
+          <div class="submit_container">
+            <button type="submit" class="submit-btn">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- chat box ở phần footer End-->
     </footer>
 
     <!-- jQuery -->
@@ -364,6 +400,7 @@
     <script src="assets/js/lightbox.js"></script>
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/back_to_top.js"></script>
+    <script src="assets/js/chat_box.js"></script>
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
