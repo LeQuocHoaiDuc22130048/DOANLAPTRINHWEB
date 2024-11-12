@@ -892,6 +892,10 @@ kinh_mat
   font-size: 13px;
 }
 
+.stars i.selected {
+  color: gold;
+}
+
 #kinh_mat .item .thumb .hover-content {
   position: absolute;
   z-index: 2;
