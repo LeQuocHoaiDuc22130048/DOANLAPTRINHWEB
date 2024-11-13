@@ -868,11 +868,12 @@ table{
   height: 40px;
   line-height: 38px;
   position: relative;
-  display: flex;
+  display: inline-block;
   align-items: center;
   padding-right: 12px;
   cursor: pointer;
   margin-right: 10px;
+  
 }
 
 .product_regular-title:hover{
@@ -883,19 +884,18 @@ table{
 }
 
 
-
-
 .productfilter-down{
   position: absolute;
   left: 0px;
   top: calc(100% + 10px);
-  /* z-index: -1; */
+  z-index: 1;
   height: 0;
   width: 900px;
   border: thin solid #e0dede;
   border-radius: 1em;
   background: #fff;
   height: unset;
+  display: none;
   z-index: 101;
   transition: opacity 200ms;
   left: 50% !important;
@@ -960,6 +960,10 @@ table{
   display: none;
 }
 
+.productfilter-down:not(.hidden){
+  display: block;
+}
+
 @keyframes notifyGrowth{
   from{
     transform: scale(0);
@@ -969,4 +973,51 @@ table{
   to{
     transform: 1;
   }
+}
+
+
+#main .item{
+  margin-bottom: 30px;
+}
+
+#main .item .thumb{
+  position: relative;
+}
+
+#main .item .down-content{
+  padding-top: 20px;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+}
+
+#main .item .thumb .hover-content{
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  bottom: -60px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: all 0.5s;
+}
+
+#main .item .down-content h5{
+  font-size: 18px;
+  color: #2a2a2a;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+#main .item .down-content span{
+  font-size: 18px;
+  color: #a1a1a1;
+  font-weight: 500;
+  display: block;
+}
+
+#main .item .down-content ul.star{
+  position: absolute;
+    right: 0;
+    top: 50px;
 }
