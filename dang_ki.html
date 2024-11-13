@@ -48,12 +48,18 @@
     max-width: 600px;
     padding-bottom: 50px;
     padding-left:50px;
-    padding-top:50px;
-   
-   
+    padding-top:70px;    
     
 }
-
+#username-input{
+    margin-bottom: 30px;
+}
+#email-input{
+    margin-bottom: 30px;
+}
+#matkhau-input{
+    margin-bottom: 40px;
+}
 .title {
     font-size: 24px;
     margin-bottom: 10px;
@@ -83,21 +89,8 @@
     font-size: 14px;
 }
 
-.options {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
-.options a {
-    color: #6e6eff;
-    text-decoration: none;
-}
-
-.options a:hover {
-    text-decoration: underline;
+.text-center{
+    padding-top: 30px;
 }
 
 .btn-login {
@@ -108,30 +101,19 @@
     font-size: 16px;
     font-weight: bold;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+   
 }
 
 .btn-login:hover {
     background-color: #5dcfe3;
 }
 
-.sign-in-form p {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #666;
-}
 
-.sign-in-form p a {
-    color: #6e6eff;
-    font-weight: bold;
-    text-decoration: none;
-}
 
-.sign-in-form p a:hover {
-    text-decoration: underline;
-}
+
+
     </style>
     </head>
     <body>
@@ -226,6 +208,9 @@
                   </div>
                   <button type="submit" class="btn btn-login w-100 mb-3">Đăng kí</button>
 
+                  <div class="text-center">
+                    <span>Bạn đã có tài khoản? <a href="dang_nhap.html">Đăng nhập ngay</a></span>
+                </div>
                 </form>
             </div>
           </div>
