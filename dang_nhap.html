@@ -1,99 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang đăng nhập</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    </head>
+<head>
+    <title>Dang nhap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        body{
-            font-family: 'Poppins', sans-serif;
-            margin:0;
+
+
+        .login-container {
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             padding:0;
+            height:720px;
         }
-
-        .container{
-            width:650px;
-            height:500px;
-            padding-left:auto;
-        
+        .login-image img{
+           width:800px;
+           height:720px;
+            background-size: cover;
+            background-position: center;
+            padding:0;
+            object-fit: cover;
         }
-        .text-center{
-            padding-top:30px;
+        
+        .login-form {
+            padding: 40px;
         }
-       .sub-text{
-        margin-left:190px;
-       }
-
-       .form-group{
-        padding-top:30px;
-        
-       }
-
-       .form-group .form-control {
-        margin-bottom: 30px; /* Tạo khoảng cách giữa các thẻ input */
-        margin-left:100px;
-        padding: 20px;       
-        border-radius: 8px;  /* Bo góc cho input */
-        border: 1px solid #ced4da; /* Đổi màu viền */
-        border-radius: 12px;
-
-    }
-    .btn-dangnhap{
-        margin-left:250px;
-    }
-    .custom-spacing {
-        margin-top: 30px;  
-        
-    }
-       /*for id*/
-       #email{
-        width:400px;
-      
-       }
-       #password{
-        width:400px;
-       }
-       
-       
-
+        .login-form h3 {
+    text-align: center;
+}
+        .btn-login {
+            background-color: #0eeaed;
+            color: rgb(11, 11, 11);
+            border: none;
+        }
+    
     </style>
-    <body>
-
-        <div class="container">
-            
-
-            <div class="text-center">
-                <h1>ĐĂNG NHẬP TÀI KHOẢN</h1>
+</head>
+<body>
+    <div class="container login-container">
+        <div class="row w-100">
+            <!-- Cột hình ảnh -->
+            <div class="col-md-6 login-image d-none d-md-block">
+                <img src="assets/images/background-dangnhap/bg2.png" alt="" class="img-fluid">
             </div>
-
-            <div class="sub-text">
-                <label for="username">Nhập email và mật khẩu của bạn</label>
+            <!-- Cột form đăng nhập -->
+            <div class="col-md-6 col-12 login-card">
+                <div class="login-form">
+                    <h3 class="mb-4">Đăng nhập tài khoản</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mật khẩu</label>
+                            <input type="password" class="form-control" id="password" placeholder="Mật khẩu">
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <input type="checkbox" id="remember" class="form-check-input">
+                                <label for="remember" class="form-check-label">Ghi nhớ mật khẩu</label>
+                            </div>
+                            <a href="#">Quên mật khẩu</a>
+                        </div>
+                        <button type="submit" class="btn btn-login w-100 mb-3">Đăng nhập</button>
+                    </form>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <input type="text" class="form-control" id="email" placeholder="Email " required>
-                <input type="text" class="form-control" id="password" placeholder="Mật khẩu " required>
-            </div>
-
-            <div class="btn-dangnhap">
-                <button type="button" class="btn btn-primary">Đăng nhập</button>
-            </div>
-
-            <div class="text-center mt-3 d-flex align-items-center justify-content-center custom-spacing">
-                <h5 class="mb-0 mr-2">Khách hàng mới</h5>
-                <a href="#">Tạo tài khoản</a>
-            </div>
-
-            <div class="text-center mt-3 d-flex align-items-center justify-content-center custom-spacing">
-                <h5 class="mb-0 mr-2">Quên mật khẩu?</h5>
-                <a href="#">Khôi phục tài khoản</a>
-            </div>
-
-
-
         </div>
-    </body>
+    </div>
+    <!-- FontAwesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
