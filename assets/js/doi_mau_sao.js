@@ -1,4 +1,4 @@
-const rateStars = document.querySelectorAll("#rate-product");
+const rateStars = document.querySelectorAll(".rate-product");
 
 rateStars.forEach((rateStar) => {
   rateStar.addEventListener("click", function (event) {
