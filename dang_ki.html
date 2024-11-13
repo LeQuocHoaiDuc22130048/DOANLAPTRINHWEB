@@ -6,122 +6,296 @@
     <title>Trang đăng kí</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="stylesheet" type="text/css" href="assets/css/blog.css"/>
+    
     <style>
+        
 
-body{
-    font-family: 'Poppins', sans-serif;
-    margin:0;
-    padding:0;
+.sign-in-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1700px;
+    margin:0 auto;
+    padding-top:100px;
+   
 }
 
-.container{
-    width:650px;
-    height:600px;
+/* Phần chứa hình ảnh */
+.image-section {
+    flex: 1;
+    max-width: 40%;
 }
-.form-group1{
-    padding:20px;
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
-.form-group1 .form-control{
-    margin-bottom: 30px;
-    margin-left:100px;
-    padding: 20px;        
-    border: 1px solid #ced4da; 
-    border-radius: 12px;
+
+
+.sign-in-form {
+    flex: 1;
+    max-width: 600px;
+    padding:50px;
     
 }
 
-.form-check{
-    margin-left:130px;
-    margin-bottom: 30px;
-}
-
-.form-group2 .form-control{
-    margin-bottom: 30px;
-    margin-left:120px;
-    padding: 20px;       
-    border: 1px solid #ced4da; 
-    border-radius: 12px;
-    
-}
-
-.form-check-inline .form-check-input{
-    margin-right: 10px; 
-      transform: scale(1.2);
-}
-.form-check-inline .form-check-label {
-      margin-right: 15px; 
-      font-weight: bold; 
-}
-
-
-input[type="text"]{
-    width:400px;
-}
-
-.btn-dangki{
-    margin-left:272px;
-}
-.sub-text{
-    margin-left:263px;
-    margin-top:20px;
+.title {
+    font-size: 24px;
+    margin-bottom: 10px;
     font-weight: bold;
-    font-size: 18px;
-
+    text-align: center;
 }
 
-.container .mt-3{
-    margin-left:230px;
-
+.sign-in-form h4 {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 20px;
 }
-.social-icons a {
-      margin-right: 0; /* Khoảng cách bên phải mỗi biểu tượng */
 
-    }
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
 
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
 
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.options a {
+    color: #6e6eff;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+.btn-login {
+    background-color: #6fe3ff;
+    color: #000;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #5dcfe3;
+}
+
+.sign-in-form p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.sign-in-form p a {
+    color: #6e6eff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sign-in-form p a:hover {
+    text-decoration: underline;
+}
     </style>
     </head>
     <body>
-              <div class="container">
-
-            <div class="text-center">
-                <h1>Tạo tài khoản</h1>
-            </div>
-            <div class="form-group1">
-                <input type="text" class="form-control" id="ten" placeholder="Nhập tên người dùng " required>
-                <input type="text" class="form-control" id="sodienthoai" placeholder="Số điện thoại" required>
-            </div>
-
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="inlineRadio1" name="gender" value="gender">
-                <label class="form-check-label" for="inlineCheckbox1">Nam</label>
-                <input class="form-check-input" type="radio" id="inlineRadio2"  name="gender" value="gender">
-                <label class="form-check-label" for="inlineCheckbox1">Nữ</label>
+        <!-- ***** Header Area Start ***** -->
+        <header class="header-area header-sticky background-header">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                      <img src="assets/images/logo.png" />
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li class="scroll-to-section">
+                        <a href="index.html#top">Trang chủ</a>
+                      </li>
+                      <li class="scroll-to-section">
+                        <a href="#kinh_mat">Kính mát</a>
+                      </li>
+                      <li class="scroll-to-section">
+                        <a href="#gong_kinh">Gọng kính</a>
+                      </li>
+                      <li class="scroll-to-section">
+                        <a href="#trong_kinh">Tròng kính</a>
+                      </li>
+                      <li class="scroll-to-section">
+                        <a href="#kinh_ap_trong">Kính áp tròng</a>
+                      </li>
+                      <li class="submenu">
+                        <a href="javascript:;" >Trang phụ</a>
+                        <ul>
+                          <li><a href="san_pham.html">Sản phẩm</a></li>
+                          <li>
+                            <a href="chi_tiet_san_pham.html">Chi tiết sản phẩm</a>
+                          </li>
+                          <li class="scroll-to-section">
+                            <a href="bai_viet.html">Bài viết</a>
+                          </li>
+                          <li><a href="lien_he.html">Liên hệ</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#login"><i class="fa-solid fa-user-large"></i></a>
+                      </li>
+                      <li class="gio_hang_shop">
+                        <a href="./gio_hang.html">
+                          <span>Giỏ hàng </span>
+                          <i class="fa-solid fa-cart-shopping"></i
+                        ></a>
+                      </li>
+                    </ul>
+                    <a class="menu-trigger">
+                      <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                  </nav>
+                </div>
               </div>
+            </div>
+          </header>
+          <!-- ***** Header Area End ***** -->
+      
+          <!-- ****** Login Start ***** -->
+          <div id="login"></div>
+          <!-- ****** Login End ***** -->
+           
+          <div class="sign-in-container">
+            <div class="image-section">
+                <img src="assets\images\background-dangnhap\bg4.png" alt="">
+            </div>
+            <div class="sign-in-form">
+                <h3 class="title">Đăng kí tài khoản</h3>
+                <h4>Hãy đăng kí ngay để được hưởng đặc quyền riêng dành cho bạn</h4>
+                <form>
 
-              <div class="form-group2">
-                <input type="text" class="form-control" id="email" placeholder="Email" required>
-                <input type="text" class="form-control" id="matkhau" placeholder="Mật khẩu" required>
-            </div>
+                  <div class="taikhoan">
+                    <label for="username" class="form-label">Tên tài khoản</label>
+                    <input type="text" class="form-control" id="username-input" placeholder="Nhập tên tài khoản" required>
+                  </div>
+                   
+                  <div class="email">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email-input" placeholder="Nhập email" required>
+                  </div>
 
-            <div class="btn-dangki">
-                <button type="button" class="btn btn-primary">Đăng kí</button>
+                  <div class="matkhau">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input type="text" class="form-control" id="matkhau-input" placeholder="Nhập mật khẩu" required>
+                  </div>
+                  <button type="submit" class="btn btn-login w-100 mb-3">Đăng kí</button>
+
+                </form>
             </div>
-            
-            <div class="sub-text">
-                <label>Đăng kí với</label>
-            </div>
-            <div class="container mt-3">
-                <div class="social-icons">
-            <a href="#" class="btn btn-primary me-2"><i class="fab fa-facebook-f"></i></a>
-            <span class="mx-2 text-center">hoặc</span>
-            <a href="#" class="btn btn-light btn-circle">
-                <img src="assets\images\social_icon\google.png" alt="Google Logo" style="width: 20px; height: 23px;">
-              </a>
+          </div>
+
+
+          <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 inf_first">
+              <div class="first-item">
+                <div class="logo">
+                  <img
+                    src="./assets/images/logo.png"
+                    alt="eyestyle nhom 65"
+                  />
+                </div>
+                <ul>
+                  <li>
+                    <a href="#"
+                      >Đại học Nông Lâm TPHCM</a
+                    >
+                  </li>
+                  <li><a href="#">nhom65@company.com</a></li>
+                  <li><a href="#">0123 456 789</a></li>
+                </ul>
               </div>
             </div>
-
+            <div class="col-lg-3 inf">
+              <h4>Mua sắm &amp; Danh mục</h4>
+              <ul>
+                <li><a href="./chi_tiet_san_pham.html">Kính mát</a></li>
+                <li><a href="./chi_tiet_san_pham.html">Gọng kính</a></li>
+                <li><a href="./chi_tiet_san_pham.html">Tròng kính</a></li>
+                <li><a href="./chi_tiet_san_pham.html">Kính áp tròng</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 inf">
+              <h4>Trợ giúp &amp; Thông tin</h4>
+              <ul>
+                <li><a href="#">Sản phẩm cập nhật</a></li>
+                <li><a href="./bai_viet.html">Đời sống</a></li>
+                <li><a href="./gio_hang.html">Vận chuyển</a></li>
+                <li><a href="./lien_he.html">Liên hệ hỗ trợ</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 inf">
+              <h4>Điều hướng</h4>
+              <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="./san_pham.html">Sản phẩm</a></li>
+                <li><a href="./lien_he.html">Liên hệ</a></li>
+                <li><a href="./bai_viet.html">Bài viết</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-12">
+              <div class="under-footer">
+                <p>
+                  Group65 © 2022 HexaShop Co., Ltd. All Rights Reserved.
+  
+                  <br />Design:
+                  <a
+                    href="#"
+                    >Group 65</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+      </footer>
     </body>
 </html>
