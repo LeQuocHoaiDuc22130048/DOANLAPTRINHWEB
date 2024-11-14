@@ -41,6 +41,8 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   height: 0;
 }
 
+
+
 .clearfix {
   display: inline-block;
 }
@@ -1102,4 +1104,37 @@ table{
 #main .item .thumb img{
   width: 100%;
   overflow: hidden;
+}
+
+.row{
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  position: relative;
+}
+
+#col-left .more-images{
+  display: flex;
+  margin-top: 10px;
+  position: absolute;
+  left: 0;
+}
+
+#col-left .more-images .col-4-images{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+#col-left .more-images .col-4-images img{
+  width: 100%;
+}
+
+
+#col-right .col-inner{
+  padding: 40px 0 0 0;
+}
+.brand{
+  text-align: center;
 }
