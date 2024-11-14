@@ -80,12 +80,10 @@ document.addEventListener("DOMContentLoaded", function () {
           removeCartItem(productImg);
           addCartItem.remove();
           let cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
-          cartCount = Math.max(cartCount - 1, 0); // Đảm bảo không giảm xuống dưới 0
+          cartCount = Math.max(cartCount - 1, 0);
+          console.log(cartCount);
           localStorage.setItem("cartCount", cartCount);
-
-          // Gọi updateCartCount để cập nhật hiển thị số lượng giỏ hàng
           updateCartCount(cartCount);
-          // Giảm số lượng giỏ hàng trong cart-count
         }
       });
 
