@@ -85,7 +85,9 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  color: #555;
 }
 
 ul {
@@ -1137,4 +1139,31 @@ table{
 }
 .brand{
   text-align: center;
+}
+
+.thuong-hieu.brand{
+  margin-bottom: 30px;
+}
+
+.product-page h1{
+  font-weight: 400;
+  text-align: center;
+  font-size: 1.7em;
+}
+
+.product-title-container{
+  margin-bottom: 50px;
+}
+
+.product-price-container .price-wrapper .price{
+  font-size: 35px;
+}
+
+.product-price-container .price-wrapper p{
+  text-align: center;
+  font-weight: 600;
+}
+.product-page-price .amount,
+.woocommerce-Price-currencySymbol{
+  color: #1a59a6;
 }
