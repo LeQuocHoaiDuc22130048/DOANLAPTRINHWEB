@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Lấy phần tử hiển thị số lượng giỏ hàng
-  const cartCountElement = document.querySelector(".cart-count");
-
-  // Lấy số lượng giỏ hàng từ localStorage khi trang được tải lại
+  // Lấy số lượng giỏ hàng từ localStorage khi trang được tải lại/
   let cartCount = localStorage.getItem("cartCount");
   if (cartCount) {
-    cartCount = parseInt(cartCount); // Chuyển sang kiểu số
+    cartCount = parseInt(cartCount);
   } else {
     cartCount = 0; // Nếu không có giá trị trong localStorage, mặc định là 0
   }
@@ -28,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Hàm cập nhật số lượng giỏ hàng trên trang
   function updateCartCount(count) {
+    const cartCountElement = document.querySelector(".cart-count");
     cartCountElement.innerText = count; // Cập nhật số lượng giỏ hàng vào phần tử .cart-count
   }
 });

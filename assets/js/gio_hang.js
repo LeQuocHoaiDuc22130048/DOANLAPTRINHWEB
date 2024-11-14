@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     cartItems.push({ img, name, price });
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    // updateCartCount(cartItems.length);
   }
 
   // Chỉ thực thi addCart khi đang ở trên trang có .cart_form (giohang.html)
@@ -29,11 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Hàm tải sản phẩm từ localStorage vào giỏ hàng
   function loadCartItems() {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    if (cartItems.length == 0) {
-      document.querySelector(".no-list").style.display = "block";
-    }
     // Ẩn sản phẩm mẫu nếu giỏ hàng có sản phẩm
-    if (cartItems.length > 0) {
+    if (cartItems.length === 0) {
+      document.querySelector(".no-list").style.display = "block";
+      document.querySelector(".cart_checkout_page").style.display = "none";
+    } else {
+      document.querySelector(".no-list").style.display = "none";
+      document.querySelector(".cart_checkout_page").style.display = "block";
+    }
+    if (cartItems.length >= 0) {
       document.querySelector(".cart_item").style.display = "none";
     }
     cartItems.forEach((item) => addCart(item.img, item.name, item.price));
@@ -43,15 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const addCartItem = document.createElement("div");
     addCartItem.classList.add("cart_item");
     addCartItem.innerHTML = `
-      <div class="product_thumbnail">
-        <a href="">
-          <img src="${productImg}" alt="" width="150" height="150" />
-        </a>
-      </div>
-      <div class="product_info">
+    <div class="product_thumbnail">
+    <a href="">
+    <img src="${productImg}" alt="" width="150" height="150" />
+    </a>
+    </div>
+    <div class="product_info">
         <div class="product_name">
           <a href="">${productName}</a>
-        </div>
+          </div>
         <div class="product_price">
           <div class="don_gia">Đơn giá: ${productPrice}</div>
           <input type="number" id="product_quantity" min="1" value="1" style="width: 50px" />
@@ -73,6 +79,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (confirmDelete) {
           removeCartItem(productImg);
           addCartItem.remove();
+          let cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
+          cartCount = Math.max(cartCount - 1, 0); // Đảm bảo không giảm xuống dưới 0
+          localStorage.setItem("cartCount", cartCount);
+
+          // Gọi updateCartCount để cập nhật hiển thị số lượng giỏ hàng
+          updateCartCount(cartCount);
+          // Giảm số lượng giỏ hàng trong cart-count
         }
       });
 
@@ -83,5 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     cartItems = cartItems.filter((item) => item.img !== productImg);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    if (cartItems.length === 0) {
+      document.querySelector(".no-list").style.display = "block";
+      document.querySelector(".cart_checkout_page").style.display = "none";
+    }
   }
 });
