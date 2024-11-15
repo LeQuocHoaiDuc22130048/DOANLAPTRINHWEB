@@ -2651,6 +2651,17 @@ bai_viet
   cursor: pointer;
   
 }
+
+/* Chat box thu nhỏ */
+#chat-box.minimized {
+  height: 50px; 
+  width: 200px;
+  border-radius: 20px; 
+}
+
+#chat-box.minimized .chat-body {
+  display: none; 
+}
 /* 
 ---------------------------------------------
 responsive
