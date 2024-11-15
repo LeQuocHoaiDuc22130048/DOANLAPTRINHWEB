@@ -1115,6 +1115,11 @@ table{
   position: relative;
 }
 
+#row-617919374{
+  margin-top: 30px;
+  margin-bottom: 200px;
+}
+
 #col-left .more-images{
   display: flex;
   margin-top: 10px;
@@ -1167,3 +1172,68 @@ table{
 .woocommerce-Price-currencySymbol{
   color: #1a59a6;
 }
+
+.product-price-container{
+  margin-bottom: 70px;
+}
+
+
+
+.quantity.button-added{
+  text-align: center;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: top;
+  margin-bottom: 30px;
+}
+
+input.minus,
+input.plus{
+  padding: 7px 10px 8px;
+  height: 39px;
+  background-color: #ffffff;
+  border: 1px solid #efefef;
+  cursor: pointer;
+}
+
+.quantity .input-text.qty {
+  width: 35px;
+  height: 39px;
+  padding: 0 5px;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid #efefef;
+}
+
+.quantity.button-added input{
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  box-shadow: none;
+}
+
+.quantity.button-added input[type = "number"]::-webkit-inner-spin-button,
+.quantity.button-added input[type = "number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add-to-cart-container{
+  text-align: center;
+}
+
+.add-to-cart-container .cart .single_add_to_cart_button{
+  width: 100%;
+  padding: 20px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: #FECC4F;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.add-to-cart-container .cart .single_add_to_cart_button:hover{
+  background-color: #f7bc28;
+}
+
