@@ -599,5 +599,16 @@
 });
       </script>
 
+<!--xử lý nút X cho chat box-->
+<script>
+  const chatBox = document.querySelector(".chat-box");
+const toggleChatButton = document.getElementById("toggle-chat");
+
+toggleChatButton.addEventListener("click", () => {
+  chatBox.classList.toggle("hidden");
+});
+
+</script>
+
 </body>
 </html>
