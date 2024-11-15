@@ -81,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
           addCartItem.remove();
           let cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
           cartCount = Math.max(cartCount - 1, 0);
-          console.log(cartCount);
           localStorage.setItem("cartCount", cartCount);
           updateCartCount(cartCount);
         }

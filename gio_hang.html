@@ -159,17 +159,21 @@
                     >
                   </div>
                   <div class="product_price">
-                    <div class="don_gia">Đơn giá: 130.000đ</div>
+                    <div class="don_gia">
+                      Đơn giá: <span id="unit_price">130.000</span>đ
+                    </div>
                     <input
                       type="number"
                       name=""
                       id="product_quantity"
                       min="1"
+                      max="100"
+                      step="1"
                       value="1"
                       style="width: 50px"
                     />
-                    <div class="so_tien" id="total_price">
-                      Số tiền: 130.000đ
+                    <div class="so_tien">
+                      Số tiền: <span id="total_price">130.000</span>đ
                     </div>
                   </div>
                   <div class="product_remove">
@@ -202,7 +206,9 @@
           <div class="checkout_wrapper">
             <div class="total">
               <span class="label">Tổng:</span>
-              <span class="price">130,000 VND</span>
+              <span class="price"
+                ><span id="total_price_orders">130,000</span>đ</span
+              >
             </div>
             <form class="details">
               <div class="customer_details">
@@ -282,7 +288,7 @@
                     <label for="bankPayment">Chuyển khoản ngân hàng</label>
                     <div class="payment_box payment_box_bank">
                       <p>
-                        Bước 1: Chọn đồng hồ và gọi tới số 0123 456 789 để đặt
+                        Bước 1: Chọn sản phẩm và gọi tới số 0123 456 789 để đặt
                         hàng
                         <br />
                         Bước 2: Trong vòng 2 phút, chúng tôi sẽ gọi điện xác
@@ -459,6 +465,7 @@
     <script src="assets/js/chat_box.js"></script>
     <script src="assets/js/update_cart_count.js"></script>
     <script src="assets/js/gio_hang.js" defer></script>
+    <script src="assets/js/so_tien.js"></script>
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>

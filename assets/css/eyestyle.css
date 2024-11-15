@@ -1930,6 +1930,7 @@ giỏ hàng
 .gio_hang {
   margin-top: 100px;
   padding: 40px;
+  /* background-color: #e6f9ff; */
 }
 
 .gio_hang .container.no-list {
@@ -1973,6 +1974,7 @@ giỏ hàng
   margin-right: auto;
   padding: 15px;
   border-radius: 12px;
+  background-color: #f7f7f78f;
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
 }
