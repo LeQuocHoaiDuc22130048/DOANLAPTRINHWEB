@@ -521,7 +521,7 @@ header
 }
 
 .header-area .main-nav .nav li.gio_hang_shop a {
-  padding: 10px 20px;
+  padding: 10px 24px;
   background-color: #5a5858;
   color: #fff !important;
   border-radius: 999px;
@@ -537,13 +537,24 @@ header
 
 .header-area .main-nav .nav li.gio_hang_shop a:hover {
   cursor: pointer;
-  color: #5a5858;
+  color: #5a5858 !important;
   background-color: #fff;
   border: 1px solid #5a5858;
   
 }
 
+#cart-count{
+  position: relative;
+  top: -40px;
+  right: -123px;
+  color: #fff;
+  font-size: 13px;
+  border-radius: 50%;
 
+}
+li.gio_hang_shop:hover #cart-count{
+  color: #5a5858;
+}
 
 
 @media (max-width: 1200px) {
@@ -760,7 +771,7 @@ footer .btn_di_chuyen:hover {
     max-width: 2700px;
 }
 .flex-col.flex-center.text-center .is-large nav,
-.flex-col.flex-center.text-center .is-large  nav a,span{
+.flex-col.flex-center.text-center .is-large  nav a,.divider{
     color: #666;  
 }
 
