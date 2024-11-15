@@ -1248,3 +1248,23 @@ input.plus{
   background-color: #f7bc28;
 }
 
+.fly-item{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: orange;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: fly-to-cart 2s ease forwards;
+  
+}
+
+@keyframes fly-to-cart{
+  from {
+    transform: translateX(0) translateY(0);
+  }
+  to {
+    transform: translateX(200px) translateY(-100px);
+  }
+}
+
