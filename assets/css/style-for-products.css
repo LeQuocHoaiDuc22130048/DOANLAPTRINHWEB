@@ -1129,6 +1129,7 @@ table{
 #row-617919374{
   margin-top: 30px;
   margin-bottom: 200px;
+  position: relative;
 }
 
 #col-left .more-images{
@@ -1147,6 +1148,39 @@ table{
 
 #col-left .more-images .col-4-images img{
   width: 100%;
+}
+
+#col-left .col-inner  .arrow-left-right{
+  font-size: 30px;
+  color: #a09e9e;
+}
+#col-left .col-inner .arrow-left-right{
+
+  position: absolute;
+  top: 210px;
+  left: 30px;
+}
+
+#col-left .col-inner .arrow-left-right .fa-angles-right{
+  position: relative;
+  left: 430px;
+}
+#col-left .col-inner .full-screen{
+  position: absolute;
+  top: 460px;
+  left: 38px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #a09e9e;
+  border-radius: 50%;
+}
+
+.full-screen i{
+  font-size: 18px;
+  color: #a09e9e;
 }
 
 
