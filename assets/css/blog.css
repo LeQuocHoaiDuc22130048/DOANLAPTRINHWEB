@@ -2555,27 +2555,39 @@ bai_viet
 
 
 .pagination-container {
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%); 
+  pointer-events: none;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   text-align: center;
-  margin-top: 10px;
-  margin-left:30px;
+  margin-top: 700px;
+  margin-left:80px;
+  
   
   
 }
+ 
+.right-button {
+  margin-left: 1250px; 
+}
 
-.pagination-left-right a {
+.left-button,
+.right-button {
+    pointer-events: auto; 
+}
+
+
+ .pagination-left-right a {
   font-size: 24px;
   padding: 10px 15px;
   cursor: pointer;
-}
+} 
 
-.pagination-left-right {
-  display: flex;
-  gap:10px;
-  width: 150px;
-  margin: 0 auto;
-}
-
-.page-link {
+ .page-link {
   display: inline-block;
   width: 50px; 
   height: 50px; 
@@ -2585,10 +2597,8 @@ bai_viet
   color: #333;
   font-size: 20px;
   text-decoration: none; 
-}
-.page-link span {
-  vertical-align: middle;
-}
+} 
+
 
 .chat-box {
   position: fixed;
