@@ -440,18 +440,18 @@
 
 <!--chat box-->
 
-<div class="chat-box">
+<div class="chat-box" id="chat-box">
   <div class="chat-header">
       <span>Chat với chúng tôi!</span>
-      <button id="toggle-chat">X</button>
+      <button id="close-chat">X</button>
   </div>
   <div class="chat-body" id="chat-body">
       <div class="messages" id="messages"></div>
-      <input type="text" id="message-input" placeholder="Nhập tin nhắn..." />
-      <button id="send-message">Gửi</button>
+      <input type="text" id="message-input" placeholder="Nhập tin nhắn..." style="display: none;" />
+      <button id="send-message" style="display: none;">Gửi</button>
+      
   </div>
 </div>
-
       <!-- ***** Footer Start ***** -->
       <footer>
         <div class="container">
@@ -558,6 +558,9 @@
       <script src="assets/js/lightbox.js"></script>
       <script src="assets/js/isotope.js"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <!--xử lý phân chat cho chat box-->
+      <script src="assets/js/chatbox.js"></script>
+
 
       <!--xử lý nút phân trang-->
  
@@ -599,15 +602,45 @@
 });
       </script>
 
-<!--xử lý nút X cho chat box-->
-<script>
-  const chatBox = document.querySelector(".chat-box");
-const toggleChatButton = document.getElementById("toggle-chat");
 
-toggleChatButton.addEventListener("click", () => {
-  chatBox.classList.toggle("hidden");
+
+<script>
+const chatBox = document.getElementById("chat-box");
+const messageInput = document.getElementById("message-input");
+const sendMessageButton = document.getElementById("send-message");
+const closeChatButton = document.getElementById("close-chat");
+
+// hiển thị hợp thoại soạn tin nhắn
+chatBox.addEventListener("click", function() {
+  messageInput.style.display = "block";
+  sendMessageButton.style.display = "block";
+  closeChatButton.style.display = "block";
+  
+  messageInput.addEventListener("click", function(e) {
+    e.stopPropagation();
+  });
+
+  sendMessageButton.addEventListener("click", function(e) {
+    e.stopPropagation();
+  });
 });
 
+// Xử lý gửi tin nhắn
+sendMessageButton.addEventListener("click", () => {
+  const message = messageInput.value.trim();
+  if (message) {
+    // Hiển thị tin nhắn trong phần chat
+    const messageElement = document.createElement("div");
+    messageElement.textContent = message;
+    document.getElementById("messages").appendChild(messageElement);
+    messageInput.value = "";
+  }
+});
+
+// Xử lý nhấn vào nút "X" để ẩn chat box
+closeChatButton.addEventListener("click", function() {
+  chatBox.style.display = "none"; 
+});
 </script>
 
 </body>
