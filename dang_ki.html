@@ -113,16 +113,17 @@
 }
 
 .error-message {
-  color: #f44336; /* Màu chữ đỏ */
-  background-color: #ffebee; /* Nền nhạt */
-  border: 1px solid #f44336; /* Viền đỏ */
-  border-radius: 4px; /* Góc bo tròn */
-  padding: 10px 15px; /* Khoảng cách trong */
-  margin-top: 10px; /* Khoảng cách trên */
-  font-size: 14px; /* Kích thước chữ */
-  font-family: Arial, sans-serif; /* Font chữ */
-  display: none; /* Ẩn mặc định */
-  animation: fadeIn 0.3s ease-in-out; /* Hiệu ứng */
+  color: #f44336;
+  background-color: #ffebee;
+  border: 1px solid #f44336;
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  font-size: 14px;
+  max-width:40%;
+  font-family: Arial, sans-serif; 
+  display: none; 
+  animation: fadeIn 0.3s ease-in-out; 
 }
 
 /* Hiệu ứng xuất hiện mượt */
@@ -134,15 +135,6 @@
     opacity: 1;
   }
 }
-
-/* Nếu có thêm icon lỗi */
-.error-icon {
-  margin-right: 8px;
-  font-size: 18px;
-  vertical-align: middle;
-  color: #f44336;
-}
-
 
     </style>
     </head>
@@ -225,16 +217,19 @@
                   <div class="taikhoan">
                     <label for="username" class="form-label">Tên tài khoản</label>
                     <input type="text" class="form-control" id="username-input" placeholder="Nhập tên tài khoản" required>
+                    <div id="error-message" class="error-message"></div>
                   </div>
                    
                   <div class="email">
                     <label for="email" class="form-label">Email</label>
                     <input type="text" class="form-control" id="email-input" placeholder="Nhập email" required>
+                    <div id="error-message" class="error-message"></div>
                   </div>
 
                   <div class="matkhau">
                     <label for="password" class="form-label">Mật khẩu</label>
                     <input type="password" class="form-control" id="matkhau-input" placeholder="Nhập mật khẩu" required>
+                    <div id="error-message" class="error-message"></div>
                   </div>
                   <button type="submit" class="btn btn-sign-in w-100 mb-3">Đăng kí</button>
 
@@ -254,7 +249,6 @@
                     <span>Bạn đã có tài khoản? <a href="dang_nhap.html">Đăng nhập ngay</a></span>
                 </div>
                 </form>
-                <div id="error-message" class="error-message"></div>
             </div>
           </div>
 
