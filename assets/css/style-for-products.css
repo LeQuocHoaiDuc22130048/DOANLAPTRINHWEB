@@ -1216,6 +1216,31 @@ table{
   
 }
 
+.slider-container{
+  width: 510px;
+  overflow: hidden;
+  
+}
+
+.slider{
+  display: flex;
+  transition: all 0.5s;
+}
+
+.more-images img{
+  opacity: 0.6;
+  transition: opacity, border;
+}
+
+.more-images img:hover{
+  opacity: 1;
+  border: 2px solid #000000;
+}
+
+.more-images img.border{
+  opacity: 1;
+}
+
 #col-right .col-inner{
   padding: 40px 0 0 0;
 }
