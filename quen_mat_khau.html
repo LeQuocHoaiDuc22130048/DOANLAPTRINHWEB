@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quên mật khẩu</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
+   
+        <style>
+      .forgot-password-container{
+        display:block; 
+        margin-top:70px;
+        
+        
+      }
+
+      .title{
+       margin-left:700px;
+        font-size: 27px;
+        font-weight: bold;
+
+      }
+      .username,.email{
+        display:flex;
+        flex-direction: column;
+        margin-bottom: 20px; 
+  }
+       .form-label{
+        margin-bottom:10px;
+        font-weight: bold;
+       }
+
+      .form-control:focus {
+       outline: none;
+       border-color: #007bff;
+  }
+
+       #username-input,#email-input{
+        max-width: 50%;
+        border-radius: 4px;
+        border:1px solid ;
+        height:40px;
+
+       }
+
+       .btn-submit{
+        border:none;
+        width:51%;
+        height:40px;
+        border-radius: 5px;
+        background-color: rgb(100, 203, 237);
+        color:black;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        cursor: pointer;
+       }
+
+       .text-center a{
+        text-decoration: none;
+        display:flex;
+        
+       }
+
+       .text-center a:hover {
+        text-decoration: underline;
+       }
+       .success-message{
+        background-color: #43c261;
+        color: #070707;
+        border: 1px solid #c3e6cb;
+        max-width:30%;
+        height:40px;
+        padding:5px;
+        border-radius: 5px;
+        display:none;
+       }
+
+       .error-message{
+        background-color: rgb(247, 168, 151);
+        color:#070707;
+        max-width: 28%;
+        height:40px;
+        padding:5px;
+        border-radius: 5px;
+        display:none;
+       }
+
+       .password-message {
+        background-color: #e8c141;
+        color: #090909;
+        border: 1px solid #ffeeba;
+        max-width: 28%;
+        height:40px;
+        padding:5px;
+        border-radius: 5px;
+        display:none;
+        
+
+  }
+
+       #forgot-password-form{
+        padding-left:550px;
+
+       }
+
+        </style>
+    
+
+    </head>
+    <body>
+
+        <div class="forgot-password-container">
+            <h3 class="title">Quên mật khẩu</h3>
+            <form id="forgot-password-form">
+
+                <div class="username">
+                    <label for="username-input" class="form-label">Nhập tên tài khoản</label>
+                    <input type="text" class="form-control" id="username-input" placeholder="Nhập tên tài khoản của bạn" required>
+                  </div>
+              <div class="email">
+                <label for="email-input" class="form-label">Nhập email của bạn</label>
+                <input type="email" class="form-control" id="email-input" placeholder="Nhập email của bạn" required>
+              </div>
+          
+              <button type="submit" class="btn btn-submit">Gửi yêu cầu</button>
+          
+              <div class="text-center">
+                <span><a href="dang_nhap.html">Trở lại trang đăng nhập</a></span>
+              </div>
+            </form>
+            <div id="success-message" class="success-message">
+              <p>Đã gửi yêu cầu thay đổi mật khẩu. Kiểm tra email của bạn.</p>
+            </div>
+            <div id="error-message" class="error-message">
+              <p>Email không tồn tại trong hệ thống. Vui lòng kiểm tra lại.</p>
+            </div>
+            <div id="password-message" class="password-message">
+              <p>Mật khẩu của bạn là: <span id="user-password"></span></p>
+            </div>
+          </div>
+
+    </body>
+</html>
