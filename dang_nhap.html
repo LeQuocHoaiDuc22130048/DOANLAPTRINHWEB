@@ -194,7 +194,7 @@
           <div class="login-form">
               <h3 class="title">Đăng nhập tài khoản</h3>
               <h4>Hãy đăng nhập ngay để được hưởng đặc quyền riêng dành cho bạn</h4>
-              <form>
+              <form id="login-form">
 
                 <div class="taikhoan">
                   <label for="username" class="form-label">Tên tài khoản</label>
@@ -305,5 +305,39 @@
         </div>
       </div>
     </footer>
+
+<!--xử lý đăng nhập-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+     $(document).ready(function(){
+      $(".btn-login").click(function(e){
+
+        e.preventDefault();
+
+        const username=$("#username-input").val().trim();
+        const password =$("#matkhau-input").val().trim();
+
+        // lấy danh sách người dùng đã đăng kí
+        let userList=JSON.parse(localStorage.getItem("userList"))||[];
+        //  tìm kiếm người dùng đã có trong danh sách
+        const user = userList.find(user=>user.username===username&&user.password===password);
+
+        if(user){
+          alert("Đăng nhập thành công");
+
+          sessionStorage.setItem("loggedInUser",JSON.stringify(user));
+          window.location.href="index.html";
+        }else{
+          alert("Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.");
+        }
+      });
+
+     });
+
+    </script>
+
+
       </body>
     </head>

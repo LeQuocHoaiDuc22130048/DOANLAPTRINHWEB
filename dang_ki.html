@@ -378,7 +378,7 @@
       // kiểm tra email đã có hay chưa
       const isUsernameExist = userList.some((user) => user.username === username);
       const isEmailExist = userList.some((user) => user.email === email);
-      const isPassword = userList.some((user) =>user.password==password);
+      const isPassword = userList.some((user) =>user.password===password);
 
       if(isEmailExist&&isUsernameExist&&isPassword){
         showAccountExist("Tài khoản đã được đăng kí. Vui lòng chuyển sang trang đăng nhập");
