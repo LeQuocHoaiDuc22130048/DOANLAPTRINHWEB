@@ -116,6 +116,18 @@
     background-color: #5dcfe3;
 }
 
+.success-message {
+  background-color: #08ef68;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  max-width:50%;
+  margin-left:140px;
+}
+
 
       </style>
 
@@ -219,6 +231,10 @@
                   <span>Bạn chưa có tài khoản? <a href="dang_ki.html">Đăng kí ngay</a></span>
               </div>
               </form>
+
+              <div id="login-success-message" class="success-message" style="display: none;">
+                <p>Đăng nhập thành công!</p>
+              </div>
           </div>
         </div>
 
@@ -325,10 +341,16 @@
         const user = userList.find(user=>user.username===username&&user.password===password);
 
         if(user){
-          alert("Đăng nhập thành công");
+          $("#login-success-message").fadeIn();
 
-          sessionStorage.setItem("loggedInUser",JSON.stringify(user));
-          window.location.href="index.html";
+       
+          setTimeout(function(){
+          
+          sessionStorage.setItem("loggedInUser", JSON.stringify(user));
+
+          // Chuyển đến trang index.html
+          window.location.href = "index.html";
+        }, 1000); 
         }else{
           alert("Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.");
         }
