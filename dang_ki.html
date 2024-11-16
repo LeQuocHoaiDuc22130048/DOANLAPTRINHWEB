@@ -190,7 +190,7 @@
             <div class="sign-in-form">
                 <h3 class="title">Đăng kí tài khoản</h3>
                 <h4>Hãy đăng kí ngay để được hưởng đặc quyền riêng dành cho bạn</h4>
-                <form>
+                <form id="register-form">
 
                   <div class="taikhoan">
                     <label for="username" class="form-label">Tên tài khoản</label>
@@ -204,7 +204,7 @@
 
                   <div class="matkhau">
                     <label for="password" class="form-label">Mật khẩu</label>
-                    <input type="text" class="form-control" id="matkhau-input" placeholder="Nhập mật khẩu" required>
+                    <input type="password" class="form-control" id="matkhau-input" placeholder="Nhập mật khẩu" required>
                   </div>
                   <button type="submit" class="btn btn-login w-100 mb-3">Đăng kí</button>
 
@@ -315,38 +315,56 @@
 
       <script>
         $(document).ready(function () {
-       $(".btn-login").click(function (e) {
-      e.preventDefault(); // ngăn gửi mặc định của form
-    
-    // Lấy giá trị từ các trường nhập liệu
-    const username = $("#username-input").val().trim();
-    const email = $("#email-input").val().trim();
-    const password = $("#matkhau-input").val().trim();
+        // danh sách người dùng
+        let userList = JSON.parse(localStorage.getItem("userList"))||[];
+         
+        // xử lý nút đăng kí
+        $(".btn-login").click(function(e){
+         e.preventDefault();
 
-    
-    if (!username) {
-      alert("Vui lòng nhập tên tài khoản.");
-      return;
-    }
-    if (!validateEmail(email)) {
-      alert("Email không hợp lệ.");
-      return;
-    }
-    if (password.length < 6) {
-      alert("Mật khẩu phải có ít nhất 6 ký tự.");
-      return;
+      const username = $("#username-input").val().trim();
+      const email = $("#email-input").val().trim();
+      const password = $("#matkhau-input").val().trim();
+
+
+      if(!username){
+        alert("Vui lòng nhập tên tài khoản!");
+        return;
+      }
+      if(!validEmail(email)){
+        alert("Email không hợp lệ!");
+        return;
+      }
+      if(password.length<8){
+        alert("Mật khẩu phải có ít nhất 8 ký tự.");
+        return;
+      }
+
+      // kiểm tra email đã có hay chưa
+      const isEmailExist = userList.some((user)=>user.email==email);
+      if(isEmailExist){
+        alert("Email đã được sử dụng. Vui lòng sử dụng email khác");
+        return;
+      }
+
+      // lưu thông tin người dùng vào danh sách
+      const newUser = {username,email,password};
+      userList.push(newUser);
+
+      // lưu vào localStorage
+      localStorage.setItem("userList",JSON.stringify(userList));
+      alert("Đăng kí thành công! Chuyển đến trang đăng nhập.");
+
+      window.location.href="dang_nhap.html";
+    });
+      // Hàm kiểm tra định dạng email
+    function validEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(email);
     }
 
-    // Nếu hợp lệ, chuyển hướng đến trang đăng nhập
-    window.location.href = "dang_nhap.html";
-  });
-
-  // Hàm kiểm tra định dạng email
-  function validateEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  }
-});
+        
+      });
       </script>
 
     </body>
