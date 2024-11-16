@@ -135,6 +135,16 @@
     opacity: 1;
   }
 }
+/*thông báo tài khoản đã tồn tại*/
+.account-exists-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: none;
+}
 
     </style>
     </head>
@@ -230,6 +240,7 @@
                     <label for="password" class="form-label">Mật khẩu</label>
                     <input type="password" class="form-control" id="matkhau-input" placeholder="Nhập mật khẩu" required>
                     <div id="error-message" class="error-message"></div>
+                    <div id="account-exists-message" class="account-exists-message"></div>
                   </div>
                   <button type="submit" class="btn btn-sign-in w-100 mb-3">Đăng kí</button>
 
@@ -351,7 +362,6 @@
       const email = $("#email-input").val().trim();
       const password = $("#matkhau-input").val().trim();
 
-
       if(!username){
         showError("Vui lòng nhập tên tài khoản.");
         return;
@@ -366,9 +376,12 @@
       }
 
       // kiểm tra email đã có hay chưa
-      const isEmailExist = userList.some((user)=>user.email==email);
-      if(isEmailExist){
-        alert("Email đã được sử dụng. Vui lòng sử dụng email khác");
+      const isUsernameExist = userList.some((user) => user.username === username);
+      const isEmailExist = userList.some((user) => user.email === email);
+      const isPassword = userList.some((user) =>user.password==password);
+
+      if(isEmailExist&&isUsernameExist&&isPassword){
+        showAccountExist("Tài khoản đã được đăng kí. Vui lòng chuyển sang trang đăng nhập");
         return;
       }
 
@@ -402,6 +415,15 @@
     function validEmail(email) {
       const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return regex.test(email);
+    }
+
+    function showAccountExist(message){
+      $("#account-exists-message").text(message).fadeIn();
+
+      setTimeout(() => {
+      $("#account-exists-message").fadeOut();
+      }, 3000);
+
     }
 
         
