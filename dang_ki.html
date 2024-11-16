@@ -308,5 +308,46 @@
           </div>
         </div>
       </footer>
+
+
+      <!--xử lý phần đăng kí-->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+      <script>
+        $(document).ready(function () {
+       $(".btn-login").click(function (e) {
+      e.preventDefault(); // ngăn gửi mặc định của form
+    
+    // Lấy giá trị từ các trường nhập liệu
+    const username = $("#username-input").val().trim();
+    const email = $("#email-input").val().trim();
+    const password = $("#matkhau-input").val().trim();
+
+    
+    if (!username) {
+      alert("Vui lòng nhập tên tài khoản.");
+      return;
+    }
+    if (!validateEmail(email)) {
+      alert("Email không hợp lệ.");
+      return;
+    }
+    if (password.length < 6) {
+      alert("Mật khẩu phải có ít nhất 6 ký tự.");
+      return;
+    }
+
+    // Nếu hợp lệ, chuyển hướng đến trang đăng nhập
+    window.location.href = "dang_nhap.html";
+  });
+
+  // Hàm kiểm tra định dạng email
+  function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+});
+      </script>
+
     </body>
 </html>
