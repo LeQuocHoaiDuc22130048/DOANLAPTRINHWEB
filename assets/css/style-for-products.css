@@ -1373,21 +1373,49 @@ input.plus{
 }
 
 
-.icon-box.featured-box.tab-title-icon.icon-box-left.text-left{
+.icon-box.featured-box{
   display: flex;
 }
 
 .icon-box-text{
-  padding-left: 0.5em;
+  padding-left: 1em;
   font-size: 12px;
   color: #1a59a6;
   cursor: text;
 }
-
+.icon-box-img,
 .icon-box-img img{
   width: 30px;
 }
 
-.is-divider.divider.under{
-  margin-bottom: 30px;
+
+.icon-inner i{
+  font-size: 30px;
+  color: #666;
+}
+
+.icon-box- .uppercase{
+  font-size: 17px;
+  line-height: 1.6em;
+  letter-spacing: normal;
+  color: #555;
+}
+
+#row-1942874916{
+  margin-top: 30px;
+}
+
+#text-880256298{
+  text-align: left;
+}
+
+.text.thong-tin{
+  position: relative;
+  left: -30px;
+}
+
+.text.thong-tin p{
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 1.3em;
 }
