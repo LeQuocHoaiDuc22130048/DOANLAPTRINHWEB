@@ -85,21 +85,11 @@
        .text-center a:hover {
         text-decoration: none;
        }
-       .success-message{
-        background-color: #43c261;
-        color: #070707;
-        border: 1px solid #c3e6cb;
-        max-width:30%;
-        height:40px;
-        padding:5px;
-        border-radius: 5px;
-        display:none;
-       }
 
        .error-message{
         background-color: rgb(247, 168, 151);
         color:#070707;
-        max-width: 28%;
+        max-width: 70%;
         height:40px;
         padding:5px;
         border-radius: 5px;
@@ -110,14 +100,24 @@
         background-color: #e8c141;
         color: #090909;
         border: 1px solid #ffeeba;
-        max-width: 28%;
+        max-width: 70%;
         height:40px;
         padding:5px;
+        margin-top:20;
         border-radius: 5px;
         display:none;
         
+        
 
   }
+  
+
+      .error-message, .password-message {
+      animation: fade-in 0.5s ease-in-out;
+      transition: opacity 0.5s ease-in-out;
+}
+
+
   #username-input, #email-input{
     max-width: 70%;
     margin-bottom: 30px;
@@ -148,22 +148,93 @@
               </div>
           
               <button type="submit" class="btn btn-submit">Lấy lại mật khẩu</button>
+
+              <div id="password-message" class="password-message">
+                <p>Mật khẩu của bạn là: <span id="user-password"></span></p>
+              </div>
+
+              <div id="error-message" class="error-message">
+                <p>Email chưa chính xác. Vui lòng kiểm tra lại.</p>
+              </div>
           
               <div class="text-center">
                 <span><a href="dang_nhap.html">Trở lại trang đăng nhập</a></span>
               </div>
             </form>
             </div>
-            <div id="success-message" class="success-message">
-              <p>Đã gửi yêu cầu thay đổi mật khẩu. Kiểm tra email của bạn.</p>
-            </div>
-            <div id="error-message" class="error-message">
-              <p>Email không tồn tại trong hệ thống. Vui lòng kiểm tra lại.</p>
-            </div>
-            <div id="password-message" class="password-message">
-              <p>Mật khẩu của bạn là: <span id="user-password"></span></p>
-            </div>
           </div>
+
+
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <!--xử lý quên mật khẩu-->
+
+          <script>
+            $(document).ready (function(){
+
+              let userList = JSON.parse(localStorage.getItem("userList"))|| []
+              $(".btn-submit").click(function(e){
+
+                e.preventDefault();
+
+                const username =$("#username-input").val().trim();
+
+                const email = $("#email-input").val().trim();
+
+
+                if(!username){
+                  showError("Vui lòng nhập tên tài khoản");
+                  return;
+                }
+
+                if(!email){
+                  showError("Vui lòng nhập email");
+                  return;
+                }
+
+                if(!validEmail(email)){
+                  showError("Email không hợp lệ");
+                  return;
+                }
+
+                // tìm tài khoản người dùng
+                const user = userList.find(user=>user.username===username&&user.email===email);
+                if(user){
+                
+                  $("#password-message").show();
+                  $("#user-password").text(user.password);
+
+                  $("#error-message").hide();
+                
+                
+                }else{
+                  $("#error-message").show();
+                 
+                  $("#password-message").hide();
+                }
+
+
+                });
+
+                function validEmail(email) {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(email);
+                
+              }
+
+              function showError(message) {
+             const errorMessage = $("#error-message p");
+            errorMessage.text(message);
+            $("#error-message").fadeIn();
+            
+            }
+
+
+              });
+
+            
+            
+          </script>
+
 
     </body>
 </html>
