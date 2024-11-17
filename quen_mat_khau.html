@@ -154,7 +154,7 @@
               </div>
 
               <div id="error-message" class="error-message">
-                <p>Email chưa chính xác. Vui lòng kiểm tra lại.</p>
+                <!-- <p>Email hoặc tên tài khoản chưa chính xác. Vui lòng kiểm tra lại.</p> -->
               </div>
           
               <div class="text-center">
@@ -197,21 +197,28 @@
                 }
 
                 // tìm tài khoản người dùng
-                const user = userList.find(user=>user.username===username&&user.email===email);
-                if(user){
-                
-                  $("#password-message").show();
-                  $("#user-password").text(user.password);
+                const userByUsername = userList.find(user => user.username === username);
+                const userByEmail = userList.find(user => user.email === email);
 
-                  $("#error-message").hide();
-                
-                
-                }else{
-                  $("#error-message").show();
-                 
-                  $("#password-message").hide();
+
+                if(!userByUsername && !userByEmail){
+                  showError("Tài khoản không tồn tại!");
+                  return;
                 }
+                  if (userByUsername.email !== email) {
+                  showError("Email và tên tài khoản không khớp");
+                  return;
+       
+                    
+                }
+                  
 
+                  $("#password-message").show();
+                  $("#user-password").text(userByUsername.password);
+
+                  $("#error-message").hide(); 
+  
+          });
 
                 });
 
@@ -222,14 +229,14 @@
               }
 
               function showError(message) {
-             const errorMessage = $("#error-message p");
+             const errorMessage = $("#error-message");
             errorMessage.text(message);
             $("#error-message").fadeIn();
+            $("#password-message").hide();
             
             }
 
-
-              });
+            
 
             
             
