@@ -112,7 +112,7 @@ body {
 }
 
 ::selection {
-  background: #2a2a2a;
+  /* background: #2a2a2a; */
   color: #fff;
 }
 
@@ -227,7 +227,7 @@ header
   border-bottom: 3px dotted #eee;
   box-shadow: none;
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -543,7 +543,7 @@ header
   
 }
 
-#cart-count{
+.cart-count{
   position: relative;
   top: -40px;
   right: -123px;
@@ -552,7 +552,7 @@ header
   border-radius: 50%;
 
 }
-li.gio_hang_shop:hover #cart-count{
+li.gio_hang_shop:hover .cart-count{
   color: #5a5858;
 }
 
@@ -1213,8 +1213,10 @@ table{
 
 .arrow-left-right i:hover{
   color: #191a20;
-  
 }
+
+
+
 
 .slider-container{
   width: 510px;
@@ -1229,16 +1231,17 @@ table{
 
 .more-images img{
   opacity: 0.6;
-  transition: opacity, border;
+  transition: 0.25s;
 }
 
 .more-images img:hover{
   opacity: 1;
-  border: 2px solid #000000;
+  transform: scale(1.2);
 }
 
 .more-images img.border{
   opacity: 1;
+  transform: scale(1.2);
 }
 
 #col-right .col-inner{
@@ -1359,3 +1362,32 @@ input.plus{
   }
 }
 
+.is-divider{
+  height: 1px;
+  background: rgba(0,0,0,.1);
+}
+
+#row-1581544597{
+  padding: 20px 0;
+ 
+}
+
+
+.icon-box.featured-box.tab-title-icon.icon-box-left.text-left{
+  display: flex;
+}
+
+.icon-box-text{
+  padding-left: 0.5em;
+  font-size: 12px;
+  color: #1a59a6;
+  cursor: text;
+}
+
+.icon-box-img img{
+  width: 30px;
+}
+
+.is-divider.divider.under{
+  margin-bottom: 30px;
+}
