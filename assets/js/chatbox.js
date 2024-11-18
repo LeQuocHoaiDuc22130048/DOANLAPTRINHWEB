@@ -8,9 +8,21 @@ const closeChatButton = document.getElementById("close-chat");
 
 // hiển thị hợp thoại soạn tin nhắn
 chatBox.addEventListener("click", function() {
-  messageInput.style.display = "block";
-  sendMessageButton.style.display = "block";
-  closeChatButton.style.display = "block";
+  chatBox.classList.toggle("opened");
+  // Khi chat box mở rộng, hiển thị phần nhập tin nhắn
+  if (chatBox.classList.contains("opened")) {
+    messageInput.style.display = "block";
+    sendMessageButton.style.display = "block";
+    closeChatButton.style.display = "block";
+  } else {
+    messageInput.style.display = "none";
+    sendMessageButton.style.display = "none";
+    closeChatButton.style.display = "none";
+  }
+  
+  // messageInput.style.display = "block";
+  // sendMessageButton.style.display = "block";
+  // closeChatButton.style.display = "block";
   
   messageInput.addEventListener("click", function(e) {
     e.stopPropagation();
