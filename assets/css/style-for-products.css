@@ -1394,7 +1394,9 @@ input.plus{
   color: #666;
 }
 
-.icon-box- .uppercase{
+
+
+.icon-box-text .uppercase{
   font-size: 17px;
   line-height: 1.6em;
   letter-spacing: normal;
@@ -1418,4 +1420,27 @@ input.plus{
   font-size: 14px;
   color: #666;
   margin-bottom: 1.3em;
+}
+
+
+
+.product-section{
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.product-page-section h2{
+  font-size: 2em;
+  padding: 30px 0;
+  text-transform: uppercase;
+}
+
+.product-page-section span{
+  font-size: 13px;
+  
+}
+.product-page-section li{
+  list-style: circle outside;
+  margin-bottom: 20px;
+  color: #666;
 }
