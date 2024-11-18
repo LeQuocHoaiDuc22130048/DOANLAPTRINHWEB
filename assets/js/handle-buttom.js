@@ -1,28 +1,23 @@
-// Bắt sự kiện khi nhấp vào bất kỳ bộ lọc nào
-document.querySelector('.productfilter_filter_wrapper').addEventListener('click', function(event) {
-    const target = event.target.closest('.product_regular-title');
-
-    // Kiểm tra nếu nhấp vào một phần tử có lớp .product_regular-title
-    if (target) {
-        const dropdownId = target.getAttribute('data-dropdown');
-        const dropdown = document.getElementById(dropdownId);
-
-        // Ẩn tất cả các dropdown khác
-        document.querySelectorAll('.productfilter-down').forEach(d => {
-            if (d !== dropdown) d.classList.add('hidden');
-        });
-
-        // Sử dụng toggle để hiển thị hoặc ẩn dropdown được nhấp vào
-        if (dropdown) {
-            dropdown.classList.toggle('hidden');
-        }
-    }
-});
-
-// Ẩn dropdown khi nhấp ra ngoài
-document.addEventListener('click', function(event) {
-    const isClickInside = event.target.closest('.product_regular-title') || event.target.closest('.productfilter-down');
-    if (!isClickInside) {
-        document.querySelectorAll('.productfilter-down').forEach(d => d.classList.add('hidden'));
-    }
-});
+document.addEventListener("DOMContentLoaded", function () {
+    
+    const policyItems = document.querySelectorAll('.accordion-item');
+  
+    policyItems.forEach(item => {
+      
+      const label = item.querySelector('a');
+      label.addEventListener('click', function (event) {
+        event.preventDefault(); 
+  
+       
+        const accordionInner = item.querySelector('.accordion-inner');
+  
+        
+        accordionInner.classList.toggle('hidden');
+  
+        
+        const icon = this.querySelector('i');
+        icon.classList.toggle('open');
+      });
+    });
+  });
+  
