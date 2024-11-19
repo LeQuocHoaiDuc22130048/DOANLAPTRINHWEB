@@ -17,7 +17,7 @@ chatBox.addEventListener("click", function() {
   } else {
     messageInput.style.display = "none";
     sendMessageButton.style.display = "none";
-    closeChatButton.style.display = "none";
+    closeChatButton.style.display = "block";
   }
   
   // messageInput.style.display = "block";

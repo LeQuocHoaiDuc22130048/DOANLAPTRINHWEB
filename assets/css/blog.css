@@ -2614,27 +2614,30 @@ bai_viet
   border-radius: 8px;
   cursor: pointer;
   transition: width 0.3s, height 0.3s;
+  white-space: nowrap;
 }
 
 .chat-header {
+  position: relative; 
   display: flex;
-  justify-content: space-between;
-  padding: 10px;
+  align-items: center;
+  padding: 5px 10px;
   background-color: #007bff;
   color: white;
   border-radius: 8px 8px 0 0;
-  font-size: 14px;
-  font-weight: bold;
-  align-items: center;
+  overflow: visible;
+ 
 }
+
+
 
 .chat-body {
   padding: 10px;
-  display: none; /* Mặc định ẩn phần nhập tin nhắn */
+  display: none; 
 }
 
 .chat-box.opened .chat-body {
-  display: block; /* Hiển thị phần nhập tin nhắn khi mở rộng */
+  display: block; 
   padding: 10px;
 }
 
@@ -2645,9 +2648,21 @@ bai_viet
 
 .input-wrapper {
   display: flex;
+  padding: 5px;
   justify-content: space-between;
-  width: 100%;
-  margin-top: 200px;
+  background-color: #f1f1f1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+ 
+}
+
+.chat-header span {
+  max-width: 70%; /* Hạn chế kích thước chữ */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #message-input {
@@ -2668,10 +2683,13 @@ bai_viet
 }
 
 #send-message:hover {
-  background-color: #0056b3;  /* Hiệu ứng hover */
+  background-color: #0056b3; 
 }
 
 #close-chat {
+  position: absolute; 
+  top: 8px;
+  right: 10px;
   width: 18px;
   height: 18px;
   background-color: #dc3545;
@@ -2683,6 +2701,8 @@ bai_viet
   display: flex;
   justify-content: center;
   align-items: center;
+ 
+
 }
 /* 
 ---------------------------------------------
