@@ -1192,17 +1192,17 @@ table{
 }
 
 
-
+.arrow-angle,
 .arrow-left-right{
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.5s ease-in-out;
 }
 
+.row-container:hover .arrow-angle,
 .col-inner:hover .arrow-left-right{
   opacity: 1;
   visibility: visible;
-  
 }
 
 .arrow-left-right i:hover{
@@ -1473,3 +1473,43 @@ span.chinh-sach{
 .open {
   transform: rotate(180deg);
 }
+
+#row-1942874916{
+  margin-bottom: 30px;
+}
+
+#text-899889134{
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+
+.row.slider{
+  margin-left: 0;
+}
+
+.arrow-angle{
+  position: relative;
+  top: -350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.arrow-angle .arrow-left,
+.arrow-angle .arrow-right{
+  height: 100%;
+  width: 50px;
+  background-color: rgba(250,250,250,0.5);
+  
+}
+
+.arrow-angle i{
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%);
+}
+
+
