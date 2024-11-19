@@ -901,23 +901,28 @@ table{
 
 .productfilter-down{
   position: absolute;
-  left: 0px;
   top: calc(100% + 10px);
-  z-index: 1;
   height: 0;
   width: 900px;
   border: thin solid #e0dede;
   border-radius: 1em;
   background: #fff;
   height: unset;
-  display: none;
   z-index: 101;
-  transition: opacity 200ms;
-  left: 50% !important;
+  left: 220% !important;
   transform: translateX(-50%);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 15px;
-  animation: notifyGrowth 0.3s ease-in-out;
+  animation: 0.3s ease-in-out;
+  display: none;
+}
+
+.productfilter-down.show{
+  display: block;
+}
+
+.product_regular-title i.openlist{
+  transform: rotate(180deg);
 }
 
 .product-checkbox{
@@ -935,6 +940,10 @@ table{
   font-size: 13px;
   border-width: thin;
   cursor: pointer; 
+}
+
+.productfilter-down label:hover{
+  transform: scale(1.1);
 }
 
 .productfilter-down input[type="checkbox"]{
@@ -971,18 +980,6 @@ table{
   
 }
 
-
-
-@keyframes notifyGrowth{
-  from{
-    transform: scale(0);
-
-  }
-
-  to{
-    transform: 1;
-  }
-}
 
 
 #main .item{
