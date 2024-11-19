@@ -23,39 +23,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   document.addEventListener("DOMContentLoaded", () => {
-    const dropdownTitles = document.querySelectorAll(".product_regular-title");
+    // Lấy tất cả các phần tử chứa dropdown
+    const filterContainers = document.querySelectorAll(".prodctfilter_filter");
   
-    dropdownTitles.forEach(title => {
-      title.addEventListener("click", () => {
-       
-        const dropdown = title.querySelector(".productfilter-down");
-        const allDropdowns = document.querySelectorAll(".productfilter-down");
+    filterContainers.forEach(container => {
+      const title = container.querySelector(".product_regular-title");
+      const dropdown = container.querySelector(".productfilter-down");
   
-        
-        allDropdowns.forEach(drop => {
-          if (drop !== dropdown) {
-            drop.classList.remove("show");
-            drop.parentElement.querySelector(".product_regular-title").classList.remove("openlist");
-          }
-        });
+      // Kiểm tra sự tồn tại của title và dropdown trước khi thêm sự kiện
+      if (title && dropdown) {
+        // Sự kiện click vào tiêu đề để mở/đóng dropdown
+        title.addEventListener("click", (e) => {
+          e.stopPropagation(); // Ngăn sự kiện click lan truyền
   
-        
-        if (dropdown) {
+          // Đóng tất cả dropdown khác
+          document.querySelectorAll(".productfilter-down").forEach(drop => {
+            if (drop !== dropdown) {
+              drop.classList.remove("show");
+              const otherTitle = drop.parentElement.querySelector(".product_regular-title");
+              if (otherTitle) {
+                otherTitle.classList.remove("openlist");
+              }
+            }
+          });
+  
+          // Mở/Đóng dropdown hiện tại
           dropdown.classList.toggle("show");
           title.classList.toggle("openlist");
-        }
-      });
-    });
-  
-    
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".prodctfilter_filter")) {
-        document.querySelectorAll(".productfilter-down").forEach(dropdown => {
-          dropdown.classList.remove("show");
-          dropdown.parentElement.querySelector(".product_regular-title").classList.remove("openlist");
         });
       }
     });
+  
+    // Đóng tất cả dropdown khi click ra ngoài
+    document.addEventListener("click", (e) => {
+      filterContainers.forEach(container => {
+        const dropdown = container.querySelector(".productfilter-down");
+        const title = container.querySelector(".product_regular-title");
+        
+        // Kiểm tra sự tồn tại của dropdown và title trước khi thao tác
+        if (dropdown && title) {
+          dropdown.classList.remove("show");
+          title.classList.remove("openlist");
+        }
+      });
+    });
   });
+  
+  
   
   
