@@ -909,7 +909,7 @@ table{
   background: #fff;
   height: unset;
   z-index: 101;
-  left: 220% !important;
+  left: 170% !important;
   transform: translateX(-50%);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 15px;
@@ -930,6 +930,10 @@ table{
   flex-wrap: wrap;
 }
 
+.productfilter-down label.checked{
+  border: 1px solid #1A5BA8;
+}
+
 .productfilter-down label{
   background: #fff;
   border: thin solid #e0dede;
@@ -947,12 +951,16 @@ table{
 }
 
 .productfilter-down input[type="checkbox"]{
-  position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    z-index: -1;
-    left: -99999px;
+ position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+   z-index: 1000;
+  left: -99999px; 
+}
+
+.productfilter-down span img{
+  width: 75px;
 }
 
 .filter-footer{
