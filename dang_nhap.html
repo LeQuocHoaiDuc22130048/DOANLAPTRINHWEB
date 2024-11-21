@@ -128,8 +128,9 @@
   margin-left:140px;
 }
 
-
       </style>
+
+      </head>
 
       <body>
 
@@ -221,7 +222,7 @@
 
                 <div class="remember-container">
                   <input type="checkbox" id="remember" class="form-check-input">
-                  <label for="remember" class="form-check-label">Lưu tài khoản</label>
+                  <label for="remember" class="form-check-label">Lưu tên tài khoản</label>
                   <a href="quen_mat_khau.html">Quên mật khẩu</a>
               </div>
 
@@ -359,6 +360,37 @@
      });
 
     </script>
+
+
+
+<!--xử lý lưu tài khoản-->
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const usernameInput = document.getElementById("username-input");
+    const rememberCheckbox = document.getElementById("remember");
+
+    // Lấy thông tin từ Local Storage
+    const savedUsername = localStorage.getItem("savedUsername");
+    
+
+    if (savedUsername ) {
+        usernameInput.value = savedUsername;
+        rememberCheckbox.checked = true;
+    }
+
+    // Lưu thông tin khi checkbox được chọn
+    rememberCheckbox.addEventListener("change", function () {
+        if (this.checked) {
+            localStorage.setItem("savedUsername", usernameInput.value);
+          
+        } else {
+            localStorage.removeItem("savedUsername");
+            
+        }
+    });
+});
+</script>
 
 
       </body>
