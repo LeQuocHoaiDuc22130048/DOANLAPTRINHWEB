@@ -350,6 +350,10 @@ header
   padding-right: 15px;
 }
 
+.header-area .main-nav .nav li.gio_hang_shop {
+  pointer-events: none;
+}
+
 .header-area .main-nav .nav li.gio_hang_shop a {
   padding: 10px 20px;
   background-color: #5a5858;
@@ -359,6 +363,7 @@ header
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: auto;
 }
 
 .header-area .main-nav .nav li.gio_hang_shop a:hover {
@@ -366,6 +371,20 @@ header
   color: #5a5858;
   background-color: #fff;
   border: 1px solid #5a5858;
+}
+
+.header-area .main-nav .nav li.gio_hang_shop .count_div {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  align-content: center;
+  text-align: center;
+  pointer-events: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
 }
 
 .header-area .main-nav .nav li:last-child {
@@ -892,6 +911,10 @@ kinh_mat
   font-size: 13px;
 }
 
+.stars i.selected {
+  color: gold;
+}
+
 #kinh_mat .item .thumb .hover-content {
   position: absolute;
   z-index: 2;
@@ -1364,10 +1387,6 @@ bo_suu_tap
   overflow: hidden;
 }
 
-/* #bo_suu_tap .leather {
-  margin-bottom: 30px;
-} */
-
 #bo_suu_tap .first-image {
   margin-bottom: 30px;
 }
@@ -1401,6 +1420,7 @@ thuong_hieu
   margin-top: 60px;
   padding-left: 15px;
   padding-right: 15px;
+  cursor: pointer;
 }
 
 #thuong_hieu .images .image_brand img {
@@ -1582,6 +1602,155 @@ footer .btn_di_chuyen:hover {
   background-color: #a1a1a1;
 }
 
+/* footer #chatButton::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  transform: translateX(-70%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #007bff;
+} */
+
+footer #chatButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.5s;
+}
+
+/* Hamburger menu styling */
+footer #chatButton .hamburger,
+footer #chatButton .close-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+footer #chatButton .hamburger span,
+footer #chatButton .close-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Style for X icon */
+footer #chatButton .close-icon span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+footer #chatButton .close-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+footer #chatButton .close-icon span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+/* Chat box styling */
+footer #chatBox {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+footer #chatBox .status {
+  color: green;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+footer #chatBox p {
+  font-size: 14px;
+  margin: 8px 0;
+  color: #555;
+}
+
+footer #chatBox form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+footer #chatBox form input,
+footer #chatBox form textarea {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+footer #chatBox form input:focus,
+footer #chatBox form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+footer #chatBox form .submit_container {
+  padding-top: 11px;
+  padding-bottom: 21px;
+}
+
+footer #chatBox form .submit_container button.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #2a2a2a;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  width: auto;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+footer #chatBox form .submit_container button.submit-btn:hover {
+  color: #2a2a2a;
+  background-color: #fff;
+  border: 1px solid #2a2a2a;
+}
+
+footer #chatBox form .submit_container button.submit-btn:active {
+  outline: none;
+}
+
 /* 
 ---------------------------------------------
 sản phẩm
@@ -1761,6 +1930,7 @@ giỏ hàng
 .gio_hang {
   margin-top: 100px;
   padding: 40px;
+  /* background-color: #e6f9ff; */
 }
 
 .gio_hang .container.no-list {
@@ -1804,6 +1974,7 @@ giỏ hàng
   margin-right: auto;
   padding: 15px;
   border-radius: 12px;
+  background-color: #f7f7f78f;
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
 }
@@ -2012,6 +2183,50 @@ giỏ hàng
 .gio_hang .cart_checkout_page .checkout_wrapper .button_order:focus {
   outline: none;
 }
+
+/* 
+---------------------------------------------
+confirm-dialog
+--------------------------------------------- 
+*/
+/* 
+#confirmDialog {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.dialog-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.dialog-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#confirmYes {
+  background-color: #4caf50;
+  color: white;
+}
+
+#confirmNo {
+  background-color: #f44336; 
+  color: white;
+} */
 
 /* 
 ---------------------------------------------

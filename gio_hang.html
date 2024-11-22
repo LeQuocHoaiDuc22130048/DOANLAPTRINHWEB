@@ -101,8 +101,11 @@
                 <li class="gio_hang_shop">
                   <a href="./gio_hang.html">
                     <span>Giỏ hàng </span>
-                    <i class="fa-solid fa-cart-shopping"></i
-                  ></a>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </a>
+                  <div class="count_div">
+                    <span class="cart-count">0</span>
+                  </div>
                 </li>
               </ul>
               <a class="menu-trigger">
@@ -119,7 +122,7 @@
     <!-- ***** Giỏ hàng Start ***** -->
     <main id="main" class="gio_hang">
       <!-- chưa có sản phẩm -->
-      <!-- <div class="container no-list">
+      <div class="container no-list" style="display: none">
         <div class="non_product">
           <p>Chưa có sản phẩm nào trong giỏ hàng.</p>
           <a href="./index.html#top" class="btn_tel btn_return"
@@ -132,7 +135,7 @@
             >
           </p>
         </div>
-      </div> -->
+      </div>
 
       <!-- có sản phẩm -->
       <div class="container list">
@@ -156,16 +159,22 @@
                     >
                   </div>
                   <div class="product_price">
-                    <div class="don_gia">Đơn giá: 130.000đ</div>
+                    <div class="don_gia">
+                      Đơn giá: <span id="unit_price">130.000</span>đ
+                    </div>
                     <input
                       type="number"
                       name=""
                       id="product_quantity"
                       min="1"
+                      max="100"
+                      step="1"
                       value="1"
                       style="width: 50px"
                     />
-                    <div class="so_tien">Số tiền: 130.000đ</div>
+                    <div class="so_tien">
+                      Số tiền: <span id="total_price">130.000</span>đ
+                    </div>
                   </div>
                   <div class="product_remove">
                     <i class="fa-solid fa-trash-can"></i>
@@ -173,7 +182,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="cart_item"></div> -->
             </form>
             <div class="uu_dai" onclick="toggleDropdown()">
               <i class="fa-solid fa-tags"></i>
@@ -198,7 +206,9 @@
           <div class="checkout_wrapper">
             <div class="total">
               <span class="label">Tổng:</span>
-              <span class="price">130,000 VND</span>
+              <span class="price"
+                ><span id="total_price_orders">130,000</span>đ</span
+              >
             </div>
             <form class="details">
               <div class="customer_details">
@@ -278,7 +288,7 @@
                     <label for="bankPayment">Chuyển khoản ngân hàng</label>
                     <div class="payment_box payment_box_bank">
                       <p>
-                        Bước 1: Chọn đồng hồ và gọi tới số 0123 456 789 để đặt
+                        Bước 1: Chọn sản phẩm và gọi tới số 0123 456 789 để đặt
                         hàng
                         <br />
                         Bước 2: Trong vòng 2 phút, chúng tôi sẽ gọi điện xác
@@ -393,6 +403,41 @@
       <a href="#" class="btn_di_chuyen" id="backToTop">
         <i class="fa-solid fa-angle-up"></i>
       </a>
+      <div id="chatButton">
+        <div class="hamburger" id="hamburgerIcon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="close-icon" id="closeIcon" style="display: none">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Chat Box -->
+      <div id="chatBox">
+        <h2>Chuyên viên tư vấn</h2>
+        <div class="status">Online</div>
+        <p>Hỏi chúng tôi bất cứ điều gì. Chúng tôi sẽ trả lời ngay lập tức</p>
+        <form>
+          <input type="text" placeholder="Tên của bạn" required />
+          <input type="tel" placeholder="Số điện thoại" required />
+          <textarea
+            placeholder="Tin nhắn của bạn"
+            rows="3"
+            required
+            style="resize: none"
+          ></textarea>
+          <div class="submit_container">
+            <button type="submit" class="submit-btn">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- chat box ở phần footer End-->
     </footer>
     <!-- ***** Footer End ***** -->
 
@@ -417,6 +462,10 @@
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/dropdown.js"></script>
     <script src="assets/js/back_to_top.js"></script>
+    <script src="assets/js/chat_box.js"></script>
+    <script src="assets/js/update_cart_count.js"></script>
+    <script src="assets/js/gio_hang.js" defer></script>
+    <script src="assets/js/so_tien.js"></script>
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
