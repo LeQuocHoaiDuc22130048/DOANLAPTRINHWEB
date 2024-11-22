@@ -22,6 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // updateCartCount(cartItems.length);
   }
 
+  // localStorage.setItem("cartCount", "0");
+
+  // // Cập nhật lại giao diện (nếu có cần thiết)
+  // updateCartCount(0);
+
   // Chỉ thực thi addCart khi đang ở trên trang có .cart_form (giohang.html)
   const cartForm = document.querySelector("form.cart_form");
   if (cartForm) {
