@@ -123,7 +123,7 @@
         <a href="https://kinhmatanna.com/top-99-mon-qua-sinh-nhat-cho-nam-y-nghia-thiet-thuc-nhat" class="btn btn-read-more">Đọc thêm</a>
       </div>
     </div>
-
+    
      <!-- Blog Items -->
      <div class="row mt-4">
         <!-- Blog Item 1 -->
@@ -381,6 +381,43 @@
      <a href="https://kinhmatanna.com/mat-kinh-trong-kinh-polaroid-la-gi-co-nen-mua-khong" class="btn btn-read-more">Đọc thêm</a>
   </div>
 </div>
+
+<!--Blog Item 25-->
+<div class="col-md-4">
+  <div class="blog-item">
+     <img src="assets/images/blog_images/blog26.png" alt="Blog Image 25">
+     <div class="date">29/1/2024</div>
+     <h3>[Giải đáp]: Đeo kính không độ có hại mắt không?</h3>
+     <p>Những chiếc kính với đủ kiểu dáng khác nhau với phong cách Hàn Quốc, 
+      đã và đang được các tín đồ thời trang “săn lùng” và sở hữu</p>
+     <a href="https://kinhmatanna.com/deo-kinh-khong-do-co-hai-mat-khong" class="btn btn-read-more">Đọc thêm</a>
+  </div>
+</div>
+
+<!--Blog Item 26-->
+<div class="col-md-4">
+  <div class="blog-item">
+     <img src="assets/images/blog_images/blog27.png" alt="Blog Image 26">
+     <div class="date">16/1/2024</div>
+     <h3>Top 10+ mẫu gọng kính lục giác được nhiều người ưa chuộng nhất</h3>
+     <p>Gọng kính lục giác là sản phẩm đang dần trở thành xu hướng bởi kiểu dáng năng động, 
+      phù hợp với nhiều khuôn mặt.</p>
+     <a href="https://kinhmatanna.com/gong-kinh-luc-giac" class="btn btn-read-more">Đọc thêm</a>
+  </div>
+</div>
+
+<!--Blog Item 27-->
+<div class="col-md-4">
+  <div class="blog-item">
+     <img src="assets/images/blog_images/blog28.png" alt="Blog Image 27">
+     <div class="date">1/1/2024</div>
+     <h3>Loại vitamin nào tốt cho mắt? Top 9 thực phẩm chứa vitamin tốt cho mắt</h3>
+     <p>Mắt giúp con người có thể nhìn thấy mọi sự vật, sự việc và tận hưởng những khoảnh khắc đẹp trong cuộc sống.</p>
+     <a href="https://kinhmatanna.com/vitamin-tot-cho-mat" class="btn btn-read-more">Đọc thêm</a>
+  </div>
+</div>  
+  </div>
+</div>
      </div>
   </div>
   </div>
@@ -399,6 +436,23 @@
 </div>
 </div>
 <!--end pagination-->
+
+
+<!--chat box-->
+<div class="chat-box" id="chat-box">
+  <div class="chat-header">
+    <span>Chat!</span>
+    <button id="close-chat">X</button>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div class="messages" id="messages"></div>
+    <!-- Phần nhập tin nhắn và nút gửi -->
+    <div class="input-wrapper">
+      <input type="text" id="message-input" placeholder="Nhập tin nhắn..." />
+      <button id="send-message">Gửi</button>
+    </div>
+  </div>
+</div>
 
       <!-- ***** Footer Start ***** -->
       <footer>
@@ -506,9 +560,11 @@
       <script src="assets/js/lightbox.js"></script>
       <script src="assets/js/isotope.js"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <!--xử lý phân chat cho chat box-->
+      <script src="assets/js/chatbox.js"></script>
+
 
       <!--xử lý nút phân trang-->
- 
       <script>
        $(document).ready(function() {
   var itemsPerPage = 3; 
@@ -545,7 +601,8 @@
     }
   });
 });
-      </script>
+</script>
+
 
 </body>
 </html>
