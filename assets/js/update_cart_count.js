@@ -10,9 +10,6 @@ if (cartCount) {
 // Cập nhật số lượng giỏ hàng khi trang được tải lại
 updateCartCount(cartCount);
 
-// localStorage.setItem("cartCount", 0); // Thiết lập giá trị giỏ hàng về 0 trong localStorage
-// updateCartCount(0);
-
 // Lấy tất cả các nút "Thêm vào giỏ hàng"
 const btnAddToCart = document.querySelectorAll(".btn_gio_hang");
 
