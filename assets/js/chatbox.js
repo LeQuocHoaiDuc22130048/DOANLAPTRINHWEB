@@ -5,6 +5,14 @@ const chatBox = document.getElementById("chat-box");
 const messageInput = document.getElementById("message-input");
 const sendMessageButton = document.getElementById("send-message");
 const closeChatButton = document.getElementById("close-chat");
+const messagesContainer = document.getElementById("messages");
+
+// Thêm tin nhắn mặc định
+const defaultMessage = document.createElement("div");
+defaultMessage.classList.add("message", "bot-message");
+defaultMessage.textContent = "Xin chào! Chúng tôi có thể giúp gì cho bạn?";
+messagesContainer.appendChild(defaultMessage);
+
 
 // hiển thị hợp thoại soạn tin nhắn
 chatBox.addEventListener("click", function() {

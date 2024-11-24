@@ -2665,6 +2665,25 @@ bai_viet
   white-space: nowrap;
 }
 
+
+.bot-message {
+  background-color: #f1f1f1; 
+  color:#080808;
+  padding: 3px; 
+  max-width: 80%; 
+  align-self: flex-start; 
+  font-size: 15px; 
+}
+
+.message {
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 80%;
+  word-wrap: break-word; 
+  white-space: normal;
+  overflow-wrap: break-word; 
+}
+
 #message-input {
   width: 80%;  
   padding: 8px;
