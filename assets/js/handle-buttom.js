@@ -132,7 +132,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.querySelectorAll(`.scroll-to-section a`).forEach(sub =>{
+  sub.addEventListener(`mouseover`, () =>{
+    const submenu = sub.querySelector(`.sub-menu.nav-dropdown`);
+    if (submenu) { // Kiểm tra xem submenu có tồn tại không
+      submenu.style.display = 'block';
+      submenu.style.opacity = '0';
+      submenu.style.transition = 'opacity 0.5s ease';
+      setTimeout(() => (submenu.style.opacity = '1'), 10);
+    }
+  });
 
+  sub.addEventListener(`mouseleave`, () =>{
+    const submenu = sub.querySelector(`.sub-menu.nav-dropdown`);
+    if (submenu) { // Kiểm tra xem submenu có tồn tại không
+      submenu.style.opacity = '0';
+      setTimeout(() => (submenu.style.display = 'none'), 300);
+    }
+  })
+})
 
 
 
