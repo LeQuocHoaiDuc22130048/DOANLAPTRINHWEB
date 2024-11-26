@@ -125,6 +125,21 @@ body {
   html, body {
     overflow-x: hidden;
   }
+
+  .header-area .main-nav .nav li.submenu:after {
+    right: 3px;
+  }
+  .header-area .main-nav .nav li.submenu {
+    padding-right: 15px;
+  }
+  .header-area .main-nav .nav li {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .header-area .main-nav .nav li a {
+    font-size: 14px;
+    letter-spacing: 0px;
+  }
   .mobile-top-fix {
     margin-top: 30px;
     margin-bottom: 0px;
@@ -202,41 +217,41 @@ header
 .background-header {
   border-bottom: none !important;
   background-color: #fff;
-  height: 80px!important;
-  position: fixed!important;
+  height: 80px !important;
+  position: fixed !important;
   top: 0px;
   left: 0px;
   right: 0px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) !important;
 }
 
 .background-header .logo,
 .background-header .main-nav .nav li a {
-  color: #1e1e1e!important;
+  color: #1e1e1e !important;
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #2a2a2a!important;
+  color: #2a2a2a !important;
 }
 
 .background-header .nav li a.active {
-  color: #2a2a2a!important;
+  color: #2a2a2a !important;
 }
 
 .header-area {
   border-bottom: 3px dotted #eee;
   box-shadow: none;
   background-color: #fff;
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   z-index: 100;
   height: 100px;
-  -webkit-transition: all .5s ease 0s;
-  -moz-transition: all .5s ease 0s;
-  -o-transition: all .5s ease 0s;
-  transition: all .5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 
 .header-area .main-nav {
@@ -284,6 +299,43 @@ header
   padding-right: 15px;
 }
 
+.header-area .main-nav .nav li.gio_hang_shop {
+  pointer-events: none;
+}
+
+.header-area .main-nav .nav li.gio_hang_shop a {
+  padding: 10px 20px;
+  background-color: #5a5858;
+  color: #fff !important;
+  border-radius: 999px;
+  border: 1px solid #5a5858;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.header-area .main-nav .nav li.gio_hang_shop a:hover {
+  cursor: pointer;
+  color: #5a5858;
+  background-color: #fff;
+  border: 1px solid #5a5858;
+}
+
+.header-area .main-nav .nav li.gio_hang_shop .count_div {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  align-content: center;
+  text-align: center;
+  pointer-events: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
 .header-area .main-nav .nav li:last-child {
   padding-right: 0px;
 }
@@ -310,13 +362,17 @@ header
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #aaa!important;
+  color: #aaa !important;
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: #aaa!important;
+  color: #aaa !important;
   opacity: 1;
+}
+
+.fa-user-large {
+  font-size: 1.3rem;
 }
 
 .header-area .main-nav .nav li.submenu {
@@ -348,7 +404,8 @@ header
   transform: translateY(+2em);
   visibility: hidden;
   z-index: -1;
-  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
+    z-index 0s linear 0.01s;
 }
 
 .header-area .main-nav .nav li.submenu ul li {
@@ -361,7 +418,7 @@ header
   opacity: 1;
   display: block;
   background: #f7f7f7;
-  color: #2a2a2a!important;
+  color: #2a2a2a !important;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;
@@ -377,7 +434,7 @@ header
 
 .header-area .main-nav .nav li.submenu ul li a:hover {
   background: #fff;
-  color: #aaa!important;
+  color: #aaa !important;
   padding-left: 25px;
 }
 
@@ -519,42 +576,20 @@ header
 .header-area.header-sticky .nav li a.active {
   color: #aaa;
 }
-
-.header-area .main-nav .nav li.gio_hang_shop a {
-  padding: 10px 24px;
-  background-color: #5a5858;
-  color: #fff !important;
-  border-radius: 999px;
-  border: 1px solid #5a5858;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  outline: none;
-}
-
-
-
-.header-area .main-nav .nav li.gio_hang_shop a:hover {
-  cursor: pointer;
-  color: #5a5858 !important;
-  background-color: #fff;
-  border: 1px solid #5a5858;
-  
-}
-
-.cart-count{
-  position: relative;
-  top: -40px;
-  right: -123px;
-  color: #fff;
-  font-size: 13px;
+li.gio_hang_shop .count_div{
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  align-content: center;
+  text-align: center;
+  pointer-events: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
 
-}
-li.gio_hang_shop:hover .cart-count{
-  color: #5a5858;
-}
 
 
 @media (max-width: 1200px) {
@@ -606,6 +641,8 @@ li.gio_hang_shop:hover .cart-count{
   .header-area .main-nav .logo {
     color: #1e1e1e;
   }
+
+ 
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
     color: #aaa!important;
@@ -792,6 +829,143 @@ footer .btn_di_chuyen:hover {
   color: #fff;
   background-color: #a1a1a1;
 }
+
+footer #chatButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.5s;
+}
+
+/* Hamburger menu styling */
+footer #chatButton .hamburger,
+footer #chatButton .close-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+footer #chatButton .hamburger span,
+footer #chatButton .close-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Style for X icon */
+footer #chatButton .close-icon span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+footer #chatButton .close-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+footer #chatButton .close-icon span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+/* Chat box styling */
+footer #chatBox {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+footer #chatBox .status {
+  color: green;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+footer #chatBox p {
+  font-size: 14px;
+  margin: 8px 0;
+  color: #555;
+}
+
+footer #chatBox form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+footer #chatBox form input,
+footer #chatBox form textarea {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+footer #chatBox form input:focus,
+footer #chatBox form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+footer #chatBox form .submit_container {
+  padding-top: 11px;
+  padding-bottom: 21px;
+}
+
+footer #chatBox form .submit_container button.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #2a2a2a;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  width: auto;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+footer #chatBox form .submit_container button.submit-btn:hover {
+  color: #2a2a2a;
+  background-color: #fff;
+  border: 1px solid #2a2a2a;
+}
+
+footer #chatBox form .submit_container button.submit-btn:active {
+  outline: none;
+}
+
 
 .shop-page-title.category-page-title.featured-title.page-title{
     margin-top: 120px;

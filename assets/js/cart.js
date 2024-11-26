@@ -52,7 +52,7 @@ function displayProducts(page) {
                               <a href="${product.href}"><i class="fa fa-eye"></i></a>
                             </li>
                             <li><a href=""><i class="fa fa-star"></i></a></li>
-                            <li><a href=""><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="#" class = "btn_gio_hang"><i class="fa fa-shopping-cart"></i></a></li>
                           </ul>
                         </div>
                         <img src="${product.image}" alt="" style="width: 100%;">
