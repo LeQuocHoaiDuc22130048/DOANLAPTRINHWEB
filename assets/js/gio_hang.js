@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const productImg = product.querySelector("img").src;
       const productName = product.querySelector("h4").innerText;
       const productPrice = product.querySelector("span").innerText;
-
       saveToLocalStorage(productImg, productName, productPrice);
     });
   });
@@ -49,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Cập nhật tổng tiền ngay sau khi thêm sản phẩm
     // loadCartItems();
+    alert("Đã thêm sản phẩm vào giỏ hàng");
     calculateTotal();
   }
 
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     if (totalElement) {
-      totalElement.textContent = `${total.toLocaleString("vi-VN")} đ`;
+      totalElement.textContent = `${total.toLocaleString("vi-VN")} `;
     }
   }
 
@@ -181,6 +181,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // loadCartItems();
+  loadCartItems();
   calculateTotal();
 });
