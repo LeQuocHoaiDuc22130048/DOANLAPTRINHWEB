@@ -32,8 +32,11 @@ const products = [
   { name: "Dior Unisex Mã BLACKSUITON2U_F000", price: "10.500.000đ", image: "assets/images/product29.jpg" ,href: "chi_tiet_san_pham.html"},
 ];
 
+
+
 const itemsPerPage = 9;
 let currentPage = 1;
+const pageTitle = document.title;
 
 function displayProducts(page) {
   const start = (page - 1) * itemsPerPage;
@@ -74,6 +77,8 @@ function displayProducts(page) {
         `
   ).join("");
 }
+
+
 
 //tạo nút phân trang
 
@@ -137,7 +142,7 @@ function updatePagination(){
 
 function init(){
     displayProducts(currentPage);
-    setupPagination();
+    setupPagination();    
 }
 
 function scrollToTopOfProducts(){
