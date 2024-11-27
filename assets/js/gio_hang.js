@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Cập nhật tổng tiền
         totalPriceElement.textContent = `Số tiền: ${totalPrice.toLocaleString(
           "vi-VN"
-        )} đ`;
+        )} `;
 
         // Cập nhật localStorage
         let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     if (totalElement) {
-      totalElement.textContent = `${total.toLocaleString("vi-VN")} đ`;
+      totalElement.textContent = `${total.toLocaleString("vi-VN")} `;
     }
   }
 
