@@ -614,22 +614,21 @@ li.gio_hang_shop .count_div{
   width: 710px;
 }
 
-
+.img-inner.image-zoom-fade.dark{
+  display: inline-block;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
 
 .sub-menu.nav-dropdown .img-inner img{
   width: 120px;
   height: 30px;
-  margin: 10px;
+  
 }
-
 
 .scroll-to-section:hover .sub-menu.nav-dropdown{
   display: block;
 }
-
-
-
-
 
 .img.has-hover img:hover{
   transform: scale(1.1);
