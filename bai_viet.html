@@ -53,21 +53,21 @@
                   <a href="index.html#top">Trang chủ</a>
                 </li>
                 <li class="scroll-to-section">
-                  <a href="#kinh_mat">Kính mát</a>
+                  <a href="kinh_mat.html">Kính mát</a>
                 </li>
                 <li class="scroll-to-section">
-                  <a href="#gong_kinh">Gọng kính</a>
+                  <a href="gong_kinh.html">Gọng kính</a>
                 </li>
                 <li class="scroll-to-section">
-                  <a href="#trong_kinh">Tròng kính</a>
+                  <a href="trong_kinh.html">Tròng kính</a>
                 </li>
                 <li class="scroll-to-section">
-                  <a href="#kinh_ap_trong">Kính áp tròng</a>
+                  <a href="kinh_ap_trong.html">Kính áp tròng</a>
                 </li>
                 <li class="submenu">
                   <a href="javascript:;" class="active">Trang phụ</a>
                   <ul>
-                    <li><a href="san_pham.html">Sản phẩm</a></li>
+                    <li><a href="gong_kinh.html">Sản phẩm</a></li>
                     <li>
                       <a href="chi_tiet_san_pham.html">Chi tiết sản phẩm</a>
                     </li>
@@ -452,7 +452,7 @@
       <input type="text" id="message-input" placeholder="Nhập tin nhắn..." />
       <button id="send-message">Gửi</button>
     </div>
-    </div>
+  </div>
 </div>
 
       <!-- ***** Footer Start ***** -->
@@ -462,16 +462,11 @@
             <div class="col-lg-3 inf_first">
               <div class="first-item">
                 <div class="logo">
-                  <img
-                    src="./assets/images/logo.png"
-                    alt="eyestyle nhom 65"
-                  />
+                  <img src="./assets/images/logo.png" alt="eyestyle nhom 65" />
                 </div>
                 <ul>
                   <li>
-                    <a href="#"
-                      >Đại học Nông Lâm TPHCM</a
-                    >
+                    <a href="#">Đại học Nông Lâm TPHCM</a>
                   </li>
                   <li><a href="#">nhom65@company.com</a></li>
                   <li><a href="#">0123 456 789</a></li>
@@ -481,10 +476,10 @@
             <div class="col-lg-3 inf">
               <h4>Mua sắm &amp; Danh mục</h4>
               <ul>
-                <li><a href="./chi_tiet_san_pham.html">Kính mát</a></li>
-                <li><a href="./chi_tiet_san_pham.html">Gọng kính</a></li>
-                <li><a href="./chi_tiet_san_pham.html">Tròng kính</a></li>
-                <li><a href="./chi_tiet_san_pham.html">Kính áp tròng</a></li>
+                <li><a href="kinh_mat.html">Kính mát</a></li>
+                <li><a href="gong_kinh.html">Gọng kính</a></li>
+                <li><a href="trong_kinh.html">Tròng kính</a></li>
+                <li><a href="kinh_ap_trong.html">Kính áp tròng</a></li>
               </ul>
             </div>
             <div class="col-lg-3 inf">
@@ -499,8 +494,8 @@
             <div class="col-lg-3 inf">
               <h4>Điều hướng</h4>
               <ul>
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="./san_pham.html">Sản phẩm</a></li>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="gong_kinh.html">Sản phẩm</a></li>
                 <li><a href="./lien_he.html">Liên hệ</a></li>
                 <li><a href="./bai_viet.html">Bài viết</a></li>
               </ul>
@@ -509,12 +504,9 @@
               <div class="under-footer">
                 <p>
                   Group65 © 2022 HexaShop Co., Ltd. All Rights Reserved.
-  
+
                   <br />Design:
-                  <a
-                    href="#"
-                    >Group 65</a
-                  >
+                  <a href="#">Group 65</a>
                 </p>
                 <ul>
                   <li>
@@ -538,6 +530,43 @@
         <a href="#top" class="btn_di_chuyen" id="backToTop">
           <i class="fa-solid fa-angle-up"></i>
         </a>
+
+        <!-- chat box ở phần footer Start-->
+        <div id="chatButton">
+          <div class="hamburger" id="hamburgerIcon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="close-icon" id="closeIcon" style="display: none">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Chat Box -->
+        <div id="chatBox">
+          <h2>Chuyên viên tư vấn</h2>
+          <div class="status">Online</div>
+          <p>Hỏi chúng tôi bất cứ điều gì. Chúng tôi sẽ trả lời ngay lập tức</p>
+          <form>
+            <input type="text" placeholder="Tên của bạn" required />
+            <input type="tel" placeholder="Số điện thoại" required />
+            <textarea
+              placeholder="Tin nhắn của bạn"
+              rows="3"
+              required
+              style="resize: none"
+            ></textarea>
+            <div class="submit_container">
+              <button type="submit" class="submit-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- chat box ở phần footer End-->
       </footer>
   
       <!-- jQuery -->
