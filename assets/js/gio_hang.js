@@ -1,11 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Hàm cập nhật tổng tiền
   function recalculateTotal() {
     calculateTotal(); // Gọi hàm tính lại tổng tiền
   }
 
-  const btn = document.querySelectorAll(".btn_gio_hang");
-  btn.forEach(function (element) {
-    element.addEventListener("click", function (event) {
+  // Lấy số lượng giỏ hàng từ localStorage khi trang được tải lại
+  let cartCount = localStorage.getItem("cartCount");
+  if (cartCount) {
+    cartCount = parseInt(cartCount);
+  } else {
+    cartCount = 0; // Nếu không có giá trị trong localStorage, mặc định là 0
+  }
+
+  updateCartCount(cartCount); // Cập nhật số lượng hiển thị khi trang tải
+
+  // Lấy tất cả các nút "Thêm vào giỏ hàng"
+  const btnAddToCart = document.querySelectorAll(".btn_gio_hang");
+  btnAddToCart.forEach(function (btn) {
+    btn.addEventListener("click", function (event) {
       event.preventDefault();
       const btnItem = event.target;
       const product = btnItem.closest(".item");
@@ -13,7 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const productName = product.querySelector("h4").innerText;
       const productPrice = product.querySelector("span").innerText;
 
+      // Lưu vào localStorage và cập nhật giỏ hàng
       saveToLocalStorage(productImg, productName, productPrice);
+
+      // Tăng số lượng giỏ hàng và cập nhật giao diện
+      cartCount++;
+      updateCartCount(cartCount);
+      localStorage.setItem("cartCount", cartCount);
     });
   });
 
@@ -48,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
     // Cập nhật tổng tiền ngay sau khi thêm sản phẩm
-    // loadCartItems();
     calculateTotal();
   }
 
@@ -86,13 +103,13 @@ document.addEventListener("DOMContentLoaded", function () {
     addCartItem.classList.add("cart_item");
     addCartItem.innerHTML = `
     <div class="product_thumbnail">
-    <a href="">
+    <a href="javascript:void(0)">
     <img src="${productImg}" alt="" width="150" height="150" />
     </a>
     </div>
     <div class="product_info">
         <div class="product_name">
-          <a href="">${productName}</a>
+          <a href="javascript:void(0)">${productName}</a>
           </div>
         <div class="product_price">
           <div class="don_gia">Đơn giá: ${unitPrice.toLocaleString(
@@ -108,21 +125,20 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </div>
     `;
+
+    // Sự kiện xóa sản phẩm
     addCartItem
       .querySelector(".product_remove")
       .addEventListener("click", function () {
-        // Hiển thị hộp thoại xác nhận
         const confirmDelete = window.confirm(
           "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?"
         );
-
         if (confirmDelete) {
           removeCartItem(productImg);
           addCartItem.remove();
-          let cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
           cartCount = Math.max(cartCount - 1, 0);
-          localStorage.setItem("cartCount", cartCount);
           updateCartCount(cartCount);
+          localStorage.setItem("cartCount", cartCount);
           recalculateTotal();
         }
       });
@@ -138,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Cập nhật tổng tiền
         totalPriceElement.textContent = `Số tiền: ${totalPrice.toLocaleString(
           "vi-VN"
-        )} `;
+        )} đ`;
 
         // Cập nhật localStorage
         let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -156,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cartForm.appendChild(addCartItem);
   }
 
+  // Hàm tính tổng tiền
   function calculateTotal() {
     let total = 0;
     const totalElement = document.querySelector("#total_price_orders");
@@ -170,6 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Hàm xóa sản phẩm khỏi localStorage
   function removeCartItem(productImg) {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     cartItems = cartItems.filter((item) => item.img !== productImg);
@@ -181,6 +199,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // loadCartItems();
+  // Hàm cập nhật số lượng giỏ hàng
+  function updateCartCount(count) {
+    const cartCountElement = document.querySelector(".cart-count");
+    if (cartCountElement) {
+      cartCountElement.innerText = count; // Cập nhật số lượng giỏ hàng
+    }
+  }
+
+  // Tính tổng tiền khi tải trang
   calculateTotal();
 });
