@@ -54,20 +54,20 @@ function displayProducts(page) {
                             <li>
                               <a href="${product.href}"><i class="fa fa-eye"></i></a>
                             </li>
-                            <li><a href=""><i class="fa fa-star"></i></a></li>
-                            <li><a href="#" class = "btn_gio_hang"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="#" class="rate-product"><i class="fa fa-star"></i></a></li>
+                            <li><a href=""class="btn_gio_hang"><i class="fa fa-shopping-cart"></i></a></li>
                           </ul>
                         </div>
                         <img src="${product.image}" alt="" style="width: 100%;">
                         <div class="down-content">
-                          <h5>${product.name}</h5>
+                          <h4>${product.name}</h4>
                           <span>${product.price}</span>
-                          <ul class="star">
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
+                          <ul class="stars">
+                           <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
                           </ul>
                         </div>
                       </div>
