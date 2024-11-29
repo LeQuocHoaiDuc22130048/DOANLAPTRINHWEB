@@ -22,6 +22,10 @@ a{
 li{
     list-style: none;
 }
+canvas {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
 .flex-box{
     display: flex;
@@ -281,6 +285,7 @@ li{
     padding: 6px 0;
  }
  /* order-list */
+ .admin-content-main-content-home-table table,
  .admin-content-main-content-order-list table{
     width: 100%;
     padding: 12px 0;
@@ -293,11 +298,41 @@ li{
  .admin-content-main-content-order-list table,th,td{
     text-align: center;
  }
+ .admin-content-main-content-home-table table th,
  .admin-content-main-content-order-list table th{
     background-color: var(--main-bg-color);
     color: white;
     padding: 6px 0;
  }
+ .admin-content-main-content-home-table table td,
  .admin-content-main-content-order-list table td{
     padding: 6px 0;
  }
+
+ /* admin dashboard */
+ .admin-content.main{
+    overflow-y: scroll;
+    max-height: 625px;
+ }
+ .admin-content-main-content.admin-dashboard-top{
+    overflow-y: scroll;
+    max-height: 235px;
+ }
+ .admin-content-main-content.admin-dashboard-bottom,
+.admin-content-main-content.admin-dashboard-top{
+    margin: 12px;
+    
+}
+.admin-content-main-content-home-admin-bottom-right label,
+.admin-content-main-content-home-admin-bottom-left label,
+ .admin-content-main-content-home-table label{
+    text-align: center;
+ }
+
+ .admin-content-main-content-home-admin-bottom{
+    display: grid;
+    grid-template-columns: 40% 50%;
+    column-gap: 20px;
+    padding: 20px 0 0 0;
+ }
+ 
