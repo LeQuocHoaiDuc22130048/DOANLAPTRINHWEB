@@ -1,4 +1,3 @@
-// Toggle chat box visibility on button click
 document.getElementById("chatButton").addEventListener("click", function () {
   const chatBox = document.getElementById("chatBox");
   const hamburgerIcon = document.getElementById("hamburgerIcon");

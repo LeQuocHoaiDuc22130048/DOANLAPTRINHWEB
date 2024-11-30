@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const productName = product.querySelector("h4").innerText;
       const productPrice = product.querySelector("span").innerText;
 
-       // Lưu vào localStorage và cập nhật giỏ hàng
+      // Lưu vào localStorage và cập nhật giỏ hàng
       saveToLocalStorage(productImg, productName, productPrice);
 
       // Tăng số lượng giỏ hàng và cập nhật giao diện
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-   // Hàm cập nhật số lượng giỏ hàng
+  // Hàm cập nhật số lượng giỏ hàng
   function updateCartCount(count) {
     const cartCountElement = document.querySelector(".cart-count");
     if (cartCountElement) {
