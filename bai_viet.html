@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="assets/css/lightbox.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/blog.css"/>
+
+
   
   
   </head>
@@ -77,14 +79,16 @@
                     <li><a href="lien_he.html">Liên hệ</a></li>
                   </ul>
                 </li>
-                <li>
-                  <a href="dang_nhap.html"><i class="fa-solid fa-user-large"></i></a>
+                <li class="username"> 
+                  <a href="dang_nhap.html" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                  <div class=username_login id="username-info" style="display: none;"><span id="username"></span></div>
                 </li>
                 <li class="gio_hang_shop">
                   <a href="./gio_hang.html">
                     <span>Giỏ hàng </span>
-                    <i class="fa-solid fa-cart-shopping"></i
-                  ></a>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </a>
+                  <div class="count_div"><span class="cart-count">0</span> </div>
                 </li>
               </ul>
               <a class="menu-trigger">
@@ -590,7 +594,9 @@
       <script src="assets/js/lightbox.js"></script>
       <script src="assets/js/isotope.js"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <!--xử lý phân chat cho chat box-->
+      <script src="assets/js/gio_hang.js" defer></script>
+      <script src="assets/js/hien_thi_ten_dangnhap.js"></script>
+      <!--xử lý phần chat cho chat box-->
       <script src="assets/js/chatbox.js"></script>
 
 
