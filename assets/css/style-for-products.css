@@ -747,6 +747,17 @@ li.gio_hang_shop .count_div{
   }
 }
 
+.header-area .main-nav .nav li.username .username_login {
+  color: #0d0d0d;
+  align-content: center;
+  text-align: center;
+  pointer-events: none;
+  position: absolute;
+  top: -21px;
+  right:127px;
+}
+
+
 footer {
   margin-top: 60px;
   padding: 60px 0px 30px 0px;

@@ -369,6 +369,20 @@ header
   border: 1px solid #5a5858;
 }
 
+.header-area .main-nav .nav li.gio_hang_shop .count_div {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  align-content: center;
+  text-align: center;
+  pointer-events: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
 .header-area .main-nav .nav li:last-child {
   padding-right: 0px;
 }
@@ -631,6 +645,7 @@ header
     opacity: 1;
   }
 
+
   .header-area.header-sticky .nav li.search-icon a {
     width: 100%;
   }
@@ -729,6 +744,16 @@ header
   .header-area .main-nav .nav {
     display: flex !important;
   }
+}
+
+.header-area .main-nav .nav li.username .username_login {
+  color: #0d0d0d;
+  align-content: center;
+  text-align: center;
+  pointer-events: none;
+  position: absolute;
+  top: -21px;
+  right:127px;
 }
 
 /* 
