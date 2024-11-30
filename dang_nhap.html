@@ -336,10 +336,24 @@
         const username=$("#username-input").val().trim();
         const password =$("#matkhau-input").val().trim();
 
+        // kiểm tra người dùng là admin
+        if(username=="admin" &&password=="admin@123"){
+
+          const userAdmin={
+            username:"admin",
+            role:"admin"
+          };
+          sessionStorage.setItem("loggedInUser", JSON.stringify(userAdmin));
+          window.location.href="admin/admin.html"
+        }else{
+
         // lấy danh sách người dùng đã đăng kí
         let userList=JSON.parse(localStorage.getItem("userList"))||[];
         //  tìm kiếm người dùng đã có trong danh sách
         const user = userList.find(user=>user.username===username&&user.password===password);
+
+
+        
 
         if(user){
           $("#login-success-message").fadeIn();
@@ -355,6 +369,7 @@
         }else{
           alert("Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.");
         }
+      }
       });
 
      });
