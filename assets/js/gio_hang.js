@@ -25,13 +25,19 @@ document.addEventListener("DOMContentLoaded", function () {
       const productName = product.querySelector("h4").innerText;
       const productPrice = product.querySelector("span").innerText;
 
+      // Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+      let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const productExists = cartItems.some((item) => item.name === productName);
+
+      // Nếu sản phẩm chưa tồn tại, tăng cartCount và lưu vào localStorage
+      if (!productExists) {
+        cartCount++;
+        updateCartCount(cartCount);
+        localStorage.setItem("cartCount", cartCount);
+      }
+
       // Lưu vào localStorage và cập nhật giỏ hàng
       saveToLocalStorage(productImg, productName, productPrice);
-
-      // Tăng số lượng giỏ hàng và cập nhật giao diện
-      cartCount++;
-      updateCartCount(cartCount);
-      localStorage.setItem("cartCount", cartCount);
     });
   });
 
@@ -127,20 +133,42 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
 
     // Sự kiện xóa sản phẩm
+    // addCartItem
+    //   .querySelector(".product_remove")
+    //   .addEventListener("click", function () {
+    //     const confirmDelete = window.confirm(
+    //       "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?"
+    //     );
+    //     if (confirmDelete) {
+    //       removeCartItem(productImg);
+    //       addCartItem.remove();
+    //       cartCount = Math.max(cartCount - 1, 0);
+    //       updateCartCount(cartCount);
+    //       localStorage.setItem("cartCount", cartCount);
+    //       recalculateTotal();
+    //     }
+    //   });
     addCartItem
       .querySelector(".product_remove")
       .addEventListener("click", function () {
-        const confirmDelete = window.confirm(
-          "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?"
-        );
-        if (confirmDelete) {
+        // Hiển thị hộp thoại xác nhận tùy chỉnh
+        const customConfirm = document.getElementById("customConfirm");
+        customConfirm.style.display = "flex";
+
+        document.getElementById("confirmYes").onclick = function () {
           removeCartItem(productImg);
           addCartItem.remove();
           cartCount = Math.max(cartCount - 1, 0);
           updateCartCount(cartCount);
           localStorage.setItem("cartCount", cartCount);
           recalculateTotal();
-        }
+
+          customConfirm.style.display = "none";
+        };
+
+        document.getElementById("confirmNo").onclick = function () {
+          customConfirm.style.display = "none";
+        };
       });
 
     // Sự kiện thay đổi số lượng

@@ -95,9 +95,17 @@
                     <li><a href="lien_he.html">Liên hệ</a></li>
                   </ul>
                 </li>
-                <li class="username"> 
-                  <a href="dang_nhap.html" id="login_link"><i class="fa-solid fa-user-large"></i></a>
-                  <div class=username_login id="username-info" style="display: none;"><span id="username"></span></div>
+                <li class="username">
+                  <a href="dang_nhap.html" id="login_link"
+                    ><i class="fa-solid fa-user-large"></i
+                  ></a>
+                  <div
+                    class="username_login"
+                    id="username-info"
+                    style="display: none"
+                  >
+                    <span id="username"></span>
+                  </div>
                 </li>
                 <li class="gio_hang_shop">
                   <a href="./gio_hang.html">
@@ -328,6 +336,18 @@
       </div>
     </main>
     <!-- ***** Giỏ hàng End ***** -->
+
+    <!-- ***** Confirm dialog start ***** -->
+    <div id="customConfirm" class="confirm-dialog" style="display: none">
+      <div class="confirm-content">
+        <p>Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?</p>
+        <div class="confirm-buttons">
+          <button id="confirmYes" class="btn btn-danger">Có</button>
+          <button id="confirmNo" class="btn btn-secondary">Không</button>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Confirm dialog End ***** -->
 
     <!-- ***** Footer Start ***** -->
     <footer>

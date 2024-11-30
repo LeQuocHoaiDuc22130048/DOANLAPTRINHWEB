@@ -618,7 +618,6 @@ header
 
 .header-area.header-sticky {
   min-height: 80px;
-  
 }
 
 .header-area .nav {
@@ -757,7 +756,7 @@ header
   pointer-events: none;
   position: absolute;
   top: -21px;
-  right:127px;
+  right: 127px;
 }
 
 /* 
@@ -2237,44 +2236,46 @@ giỏ hàng
 confirm-dialog
 --------------------------------------------- 
 */
-/* 
-#confirmDialog {
-  display: none;
+
+.confirm-dialog {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1000;
 }
-
-.dialog-content {
-  background-color: white;
+.confirm-content {
+  background: white;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
+  max-width: 300px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-.dialog-content button {
-  margin: 10px;
-  padding: 10px 20px;
+.confirm-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.confirm-buttons button.btn {
+  padding: 8px 16px;
   border: none;
   cursor: pointer;
-  font-size: 16px;
 }
-
-#confirmYes {
-  background-color: #4caf50;
+.confirm-buttons button.btn-danger {
+  background-color: #e3342f;
   color: white;
 }
-
-#confirmNo {
-  background-color: #f44336; 
+.confirm-buttons button.btn-secondary {
+  background-color: #6c757d;
   color: white;
-} */
+}
 
 /* 
 ---------------------------------------------
