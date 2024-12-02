@@ -8,8 +8,6 @@
     rel="stylesheet"
 />
 <link rel="stylesheet" href="asset/css/style.css">
-<link rel="stylesheet" href="asset/styles.css">
-<link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.css">
     <title>Trang quản lý</title>
 </head>
 <body>
@@ -88,62 +86,77 @@
             </div>
             <div class="admin-content main">
                 <div class="admin-content-main-title">
-                    <h1>Thêm sản phẩm</h1>
+                    <h1>Quản lý người dùng</h1>
                 </div>
                 <div class="admin-content-main-content">
-                   <div class="admin-content-main-content-product-add">
-                    <div class="admin-content-main-content-left">
-                        <div class="admin-content-main-content-two-input">
-                            <input type="text" placeholder="Thương hiệu">
-                            <input type="text" placeholder="Mã sản phẩm">
-                            <input type="text" placeholder="Xuất sứ">
-                            <input type="text" placeholder="Bảo hành">
-                            <input type="text" placeholder="Giới tính">
-                            <input type="text" placeholder="Phong cách vành gọng">
-                            <input type="text" placeholder="Kiểu dáng">
-                            <input type="text" placeholder="Chất liệu">
-                            <input type="text" placeholder="Màu sắc">
-                            <input type="text" placeholder="Kích thước tròng">
-                            <input type="text" placeholder="Độ dài gọng">
-                            <input type="text" placeholder="Độ dài cầu kính">
-                        </div>
-                        <div class="admin-content-main-content-two-input">
-                            <input type="text" placeholder="Giá bán">
-                            <input type="text" placeholder="Giá giảm">
-                        </div>
-                        
-                        <textarea name="editor" id="editor">Chi tiết sản phẩm</textarea>
-                        <button class="main-btn">Thêm sản phẩm</button>
+                    <div class="admin-content-main-content-manager-list">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên người dùng</th>
+                                    <th>Email</th>
+                                    <th>Mật khẩu</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Ngày chỉnh sửa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Lê Văn A</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>123456</td>
+                                    <td>0123456789</td>
+                                    <td>154 Bắc Hải, Tân Bình, Hồ Chí Minh</td>
+                                    <td><a href="" class="edit-class">Đang hoạt động</a></td>
+                                    <td>28/11/2024</td>
+                                    <td>
+                                        28/11/2024
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>Lê Văn A</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>123456</td>
+                                    <td>0123456789</td>
+                                    <td>154 Bắc Hải, Tân Bình, Hồ Chí Minh</td>
+                                    <td><a href="" class="edit-class">Đang hoạt động</a></td>
+                                    <td>28/11/2024</td>
+                                    <td>
+                                        28/11/2024
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>Lê Văn A</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>123456</td>
+                                    <td>0123456789</td>
+                                    <td>154 Bắc Hải, Tân Bình, Hồ Chí Minh</td>
+                                    <td><a href="" class="edit-class">Đang hoạt động</a></td>
+                                    <td>28/11/2024</td>
+                                    <td>
+                                        28/11/2024
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="admin-content-main-content-right">
-                        <div class ="admin-content-main-content-right-image">
-                            <label for="file">Ảnh chính</label>
-                            <input id="file" type="file">
-                            <div class="image-show"></div>
-                        </div>
-                        <div class="admin-content-main-content-right-images">
-                            <label for="file">Ảnh phụ</label>
-                            <input id="file" type="file">
-                            <div class="images-show"></div>
-                        </div>
-                    </div>
-                   </div>
                 </div>
             </div>
         </div>
         
        </div>
     </section>
-   
-    <script type="importmap">
-		{
-			"imports": {
-				"ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.js",
-				"ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.3.1/"
-			}
-		}
-		</script>
-		<script type="module" src="asset/main.js"></script>
+    
     <script src="asset/js/app.js"></script>
 </body>
 </html>

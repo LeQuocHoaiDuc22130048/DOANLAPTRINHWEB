@@ -26,6 +26,7 @@ adminMenu.addEventListener(`click`, function (event) {
 const titleByDate = document.querySelector(`.label-table i`);
 const calender = document.querySelector(`#calender`);
 const datePicker = document.querySelector(`#date-picker`);
+const dateLabel = document.querySelector(`.label-table h3`);
 
 const today = new Date();
 const formatDate = today.toISOString().split(`T`)[0];
@@ -36,3 +37,11 @@ datePicker.setAttribute(`max`, formatDate);
 titleByDate.addEventListener(`click`, function () {
   calender.classList.toggle(`hidden`);
 });
+datePicker.addEventListener(`change`, ()=>{
+  const selectDate = datePicker.value;
+  if(selectDate){
+    dateLabel.textContent = `Danh sách đơn hàng theo ngày ${selectDate}`;
+  }else{
+    dateLabel.textContent = `Danh sách đơn hàng`;
+  }
+})
