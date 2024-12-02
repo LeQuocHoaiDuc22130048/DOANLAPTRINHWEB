@@ -8,7 +8,7 @@
     rel="stylesheet"
 />
 <link rel="stylesheet" href="asset/css/style.css">
-    <title>Dashboard</title>
+    <title>Trang quản lý</title>
 </head>
 <body>
     <section class="admin">
@@ -19,9 +19,9 @@
             </div>
             <div class="admin-sidebar-content">
                 <ul>
-                    <li><a href=""><i class="ri-dashboard-line"></i>Dashboard<i class="ri-add-box-line"></i></a>
+                    <li><a href=""><i class="ri-dashboard-line"></i>Trang quản lý<i class="ri-add-box-line"></i></a>
                         <ul class="sub-menu">
-                            <div class="sub-menu-items"><li><a href=""><i class="ri-arrow-right-s-fill"></i>Tổng quan</a></li></div>
+                            <div class="sub-menu-items"><li><a href="admin.html"><i class="ri-arrow-right-s-fill"></i>Tổng quan</a></li></div>
                             
                         </ul>
                     </li>
@@ -42,6 +42,15 @@
                         </ul>
 
                     </li>
+                    <li><a href=""><i class="ri-file-list-line"></i>Người dùng<i class="ri-add-box-line"></i></a>
+                        <ul class="sub-menu">
+                            <div class="sub-menu-items">
+                                <li><a href="manager_user.html"><i class="ri-arrow-right-s-fill"></i>Quản lý người dùng</a></li>
+                                
+                            </div>
+                            
+                        </ul>
+                    </li>
                 </ul>
             </div>  
         </div>
@@ -58,7 +67,18 @@
                         <li><i number = "3" class="ri-notification-4-line"></i ></li>
                         <li><i number = "5" class="ri-message-2-fill"></i ></li>
                         <li class="flex-box"><img style="width: 50px;" src="asset/imgs/logo.png" alt="">
-                            <p>Nhóm 65<i class="ri-arrow-down-s-fill"></i></p>
+                            <div class="admin-menu"><p>Nhóm 65<i class="ri-arrow-down-s-fill"></i></p></div>
+                            <div class="sub-menu-admin-container hidden">
+                                <div class="traingle"></div>
+                            <ul class="sub-menu-admin">
+                                <li>
+                                    
+                                    <div class="logout">
+                                        <a href="../dang_nhap.html">Đăng xuất</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            </div>
                         </li>
                         
                     </ul>
@@ -77,6 +97,7 @@
                                     <th>Ảnh</th>
                                     <th>Thương hiệu</th>
                                     <th>Mã sản phẩm</th>
+                                    <th>Mã giảm giá</th>
                                     <th>Giá bán</th>
                                     <th>Giá giảm</th>
                                     <th>Ngày đăng</th>
@@ -89,6 +110,7 @@
                                     <td><img width="70px" src="asset/imgs/product1c.jpg" alt=""></td>
                                     <td><img width="70px" src="asset/imgs/oakley.jpg" alt=""></td>
                                     <td>95001_N1S</td>
+                                    <td>abc</td>
                                     <td>5.000.000đ</td>
                                     <td>4.500.000đ</td>
                                     <td>28/11/2024</td>
@@ -101,9 +123,10 @@
 
                                 <tr>
                                     <td>1</td>
-                                    <td><img width="70px" src="asset/imgs/product2.jpg" alt=""></td>
+                                    <td><img width="70px" src="asset/imgs/product1c.jpg" alt=""></td>
                                     <td><img width="70px" src="asset/imgs/oakley.jpg" alt=""></td>
                                     <td>95001_N1S</td>
+                                    <td>abc</td>
                                     <td>5.000.000đ</td>
                                     <td>4.500.000đ</td>
                                     <td>28/11/2024</td>
@@ -115,10 +138,11 @@
                                 </tr>
 
                                 <tr>
-                                    <td>2</td>
-                                    <td><img width="70px" src="asset/imgs/product1b.jpg" alt=""></td>
+                                    <td>1</td>
+                                    <td><img width="70px" src="asset/imgs/product1c.jpg" alt=""></td>
                                     <td><img width="70px" src="asset/imgs/oakley.jpg" alt=""></td>
                                     <td>95001_N1S</td>
+                                    <td>abc</td>
                                     <td>5.000.000đ</td>
                                     <td>4.500.000đ</td>
                                     <td>28/11/2024</td>

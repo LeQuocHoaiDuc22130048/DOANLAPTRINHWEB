@@ -9,7 +9,7 @@
 />
 <link rel="stylesheet" href="asset/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Dashboard</title>
+    <title>Trang quản lý</title>
 </head>
 <body>
     <section class="admin">
@@ -20,7 +20,7 @@
             </div>
             <div class="admin-sidebar-content">
                 <ul>
-                    <li><a href=""><i class="ri-dashboard-line"></i>Dashboard<i class="ri-add-box-line"></i></a>
+                    <li><a href=""><i class="ri-dashboard-line"></i>Trang quản lý<i class="ri-add-box-line"></i></a>
                         <ul class="sub-menu">
                             <div class="sub-menu-items"><li><a href="#"><i class="ri-arrow-right-s-fill"></i>Tổng quan</a></li></div>
                             
@@ -44,6 +44,15 @@
                         </ul>
 
                     </li>
+                    <li><a href=""><i class="ri-file-list-line"></i>Người dùng<i class="ri-add-box-line"></i></a>
+                        <ul class="sub-menu">
+                            <div class="sub-menu-items">
+                                <li><a href="manager_user.html"><i class="ri-arrow-right-s-fill"></i>Quản lý người dùng</a></li>
+                                
+                            </div>
+                            
+                        </ul>
+                    </li>
                 </ul>
             </div>  
         </div>
@@ -60,8 +69,18 @@
                         <li><i number = "3" class="ri-notification-4-line"></i ></li>
                         <li><i number = "5" class="ri-message-2-fill"></i ></li>
                         <li class="flex-box"><img style="width: 50px;" src="asset/imgs/logo.png" alt="">
-                            <p>Nhóm 65<i class="ri-arrow-down-s-fill"></i></p>
-                            
+                            <div class="admin-menu"><p>Nhóm 65<i class="ri-arrow-down-s-fill"></i></p></div>
+                            <div class="sub-menu-admin-container hidden">
+                                <div class="traingle"></div>
+                            <ul class="sub-menu-admin">
+                                <li>
+                                    
+                                    <div class="logout">
+                                        <a href="../dang_nhap.html">Đăng xuất</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            </div>
                         </li>
                         
                     </ul>
@@ -69,12 +88,15 @@
             </div>
             <div class="admin-content main">
                 <div class="admin-content-main-title">
-                    <h1>Dashboard</h1>
+                    <h1>Trang quản lý</h1>
                 </div>
                 <div class="admin-content-main-content admin-dashboard-top">
                     <div class="admin-content-main-content-home-admin">
                         <div class="admin-content-main-content-home-table">
-                            <label for="" class="label-table"><h3>Danh sách đơn hàng trong ngày</h3></label>
+                            <label for="" class="label-table"><h3>Danh sách đơn hàng theo ngày <i class="ri-arrow-down-s-fill"></i></h3></label>
+                            <div id="calender" class="hidden">
+                                <input type="date" id="date-picker" min="" max="">
+                            </div>
                             <table> <tr>
                                 <th>STT</th>
                                 <th>Mã đơn hàng</th>
@@ -90,11 +112,11 @@
                                 <td>xyz</td>
                                 <td>abc</td>
                                 <td>Lê Văn A</td>
-                                <td><a href="" class="confirm-order">Chi tiết</a></td>
+                                <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
                                 <td>2021-10-10</td>
                                 <td><a href="" class="confirm-order">Đã giao hàng</a></td>
                                 <td>
-                                    <a href="product_edit.html" class="confirm-order">Sửa</a>
+                                    <a href="order_detail.html" class="confirm-order">Sửa</a>
                                 </td>
                             </tr>
                             <tr>
@@ -102,11 +124,11 @@
                                 <td>xyz</td>
                                 <td>abc</td>
                                 <td>Lê Văn A</td>
-                                <td><a href="" class="confirm-order">Chi tiết</a></td>
+                                <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
                                 <td>2021-10-10</td>
                                 <td><a href="" class="confirm-order">Đã giao hàng</a></td>
                                 <td>
-                                    <a href="product_edit.html" class="confirm-order">Sửa</a>
+                                    <a href="order_detail.html" class="confirm-order">Sửa</a>
                                 </td>
                             </tr>
                             <tr>
@@ -114,11 +136,11 @@
                                 <td>xyz</td>
                                 <td>abc</td>
                                 <td>Lê Văn A</td>
-                                <td><a href="" class="confirm-order">Chi tiết</a></td>
+                                <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
                                 <td>2021-10-10</td>
                                 <td><a href="" class="confirm-order">Đã giao hàng</a></td>
                                 <td>
-                                    <a href="product_edit.html" class="confirm-order">Sửa</a>
+                                    <a href="order_detail.html" class="confirm-order">Sửa</a>
                                 </td>
                             </tr>
                             <tr>
@@ -126,11 +148,11 @@
                                 <td>xyz</td>
                                 <td>abc</td>
                                 <td>Lê Văn A</td>
-                                <td><a href="" class="confirm-order">Chi tiết</a></td>
+                                <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
                                 <td>2021-10-10</td>
                                 <td><a href="" class="confirm-order">Đã giao hàng</a></td>
                                 <td>
-                                    <a href="product_edit.html" class="confirm-order">Sửa</a>
+                                    <a href="order_detail.html" class="confirm-order">Sửa</a>
                                 </td>
                             </tr>
                             <tr>
@@ -138,11 +160,11 @@
                                 <td>xyz</td>
                                 <td>abc</td>
                                 <td>Lê Văn A</td>
-                                <td><a href="" class="confirm-order">Chi tiết</a></td>
+                                <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
                                 <td>2021-10-10</td>
                                 <td><a href="" class="confirm-order">Đã giao hàng</a></td>
                                 <td>
-                                    <a href="product_edit.html" class="confirm-order">Sửa</a>
+                                    <a href="order_detail.html" class="confirm-order">Sửa</a>
                                 </td>
                             </tr>
                             <tr>
@@ -150,11 +172,11 @@
                                 <td>xyz</td>
                                 <td>abc</td>
                                 <td>Lê Văn A</td>
-                                <td><a href="" class="confirm-order">Chi tiết</a></td>
+                                <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
                                 <td>2021-10-10</td>
                                 <td><a href="" class="confirm-order">Đã giao hàng</a></td>
                                 <td>
-                                    <a href="product_edit.html" class="confirm-order">Sửa</a>
+                                    <a href="order_detail.html" class="confirm-order">Sửa</a>
                                 </td>
                             </tr>
                             <tr>
@@ -162,11 +184,11 @@
                                 <td>xyz</td>
                                 <td>abc</td>
                                 <td>Lê Văn A</td>
-                                <td><a href="" class="confirm-order">Chi tiết</a></td>
+                                <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
                                 <td>2021-10-10</td>
                                 <td><a href="" class="confirm-order">Đã giao hàng</a></td>
                                 <td>
-                                    <a href="product_edit.html" class="confirm-order">Sửa</a>
+                                    <a href="order_detail.html" class="confirm-order">Sửa</a>
                                 </td>
                             </tr>
                             <tr>
@@ -174,11 +196,11 @@
                                 <td>xyz</td>
                                 <td>abc</td>
                                 <td>Lê Văn A</td>
-                                <td><a href="" class="confirm-order">Chi tiết</a></td>
+                                <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
                                 <td>2021-10-10</td>
                                 <td><a href="" class="confirm-order">Đã giao hàng</a></td>
                                 <td>
-                                    <a href="product_edit.html" class="confirm-order">Sửa</a>
+                                    <a href="order_detail.html" class="confirm-order">Sửa</a>
                                 </td>
                             </tr>
                             <tr>
@@ -186,11 +208,11 @@
                                 <td>xyz</td>
                                 <td>abc</td>
                                 <td>Lê Văn A</td>
-                                <td><a href="" class="confirm-order">Chi tiết</a></td>
+                                <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
                                 <td>2021-10-10</td>
                                 <td><a href="" class="confirm-order">Đã giao hàng</a></td>
                                 <td>
-                                    <a href="product_edit.html" class="confirm-order">Sửa</a>
+                                    <a href="order_detail.html" class="confirm-order">Sửa</a>
                                 </td>
                             </tr>   
                         </table>
@@ -210,41 +232,41 @@
                             <canvas id="revenueChart" style="box-sizing: border-box; height: 400px; width: 452px;"></canvas>
                         </div>
                         <div class="admin-content-main-content-home-admin-bottom-right">
-                            <label for=""><h3>Sản phẩm bán chạy</h3></label>
+                            <label for=""><h3>Sản phẩm bán chạy trong tháng</h3></label>
                             <div class="admin-content-main-content-home-table">
                                 <table> <tr>
                                     <th>Mã sản phẩm</th>
-                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
                                     <th>Thương hiệu</th>
                                     <th>Số lượng đã bán</th>
                                     
                                 </tr>
                                 <tr>
                                     <td>abc</td>
-                                    <td>Lê Văn A</td>
-                                    <td><a href="" class="confirm-order">Chi tiết</a></td>
-                                    <td>2021-10-10</td>
+                                    <td>xyz</td>
+                                    <td>gucci</td>
+                                    <td>10</td>
                                     
                                 </tr>
                                 <tr>
                                     <td>abc</td>
-                                    <td>Lê Văn A</td>
-                                    <td><a href="" class="confirm-order">Chi tiết</a></td>
-                                    <td>2021-10-10</td>
+                                    <td>xyz</td>
+                                    <td>gucci</td>
+                                    <td>10</td>
                                     
                                 </tr>
                                 <tr>
                                     <td>abc</td>
-                                    <td>Lê Văn A</td>
-                                    <td><a href="" class="confirm-order">Chi tiết</a></td>
-                                    <td>2021-10-10</td>
+                                    <td>xyz</td>
+                                    <td>gucci</td>
+                                    <td>10</td>
                                     
                                 </tr>
                                 <tr>
                                     <td>abc</td>
-                                    <td>Lê Văn A</td>
-                                    <td><a href="" class="confirm-order">Chi tiết</a></td>
-                                    <td>2021-10-10</td>
+                                    <td>xyz</td>
+                                    <td>gucci</td>
+                                    <td>10</td>
                                     
                                 </tr>
                                 

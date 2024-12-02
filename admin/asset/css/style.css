@@ -18,6 +18,7 @@
 a{
     text-decoration: none;
     color: unset;
+    
 }
 li{
     list-style: none;
@@ -25,6 +26,9 @@ li{
 canvas {
     max-width: 800px;
     margin: 0 auto;
+}
+.hidden{
+    display: none;
 }
 
 .flex-box{
@@ -174,6 +178,32 @@ canvas {
     align-items: center;
     animation: notification 1s infinite 1s;
 }
+.admin-content-top-right .sub-menu-admin{
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    background-color: var(--main-bg-color);
+    color: white;
+    padding: 5px;
+}
+
+.traingle{
+    position: absolute;
+    top: -7px;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 59px 0px 9px 7px;
+    border-color: transparent transparent var(--main-bg-color) transparent;
+}
+
+
+.admin-content-top-right .sub-menu-admin li .logout a{
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
 
 @keyframes notification{
     0%{
@@ -285,6 +315,7 @@ canvas {
     padding: 6px 0;
  }
  /* order-list */
+ .admin-content-main-content-manager-list table,
  .admin-content-main-content-home-table table,
  .admin-content-main-content-order-list table{
     width: 100%;
@@ -294,20 +325,23 @@ canvas {
  .admin-content-main-content-order-list table a{
     display: inline-block;
  }
-
+ .admin-content-main-content-manager-list table,th,td,
  .admin-content-main-content-order-list table,th,td{
     text-align: center;
  }
+ .admin-content-main-content-manager-list table th,
  .admin-content-main-content-home-table table th,
  .admin-content-main-content-order-list table th{
     background-color: var(--main-bg-color);
     color: white;
     padding: 6px 0;
  }
+ .admin-content-main-content-manager-list table td,
  .admin-content-main-content-home-table table td,
  .admin-content-main-content-order-list table td{
     padding: 6px 0;
  }
+ 
 
  /* admin dashboard */
  .admin-content.main{
@@ -323,6 +357,14 @@ canvas {
     margin: 12px;
     
 }
+#calender{
+    position: absolute;
+    right: 320px;
+    top: 137px;
+}
+.label-table i{
+ cursor: pointer;   
+}
 .admin-content-main-content-home-admin-bottom-right label,
 .admin-content-main-content-home-admin-bottom-left label,
  .admin-content-main-content-home-table label{
@@ -334,5 +376,6 @@ canvas {
     grid-template-columns: 40% 50%;
     column-gap: 20px;
     padding: 20px 0 0 0;
+    overflow-y: scroll;
  }
  
