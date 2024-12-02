@@ -139,7 +139,7 @@
 
     <body>
       <!-- ***** Header Area Start ***** -->
-      <header class="header-area header-sticky background-header">
+      <header class="header-area header-sticky">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -152,19 +152,19 @@
                 <!-- ***** Menu Start ***** -->
                 <ul class="nav">
                   <li class="scroll-to-section">
-                    <a href="index.html#top">Trang chủ</a>
+                    <a href="./index.html#top" class="active">Trang chủ</a>
                   </li>
                   <li class="scroll-to-section">
-                    <a href="kinh_mat.html">Kính mát</a>
+                    <a href="./index.html#kinh_mat">Kính mát</a>
                   </li>
                   <li class="scroll-to-section">
-                    <a href="gong_kinh.html">Gọng kính</a>
+                    <a href="./index.html#gong_kinh">Gọng kính</a>
                   </li>
                   <li class="scroll-to-section">
-                    <a href="trong_kinh.html">Tròng kính</a>
+                    <a href="./index.html#trong_kinh">Tròng kính</a>
                   </li>
                   <li class="scroll-to-section">
-                    <a href="kinh_ap_trong.html">Kính áp tròng</a>
+                    <a href="./index.html#kinh_ap_trong">Kính áp tròng</a>
                   </li>
                   <li class="submenu">
                     <a href="javascript:;">Trang phụ</a>
@@ -179,16 +179,18 @@
                       <li><a href="lien_he.html">Liên hệ</a></li>
                     </ul>
                   </li>
-                  <li>
-                    <a href="dang_nhap.html" class="active"
-                      ><i class="fa-solid fa-user-large"></i
-                    ></a>
+                  <li class="username"> 
+                    <a href="dang_nhap.html" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                    <div class=username_login id="username-info" style="display: none;"><span id="username"></span></div>
                   </li>
                   <li class="gio_hang_shop">
                     <a href="./gio_hang.html">
                       <span>Giỏ hàng </span>
-                      <i class="fa-solid fa-cart-shopping"></i
-                    ></a>
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="count_div">
+                      <span class="cart-count">0</span>
+                    </div>
                   </li>
                 </ul>
                 <a class="menu-trigger">
