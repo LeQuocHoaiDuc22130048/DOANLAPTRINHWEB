@@ -1991,8 +1991,39 @@ giỏ hàng
   padding: 70px 10px 20px;
 }
 
+.gio_hang .container .non_product i {
+  color: #04be04;
+  font-size: 4.5rem;
+}
+
 .gio_hang .container .non_product .btn_return {
   font-weight: bold;
+}
+
+.gio_hang .container .non_product a.btn_continue {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #0021f5;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #0021f5;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.gio_hang .container .non_product a.btn_continue:hover {
+  color: #0021f5;
+  background-color: #fff;
+  border: 1px solid #0021f5;
+}
+
+.gio_hang .container .non_product .text_complete {
+  color: #00000091;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .gio_hang .container .non_product p {
