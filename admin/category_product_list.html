@@ -8,6 +8,7 @@
     rel="stylesheet"
 />
 <link rel="stylesheet" href="asset/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Trang quản lý</title>
 </head>
 <body>
@@ -108,70 +109,65 @@
                     </ul>
                 </div>
             </div>
-            <div class="admin-content main">
+            <div class="admin-content-main">
                 <div class="admin-content-main-title">
-                    <h1>Chi tiết đơn hàng</h1>
+                    <h1>Quản lý danh mục</h1>
                 </div>
                 <div class="admin-content-main-content">
-                    <div class="admin-content-main-content-order-list">
+                    <div class="admin-content-main-content-manager-list">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Ảnh</th>
-                                    <th>Thương hiệu</th>
-                                    <th>Mã sản phẩm</th>
-                                    <th>Giá</th>
-                                    <th>Số lượng</th>
-                                    <th>Thành tiền</th>
-                                    <th>Tùy biến</th>
+                                    <th>STT</th>
+                                    <th>Tên</th>
+                                    <th>Mô tả</th>
+                                    <th>Số sản phẩm</th>
+                                    <th>Trạng thái</th>
+                                    <th>Tùy chỉnh</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td><img width="70px" src="asset/imgs/product1.jpg" alt=""></td>
-                                    <td><img width="70px" src="asset/imgs/oakley.jpg" alt=""></td>
-                                    <td>95001_N1S</td>
-                                    <td>5.000.000đ</td>
-                                    <td>1</td>
-                                    <td>5.000.000đ</td>
-                                    <td>
-                                        <a class="delete-class" href="">Xóa</a>
+                                    <td>ABC</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur</td>
+                                    <td>123456</td>
+                                    <td>Hiện</td>
+                                    <td><a href="" class="edit-class">Sửa</a>
+                                        <a href="" class="delete-class">Xóa</a>
                                     </td>
+                                    
                                 </tr>
 
-                                <tr>
-                                    <td>1</td>
-                                    <td><img width="70px" src="asset/imgs/product1.jpg" alt=""></td>
-                                    <td><img width="70px" src="asset/imgs/oakley.jpg" alt=""></td>
-                                    <td>95001_N1S</td>
-                                    <td>5.000.000đ</td>
-                                    <td>1</td>
-                                    <td>5.000.000đ</td>
-                                    <td>
-                                        <a class="delete-class" href="">Xóa</a>
-                                    </td>
-                                </tr>
+                                
 
-                                <tr>
-                                    <td>1</td>
-                                    <td><img width="70px" src="asset/imgs/product1.jpg" alt=""></td>
-                                    <td><img width="70px" src="asset/imgs/oakley.jpg" alt=""></td>
-                                    <td>95001_N1S</td>
-                                    <td>5.000.000đ</td>
-                                    <td>1</td>
-                                    <td>5.000.000đ</td>
-                                    <td>
-                                        <a class="delete-class" href="">Xóa</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: bold;" colspan="6">Tổng cộng</td>
-                                    <td style="font-weight: 700;">15.000.000đ</td>
-                                </tr>
                             </tbody>
                         </table>
+                    </div>
+
+                </div>
+                <div class="admin-content-main-add-category">
+                    <div class="admin-content-main-title">
+                        <h1>Thêm danh mục</h1>
+                    </div>
+                    <div class="admin-content-main-add-category-top">
+                        <input type="text" placeholder="Tên">
+                        <div class="select-status">
+                            <label for="">Trạng Thái</label>
+                        <select name="" id="">
+                            <option value="">Hiện</option>
+                            <option value="">Ẩn</option>
+                        </select>
+                        </div>
+
+                        <div class="save-cancel">
+                            <button class="main-btn">Lưu</button>
+                            <button class="main-btn">Hủy</button>
+                        </div>
+                    </div>
+                    <div class="admin-content-main-add-category-bottom">
+                        <textarea rows="4" placeholder="Mô tả"></textarea>
                     </div>
                 </div>
             </div>
@@ -181,5 +177,6 @@
     </section>
     
     <script src="asset/js/app.js"></script>
+    <script src="asset/js/datapresudo.js"></script>
 </body>
 </html>
