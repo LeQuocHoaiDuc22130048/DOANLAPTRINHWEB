@@ -40,8 +40,9 @@ canvas {
     color: whitesmoke;
     border: none;
     cursor: pointer;
-
 }
+
+
 .row-grid{
     display: grid;
     justify-content: space-between;
@@ -344,9 +345,10 @@ canvas {
  
 
  /* admin dashboard */
+ .admin-content-main .admin-content-main-content,
  .admin-content.main{
     overflow-y: scroll;
-    max-height: 625px;
+    max-height: 650px;
  }
  .admin-content-main-content.admin-dashboard-top{
     overflow-y: scroll;
@@ -379,3 +381,50 @@ canvas {
     overflow-y: scroll;
  }
  
+ /* category */
+ .admin-content-main-add-category-top{
+    display: flex;
+ }
+ .save-cancel,
+ .select-status{
+    display: flex;
+    align-items: center;
+ }
+ .save-cancel,
+ .save-cancel button,
+ .select-status select{
+    margin-left: 10px;
+ }
+.admin-content-main-add-category-top input:first-child{
+    width: 30%;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-right: 108px;
+}
+.admin-content-main-add-category-bottom textarea{
+    width: 60%;
+}
+.admin-content-main-add-category textarea{
+    padding: 10px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+/* promotion */
+.admin-content-main-add-category-top.promotion input:first-child{
+    width: 25%;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-right: 38px;
+}
+.select-status input{
+    padding: 10px;
+    border: none;
+    outline: none;
+    width: 30%;
+    margin-left: 10px;
+}
