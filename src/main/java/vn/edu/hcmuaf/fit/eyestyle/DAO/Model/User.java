@@ -1,9 +1,10 @@
-package vn.edu.hcmuaf.fit.doanweb.model;
+package vn.edu.hcmuaf.fit.eyestyle.DAO.Model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public class User implements Serializable {
+
 
     private int id;
     private String name;
@@ -99,4 +100,7 @@ public class User implements Serializable {
     public void setUpdated_at(LocalDateTime updated_at) {
         this.updated_at = updated_at;
     }
+
+
+
 }

@@ -1,21 +1,22 @@
-package vn.edu.hcmuaf.fit.doanweb.model;
+package vn.edu.hcmuaf.fit.eyestyle.DAO.Model;
 
 import java.io.Serializable;
 
-public class UsersTypes implements Serializable {
-private int id;
-private int user_id;
-private int user_type_id;
+public class Users_Types implements Serializable {
+
+    private int id;
+    private int user_id;
+    private int user_type_id;
 
 
-public UsersTypes(int id, int user_id, int user_type_id){
-    this.id= id;
-    this.user_id=user_id;
-    this.user_type_id=user_type_id;
-}
-public UsersTypes(){
+    public Users_Types(int id, int user_id, int user_type_id){
+        this.id= id;
+        this.user_id=user_id;
+        this.user_type_id=user_type_id;
+    }
+    public Users_Types(){
 
-}
+    }
 
     public int getId() {
         return id;
