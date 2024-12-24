@@ -67,6 +67,7 @@ closeChatButton.addEventListener("click", function() {
 });
 
 
+// thu nhỏ chat box
  document.addEventListener("DOMContentLoaded",()=>{
    const chatHeader = document.querySelector(".chat-header");
    // thu nhỏ / mở rộng
