@@ -32,8 +32,8 @@
     />
 
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
- <link rel="stylesheet" href="assets/css/sanpham.css" />
-     <link rel="stylesheet" href="assets/css/eyestyle.css" />
+    <link rel="stylesheet" href="assets/css/sanpham.css" />
+    <link rel="stylesheet" href="assets/css/eyestyle.css" />
 
 
     <link rel="stylesheet" href="assets/css/owl-carousel.css" />
@@ -722,7 +722,7 @@
                       ></a>
                     </li>
                     <li>
-                      <a href="gio_hang.jsp" class="btn_gio_hang"
+                      <a href="gio_hang.html" class="btn_gio_hang"
                         ><i class="fa fa-shopping-cart"></i
                       ></a>
                     </li>
@@ -748,7 +748,7 @@
                       ></a>
                     </li>
                     <li>
-                      <a href="gio_hang.jsp" class="btn_gio_hang"
+                      <a href="gio_hang.html" class="btn_gio_hang"
                         ><i class="fa fa-shopping-cart"></i
                       ></a>
                     </li>
@@ -773,7 +773,7 @@
                       ></a>
                     </li>
                     <li>
-                      <a href="gio_hang.jsp" class="btn_gio_hang"
+                      <a href="gio_hang.html" class="btn_gio_hang"
                         ><i class="fa fa-shopping-cart"></i
                       ></a>
                     </li>
@@ -798,7 +798,7 @@
                       ></a>
                     </li>
                     <li>
-                      <a href="gio_hang.jsp" class="btn_gio_hang"
+                      <a href="gio_hang.html" class="btn_gio_hang"
                         ><i class="fa fa-shopping-cart"></i
                       ></a>
                     </li>
