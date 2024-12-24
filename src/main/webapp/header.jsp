@@ -36,7 +36,7 @@
                                 <li class="scroll-to-section">
                                     <a href="bai_viet.html">Bài viết</a>
                                 </li>
-                                <li><a href="lien_he.html">Liên hệ</a></li>
+                                <li><a href="lien_he.jsp">Liên hệ</a></li>
                             </ul>
                         </li>
                         <li class="username">

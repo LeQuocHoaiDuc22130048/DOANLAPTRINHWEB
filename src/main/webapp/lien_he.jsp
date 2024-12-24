@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,69 +56,7 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="main-nav">
-              <!-- ***** Logo Start ***** -->
-              <a href="index.jsp" class="logo">
-                <img src="assets/images/logo.png" />
-              </a>
-              <!-- ***** Logo End ***** -->
-              <!-- ***** Menu Start ***** -->
-              <ul class="nav">
-                <li class="scroll-to-section">
-                  <a href="index.jsp#top" class="active">Trang chủ</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="index.jsp#kinh_mat">Kính mát</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="index.jsp#gong_kinh">Gọng kính</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="index.jsp#trong_kinh">Tròng kính</a>
-                </li>
-                <li class="scroll-to-section">
-                  <a href="index.jsp#kinh_ap_trong">Kính áp tròng</a>
-                </li>
-                <li class="submenu">
-                  <a href="javascript:;">Trang phụ</a>
-                  <ul>
-                    <li><a href="gong_kinh.html">Sản phẩm</a></li>
-                    <li>
-                      <a href="chi_tiet_san_pham.html">Chi tiết sản phẩm</a>
-                    </li>
-                    <li class="scroll-to-section">
-                      <a href="bai_viet.html">Bài viết</a>
-                    </li>
-                    <li><a href="lien_he.html">Liên hệ</a></li>
-                  </ul>
-                </li>
-                <li class="username"> 
-                  <a href="dang_nhap.html" id="login_link"><i class="fa-solid fa-user-large"></i></a>
-                  <div class=username_login id="username-info" style="display: none;"><span id="username"></span></div>
-                </li>
-                <li class="gio_hang_shop">
-                  <a href="gio_hang.jsp">
-                    <span>Giỏ hàng </span>
-                    <i class="fa-solid fa-cart-shopping"></i>
-                  </a>
-                  <div class="count_div">
-                    <span class="cart-count">0</span>
-                  </div>
-                </li>
-              </ul>
-              <a class="menu-trigger">
-                <span>Menu</span>
-              </a>
-              <!-- ***** Menu End ***** -->
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
+    <jsp:include page="header.jsp"/>
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
@@ -273,118 +212,8 @@
     <!-- ***** Subscribe Area Ends ***** -->
 
     <!-- ***** Footer Start ***** -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 inf_first">
-            <div class="first-item">
-              <div class="logo">
-                <img src="./assets/images/logo.png" alt="eyestyle nhom 65" />
-              </div>
-              <ul>
-                <li>
-                  <a href="#">Đại học Nông Lâm TPHCM</a>
-                </li>
-                <li><a href="#">nhom65@company.com</a></li>
-                <li><a href="#">0123 456 789</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3 inf">
-            <h4>Mua sắm &amp; Danh mục</h4>
-            <ul>
-              <li><a href="kinh_mat.html">Kính mát</a></li>
-              <li><a href="gong_kinh.html">Gọng kính</a></li>
-              <li><a href="trong_kinh.html">Tròng kính</a></li>
-              <li><a href="kinh_ap_trong.html">Kính áp tròng</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 inf">
-            <h4>Trợ giúp &amp; Thông tin</h4>
-            <ul>
-              <li><a href="#">Sản phẩm cập nhật</a></li>
-              <li><a href="./bai_viet.html">Đời sống</a></li>
-              <li><a href="gio_hang.jsp">Vận chuyển</a></li>
-              <li><a href="./lien_he.html">Liên hệ hỗ trợ</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 inf">
-            <h4>Điều hướng</h4>
-            <ul>
-              <li><a href="index.jsp">Trang chủ</a></li>
-              <li><a href="gong_kinh.html">Sản phẩm</a></li>
-              <li><a href="./lien_he.html">Liên hệ</a></li>
-              <li><a href="./bai_viet.html">Bài viết</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <div class="under-footer">
-              <p>
-                Group65 © 2022 HexaShop Co., Ltd. All Rights Reserved.
-
-                <br />Design:
-                <a href="#">Group 65</a>
-              </p>
-              <ul>
-                <li>
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-linkedin"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-behance"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--nút di chuyển lên đầu trang-->
-      <a href="#top" class="btn_di_chuyen" id="backToTop">
-        <i class="fa-solid fa-angle-up"></i>
-      </a>
-
-      <!-- chat box ở phần footer Start-->
-      <div id="chatButton">
-        <div class="hamburger" id="hamburgerIcon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="close-icon" id="closeIcon" style="display: none">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-
-      <!-- Chat Box -->
-      <div id="chatBox">
-        <h2>Chuyên viên tư vấn</h2>
-        <div class="status">Online</div>
-        <p>Hỏi chúng tôi bất cứ điều gì. Chúng tôi sẽ trả lời ngay lập tức</p>
-        <form>
-          <input type="text" placeholder="Tên của bạn" required />
-          <input type="tel" placeholder="Số điện thoại" required />
-          <textarea
-            placeholder="Tin nhắn của bạn"
-            rows="3"
-            required
-            style="resize: none"
-          ></textarea>
-          <div class="submit_container">
-            <button type="submit" class="submit-btn">
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </div>
-        </form>
-      </div>
-      <!-- chat box ở phần footer End-->
-    </footer>
+    <jsp:include page="footer.jsp"/>
+    <!-- ***** Footer End ***** -->
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -412,21 +241,5 @@
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
 
-    <script>
-      $(function () {
-        var selectedClass = "";
-        $("p").click(function () {
-          selectedClass = $(this).attr("data-rel");
-          $("#portfolio").fadeTo(50, 0.1);
-          $("#portfolio div")
-            .not("." + selectedClass)
-            .fadeOut();
-          setTimeout(function () {
-            $("." + selectedClass).fadeIn();
-            $("#portfolio").fadeTo(50, 1);
-          }, 500);
-        });
-      });
-    </script>
   </body>
 </html>

@@ -36,7 +36,7 @@
                     <li><a href="index.jsp">Sản phẩm cập nhật</a></li>
                     <li><a href="bai_viet.html">Đời sống</a></li>
                     <li><a href="gio_hang.jsp">Vận chuyển</a></li>
-                    <li><a href="lien_he.html">Liên hệ hỗ trợ</a></li>
+                    <li><a href="lien_he.jsp">Liên hệ hỗ trợ</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 inf">
@@ -44,7 +44,7 @@
                 <ul>
                     <li><a href="index.jsp">Trang chủ</a></li>
                     <li><a href="gong_kinh.html">Sản phẩm</a></li>
-                    <li><a href="lien_he.html">Liên hệ</a></li>
+                    <li><a href="lien_he.jsp">Liên hệ</a></li>
                     <li><a href="bai_viet.html">Bài viết</a></li>
                 </ul>
             </div>
