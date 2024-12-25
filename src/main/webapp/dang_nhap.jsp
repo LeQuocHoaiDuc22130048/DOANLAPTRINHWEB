@@ -1,3 +1,5 @@
+
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -134,6 +136,20 @@
           max-width: 50%;
           margin-left: 140px;
         }
+
+        .fail-message {
+          background-color: #e85d51;
+          color: white;
+          padding: 10px;
+          text-align: center;
+          border-radius: 5px;
+          margin-top: 20px;
+          font-size: 16px;
+          max-width: 50%;
+          margin-left: 140px;
+        }
+
+
       </style>
     </head>
 
@@ -180,7 +196,7 @@
                     </ul>
                   </li>
                   <li class="username"> 
-                    <a href="dang_nhap.html" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                    <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
                     <div class=username_login id="username-info" style="display: none;"><span id="username"></span></div>
                   </li>
                   <li class="gio_hang_shop">
@@ -215,13 +231,14 @@
         <div class="login-form">
           <h3 class="title">Đăng nhập tài khoản</h3>
           <h4>Hãy đăng nhập ngay để được hưởng đặc quyền riêng dành cho bạn</h4>
-          <form id="login-form">
+          <form id="login-form" action="login" method="post">
             <div class="taikhoan">
               <label for="username" class="form-label">Tên tài khoản</label>
               <input
                 type="text"
                 class="form-control"
                 id="username-input"
+                name="username"
                 placeholder="Nhập tên tài khoản"
                 required
               />
@@ -233,6 +250,7 @@
                 type="password"
                 class="form-control"
                 id="matkhau-input"
+                name="password"
                 placeholder="Nhập mật khẩu"
                 required
               />
@@ -251,8 +269,18 @@
             <div class="text-center">
               <span
                 >Bạn chưa có tài khoản?
-                <a href="dang_ki.html">Đăng kí ngay</a></span
+                <a href="dang_ki.jsp">Đăng kí ngay</a></span
               >
+            </div>
+
+            <!-- Thông báo đăng kí thành công -->
+            <div id="login-success-message" class="success-message" style="${empty requestScope['success-message'] ? 'display: none;' : 'display: block;'}">
+              <p>${requestScope['success-message']}</p>
+            </div>
+
+            <!-- Thông báo đăng kí thất bại -->
+            <div id="login-fail-message" class="fail-message" style="${empty requestScope['fail-message'] ? 'display: none;' : 'display: block;'}">
+              <p>${requestScope['fail-message']}</p>
             </div>
           </form>
 
@@ -338,76 +366,6 @@
           </div>
         </div>
       </footer>
-
-      <!--xử lý đăng nhập-->
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-      <script>
-        $(document).ready(function () {
-          $(".btn-login").click(function (e) {
-            e.preventDefault();
-
-            const username = $("#username-input").val().trim();
-            const password = $("#matkhau-input").val().trim();
-
-            // kiểm tra người dùng là admin
-            if (username == "admin" && password == "admin@123") {
-              const userAdmin = {
-                username: "admin",
-                role: "admin",
-              };
-              sessionStorage.setItem("loggedInUser", JSON.stringify(userAdmin));
-              window.location.href = "admin/admin.html";
-            } else {
-              // lấy danh sách người dùng đã đăng kí
-              let userList = JSON.parse(localStorage.getItem("userList")) || [];
-              //  tìm kiếm người dùng đã có trong danh sách
-              const user = userList.find(
-                (user) =>
-                  user.username === username && user.password === password
-              );
-
-              if (user) {
-                $("#login-success-message").fadeIn();
-
-                setTimeout(function () {
-                  sessionStorage.setItem("loggedInUser", JSON.stringify(user));
-
-                  // Chuyển đến trang index.jsp
-                  window.location.href = "index.html";
-                }, 1000);
-              } else {
-                alert("Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.");
-              }
-            }
-          });
-        });
-      </script>
-
-      <!--xử lý lưu tài khoản-->
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const usernameInput = document.getElementById("username-input");
-          const rememberCheckbox = document.getElementById("remember");
-
-          // Lấy thông tin từ Local Storage
-          const savedUsername = localStorage.getItem("savedUsername");
-
-          if (savedUsername) {
-            usernameInput.value = savedUsername;
-            rememberCheckbox.checked = true;
-          }
-
-          // Lưu thông tin khi checkbox được chọn
-          rememberCheckbox.addEventListener("change", function () {
-            if (this.checked) {
-              localStorage.setItem("savedUsername", usernameInput.value);
-            } else {
-              localStorage.removeItem("savedUsername");
-            }
-          });
-        });
-      </script>
     </body>
   </head>
 </html>
