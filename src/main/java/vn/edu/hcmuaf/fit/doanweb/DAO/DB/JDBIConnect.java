@@ -2,7 +2,6 @@ package vn.edu.hcmuaf.fit.doanweb.DAO.DB;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.jdbi.v3.core.Jdbi;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.BrandsModel;
 
 import java.sql.SQLException;
 

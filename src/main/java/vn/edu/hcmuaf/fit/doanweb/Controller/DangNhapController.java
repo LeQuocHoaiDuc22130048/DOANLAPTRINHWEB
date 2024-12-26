@@ -5,7 +5,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.UsersTypes;
-import vn.edu.hcmuaf.fit.doanweb.DAO.UserDao;
+import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "DangNhapController", value = "/login")
 public class DangNhapController extends HttpServlet {
 
-    private UserDao userDao=  new UserDao();
+    private UserDaoImp userDaoImp =  new UserDaoImp();
 
     public DangNhapController(){
 
@@ -29,7 +29,7 @@ public class DangNhapController extends HttpServlet {
 
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
-        Integer userId = this.userDao.getUserId(userName);
+        Integer userId = this.userDaoImp.getUserId(userName);
 
         if(userId==null) {
             request.setAttribute("fail-message", "Bạn chưa tạo tài khoản. Vui lòng chuyển sang trang đăng kí");
@@ -37,10 +37,10 @@ public class DangNhapController extends HttpServlet {
             return;
         }
 
-         if (!this.userDao.isAccountActive(userId)) {
+         if (!this.userDaoImp.isAccountActive(userId)) {
             request.setAttribute("fail-message", "Tài khoản chưa được kích hoạt. Vui lòng chuyển sang trang đăng kí để kích hoạt");
             request.getRequestDispatcher("dang_nhap.jsp").forward(request, response);
-        } else if (!this.userDao.isValidUser(userName, password)) {
+        } else if (!this.userDaoImp.isValidUser(userName, password)) {
             request.setAttribute("fail-message", "Mật khẩu hoặc tên đăng nhập không chính xác");
             request.getRequestDispatcher("dang_nhap.jsp").forward(request, response);
         } else {
@@ -48,7 +48,7 @@ public class DangNhapController extends HttpServlet {
             User user = new User();
             user.setName(userName);
             session.setAttribute("user", user);
-            UsersTypes userType = this.userDao.getUserType(userId);
+            UsersTypes userType = this.userDaoImp.getUserType(userId);
             if (userType != null) {
                 request.setAttribute("success-message", "Đăng nhập thành công");
                 if (userType.getUser_type_id() == 1) {
