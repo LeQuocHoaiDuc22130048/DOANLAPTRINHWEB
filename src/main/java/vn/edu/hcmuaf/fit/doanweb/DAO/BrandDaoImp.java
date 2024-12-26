@@ -6,11 +6,11 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Brands;
 
 import java.util.List;
 
-public class BrandDAO {
+public class BrandDaoImp {
     //    static Map<Integer, BrandsModel> brands = new HashMap<Integer, BrandsModel>();
     private final Jdbi jdbi;
 
-    public BrandDAO() {
+    public BrandDaoImp() {
         this.jdbi = JDBIConnect.get();
     }
 

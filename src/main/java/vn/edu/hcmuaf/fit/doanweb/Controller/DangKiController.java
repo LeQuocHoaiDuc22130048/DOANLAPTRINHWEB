@@ -3,14 +3,14 @@ package vn.edu.hcmuaf.fit.doanweb.Controller;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import vn.edu.hcmuaf.fit.doanweb.DAO.UserDao;
+import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 
 import java.io.IOException;
 
 @WebServlet(name = "DangKiController", value = "/sign-in")
 public class DangKiController extends HttpServlet {
 
-    private UserDao userDao = new UserDao();
+    private UserDaoImp userDaoImp = new UserDaoImp();
 
     public DangKiController(){
 
@@ -28,9 +28,9 @@ public class DangKiController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        Integer userId = userDao.getUserId(userName);
+        Integer userId = userDaoImp.getUserId(userName);
 
-        if(userId!=null&&userDao.isAccountActive(userId)&& userDao.isValidUser(userName,password)){
+        if(userId!=null&& userDaoImp.isAccountActive(userId)&& userDaoImp.isValidUser(userName,password)){
             request.setAttribute("fail-message", "Tài khoản đã được kích hoạt. Vui lòng chuyển sang trang đăng nhập");
             request.getRequestDispatcher("dang_ki.jsp").forward(request,response);
             return;
@@ -38,8 +38,8 @@ public class DangKiController extends HttpServlet {
 
         // nếu tài khoản chưa kích hoạt thì thực hiện kích hoạt tài khoản
 
-        if(userId!=null&&!userDao.isAccountActive(userId)){
-            boolean active = userDao.activeAccount(userId);
+        if(userId!=null&&!userDaoImp.isAccountActive(userId)){
+            boolean active = userDaoImp.activeAccount(userId);
             if(active){
                 request.setAttribute("success-message" ,"Tài khoản đã đăng kí thành công. Vui lòng đăng nhập");
                 request.getRequestDispatcher("dang_ki.jsp").forward(request,response);
@@ -50,9 +50,9 @@ public class DangKiController extends HttpServlet {
             }
         }
 
-        if(userId==null&&userDao.isNewUser(userName,password)){
+        if(userId==null&& userDaoImp.isNewUser(userName,password)){
 
-            Integer add = userDao.addUser(userName,email,password,null,null);
+            Integer add = userDaoImp.addUser(userName,email,password,null,null);
             if(add!=null){
                 request.setAttribute("success-message" ,"Tài khoản đã đăng kí thành công. Vui lòng đăng nhập");
                 request.getRequestDispatcher("dang_ki.jsp").forward(request,response);
@@ -62,10 +62,5 @@ public class DangKiController extends HttpServlet {
             }
 
         }
-
-
-
-
-
     }
 }
