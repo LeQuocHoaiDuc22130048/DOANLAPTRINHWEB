@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -117,6 +118,29 @@
         max-width: 70%;
         margin-bottom: 30px;
       }
+
+      .fail-message {
+        background-color: #e85d51;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 16px;
+        max-width: 50%;
+        margin-left: 100px;
+      }
+      .success-message {
+        background-color: #08ef68;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 16px;
+        max-width: 50%;
+        margin-left: 100px;
+      }
     </style>
   </head>
   <body>
@@ -125,7 +149,7 @@
         <img src="assets/images/background-dangnhap/quen_mk.png" alt="" />
       </div>
       <div class="forgot-form">
-        <form id="forgot-password-form">
+        <form id="forgot-password-form" action="forget" method="post">
           <h3 class="title">Quên mật khẩu</h3>
           <div class="username">
             <label for="username-input" class="form-label"
@@ -135,6 +159,7 @@
               type="text"
               class="form-control"
               id="username-input"
+              name="username"
               placeholder="Nhập tên tài khoản của bạn"
               required
             />
@@ -147,6 +172,7 @@
               type="email"
               class="form-control"
               id="email-input"
+              name="email"
               placeholder="Nhập email của bạn"
               required
             />
@@ -159,77 +185,26 @@
           </div>
 
           <div id="error-message" class="error-message">
-            <!-- <p>Email hoặc tên tài khoản chưa chính xác. Vui lòng kiểm tra lại.</p> -->
+
           </div>
 
           <div class="text-center">
             <span><a href="dang_nhap.html">Trở lại trang đăng nhập</a></span>
           </div>
+          <!-- Thông báo đăng kí thất bại -->
+          <div id="login-fail-message" class="fail-message" style="${empty requestScope['fail-message'] ? 'display: none;' : 'display: block;'}">
+            <p>${requestScope['fail-message']}</p>
+          </div>
+
+          <!-- Thông báo đăng kí thành công -->
+          <div id="login-success-message" class="success-message" style="${empty requestScope['success-message'] ? 'display: none;' : 'display: block;'}">
+            <p>${requestScope['success-message']}</p>
+          </div>
+
         </form>
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!--xử lý quên mật khẩu-->
 
-    <script>
-      $(document).ready(function () {
-        let userList = JSON.parse(localStorage.getItem("userList")) || [];
-        $(".btn-submit").click(function (e) {
-          e.preventDefault();
-
-          const username = $("#username-input").val().trim();
-
-          const email = $("#email-input").val().trim();
-
-          if (!username) {
-            showError("Vui lòng nhập tên tài khoản");
-            return;
-          }
-
-          if (!email) {
-            showError("Vui lòng nhập email");
-            return;
-          }
-
-          if (!validEmail(email)) {
-            showError("Email không hợp lệ");
-            return;
-          }
-
-          // tìm tài khoản người dùng
-          const userByUsername = userList.find(
-            (user) => user.username === username
-          );
-          const userByEmail = userList.find((user) => user.email === email);
-
-          if (!userByUsername && !userByEmail) {
-            showError("Tài khoản không tồn tại!");
-            return;
-          }
-          if (userByUsername.email !== email) {
-            showError("Email và tên tài khoản không khớp");
-            return;
-          }
-
-          $("#password-message").show();
-          $("#user-password").text(userByUsername.password);
-
-          $("#error-message").hide();
-        });
-      });
-
-      function validEmail(email) {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-      }
-
-      function showError(message) {
-        const errorMessage = $("#error-message");
-        errorMessage.text(message);
-        $("#error-message").fadeIn();
-        $("#password-message").hide();
-      }
-    </script>
   </body>
 </html>

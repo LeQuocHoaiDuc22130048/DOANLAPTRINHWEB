@@ -1860,7 +1860,7 @@ Subscribe
   box-shadow: none;
 }
 
-.subscribe form input::focus {
+.subscribe form input:focus {
   border-color: #2a2a2a;
   border-radius: 0px;
 }
@@ -2600,7 +2600,7 @@ bai_viet
 }
  
 .right-button {
-  margin-left: 1250px; 
+  margin-left: 1500px;
 }
 
 .left-button,

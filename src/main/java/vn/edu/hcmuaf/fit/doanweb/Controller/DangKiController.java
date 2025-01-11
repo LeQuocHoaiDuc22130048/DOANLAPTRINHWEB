@@ -41,7 +41,7 @@ public class DangKiController extends HttpServlet {
         if(userId!=null&&!userDaoImp.isAccountActive(userId)){
             boolean active = userDaoImp.activeAccount(userId);
             if(active){
-                request.setAttribute("success-message" ,"Tài khoản đã đăng kí thành công. Vui lòng đăng nhập");
+                request.setAttribute("success-message" ,"Tài khoản đã kích hoạt thành công. Vui lòng đăng nhập");
                 request.getRequestDispatcher("dang_ki.jsp").forward(request,response);
             }else{
                 request.setAttribute("fail-message", "Kích hoạt tài khoản thất bại. Vui lòng thử lại");

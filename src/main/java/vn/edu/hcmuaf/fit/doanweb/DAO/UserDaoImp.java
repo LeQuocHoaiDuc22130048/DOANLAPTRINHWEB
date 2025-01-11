@@ -115,5 +115,36 @@ public class UserDaoImp implements UserDao {
                 .execute() > 0
         );
     }
+
+    // kiểm tra người dùng đã có trong hệ thống hay chưa
+    public boolean checkUserExist(String username, String email) {
+        String query = "SELECT COUNT(*) FROM users WHERE name = :username AND email = :email";
+
+        return jdbi.withHandle(h -> {
+            int row = h.createQuery(query)
+                    .bind("username", username)
+                    .bind("email", email)
+                    .mapTo(Integer.class)
+                    .findFirst()
+                    .orElse(0);
+            return row > 0;  // Kiểm tra nếu có ít nhất 1 người dùng có username và email khớp
+        });
+    }
+
+    @Override
+    public String getPassword(String userName, String email) {
+
+        String query = "SELECT password FROM users WHERE name = :userName AND email = :email";
+        return jdbi.withHandle(h->{
+            String pass = h.createQuery(query)
+                    .bind("userName",userName)
+                    .bind("email",email)
+                    .mapTo(String.class)
+                    .findFirst().orElse(null);
+            return pass;
+        });
+    }
+
 }
+
 

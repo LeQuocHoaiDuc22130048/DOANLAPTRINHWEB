@@ -1,3 +1,7 @@
+
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "f" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -554,7 +558,7 @@
                 </strong>
               </h1>
               <p>
-                <img src="assets/images/banner_bolon_brand.jpg" alt="" />
+                <img src="assets/images/banner_brand/banner_bolon_brand.jpg" alt="" />
               </p>
               <div class="text hide-for-small">
                 <p class="caption-top">
@@ -1193,7 +1197,9 @@
               </div>
 
               <div class="product-list-container">
-                <div class="row page show-list" id="productContainer"></div>
+                <div class="row page show-list" id="productContainer">
+
+                </div>
               </div>
 
               <div class="col-lg-12">

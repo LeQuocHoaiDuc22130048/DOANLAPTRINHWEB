@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+
+ <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+ <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix = "f" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,6 +32,7 @@
     <link rel="stylesheet" href="./assets/css/style-for-products.css" />
     <link rel="stylesheet" href="./assets/css/owl-carousel.css" />
     <link rel="stylesheet" href="./assets/css/lightbox.css" />
+
   </head>
   <body>
     <div class="wrapper">
@@ -586,7 +592,7 @@
                     <td style="width: 33, 3%; height: 95px; text-align: center">
                       <a title="Gọng kính nữ" href="gong_kinh_nu.html">
                         <img
-                          src="assets/images/banner-gong-kinh-can-nu-dep-chinh-hang.jpg"
+                          src="assets/images/banner_brand/banner-gong-kinh-can-nu-dep-chinh-hang.jpg"
                           alt=""
                           width="340"
                           height="210"
@@ -723,6 +729,8 @@
                 <a href="" title="Gọng kính Police">Gọng Police</a>
               </p>
               <div class="productfilter-wc productfilter-woocommerce">
+
+
                 <form action="" class="product-ordering">
                   <div
                     class="productfilter_filter_wrapper productfilter_columns_3"
@@ -1013,7 +1021,7 @@
                                 <input type="checkbox" value="parim" />
                                 <span
                                   ><img
-                                    src="assets/images/icon-chat-lieu-gong-nhua.jpg"
+                                    src="assets/images/icon_chatlieu/icon-chat-lieu-gong-nhua.jpg"
                                     alt=""
                                 /></span>
                               </label>
@@ -1031,7 +1039,7 @@
                                 <input type="checkbox" value="parim" />
                                 <span
                                   ><img
-                                    src="assets/images/icon-chat-lieu-gong-titanium.jpg"
+                                    src="assets/images/icon_chatlieu/icon-chat-lieu-gong-titanium.jpg"
                                     alt=""
                                 /></span>
                               </label>
@@ -1040,7 +1048,7 @@
                                 <input type="checkbox" value="parim" />
                                 <span
                                   ><img
-                                    src="assets/images/icon-chat-lieu-gong-xi-ma-vang.jpg"
+                                    src="assets/images/icon_chatlieu/icon-chat-lieu-gong-xi-ma-vang.jpg"
                                     alt=""
                                 /></span>
                               </label>
@@ -1049,7 +1057,7 @@
                                 <input type="checkbox" value="parim" />
                                 <span
                                   ><img
-                                    src="assets/images/icon-chat-lieu-gong-nhua-deo-tr90.jpg"
+                                    src="assets/images/icon_chatlieu/icon-chat-lieu-gong-nhua-deo-tr90.jpg"
                                     alt=""
                                 /></span>
                               </label>
@@ -1058,7 +1066,7 @@
                                 <input type="checkbox" value="parim" />
                                 <span
                                   ><img
-                                    src="assets/images/icon-chat-lieu-gong-nhua-acetate.jpg"
+                                    src="assets/images/icon_chatlieu/icon-chat-lieu-gong-nhua-acetate.jpg"
                                     alt=""
                                 /></span>
                               </label>
@@ -1067,7 +1075,7 @@
                                 <input type="checkbox" value="parim" />
                                 <span
                                   ><img
-                                    src="assets/images/icon-chat-lieu-gong-vang-nguyen-khoi.jpg"
+                                    src="assets/images/icon_chatlieu/icon-chat-lieu-gong-vang-nguyen-khoi.jpg"
                                     alt=""
                                 /></span>
                               </label>
@@ -1076,7 +1084,7 @@
                                 <input type="checkbox" value="parim" />
                                 <span
                                   ><img
-                                    src="assets/images/icon-chat-lieu-gong-nhua-ultem.jpg"
+                                    src="assets/images/icon_chatlieu/icon-chat-lieu-gong-nhua-ultem.jpg"
                                     alt=""
                                 /></span>
                               </label>
@@ -1316,9 +1324,8 @@
               </div>
 
               <div class="product-list-container">
-                <div class="row page show-list" id="productContainer"></div>
-              </div>
 
+                <div class="row page show-list" id="productContainer">
               <div class="col-lg-12">
                 <div class="pagination"></div>
               </div>
@@ -1470,11 +1477,11 @@
     <script src="assets/js/chat_box.js"></script>
     <script src="assets/js/doi_mau_sao_new.js"></script>
     <script src="assets/js/custom.js"></script>
-    <script src="assets/js/cart.js"></script>
     <script src="assets/js/handle-buttom.js"></script>
     <script src="assets/js/jquery-2.1.0.min.js"></script>
     <script src="assets/js/gio_hang.js" defer></script>
     <script src="assets/js/hien_thi_ten_dangnhap.js"></script>
+    <script src="assets/js/cart.js"></script>
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>

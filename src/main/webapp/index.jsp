@@ -95,7 +95,7 @@
                       <div class="inner-content">
                         <p>GỌNG KÍNH</p>
                         <button
-                          onclick="window.location.href='gong_kinh.html';"
+                          onclick="window.location.href='gong_kinh.jsp';"
                         >
                           Mua ngay
                         </button>
