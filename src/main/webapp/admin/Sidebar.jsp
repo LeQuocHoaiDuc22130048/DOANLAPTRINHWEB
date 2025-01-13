@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="asset/css/style.css">
 </head>
-<div class="admin-sidebar" style="height: 120vh">
+<div class="admin-sidebar" style="height: 104vh">
     <div class="admin-sidebar-top">
         <img src="asset/imgs/logo.png" alt="">
     </div>
@@ -37,7 +37,7 @@
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
                         <li><a href="admin/AdminProductList"><i class="ri-arrow-right-s-fill"></i>Danh sách sản phẩm</a></li>
-                        <li><a href="product_add.html"><i class="ri-arrow-right-s-fill"></i>Thêm</a></li>
+                        <li><a href="admin/ProductAdd"><i class="ri-arrow-right-s-fill"></i>Thêm</a></li>
                     </div>
                 </ul>
 

@@ -21,4 +21,23 @@ public class Product {
     private String color;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
+
+    public Product(int id, int categoryId, int brandId, int shapeId, String material, String name, String description, int status, byte hot, double costPrice, double sellingPrice, int quantity, int gender, String color, LocalDateTime createAt, LocalDateTime updateAt) {
+        this.id = id;
+        this.categoryId = categoryId;
+        this.brandId = brandId;
+        this.shapeId = shapeId;
+        this.material = material;
+        this.name = name;
+        this.description = description;
+        this.status = status;
+        this.hot = hot;
+        this.costPrice = costPrice;
+        this.sellingPrice = sellingPrice;
+        this.quantity = quantity;
+        this.gender = gender;
+        this.color = color;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+    }
 }
