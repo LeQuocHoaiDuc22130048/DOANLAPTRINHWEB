@@ -29,10 +29,9 @@ public class Admin implements  AdminProductDao{
                 rs.getString("path"),
                 rs.getLong("selling_price"),
                 rs.getInt("quantity")
+
         )).list());
     }
-
-
 
     @Override
     public Product getProductById(int id) {
