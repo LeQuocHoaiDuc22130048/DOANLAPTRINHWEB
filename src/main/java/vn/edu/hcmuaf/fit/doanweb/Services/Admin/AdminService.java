@@ -6,7 +6,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.FrameShapes;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,27 +30,27 @@ public class AdminService {
     }
 
 
-    public List<Suggestion> getGenderSuggestion() {
-        List<Suggestion> genderSuggestion = new ArrayList<>();
-        genderSuggestion.add(new Suggestion(1, "Nam"));
-        genderSuggestion.add(new Suggestion(2, "Nữ"));
-        genderSuggestion.add(new Suggestion(3, "Trẻ em"));
-        genderSuggestion.add(new Suggestion(4, "Unisex"));
-        return genderSuggestion;
-    }
 
-    public boolean addProduct(ProductAddVM product) {
-        boolean isProductAdded = admin.addProduct(product);
-        if (isProductAdded) {
-            int productId = admin.getLastProductId();
-            product.setId(productId);
+
+    public int addProduct(Product product, List<ProductImage> productImages) {
+        // Thêm sản phẩm và lấy ID
+        int productId = admin.addProduct(product);
+        if (productId <= 0) {
+            return 0;
         }
-        return isProductAdded;
+
+        // Gán ID cho từng hình ảnh và thêm hình ảnh vào CSDL
+        for (ProductImage productImage : productImages) {
+            productImage.setProductId(productId);
+            boolean imageAdded = admin.addProductImages(productImage);
+            if (!imageAdded) {
+                return 0;
+            }
+        }
+        return productId;
     }
 
-    public void updateImages(ProductAddVM productAddVM){
-        admin.updateProductImages(productAddVM);
-    }
+
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
@@ -71,46 +71,35 @@ public class AdminService {
 //        for (FrameShapes frameShape : frameShapes) {
 //            System.out.println(frameShape);
 //        }
-        ProductAddVM product = new ProductAddVM();
-        product.setName("Test Product");
-        product.setDescription("Test Description");
-        product.setCostPrice(100.00);
-        product.setSellingPrice(150.00);
+
+        Product product = new Product();
+        product.setName("Sản phẩm mẫu");
+        product.setDescription("Mô tả sản phẩm mẫu");
+        product.setCostPrice(100000);
+        product.setSellingPrice(120000);
         product.setQuantity(10);
         product.setCategoryId(1);
         product.setBrandId(1);
         product.setShapeId(1);
-        product.setMaterial("Test Material");
+        product.setMaterial("Nhựa");
         product.setGender(1);
-        product.setColor("Black");
-        product.setStatus(1);
-        product.setHot((byte) 0);
-        product.setCreatedAt(LocalDateTime.now());
-        product.setUpdatedAt(LocalDateTime.now());
+        product.setColor("Tím");
 
-        List<ProductImage> images = new ArrayList<>();
-        for (int i = 1; i <= 4; i++) {
-            ProductImage image = new ProductImage();
-            String fileName = "image" + i + ".jpg"; // Tên gốc của ảnh
-            String filePath = "assets/images/" + fileName;
-            image.setPath(filePath);
-            image.setIsMain(i == 1 ? 1 : 0);
-            image.setCreatedAt(LocalDateTime.now());
-            image.setUpdatedAt(LocalDateTime.now());
-            images.add(image);
-        }
-        product.setImages(images);
+        List<ProductImage> productImages = new ArrayList<>();
+        ProductImage productImage1 = new ProductImage();
+        productImage1.setPath("/assets/images/products/image1.jpg");
 
-        // Thêm sản phẩm và in kết quả
-        boolean isProductAdded = adminService.addProduct(product);
-        if (isProductAdded) {
-            admin.updateProductImages(product);
-            System.out.println("Thêm sản phẩm thành công với ID: " + product.getId());
-            product.getImages().forEach(image -> {
-                System.out.println("Đường dẫn ảnh: " + image.getPath());
-            });
-        } else {
-            System.out.println("Thêm sản phẩm thất bại.");
+        ProductImage productImage2 = new ProductImage();
+        productImage2.setPath("/assets/images/products/image2.jpg");
+
+        productImages.add(productImage1);
+        productImages.add(productImage2);
+
+        int result = adminService.addProduct(product, productImages);
+
+        if(result > 0) System.out.println("Them thanh cong voi id" + result);
+        else{
+            System.out.println("Thêm thất bại");
         }
     }
 }

@@ -45,14 +45,14 @@
                                     <input type="text" placeholder="Màu" name="color">
                                     <input type="text" placeholder="Chất liệu" name="material">
                                     <input type="text" placeholder="Số lượng" name="quantity">
-                                    <select name="brand_id"
+                                    <select name="brandId"
                                             style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;"> <%-- Lấy các thương hiệu từ cơ sở dữ liệu --%>
                                         <c:forEach var="brand" items="${brands}">
                                             <option value="${brand.id}">${brand.name}</option>
                                         </c:forEach>
                                     </select>
 
-                                    <select name="shape_id"
+                                    <select name="shapeId"
                                             style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
                                         <c:forEach var="shape" items="${frameShapes}">
                                             <option value="${shape.id}">${shape.name}</option>
@@ -67,7 +67,7 @@
                                         <option value="4">Unisex</option>
                                     </select>
 
-                                    <select name="category_id"
+                                    <select name="categoryId"
                                             style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
                                         <c:forEach var="category" items="${categories}">
                                             <option value="${category.id}">${category.name}</option>
@@ -87,16 +87,16 @@
                             <div class="admin-content-main-content-right">
                                 <div class="admin-content-main-content-right-image">
                                     <label>Ảnh chính</label>
-                                    <input name="file1" type="file"
+                                    <input name="mainImage" type="file"
                                            style="display: block;height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
                                 </div>
                                 <div class="admin-content-main-content-right-images" style="margin-top: 50px">
                                     <label>Ảnh phụ</label>
-                                    <input name="file2" type="file"
+                                    <input name="image1" type="file"
                                            style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center ">
-                                    <input name="file3" type="file"
+                                    <input name="image2" type="file"
                                            style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
-                                    <input name="file4" type="file"
+                                    <input name="image3" type="file"
                                            style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
                                 </div>
                             </div>

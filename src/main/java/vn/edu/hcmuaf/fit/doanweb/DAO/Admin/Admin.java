@@ -45,57 +45,50 @@ public class Admin implements AdminProductDao {
     }
 
     @Override
-    public boolean addProduct(ProductAddVM product) {
+    public int addProduct(Product product) {
         String productSql = "INSERT INTO products (category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender,color, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         LocalDateTime currentTime = LocalDateTime.now();
-        product.setCreatedAt(currentTime);
-        product.setUpdatedAt(null);
-        product.getImages().forEach(image -> {
-            image.setCreatedAt(currentTime);
-            image.setUpdatedAt(null);
-        });
+        product.setCreateAt(currentTime);
+        product.setUpdateAt(null);
 
-        return jdbi.inTransaction(handle -> {
-            int productId = handle.createUpdate(productSql)
-                    .bind(0, product.getCategoryId())
-                    .bind(1, product.getBrandId())
-                    .bind(2, product.getShapeId())
-                    .bind(3, product.getMaterial())
-                    .bind(4, product.getName())
-                    .bind(5, product.getDescription())
-                    .bind(6, product.getStatus())
-                    .bind(7, product.getHot())
-                    .bind(8, product.getCostPrice())
-                    .bind(9, product.getSellingPrice())
-                    .bind(10, product.getQuantity())
-                    .bind(11, product.getGender())
-                    .bind(12, product.getColor())
-                    .bind(13, product.getCreatedAt())
-                    .bind(14, product.getUpdatedAt())
-                    .executeAndReturnGeneratedKeys("id")
-                    .mapTo(int.class)
-                    .one();
-            return true;
-        });
+        int productId = jdbi.withHandle(handle ->
+                handle.createUpdate(productSql)
+                        .bind(0, product.getCategoryId())
+                        .bind(1, product.getBrandId())
+                        .bind(2, product.getShapeId())
+                        .bind(3, product.getMaterial())
+                        .bind(4, product.getName())
+                        .bind(5, product.getDescription())
+                        .bind(6, product.getStatus())
+                        .bind(7, product.getHot())
+                        .bind(8, product.getCostPrice())
+                        .bind(9, product.getSellingPrice())
+                        .bind(10, product.getQuantity())
+                        .bind(11, product.getGender())
+                        .bind(12, product.getColor())
+                        .bind(13, product.getCreateAt())
+                        .bind(14, product.getUpdateAt())
+                        .executeAndReturnGeneratedKeys("id")  // Lấy ID đã được tạo
+                        .mapTo(Integer.class)
+                        .one());
+
+        product.setId(productId);
+        return productId;
     }
+
+
     @Override
-    public void updateProductImages(ProductAddVM product) {
-        String imageSql = "INSERT INTO products_images (product_id, path, is_main) VALUES (:product_id, :path, :is_main)";
+    public boolean addProductImages(ProductImage productImage) {
+        String imageSql = "INSERT INTO products_images (product_id, is_main, path) VALUES (?,?,?)";
 
-        jdbi.useHandle(handle -> {
-            PreparedBatch batch = handle.prepareBatch(imageSql);
-            for (ProductImage image : product.getImages()) {
-                batch.bind("product_id", product.getId())
-                        .bind("is_main", image.getIsMain())
-                        .bind("path", image.getPath())
-                        .bind("created_at", image.getCreatedAt())
-                        .bind("updated_at", image.getUpdatedAt())
-                        .add();
-            }
-            batch.execute();
-
-        });
+        int rowAffected = jdbi.withHandle(handle ->
+                handle.createUpdate(imageSql)
+                        .bind(0,productImage.getProductId())
+                        .bind(1,productImage.getIsMain())
+                        .bind(2,productImage.getPath())
+                        .execute());
+        return rowAffected > 0;
     }
     @Override
     public boolean updateProduct(Product product) {
@@ -127,10 +120,4 @@ public class Admin implements AdminProductDao {
                 .mapToBean(FrameShapes.class).list());
     }
 
-
-
-
-    public int getLastProductId() {
-        return jdbi.withHandle(handle -> handle.createQuery("SELECT MAX(id) FROM products").mapTo(int.class).one());
-    }
 }

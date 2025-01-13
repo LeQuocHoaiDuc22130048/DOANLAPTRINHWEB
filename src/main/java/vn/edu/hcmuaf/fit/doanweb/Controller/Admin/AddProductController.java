@@ -9,8 +9,10 @@ import com.google.gson.Gson;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.FrameShapes;
+import org.apache.commons.text.StringEscapeUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Safelist;
+
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
@@ -35,117 +37,65 @@ public class AddProductController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        try {
-            // Lấy và xác thực các tham số
-            String name = getNonNullParam(request, "name");
-            String description = getNonNullParam(request, "description");
-            double costPrice = getDoubleParameter(request, "costPrice");
-            double sellingPrice = getDoubleParameter(request, "sellingPrice");
-            int quantity = getIntParameter(request, "quantity");
-            int categoryId = getIntParameter(request, "categoryId");
-            int brandId = getIntParameter(request, "brandId");
-            int shapeId = getIntParameter(request, "shapeId");
-            String material = getNonNullParam(request, "material");
-            int gender = getIntParameter(request, "gender");
-            String color = getNonNullParam(request, "color");
 
-            // Tạo đối tượng ProductAddVM
-            ProductAddVM productAddVM = new ProductAddVM();
-            productAddVM.setName(name);
-            productAddVM.setDescription(description);
-            productAddVM.setCostPrice(costPrice);
-            productAddVM.setSellingPrice(sellingPrice);
-            productAddVM.setQuantity(quantity);
-            productAddVM.setCategoryId(categoryId);
-            productAddVM.setBrandId(brandId);
-            productAddVM.setShapeId(shapeId);
-            productAddVM.setMaterial(material);
-            productAddVM.setGender(gender);
-            productAddVM.setColor(color);
-            productAddVM.setCreatedAt(LocalDateTime.now());
-            productAddVM.setUpdatedAt(LocalDateTime.now());
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
 
-            // Thêm sản phẩm mới
-            boolean isProductAdded = adminService.addProduct(productAddVM);
-            if (isProductAdded) {
-                handleImageUpload(request, productAddVM);
-                response.sendRedirect("/admin/ProductList");
-            } else {
-                showAlert(response, "Thêm sản phẩm thất bại.");
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            showAlert(response, "Đã xảy ra lỗi: " + ex.getMessage());
-        }
-    }
+        // Lấy và xác thực các tham số
+        String name = request.getParameter("name");
+//        String description = request.getParameter("description");
+        String description = StringEscapeUtils.unescapeHtml4(request.getParameter("description"));
+        description = Jsoup.clean(description, Safelist.none());
+        double costPrice = Double.parseDouble(request.getParameter("costPrice"));
+        double sellingPrice = Double.parseDouble(request.getParameter("sellingPrice"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+        int brandId = Integer.parseInt(request.getParameter("brandId"));
+        int shapeId = Integer.parseInt(request.getParameter("shapeId"));
+        String material = request.getParameter("material");
+        int gender = Integer.parseInt(request.getParameter("gender"));
+        String color = request.getParameter("color");
 
-    private void handleImageUpload(HttpServletRequest request, ProductAddVM productAddVM) throws IOException, ServletException {
-        String appPath = request.getServletContext().getRealPath("");
-        String savePath = appPath + File.separator + SAVE_DIR;
-        File fileSaveDir = new File(savePath);
-        if (!fileSaveDir.exists()) {
-            fileSaveDir.mkdirs();
-        }
+        Product product = new Product();
+        product.setName(name);
+        product.setDescription(description);
+        product.setCostPrice(costPrice);
+        product.setSellingPrice(sellingPrice);
+        product.setQuantity(quantity);
+        product.setCategoryId(categoryId);
+        product.setBrandId(brandId);
+        product.setShapeId(shapeId);
+        product.setMaterial(material);
+        product.setGender(gender);
+        product.setColor(color);
 
         List<ProductImage> images = new ArrayList<>();
-        for (int i = 1; i <= 4; i++) {
-            Part part = request.getPart("file" + i);
-            if (part != null && part.getSize() > 0) {
-                String fileName = extractFileName(part);
-                if (fileName != null && !fileName.isEmpty()) {
-                    int isMain = (i == 1) ? 1 : 0;
-                    String filePath = savePath + File.separator + fileName;
-                    part.write(filePath);
+        images.add(saveImage(request.getPart("mainImage"), 1));
+        images.add(saveImage(request.getPart("image1"), 0));
+        images.add(saveImage(request.getPart("image2"), 0));
+        images.add(saveImage(request.getPart("image3"), 0));
 
-                    ProductImage productImage = new ProductImage();
-                    productImage.setPath("/assets/images/" + fileName);
-                    productImage.setIsMain(isMain);
-                    productImage.setCreatedAt(LocalDateTime.now());
-                    productImage.setUpdatedAt(LocalDateTime.now());
-                    images.add(productImage);
-                }
-            }
-        }
-
-        productAddVM.setImages(images);
-        adminService.updateImages(productAddVM);
-    }
-
-    private String getNonNullParam(HttpServletRequest request, String paramName) {
-        String value = request.getParameter(paramName);
-        if (value == null || value.trim().isEmpty()) {
-            throw new IllegalArgumentException("Tham số " + paramName + " không được để trống.");
-        }
-        return value.trim();
-    }
-
-    private double getDoubleParameter(HttpServletRequest request, String paramName) {
-        try {
-            return Double.parseDouble(request.getParameter(paramName));
-        } catch (NumberFormatException ex) {
-            return 0.0;
+        int success = adminService.addProduct(product, images);
+        if (success > 0) {
+            response.getWriter().write("Sản phẩm đã được thêm thành công với Id" + success);
+        } else {
+            response.getWriter().write("Có lỗi khi thêm sản phẩm");
         }
     }
 
-    private int getIntParameter(HttpServletRequest request, String paramName) {
-        try {
-            return Integer.parseInt(request.getParameter(paramName));
-        } catch (NumberFormatException ex) {
-            return 0;
-        }
+    private ProductImage saveImage(Part imagePart, int isMain) throws IOException {
+
+        String fileName = imagePart.getSubmittedFileName();
+        String filePath = "/assets/images/" + System.currentTimeMillis() + "_" + fileName;
+        String savePath = getServletContext().getRealPath("") + filePath;
+
+        imagePart.write(savePath);
+
+        ProductImage productImage = new ProductImage();
+        productImage.setPath(filePath);
+        productImage.setIsMain(isMain);
+        return productImage;
     }
 
-    private String extractFileName(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
-        for (String s : contentDisp.split(";")) {
-            if (s.trim().startsWith("filename")) {
-                return s.substring(s.indexOf("=") + 2, s.length() - 1);
-            }
-        }
-        return "";
-    }
 
-    private void showAlert(HttpServletResponse response, String message) throws IOException {
-        response.getWriter().println("<script>alert('" + message + "');</script>");
-    }
 }
