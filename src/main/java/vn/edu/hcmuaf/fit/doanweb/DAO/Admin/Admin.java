@@ -46,7 +46,6 @@ public class Admin implements AdminProductDao {
 
     @Override
     public boolean addProduct(ProductAddVM product) {
-        String imageSql = "INSERT INTO products_images (product_id, name, path, is_main) VALUES (:product_id, :name, :path, :is_main)";
         String productSql = "INSERT INTO products (category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender,color, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         LocalDateTime currentTime = LocalDateTime.now();
@@ -77,10 +76,17 @@ public class Admin implements AdminProductDao {
                     .executeAndReturnGeneratedKeys("id")
                     .mapTo(int.class)
                     .one();
+            return true;
+        });
+    }
+    @Override
+    public void updateProductImages(ProductAddVM product) {
+        String imageSql = "INSERT INTO products_images (product_id, path, is_main) VALUES (:product_id, :path, :is_main)";
 
+        jdbi.useHandle(handle -> {
             PreparedBatch batch = handle.prepareBatch(imageSql);
             for (ProductImage image : product.getImages()) {
-                batch.bind("product_id", productId)
+                batch.bind("product_id", product.getId())
                         .bind("is_main", image.getIsMain())
                         .bind("path", image.getPath())
                         .bind("created_at", image.getCreatedAt())
@@ -88,10 +94,9 @@ public class Admin implements AdminProductDao {
                         .add();
             }
             batch.execute();
-            return true;
+
         });
     }
-
     @Override
     public boolean updateProduct(Product product) {
         return false;
@@ -125,4 +130,7 @@ public class Admin implements AdminProductDao {
 
 
 
+    public int getLastProductId() {
+        return jdbi.withHandle(handle -> handle.createQuery("SELECT MAX(id) FROM products").mapTo(int.class).one());
+    }
 }

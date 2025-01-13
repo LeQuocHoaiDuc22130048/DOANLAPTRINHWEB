@@ -17,12 +17,9 @@
             href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
             rel="stylesheet"
     />
-
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="asset/styles.css">
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.css">
@@ -38,91 +35,84 @@
                 <div class="admin-content-main-title">
                     <h1>Thêm sản phẩm</h1>
                 </div>
-                <div class="admin-content-main-content">
-                    <div class="admin-content-main-content-product-add">
-                        <div class="admin-content-main-content-left">
-                            <div class="admin-content-main-content-two-input">
-                                <input type="text" placeholder="Mã sản phẩm ">
-                                <input type="text" placeholder="Tên sản phẩm ">
-                                <input type="text" placeholder="Thương hiệu " id="brand">
-                                <input type="hidden" id="brandId" name ="brandId">
-                                <input type="text" placeholder=" Kiểu dáng " id="shape">
-                                <input type="hidden" id="shapeId" name ="shapeId">
-                                <input type="text" placeholder="Giới tính" id="gender">
-                                <input type="hidden" id="genderId" name ="genderId">
-                                <input type="text" placeholder="Chất liệu">
-                                <input type="text" placeholder="Màu">
-                                <input type="text" placeholder="Danh mục" id="category">
-                                <input type="hidden" id="categoryId" name ="categoryId">
-                            </div>
-                            <div class="admin-content-main-content-two-input">
-                                <input type="text" placeholder="Giá nhập">
-                                <input type="text" placeholder="Giá bán">
-                            </div>
+                <form action="ProductAdd" method="post" enctype="multipart/form-data">
+                    <div class="admin-content-main-content">
+                        <div class="admin-content-main-content-product-add">
+                            <div class="admin-content-main-content-left">
+                                <div class="admin-content-main-content-two-input">
 
-                            <textarea name="editor" id="editor">Chi tiết sản phẩm</textarea>
-                            <button class="main-btn">Thêm sản phẩm</button>
-                        </div>
-                        <div class="admin-content-main-content-right">
-                            <div class="admin-content-main-content-right-image">
-                                <label for="file">Ảnh chính</label>
-                                <input id="file" type="file">
-                                <div class="image-show"></div>
+                                    <input type="text" placeholder="Tên sản phẩm " name="name">
+                                    <input type="text" placeholder="Màu" name="color">
+                                    <input type="text" placeholder="Chất liệu" name="material">
+                                    <input type="text" placeholder="Số lượng" name="quantity">
+                                    <select name="brand_id"
+                                            style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;"> <%-- Lấy các thương hiệu từ cơ sở dữ liệu --%>
+                                        <c:forEach var="brand" items="${brands}">
+                                            <option value="${brand.id}">${brand.name}</option>
+                                        </c:forEach>
+                                    </select>
+
+                                    <select name="shape_id"
+                                            style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
+                                        <c:forEach var="shape" items="${frameShapes}">
+                                            <option value="${shape.id}">${shape.name}</option>
+                                        </c:forEach>
+                                    </select>
+
+                                    <select name="gender"
+                                            style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
+                                        <option value="1">Nam</option>
+                                        <option value="2">Nữ</option>
+                                        <option value="3">Trẻ em</option>
+                                        <option value="4">Unisex</option>
+                                    </select>
+
+                                    <select name="category_id"
+                                            style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
+                                        <c:forEach var="category" items="${categories}">
+                                            <option value="${category.id}">${category.name}</option>
+                                        </c:forEach>
+                                    </select
+
+
+                                </div>
+                                <div class="admin-content-main-content-two-input">
+                                    <input type="number" step="100.000" name="costPrice" placeholder="Giá nhập">
+                                    <input type="number" step="100.000" name="sellingPrice" placeholder="Giá bán">
+                                </div>
+
+                                <textarea name="description" placeholder="Chi tiết sản phẩm"></textarea>
+                                <button class="main-btn" type="submit">Thêm sản phẩm</button>
                             </div>
-                            <div class="admin-content-main-content-right-images">
-                                <label for="file">Ảnh phụ</label>
-                                <input type="file">
-                                <div class="images-show"></div>
+                            <div class="admin-content-main-content-right">
+                                <div class="admin-content-main-content-right-image">
+                                    <label>Ảnh chính</label>
+                                    <input name="file1" type="file"
+                                           style="display: block;height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
+                                </div>
+                                <div class="admin-content-main-content-right-images" style="margin-top: 50px">
+                                    <label>Ảnh phụ</label>
+                                    <input name="file2" type="file"
+                                           style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center ">
+                                    <input name="file3" type="file"
+                                           style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
+                                    <input name="file4" type="file"
+                                           style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
     </div>
 </section>
-
-<script type="importmap">
-    {
-        "imports": {
-            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.js",
-            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.3.1/"
-        }
-    }
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('description');
 </script>
 <script type="module" src="asset/main.js"></script>
 <script src="asset/js/app.js"></script>
 </body>
-
-<script>
-    $(document).ready(function () {
-        function loadSuggestions(inputId, type) {
-            $('#' + inputId).autocomplete({
-                source : function (request, response){
-                    $ajax({
-                        url : "getSuggestions",
-                        method : "GET",
-                        data : {type: type, term: request.term},
-                        success : function (data){
-                            var suggestions = JSON.parse(data);
-                            response($.map(suggestions, function (item){
-                                return {label : item.name, value : item.id};
-                            }));
-                        }
-                    });
-                },
-                select : function (event, ui){
-                    $('#' + inputId).val(ui.item.label);
-                    $('#' + inputId + 'Id').val(ui.item.value);
-                    return false;
-                }
-            });
-        }
-        loadSuggestions('brand', 'brands');
-        loadSuggestions('shape', 'frame_shapes');
-        loadSuggestions('gender', 'genders');
-        loadSuggestions('category', 'categories');
-    })
-</script>
 </html>

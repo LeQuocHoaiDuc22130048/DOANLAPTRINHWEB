@@ -15,6 +15,6 @@ public interface AdminProductDao {
     List<CategoryVM> getAllCategories();
     List<BrandVM> getAllBrands();
     List<FrameShapes> getAllFrameShapes();
-
+    void updateProductImages(ProductAddVM product);
 
 }
