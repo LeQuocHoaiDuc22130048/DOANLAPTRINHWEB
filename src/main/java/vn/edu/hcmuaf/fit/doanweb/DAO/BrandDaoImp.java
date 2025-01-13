@@ -3,6 +3,7 @@ package vn.edu.hcmuaf.fit.doanweb.DAO;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Brands;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 
 import java.util.List;
 
@@ -14,9 +15,9 @@ public class BrandDaoImp {
         this.jdbi = JDBIConnect.get();
     }
 
-    public List<Brands> getALlBrands() {
-        return jdbi.withHandle(h -> h.createQuery("select * from brands")
-                .mapToBean(Brands.class).list());
+    public List<ProductImage> getALlBrands() {
+        return jdbi.withHandle(h -> h.createQuery("select * from products_images where is_main = 1")
+                .mapToBean(ProductImage.class).list());
     }
 
     public Brands getBrandById(int id) {
