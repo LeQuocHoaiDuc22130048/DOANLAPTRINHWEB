@@ -220,6 +220,22 @@ public class Admin {
 
     }
 
+    public List<CategoriesVM> getCategoriesWithamoutProduct() {
+        String sql = "SELECT c.id, c.name, c.status, COUNT(p.id) AS product_count " +
+                "FROM categories c " +
+                "LEFT JOIN products p ON c.id = p.category_id " +
+                "GROUP BY c.id";
+
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .map((rs, ctx) -> new CategoriesVM(
+                                rs.getInt("id"),
+                                rs.getString("name"),
+                                rs.getInt("status"),
+                                rs.getInt("product_count")
+                        )).list());
+    }
+
     public List<BrandVM> getAllBrands() {
         return jdbi.withHandle(handle -> handle.createQuery("select id, name from brands")
                 .mapToBean(BrandVM.class).list());
@@ -231,4 +247,21 @@ public class Admin {
     }
 
 
+    public boolean addCategory(CategoriesVM categories) {
+        String sql = "INSERT INTO categories (name, status) VALUES (?, ?)";
+
+        return jdbi.withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, categories.getName())
+                        .bind(1, categories.getStatus())
+                        .execute() > 0);
+    }
+
+    public boolean deleteCategory(int categoryId) {
+        String sql = "DELETE FROM categories WHERE id = ?";
+        return jdbi.withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, categoryId)
+                        .execute() > 0);
+    }
 }

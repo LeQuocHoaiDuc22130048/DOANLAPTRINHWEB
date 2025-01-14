@@ -43,10 +43,10 @@
 
             </li>
 
-            <li></i><a href="category_product.html"><i class="ri-file-list-line"></i>Danh mục sản phẩm<i class="ri-add-box-line"></i></a>
+            <li></i><a href=""><i class="ri-file-list-line"></i>Danh mục sản phẩm<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="category_product_list.html"><i class="ri-arrow-right-s-fill"></i>Quản lý danh mục</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/ListCategories"><i class="ri-arrow-right-s-fill"></i>Quản lý danh mục</a></li>
                     </div>
                 </ul>
             </li>

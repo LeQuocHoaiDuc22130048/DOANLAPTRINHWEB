@@ -83,10 +83,19 @@ public class AdminService {
         return admin.addDiscount(discount);
     }
 
+    public List<CategoriesVM> getAllCategories() {
+        return admin.getCategoriesWithamoutProduct();
+    }
+    public boolean addCategory(CategoriesVM categories) {
+        return admin.addCategory(categories);
+    }
+    public boolean deleteCategory(int id) {
+        return admin.deleteCategory(id);
+    }
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
-//        for (Discounts d : adminService.getAllDiscounts()) {
+//        for (CategoriesVM d : adminService.getAllCategories()) {
 //            System.out.println(d);
 //        }
 //        String path = "new_image_path.jpg";
