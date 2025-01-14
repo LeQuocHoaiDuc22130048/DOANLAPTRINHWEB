@@ -20,7 +20,9 @@ public class DeleteCategoryController extends HttpServlet {
         int categoryId = Integer.parseInt(request.getParameter("id"));
         AdminService adminService = new AdminService();
         if(adminService.deleteCategory(categoryId)) {
-            response.sendRedirect(request.getContextPath() + "/admin/CategoryList");
+            response.sendRedirect(request.getContextPath() + "/admin/ListCategories");
+        }else {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Category not found");
         }
     }
 }
