@@ -14,8 +14,8 @@ public class Product {
     private String description;
     private int status = 1;
     private byte hot = 0;
-    private double costPrice;
-    private double sellingPrice;
+    private float costPrice;
+    private float sellingPrice;
     private int quantity;
     private int gender;
     private String color;

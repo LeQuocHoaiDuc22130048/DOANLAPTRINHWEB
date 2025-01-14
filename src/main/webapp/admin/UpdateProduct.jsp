@@ -1,10 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: lequo
-  Date: 1/11/2025
-  Time: 9:40 PM
+  Date: 1/14/2025
+  Time: 7:32 PM
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -33,71 +34,79 @@
             <jsp:include page="SidebarTop.jsp"/>
             <div class="admin-content main">
                 <div class="admin-content-main-title">
-                    <h1>Thêm sản phẩm</h1>
+                    <h1>Sửa sản phẩm</h1>
                 </div>
-                <form action="${pageContext.request.contextPath}/admin/ProductAdd" method="post" enctype="multipart/form-data">
+                <form action="${pageContext.request.contextPath}/admin/UpdateProduct" method="post"
+                      enctype="multipart/form-data">
                     <div class="admin-content-main-content">
                         <div class="admin-content-main-content-product-add">
                             <div class="admin-content-main-content-left">
                                 <div class="admin-content-main-content-two-input">
-
-                                    <input type="text" placeholder="Tên sản phẩm " name="name">
-                                    <input type="text" placeholder="Màu" name="color">
-                                    <input type="text" placeholder="Chất liệu" name="material">
-                                    <input type="text" placeholder="Số lượng" name="quantity">
+                                    <input type="text" placeholder="" name="id" value="Id: ${product.id}" readonly required>
+                                    <input type="text" placeholder="Tên sản phẩm " name="name" value="${product.name}">
+                                    <input type="text" placeholder="Màu" name="color" value="${product.color}">
+                                    <input type="text" placeholder="Chất liệu" name="material"
+                                           value="${product.material}">
+                                    <input type="text" placeholder="Số lượng" name="quantity"
+                                           value="${product.quantity}">
                                     <select name="brandId"
                                             style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;"> <%-- Lấy các thương hiệu từ cơ sở dữ liệu --%>
                                         <c:forEach var="brand" items="${brands}">
-                                            <option value="${brand.id}">${brand.name}</option>
+                                            <option value="${brand.id}"
+                                                    <c:if test="${brand.id == product.brandId}">selected</c:if>>${brand.name}</option>
                                         </c:forEach>
                                     </select>
 
                                     <select name="shapeId"
                                             style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
                                         <c:forEach var="shape" items="${frameShapes}">
-                                            <option value="${shape.id}">${shape.name}</option>
+                                            <option value="${shape.id}"
+                                                    <c:if test="${shape.id == product.shapeId}">selected</c:if>>${shape.name}</option>
                                         </c:forEach>
                                     </select>
 
                                     <select name="gender"
                                             style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
-                                        <option value="1">Nam</option>
-                                        <option value="2">Nữ</option>
-                                        <option value="3">Trẻ em</option>
-                                        <option value="4">Unisex</option>
+                                        <option value="1" <c:if test="${product.gender == 1}">selected</c:if>>Nam
+                                        </option>
+                                        <option value="2" <c:if test="${product.gender == 2}">selected</c:if>>Nữ
+                                        </option>
+                                        <option value="3" <c:if test="${product.gender == 3}">selected</c:if>>Trẻ em
+                                        </option>
+                                        <option value="4" <c:if test="${product.gender == 4}">selected</c:if>>Unisex
+                                        </option>
                                     </select>
 
                                     <select name="categoryId"
                                             style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
                                         <c:forEach var="category" items="${categories}">
-                                            <option value="${category.id}">${category.name}</option>
+                                            <option value="${category.id}"
+                                                    <c:if test="${category.id == product.categoryId}">selected</c:if>>${category.name}</option>
                                         </c:forEach>
                                     </select
 
 
                                 </div>
                                 <div class="admin-content-main-content-two-input">
-                                    <input type="number" step="100.000" name="costPrice" placeholder="Giá nhập">
-                                    <input type="number" step="100.000" name="sellingPrice" placeholder="Giá bán">
+                                    <input type="number" step="100.000" name="costPrice" placeholder="Giá nhập"
+                                           value="${product.costPrice}">
+                                    <input type="number" step="100.000" name="sellingPrice" placeholder="Giá bán"
+                                           value="${product.sellingPrice}">
                                 </div>
 
                                 <textarea name="description" placeholder="Chi tiết sản phẩm"></textarea>
-                                <button class="main-btn" type="submit">Thêm sản phẩm</button>
+                                <button class="main-btn" type="submit">Sửa sản phẩm</button>
                             </div>
                             <div class="admin-content-main-content-right">
                                 <div class="admin-content-main-content-right-image">
-                                    <label>Ảnh chính</label>
+                                    <label style="display: table; margin-bottom: 10px">Ảnh trước</label>
+
+                                    <img src="../${image.path}" width="200px" height="200px">
+
                                     <input name="mainImage" type="file"
                                            style="display: block;height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
                                 </div>
                                 <div class="admin-content-main-content-right-images" style="margin-top: 50px">
-                                    <label>Ảnh phụ</label>
-                                    <input name="image1" type="file"
-                                           style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center ">
-                                    <input name="image2" type="file"
-                                           style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
-                                    <input name="image3" type="file"
-                                           style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
                                 </div>
                             </div>
                         </div>
@@ -116,3 +125,4 @@
 <script src="asset/js/app.js"></script>
 </body>
 </html>
+

@@ -1,19 +1,16 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO.Admin;
 
 import org.jdbi.v3.core.Jdbi;
-import org.jdbi.v3.core.statement.PreparedBatch;
-import org.jdbi.v3.core.statement.Update;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.FrameShapes;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Admin implements AdminProductDao {
+public class Admin {
 
     private final Jdbi jdbi;
 
@@ -21,7 +18,6 @@ public class Admin implements AdminProductDao {
         this.jdbi = JDBIConnect.get();
     }
 
-    @Override
     public List<ProductVM> getAllProducts() {
         String sql = "SELECT p.id, p.name,pi.path,p.selling_price ,p.quantity " +
                 "From products p " +
@@ -38,13 +34,25 @@ public class Admin implements AdminProductDao {
         )).list());
     }
 
-
-    @Override
-    public Product getProductById(int id) {
-        return null;
+    public Product getProductById(String id) {
+        String sql = "SELECT id, category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, created_at, updated_at FROM products WHERE id = ?";
+        return jdbi.withHandle(handle -> handle
+                .createQuery(sql)
+                .bind(0, id)
+                .mapToBean(Product.class)
+                .findFirst().orElse(null));
     }
 
-    @Override
+    public List<ProductImage> getImagesByProductId(String id) {
+        String sql = "Select id,product_id, is_main, path from products_images where product_id = ?";
+        return jdbi.withHandle(handle -> handle
+                .createQuery(sql)
+                .bind(0, id)
+                .mapToBean(ProductImage.class)
+                .list());
+    }
+
+
     public int addProduct(Product product) {
         String productSql = "INSERT INTO products (category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender,color, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -78,7 +86,6 @@ public class Admin implements AdminProductDao {
     }
 
 
-    @Override
     public boolean addProductImages(ProductImage productImage) {
         String imageSql = "INSERT INTO products_images (product_id, is_main, path) VALUES (?,?,?)";
 
@@ -91,37 +98,61 @@ public class Admin implements AdminProductDao {
         return rowAffected > 0;
     }
 
-    @Override
-    public boolean updateProduct(Product product) {
+    public void updateProduct(String categoryId, String brandId, String shapeId, String material, String name, String description, String status, String hot, String cost_price, String selling_price, String quantity, String gender, String color, String id) {
         String updateProductSql = "UPDATE products SET category_id = ?, brand_id = ?, shape_id = ?, material = ?, name = ?, description = ?, status = ?, hot = ?, cost_price = ?, selling_price = ?, quantity = ?, gender = ?, color = ?, updated_at = ? WHERE id = ?";
-        int rowAffected = jdbi.withHandle(handle -> handle.createUpdate(updateProductSql)
-                .bind(0, product.getCategoryId())
-                .bind(1, product.getBrandId())
-                .bind(2, product.getShapeId())
-                .bind(3, product.getMaterial())
-                .bind(4, product.getName())
-                .bind(5, product.getDescription())
-                .bind(6, product.getStatus())
-                .bind(7, product.getHot())
-                .bind(8, product.getCostPrice())
-                .bind(9, product.getSellingPrice())
-                .bind(10, product.getQuantity())
-                .bind(11, product.getGender())
-                .bind(12, product.getColor())
-                .bind(13, LocalDateTime.now()).
-                bind(14, product.getId())
-                .execute());
-        return rowAffected > 0;
+        try {
+            jdbi.withHandle(handle -> handle.createUpdate(updateProductSql)
+                    .bind(0, categoryId)
+                    .bind(1, brandId)
+                    .bind(2, shapeId)
+                    .bind(3, material)
+                    .bind(4, name)
+                    .bind(5, description)
+                    .bind(6, status)
+                    .bind(7, hot)
+                    .bind(8, cost_price)
+                    .bind(9, selling_price)
+                    .bind(10, quantity)
+                    .bind(11, gender)
+                    .bind(12, color)
+                    .bind(13, String.valueOf(LocalDateTime.now()))
+                    .bind(14, id)
+                    .execute());
+        } catch (Exception e) {
+
+        }
+
     }
 
-    @Override
-    public boolean updateProductImage(List<ProductImage> productImage, int id) {
-        String deleteImageProductSql = "DELETE FROM products_images WHERE product_id = ?";
-
-        return false;
+    public ProductImage getMainImage(String id) {
+        String sql = "Select * from products_images where product_id = ? AND is_main = 1";
+        try {
+            return jdbi.withHandle(handle ->
+                    handle.createQuery(sql)
+                            .bind(0, id)
+                            .mapToBean(ProductImage.class)
+                            .one());
+        } catch (Exception e) {
+            return null;
+        }
     }
 
-    @Override
+    public void updateProductImage(String path, int isMain, String updatedAt, String productId, String imageId) {
+        String updateProductImageSql = "UPDATE products_images SET path = ?, is_main = ?, updated_at = ? WHERE product_id = ? AND id = ?";
+        try {
+            jdbi.withHandle(handle ->
+                    handle.createUpdate(updateProductImageSql)
+                            .bind(0, path)
+                            .bind(1, isMain)
+                            .bind(2, updatedAt)
+                            .bind(3, productId)
+                            .bind(4, imageId)
+                            .execute());
+        } catch (Exception e) {
+
+        }
+    }
+
     public boolean deleteProduct(int id) {
         String deleteImageProductSql = "DELETE FROM products_images WHERE product_id = ?";
         int rowAffectedImg = jdbi.withHandle(handle -> handle.createUpdate(deleteImageProductSql)
@@ -137,7 +168,6 @@ public class Admin implements AdminProductDao {
         return rowAffectedProduct > 0;
     }
 
-    @Override
     public List<CategoryVM> getAllCategories() {
         return jdbi.withHandle(handle -> handle.createQuery("select id, name from categories")
                 .mapToBean(CategoryVM.class)
@@ -145,13 +175,11 @@ public class Admin implements AdminProductDao {
 
     }
 
-    @Override
     public List<BrandVM> getAllBrands() {
         return jdbi.withHandle(handle -> handle.createQuery("select id, name from brands")
                 .mapToBean(BrandVM.class).list());
     }
 
-    @Override
     public List<FrameShapes> getAllFrameShapes() {
         return jdbi.withHandle(handle -> handle.createQuery("select id, name from frame_shapes")
                 .mapToBean(FrameShapes.class).list());

@@ -83,7 +83,7 @@
                                         <c:if test="${product.quantity <= 0}">Hết hàng</c:if>
                                     </td>
                                     <td>
-                                        <a class="edit-class" href="">Sửa</a>
+                                        <a class="edit-class" href="${pageContext.request.contextPath}/admin/UpdateProduct?id=${product.id}">Sửa</a>
                                         |
                                         <form method="post"
                                               action="${pageContext.request.contextPath}/admin/DeleteProduct"

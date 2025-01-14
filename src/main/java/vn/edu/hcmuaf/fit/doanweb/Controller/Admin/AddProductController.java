@@ -46,8 +46,8 @@ public class AddProductController extends HttpServlet {
 //        String description = request.getParameter("description");
         String description = StringEscapeUtils.unescapeHtml4(request.getParameter("description"));
         description = Jsoup.clean(description, Safelist.none());
-        double costPrice = Double.parseDouble(request.getParameter("costPrice"));
-        double sellingPrice = Double.parseDouble(request.getParameter("sellingPrice"));
+        long costPrice = Long.parseLong(request.getParameter("costPrice"));
+        long sellingPrice = Long.parseLong(request.getParameter("sellingPrice"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
         int brandId = Integer.parseInt(request.getParameter("brandId"));
@@ -77,7 +77,7 @@ public class AddProductController extends HttpServlet {
 
         int success = adminService.addProduct(product, images);
         if (success > 0) {
-            response.sendRedirect("/admin/AdminProductList");
+            response.sendRedirect( request.getContextPath() +"/admin/AdminProductList");
         } else {
             response.getWriter().write("Có lỗi khi thêm sản phẩm");
         }
