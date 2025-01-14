@@ -73,6 +73,7 @@ public class AdminService {
         return admin.getAllOrderDetails(orderId);
     }
 
+
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
@@ -141,5 +142,9 @@ public class AdminService {
 
 //        int id = 166;
 //        System.out.println(adminService.deleteProduct(id));
+    }
+
+    public boolean deleteOrder(int orderId) {
+        return admin.deleteOrder(orderId);
     }
 }

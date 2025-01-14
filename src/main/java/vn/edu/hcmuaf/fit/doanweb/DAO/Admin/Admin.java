@@ -57,7 +57,7 @@ public class Admin {
                 "p.selling_price, od.quantity, " +
                 "(p.selling_price * od.quantity) - o.total_discount AS total_price " +
                 "FROM order_details od " +
-                "JOIN orders o ON o.id = od.order_id "+
+                "JOIN orders o ON o.id = od.order_id " +
                 "JOIN products p ON od.product_id = p.id " +
                 "JOIN products_images pi ON p.id = pi.product_id " +
                 "WHERE od.order_id = :orderId AND pi.is_main = 1";
@@ -65,6 +65,7 @@ public class Admin {
         return jdbi.withHandle(h -> h.createQuery(sql)
                 .bind("orderId", orderId)
                 .map((rs, ctx) -> new OrderDetailVM(
+
                         rs.getInt("product_id"),
                         rs.getString("product_image"),
                         rs.getString("product_code"),
@@ -177,6 +178,24 @@ public class Admin {
                 .execute());
         return rowAffectedProduct > 0;
     }
+
+    public boolean deleteOrder(int orderId) {
+        String deleteDetailsSql = "DELETE FROM order_details WHERE order_id = ?";
+        String deleteOrderSql = "DELETE FROM orders WHERE id = ?";
+
+        jdbi.useTransaction(handle -> {
+            handle.createUpdate(deleteDetailsSql)
+                    .bind(0, orderId)
+                    .execute();
+
+            handle.createUpdate(deleteOrderSql)
+                    .bind(0, orderId)
+                    .execute();
+        });
+
+        return true;
+    }
+
 
     public List<CategoryVM> getAllCategories() {
         return jdbi.withHandle(handle -> handle.createQuery("select id, name from categories")

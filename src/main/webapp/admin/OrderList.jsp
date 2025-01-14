@@ -70,7 +70,9 @@
                                     <td>${order.buyerPhone}</td>
                                     <td>${order.buyerEmail}</td>
                                     <td>${order.buyerAddress}</td>
-                                    <td><a href="${pageContext.request.contextPath}/admin/OrderDetail?orderId=${order.orderId}" class="edit-class">Chi tiết</a></td>
+                                    <td>
+                                        <a href="${pageContext.request.contextPath}/admin/OrderDetail?orderId=${order.orderId}"
+                                           class="edit-class">Chi tiết</a></td>
                                     <td>${order.orderDate}</td>
                                     <td>
 
@@ -81,7 +83,11 @@
                                     </td>
 
                                     <td>
-                                        <a class="delete-class" href="">Xóa</a>
+                                        <form action="${pageContext.request.contextPath}/admin/DeleteOrder"
+                                              method="post">
+                                            <input type="hidden" name="orderId" value="${order.orderId}"/>
+                                            <button type="submit" class="delete-class">Xóa</button>
+                                        </form>
                                     </td>
                                 </tr>
                             </c:forEach>

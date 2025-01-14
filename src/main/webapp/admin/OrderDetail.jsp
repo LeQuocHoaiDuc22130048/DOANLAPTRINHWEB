@@ -57,7 +57,6 @@
                                 <th>Giá</th>
                                 <th>Số lượng</th>
                                 <th>Thành tiền</th>
-                                <th>Tùy biến</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -72,16 +71,14 @@
                                     <td><c:set var="itemTotalPrice" value="${od.totalPrice}"/>
                                         <f:formatNumber value="${itemTotalPrice}"/>đ
                                         <c:set var="total" value="${total + itemTotalPrice}"/></td>
-                                    <td>
-                                        <a class="delete-class" href="">Xóa</a>
-                                    </td>
+
                                 </tr>
 
                             </c:forEach>
 
 
                             <tr>
-                                <td style="font-weight: bold;" colspan="6">Tổng cộng</td>
+                                <td style="font-weight: bold;" colspan="5">Tổng cộng</td>
                                 <td style="font-weight: 700;"> <f:formatNumber value="${total}"/>đ </td>
                             </tr>
                             </tbody>
