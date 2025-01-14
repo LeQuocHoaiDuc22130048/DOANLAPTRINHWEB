@@ -264,4 +264,12 @@ public class Admin {
                         .bind(0, categoryId)
                         .execute() > 0);
     }
+
+    public List<User> getAllUsers() {
+        String sql = "select * from users";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .mapToBean(User.class)
+                        .list());
+    }
 }

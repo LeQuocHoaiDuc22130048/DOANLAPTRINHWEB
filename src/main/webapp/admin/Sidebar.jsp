@@ -60,7 +60,7 @@
             <li><a href=""><i class="ri-user-line"></i>Người dùng<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="manager_user.html"><i class="ri-arrow-right-s-fill"></i>Quản lý người dùng</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/ListUser"><i class="ri-arrow-right-s-fill"></i>Quản lý người dùng</a></li>
 
                     </div>
 

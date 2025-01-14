@@ -92,12 +92,15 @@ public class AdminService {
     public boolean deleteCategory(int id) {
         return admin.deleteCategory(id);
     }
+    public List<User> getAllUsers() {
+        return admin.getAllUsers();
+    }
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
-//        for (CategoriesVM d : adminService.getAllCategories()) {
-//            System.out.println(d);
-//        }
+        for (User d : adminService.getAllUsers()) {
+            System.out.println(d);
+        }
 //        String path = "new_image_path.jpg";
 //        int isMain = 1;
 //        String updatedAt = String.valueOf(LocalDateTime.now());
