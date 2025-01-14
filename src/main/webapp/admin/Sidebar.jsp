@@ -27,7 +27,7 @@
             <li><a href=""><i class="ri-file-list-line"></i>Đơn hàng<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="order_list.html"><i class="ri-arrow-right-s-fill"></i>Danh sách</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/OrderList"><i class="ri-arrow-right-s-fill"></i>Danh sách</a></li>
 
                     </div>
 

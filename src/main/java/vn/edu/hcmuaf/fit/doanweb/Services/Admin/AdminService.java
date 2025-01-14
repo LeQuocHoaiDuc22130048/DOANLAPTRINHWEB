@@ -3,6 +3,7 @@ package vn.edu.hcmuaf.fit.doanweb.Services.Admin;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.Admin;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.FrameShapes;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 
@@ -64,11 +65,17 @@ public class AdminService {
         return productUpdated;
     }
 
+    public List<OrdersVM> getAllOrders() {
+        return admin.getAllOrders();
+    }
 
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
+        for (OrdersVM orders : adminService.getAllOrders()) {
+            System.out.println(orders);
+        }
 //        String path = "new_image_path.jpg";
 //        int isMain = 1;
 //        String updatedAt = String.valueOf(LocalDateTime.now());

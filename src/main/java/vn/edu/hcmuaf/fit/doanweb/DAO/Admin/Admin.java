@@ -4,6 +4,7 @@ import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.FrameShapes;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 
@@ -34,6 +35,23 @@ public class Admin {
         )).list());
     }
 
+    public List<OrdersVM> getAllOrders() {
+        String sql = "SELECT o.id AS order_id, u.name AS buyer_name, u.email AS buyer_email, u.phone AS buyer_phone, " +
+                "u.address AS buyer_address, o.created_at AS order_date, o.status_transport AS transport_status " +
+                "FROM orders o " +
+                "JOIN users u ON o.user_id = u.id";
+
+        return jdbi.withHandle(h -> h.createQuery(sql).map((rs, ctx) -> new OrdersVM(
+                rs.getInt("order_id"),
+                rs.getString("buyer_name"),
+                rs.getString("buyer_email"),
+                rs.getString("buyer_phone"),
+                rs.getString("buyer_address"),
+                rs.getTimestamp("order_date").toLocalDateTime(),
+                rs.getInt("transport_status")
+        )).list());
+    }
+
     public Product getProductById(String id) {
         String sql = "SELECT id, category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, created_at, updated_at FROM products WHERE id = ?";
         return jdbi.withHandle(handle -> handle
@@ -42,8 +60,6 @@ public class Admin {
                 .mapToBean(Product.class)
                 .findFirst().orElse(null));
     }
-
-
 
 
     public int addProduct(Product product) {
@@ -120,7 +136,7 @@ public class Admin {
         String sql = "Select * from products_images where product_id = ? and is_main = 1";
         return jdbi.withHandle(handle ->
                 handle.createQuery(sql)
-                        .bind(0,id)
+                        .bind(0, id)
                         .mapToBean(ProductImage.class)
                         .findFirst().orElse(null));
     }
@@ -156,5 +172,6 @@ public class Admin {
         return jdbi.withHandle(handle -> handle.createQuery("select id, name from frame_shapes")
                 .mapToBean(FrameShapes.class).list());
     }
+
 
 }
