@@ -80,7 +80,7 @@
                       <div class="inner-content">
                         <p>KÍNH MÁT</p>
                         <button
-                          onclick="window.location.href='kinh_mat.html';"
+                          onclick="window.location.href='kinh_mat.jsp';"
                         >
                           Mua ngay
                         </button>
@@ -110,7 +110,7 @@
                       <div class="inner-content">
                         <p>TRÒNG KÍNH</p>
                         <button
-                          onclick="window.location.href='trong_kinh.html';"
+                          onclick="window.location.href='trong_kinh.jsp';"
                         >
                           Mua ngay
                         </button>
@@ -125,7 +125,7 @@
                       <div class="inner-content">
                         <p>KÍNH ÁP TRÒNG</p>
                         <button
-                          onclick="window.location.href='kinh_ap_trong.html';"
+                          onclick="window.location.href='kinh_ap_trong.jsp';"
                         >
                           Mua ngay
                         </button>

@@ -5,11 +5,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Properties;
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class SendEmailServices {

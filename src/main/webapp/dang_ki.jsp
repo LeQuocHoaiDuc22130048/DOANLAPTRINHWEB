@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="assets/css/lightbox.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/blog.css" />
-    <link rel="stylesheet" href="assets/css/eyestyle.css" />
 
     <style>
       .sign-in-container {
@@ -171,7 +170,69 @@
   </head>
   <body>
     <!-- ***** Header Area Start ***** -->
-    <jsp:include page="header.jsp" />
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" />
+              </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li class="scroll-to-section">
+                  <a href="./index.html#top" class="active">Trang chủ</a>
+                </li>
+                <li class="scroll-to-section">
+                  <a href="./index.html#kinh_mat">Kính mát</a>
+                </li>
+                <li class="scroll-to-section">
+                  <a href="./index.html#gong_kinh">Gọng kính</a>
+                </li>
+                <li class="scroll-to-section">
+                  <a href="./index.html#trong_kinh">Tròng kính</a>
+                </li>
+                <li class="scroll-to-section">
+                  <a href="./index.html#kinh_ap_trong">Kính áp tròng</a>
+                </li>
+                <li class="submenu">
+                  <a href="javascript:;">Trang phụ</a>
+                  <ul>
+                    <li><a href="san_pham.html">Sản phẩm</a></li>
+                    <li>
+                      <a href="chi_tiet_san_pham.html">Chi tiết sản phẩm</a>
+                    </li>
+                    <li class="scroll-to-section">
+                      <a href="bai_viet.html">Bài viết</a>
+                    </li>
+                    <li><a href="lien_he.html">Liên hệ</a></li>
+                  </ul>
+                </li>
+                <li class="username"> 
+                  <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                  <div class=username_login id="username-info" style="display: none;"><span id="username"></span></div>
+                </li>
+                <li class="gio_hang_shop">
+                  <a href="./gio_hang.html">
+                    <span>Giỏ hàng </span>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </a>
+                  <div class="count_div">
+                    <span class="cart-count">0</span>
+                  </div>
+                </li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
     <!-- ***** Header Area End ***** -->
 
     <!-- ****** Login Start ***** -->
@@ -185,10 +246,9 @@
       <div class="sign-in-form">
         <h3 class="title">Đăng kí tài khoản</h3>
         <h4>Hãy đăng kí ngay để được hưởng đặc quyền riêng dành cho bạn</h4>
-
         <form id="register-form" action="sign-in" method="post">
           <div class="taikhoan">
-            <label  class="form-label">Tên tài khoản</label>
+            <label for="username" class="form-label">Tên tài khoản</label>
             <input
               type="text"
               class="form-control"
@@ -201,7 +261,7 @@
           </div>
 
           <div class="email">
-            <label  class="form-label">Email</label>
+            <label for="email" class="form-label">Email</label>
             <input
               type="text"
               class="form-control"
@@ -214,7 +274,7 @@
           </div>
 
           <div class="matkhau">
-            <label class="form-label">Mật khẩu</label>
+            <label for="password" class="form-label">Mật khẩu</label>
             <input
               type="password"
               class="form-control"
@@ -270,7 +330,78 @@
     </div>
 
     <!-- ***** Footer Start ***** -->
-    <jsp:include page="footer.jsp" />
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 inf_first">
+            <div class="first-item">
+              <div class="logo">
+                <img src="./assets/images/logo.png" alt="eyestyle nhom 65" />
+              </div>
+              <ul>
+                <li>
+                  <a href="#">Đại học Nông Lâm TPHCM</a>
+                </li>
+                <li><a href="#">nhom65@company.com</a></li>
+                <li><a href="#">0123 456 789</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 inf">
+            <h4>Mua sắm &amp; Danh mục</h4>
+            <ul>
+              <li><a href="./chi_tiet_san_pham.html">Kính mát</a></li>
+              <li><a href="./chi_tiet_san_pham.html">Gọng kính</a></li>
+              <li><a href="./chi_tiet_san_pham.html">Tròng kính</a></li>
+              <li><a href="./chi_tiet_san_pham.html">Kính áp tròng</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 inf">
+            <h4>Trợ giúp &amp; Thông tin</h4>
+            <ul>
+              <li><a href="#">Sản phẩm cập nhật</a></li>
+              <li><a href="./bai_viet.html">Đời sống</a></li>
+              <li><a href="./gio_hang.html">Vận chuyển</a></li>
+              <li><a href="./lien_he.html">Liên hệ hỗ trợ</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 inf">
+            <h4>Điều hướng</h4>
+            <ul>
+              <li><a href="#">Trang chủ</a></li>
+              <li><a href="./san_pham.html">Sản phẩm</a></li>
+              <li><a href="./lien_he.html">Liên hệ</a></li>
+              <li><a href="./bai_viet.html">Bài viết</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-12">
+            <div class="under-footer">
+              <p>
+                Group65 © 2022 HexaShop Co., Ltd. All Rights Reserved.
+
+                <br />Design:
+                <a href="#">Group 65</a>
+              </p>
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-behance"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
 
   </body>
 </html>
