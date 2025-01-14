@@ -69,11 +69,14 @@ public class AdminService {
         return admin.getAllOrders();
     }
 
+    public List<OrderDetailVM> getAllOrderDetail(int orderId) {
+        return admin.getAllOrderDetails(orderId);
+    }
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
-        for (OrdersVM orders : adminService.getAllOrders()) {
+        for (OrderDetailVM orders : adminService.getAllOrderDetail(1)) {
             System.out.println(orders);
         }
 //        String path = "new_image_path.jpg";

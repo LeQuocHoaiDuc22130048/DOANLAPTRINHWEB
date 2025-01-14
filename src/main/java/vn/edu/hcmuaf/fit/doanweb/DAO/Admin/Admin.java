@@ -52,6 +52,28 @@ public class Admin {
         )).list());
     }
 
+    public List<OrderDetailVM> getAllOrderDetails(int orderId) {
+        String sql = "SELECT p.id AS product_id, pi.path AS product_image, p.name AS product_code, " +
+                "p.selling_price, od.quantity, " +
+                "(p.selling_price * od.quantity) - o.total_discount AS total_price " +
+                "FROM order_details od " +
+                "JOIN orders o ON o.id = od.order_id "+
+                "JOIN products p ON od.product_id = p.id " +
+                "JOIN products_images pi ON p.id = pi.product_id " +
+                "WHERE od.order_id = :orderId AND pi.is_main = 1";
+
+        return jdbi.withHandle(h -> h.createQuery(sql)
+                .bind("orderId", orderId)
+                .map((rs, ctx) -> new OrderDetailVM(
+                        rs.getInt("product_id"),
+                        rs.getString("product_image"),
+                        rs.getString("product_code"),
+                        rs.getLong("selling_price"),
+                        rs.getInt("quantity"),
+                        rs.getLong("total_price")
+                )).list());
+    }
+
     public Product getProductById(String id) {
         String sql = "SELECT id, category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, created_at, updated_at FROM products WHERE id = ?";
         return jdbi.withHandle(handle -> handle
