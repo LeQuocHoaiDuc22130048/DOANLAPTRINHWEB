@@ -69,7 +69,7 @@
             <li><a href=""><i class="ri-feedback-line"></i>Phản hồi<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="feedback.html"><i class="ri-arrow-right-s-fill"></i>Phản hồi</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/ListFeedback"><i class="ri-arrow-right-s-fill"></i>Phản hồi</a></li>
                     </div>
 
                 </ul>

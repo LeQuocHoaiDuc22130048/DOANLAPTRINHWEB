@@ -95,12 +95,15 @@ public class AdminService {
     public List<User> getAllUsers() {
         return admin.getAllUsers();
     }
+    public List<FeedBacks> getAllFeedbacks() {
+        return admin.getAllFeedbacks();
+    }
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
-        for (User d : adminService.getAllUsers()) {
-            System.out.println(d);
-        }
+//        for (FeedBacks d : adminService.getAllFeedbacks()) {
+//            System.out.println(d);
+//        }
 //        String path = "new_image_path.jpg";
 //        int isMain = 1;
 //        String updatedAt = String.valueOf(LocalDateTime.now());

@@ -272,4 +272,12 @@ public class Admin {
                         .mapToBean(User.class)
                         .list());
     }
+
+    public List<FeedBacks> getAllFeedbacks() {
+        String sql = "select * from feedbacks";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .mapToBean(FeedBacks.class)
+                        .list());
+    }
 }
