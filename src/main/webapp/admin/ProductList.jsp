@@ -6,8 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,12 +31,13 @@
     <title>Trang quản lý</title>
 
     <style>
-        div#productTable_filter{
+        div#productTable_filter {
             position: absolute;
             top: -40px;
             right: 0;
         }
-        div#productTable_filter label input{
+
+        div#productTable_filter label input {
             padding: 10px;
             width: 40vh;
             border: none;
@@ -71,24 +72,31 @@
                             </thead>
                             <tbody>
                             <c:forEach var="product" items="${products}">
-                                <tr>
+                                <tr >
                                     <td>${product.id}</td>
                                     <td>${product.productName}</td>
                                     <td><img width="70px" src="../${product.img}" alt=""></td>
                                     <td><f:formatNumber value="${product.price}"/>đ</td>
                                     <td>${product.quantity}</td>
                                     <td>
-                                        <c:if test="${product.quantity > 0}" >Còn hàng</c:if>
-                                        <c:if test="${product.quantity <= 0}" >Hết hàng</c:if>
+                                        <c:if test="${product.quantity > 0}">Còn hàng</c:if>
+                                        <c:if test="${product.quantity <= 0}">Hết hàng</c:if>
                                     </td>
                                     <td>
                                         <a class="edit-class" href="">Sửa</a>
                                         |
-                                        <a class="delete-class" href="">Xóa</a>
+                                        <form method="post"
+                                              action="${pageContext.request.contextPath}/admin/DeleteProduct"
+                                              style="display:inline;">
+                                            <input type="hidden" name="id" value="${product.id}">
+                                            <button type="submit" class="delete-class"
+                                                    onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này không?')">
+                                                Xóa
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             </c:forEach>
-
 
 
                             </tbody>
@@ -104,7 +112,7 @@
 <script src="asset/js/app.js"></script>
 </body>
 <script>
-    $(document).ready(function (){
+    $(document).ready(function () {
         $('#productTable').DataTable({
             "language": {
                 "sSearch": "Tìm kiếm sản phẩm",
@@ -119,4 +127,6 @@
         });
     });
 </script>
+
+
 </html>

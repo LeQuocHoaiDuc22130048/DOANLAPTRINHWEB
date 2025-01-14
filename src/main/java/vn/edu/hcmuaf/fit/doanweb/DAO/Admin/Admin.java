@@ -84,20 +84,57 @@ public class Admin implements AdminProductDao {
 
         int rowAffected = jdbi.withHandle(handle ->
                 handle.createUpdate(imageSql)
-                        .bind(0,productImage.getProductId())
-                        .bind(1,productImage.getIsMain())
-                        .bind(2,productImage.getPath())
+                        .bind(0, productImage.getProductId())
+                        .bind(1, productImage.getIsMain())
+                        .bind(2, productImage.getPath())
                         .execute());
         return rowAffected > 0;
     }
+
     @Override
     public boolean updateProduct(Product product) {
+        String updateProductSql = "UPDATE products SET category_id = ?, brand_id = ?, shape_id = ?, material = ?, name = ?, description = ?, status = ?, hot = ?, cost_price = ?, selling_price = ?, quantity = ?, gender = ?, color = ?, updated_at = ? WHERE id = ?";
+        int rowAffected = jdbi.withHandle(handle -> handle.createUpdate(updateProductSql)
+                .bind(0, product.getCategoryId())
+                .bind(1, product.getBrandId())
+                .bind(2, product.getShapeId())
+                .bind(3, product.getMaterial())
+                .bind(4, product.getName())
+                .bind(5, product.getDescription())
+                .bind(6, product.getStatus())
+                .bind(7, product.getHot())
+                .bind(8, product.getCostPrice())
+                .bind(9, product.getSellingPrice())
+                .bind(10, product.getQuantity())
+                .bind(11, product.getGender())
+                .bind(12, product.getColor())
+                .bind(13, LocalDateTime.now()).
+                bind(14, product.getId())
+                .execute());
+        return rowAffected > 0;
+    }
+
+    @Override
+    public boolean updateProductImage(List<ProductImage> productImage, int id) {
+        String deleteImageProductSql = "DELETE FROM products_images WHERE product_id = ?";
+
         return false;
     }
 
     @Override
     public boolean deleteProduct(int id) {
-        return false;
+        String deleteImageProductSql = "DELETE FROM products_images WHERE product_id = ?";
+        int rowAffectedImg = jdbi.withHandle(handle -> handle.createUpdate(deleteImageProductSql)
+                .bind(0, id)
+                .execute());
+        if (rowAffectedImg < 0) {
+            return false;
+        }
+        String deleteProductSql = "DELETE FROM products WHERE id = ?";
+        int rowAffectedProduct = jdbi.withHandle(handle -> handle.createUpdate(deleteProductSql)
+                .bind(0, id)
+                .execute());
+        return rowAffectedProduct > 0;
     }
 
     @Override

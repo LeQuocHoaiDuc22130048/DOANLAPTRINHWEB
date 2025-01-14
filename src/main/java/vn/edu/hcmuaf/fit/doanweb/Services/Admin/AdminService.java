@@ -30,15 +30,12 @@ public class AdminService {
     }
 
 
-
-
     public int addProduct(Product product, List<ProductImage> productImages) {
         // Thêm sản phẩm và lấy ID
         int productId = admin.addProduct(product);
         if (productId <= 0) {
             return 0;
         }
-
         // Gán ID cho từng hình ảnh và thêm hình ảnh vào CSDL
         for (ProductImage productImage : productImages) {
             productImage.setProductId(productId);
@@ -50,7 +47,28 @@ public class AdminService {
         return productId;
     }
 
+    public boolean deleteProduct(int id) {
+        return admin.deleteProduct(id);
+    }
 
+    public boolean updateProduct(Product product) {
+        return admin.updateProduct(product);
+    }
+
+    public int updateProduct(Product product, List<ProductImage> productImages) {
+        boolean success = updateProduct(product);
+        if (!success) {
+            return 0;
+        }
+        for (ProductImage productImage : productImages) {
+            productImage.setProductId(product.getId());
+            boolean imageAdded = admin.addProductImages(productImage);
+            if (!imageAdded) {
+                return 0;
+            }
+        }
+        return product.getId();
+    }
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
@@ -101,5 +119,8 @@ public class AdminService {
         else{
             System.out.println("Thêm thất bại");
         }
+
+//        int id = 166;
+//        System.out.println(adminService.deleteProduct(id));
     }
 }

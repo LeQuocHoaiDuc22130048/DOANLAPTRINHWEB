@@ -77,7 +77,7 @@ public class AddProductController extends HttpServlet {
 
         int success = adminService.addProduct(product, images);
         if (success > 0) {
-            response.getWriter().write("Sản phẩm đã được thêm thành công với Id" + success);
+            response.sendRedirect("/admin/AdminProductList");
         } else {
             response.getWriter().write("Có lỗi khi thêm sản phẩm");
         }

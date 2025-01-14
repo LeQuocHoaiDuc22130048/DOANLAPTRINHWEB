@@ -36,8 +36,8 @@
             <li></i><a href=""><i class="ri-file-list-line"></i>Sản phẩm<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="admin/AdminProductList"><i class="ri-arrow-right-s-fill"></i>Danh sách sản phẩm</a></li>
-                        <li><a href="admin/ProductAdd"><i class="ri-arrow-right-s-fill"></i>Thêm</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/AdminProductList"><i class="ri-arrow-right-s-fill"></i>Danh sách sản phẩm</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/ProductAdd"><i class="ri-arrow-right-s-fill"></i>Thêm</a></li>
                     </div>
                 </ul>
 
