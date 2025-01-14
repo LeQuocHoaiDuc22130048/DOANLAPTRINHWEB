@@ -3,10 +3,7 @@ package vn.edu.hcmuaf.fit.doanweb.DAO.Admin;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.FrameShapes;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -84,6 +81,13 @@ public class Admin {
                 .findFirst().orElse(null));
     }
 
+    public List<Discounts> getDiscounts() {
+        String sql = "select id, code, description, discount_percentage, status from discounts";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .mapToBean(Discounts.class)
+                        .list());
+    }
 
     public int addProduct(Product product) {
         String productSql = "INSERT INTO products (category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender,color, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

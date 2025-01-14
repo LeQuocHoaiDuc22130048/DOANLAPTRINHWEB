@@ -11,9 +11,5 @@ public class Discounts {
     private String description;
     private double discountPercentage;
     private int status;
-    private double totalDiscount;
-    private double totalPrice;
-    private String text;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
 }

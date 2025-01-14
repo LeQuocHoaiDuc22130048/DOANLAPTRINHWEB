@@ -53,7 +53,7 @@
             <li></i><a href=""><i class="ri-discount-percent-line"></i>Khuyến mãi<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="promotion.html"><i class="ri-arrow-right-s-fill"></i>Danh sách mã giảm giá</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/PromotionList"><i class="ri-arrow-right-s-fill"></i>Danh sách mã giảm giá</a></li>
                     </div>
                 </ul>
             </li>

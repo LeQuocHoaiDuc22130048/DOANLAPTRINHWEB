@@ -2,10 +2,7 @@ package vn.edu.hcmuaf.fit.doanweb.Services.Admin;
 
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.Admin;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.FrameShapes;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 
 
 import java.time.LocalDateTime;
@@ -34,6 +31,7 @@ public class AdminService {
     public Product getProductById(String id) {
         return admin.getProductById(id);
     }
+
     public ProductImage getProductImageById(String id) {
         return admin.getImageById(id);
     }
@@ -60,7 +58,7 @@ public class AdminService {
         return admin.deleteProduct(id);
     }
 
-    public boolean updateProduct(Product product){
+    public boolean updateProduct(Product product) {
         boolean productUpdated = admin.updateProduct(product);
         return productUpdated;
     }
@@ -73,13 +71,20 @@ public class AdminService {
         return admin.getAllOrderDetails(orderId);
     }
 
+    public boolean deleteOrder(int orderId) {
+        return admin.deleteOrder(orderId);
+    }
+
+    public List<Discounts> getAllDiscounts() {
+        return admin.getDiscounts();
+    }
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
-        for (OrderDetailVM orders : adminService.getAllOrderDetail(1)) {
-            System.out.println(orders);
-        }
+//        for (Discounts d : adminService.getAllDiscounts()) {
+//            System.out.println(d);
+//        }
 //        String path = "new_image_path.jpg";
 //        int isMain = 1;
 //        String updatedAt = String.valueOf(LocalDateTime.now());
@@ -144,7 +149,5 @@ public class AdminService {
 //        System.out.println(adminService.deleteProduct(id));
     }
 
-    public boolean deleteOrder(int orderId) {
-        return admin.deleteOrder(orderId);
-    }
+
 }
