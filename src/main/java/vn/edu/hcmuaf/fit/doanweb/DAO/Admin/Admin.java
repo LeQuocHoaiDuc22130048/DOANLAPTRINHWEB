@@ -134,6 +134,18 @@ public class Admin {
         return rowAffected > 0;
     }
 
+    public boolean addDiscount(Discounts discounts) {
+        String sql = "INSERT INTO discounts (code, description, discount_percentage, status) VALUES (?,?,?,?)";
+
+        return jdbi.withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, discounts.getCode())
+                        .bind(1, discounts.getDescription())
+                        .bind(2, discounts.getDiscountPercentage())
+                        .bind(3, discounts.getStatus())
+                        .execute()) > 0;
+    }
+
     public boolean updateProduct(Product product) {
         String updateProductSql = "UPDATE products SET category_id = ?, brand_id = ?, shape_id = ?, material = ?, name = ?, description = ?, status = ?, hot = ?, cost_price = ?, selling_price = ?, quantity = ?, gender = ?, color = ?, updated_at = ? WHERE id = ?";
         int rowAffected = jdbi.withHandle(handle ->

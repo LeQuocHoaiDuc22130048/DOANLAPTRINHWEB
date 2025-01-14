@@ -79,6 +79,10 @@ public class AdminService {
         return admin.getDiscounts();
     }
 
+    public boolean addDiscount(Discounts discount) {
+        return admin.addDiscount(discount);
+    }
+
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
