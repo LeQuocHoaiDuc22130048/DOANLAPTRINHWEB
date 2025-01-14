@@ -43,14 +43,7 @@ public class Admin {
                 .findFirst().orElse(null));
     }
 
-    public List<ProductImage> getImagesByProductId(String id) {
-        String sql = "Select id,product_id, is_main, path from products_images where product_id = ?";
-        return jdbi.withHandle(handle -> handle
-                .createQuery(sql)
-                .bind(0, id)
-                .mapToBean(ProductImage.class)
-                .list());
-    }
+
 
 
     public int addProduct(Product product) {
@@ -98,59 +91,38 @@ public class Admin {
         return rowAffected > 0;
     }
 
-    public void updateProduct(String categoryId, String brandId, String shapeId, String material, String name, String description, String status, String hot, String cost_price, String selling_price, String quantity, String gender, String color, String id) {
+    public boolean updateProduct(Product product) {
         String updateProductSql = "UPDATE products SET category_id = ?, brand_id = ?, shape_id = ?, material = ?, name = ?, description = ?, status = ?, hot = ?, cost_price = ?, selling_price = ?, quantity = ?, gender = ?, color = ?, updated_at = ? WHERE id = ?";
-        try {
-            jdbi.withHandle(handle -> handle.createUpdate(updateProductSql)
-                    .bind(0, categoryId)
-                    .bind(1, brandId)
-                    .bind(2, shapeId)
-                    .bind(3, material)
-                    .bind(4, name)
-                    .bind(5, description)
-                    .bind(6, status)
-                    .bind(7, hot)
-                    .bind(8, cost_price)
-                    .bind(9, selling_price)
-                    .bind(10, quantity)
-                    .bind(11, gender)
-                    .bind(12, color)
-                    .bind(13, String.valueOf(LocalDateTime.now()))
-                    .bind(14, id)
-                    .execute());
-        } catch (Exception e) {
+        int rowAffected = jdbi.withHandle(handle ->
+                handle.createUpdate(updateProductSql)
+                        .bind(0, product.getCategoryId())
+                        .bind(1, product.getBrandId())
+                        .bind(2, product.getShapeId())
+                        .bind(3, product.getMaterial())
+                        .bind(4, product.getName())
+                        .bind(5, product.getDescription())
+                        .bind(6, product.getStatus())
+                        .bind(7, product.getHot())
+                        .bind(8, product.getCostPrice())
+                        .bind(9, product.getSellingPrice())
+                        .bind(10, product.getQuantity())
+                        .bind(11, product.getGender())
+                        .bind(12, product.getColor())
+                        .bind(13, LocalDateTime.now())
+                        .bind(14, product.getId())
+                        .execute()
+        );
 
-        }
-
+        return rowAffected > 0;
     }
 
-    public ProductImage getMainImage(String id) {
-        String sql = "Select * from products_images where product_id = ? AND is_main = 1";
-        try {
-            return jdbi.withHandle(handle ->
-                    handle.createQuery(sql)
-                            .bind(0, id)
-                            .mapToBean(ProductImage.class)
-                            .one());
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public void updateProductImage(String path, int isMain, String updatedAt, String productId, String imageId) {
-        String updateProductImageSql = "UPDATE products_images SET path = ?, is_main = ?, updated_at = ? WHERE product_id = ? AND id = ?";
-        try {
-            jdbi.withHandle(handle ->
-                    handle.createUpdate(updateProductImageSql)
-                            .bind(0, path)
-                            .bind(1, isMain)
-                            .bind(2, updatedAt)
-                            .bind(3, productId)
-                            .bind(4, imageId)
-                            .execute());
-        } catch (Exception e) {
-
-        }
+    public ProductImage getImageById(String id) {
+        String sql = "Select * from products_images where product_id = ? and is_main = 1";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind(0,id)
+                        .mapToBean(ProductImage.class)
+                        .findFirst().orElse(null));
     }
 
     public boolean deleteProduct(int id) {

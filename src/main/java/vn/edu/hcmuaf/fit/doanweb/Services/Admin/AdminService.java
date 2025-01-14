@@ -33,10 +33,10 @@ public class AdminService {
     public Product getProductById(String id) {
         return admin.getProductById(id);
     }
-
-    public List<ProductImage> getImageByProductId(String id) {
-        return admin.getImagesByProductId(id);
+    public ProductImage getProductImageById(String id) {
+        return admin.getImageById(id);
     }
+
 
     public int addProduct(Product product, List<ProductImage> productImages) {
         // Thêm sản phẩm và lấy ID
@@ -59,32 +59,12 @@ public class AdminService {
         return admin.deleteProduct(id);
     }
 
-    public void updateProduct(String categoryId, String brandId, String shapeId, String material, String name, String description, String status, String hot, String cost_price, String selling_price, String quantity, String gender, String color, String id) {
-        admin.updateProduct(categoryId, brandId, shapeId, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, id);
+    public boolean updateProduct(Product product){
+        boolean productUpdated = admin.updateProduct(product);
+        return productUpdated;
     }
 
-//    public int updateProduct(Product product, List<ProductImage> productImages) {
-//        boolean success = updateProduct(product);
-//        if (!success) {
-//            return 0;
-//        }
-//        for (ProductImage productImage : productImages) {
-//            productImage.setProductId(product.getId());
-//            boolean imageAdded = admin.addProductImages(productImage);
-//            if (!imageAdded) {
-//                return 0;
-//            }
-//        }
-//        return product.getId();
-//    }
 
-    public ProductImage getMainImage(String id) {
-        return admin.getMainImage(id);
-    }
-
-    public void updateProductImage(String path, int isMain, String updatedAt, String productId, String imageId) {
-        admin.updateProductImage(path, isMain, updatedAt, productId, imageId);
-    }
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();

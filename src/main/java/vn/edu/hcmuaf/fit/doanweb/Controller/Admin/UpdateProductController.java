@@ -2,14 +2,13 @@ package vn.edu.hcmuaf.fit.doanweb.Controller.Admin;
 
 import java.io.*;
 import java.time.LocalDateTime;
-import java.util.List;
+
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.apache.commons.text.StringEscapeUtils;
-import org.jsoup.Jsoup;
-import org.jsoup.safety.Safelist;
+
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
@@ -23,7 +22,7 @@ public class UpdateProductController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String id = request.getParameter("id");
         Product product = adminService.getProductById(id);
-        ProductImage productImage = adminService.getMainImage(id);
+        ProductImage productImage = adminService.getProductImageById(id);
 
         request.setAttribute("product", product);
         request.setAttribute("image", productImage);
@@ -39,48 +38,74 @@ public class UpdateProductController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        String id = request.getParameter("id");
+        int id = Integer.parseInt(request.getParameter("id"));
+//        String id = request.getParameter("id");
         String name = request.getParameter("name");
-        String costPrice = request.getParameter("costPrice");
-        String sellingPrice = request.getParameter("sellingPrice");
-        String quantity = request.getParameter("quantity");
-        String categoryId = request.getParameter("categoryId");
-        String brandId = request.getParameter("brandId");
-        String frameShapeId = request.getParameter("shapeId");
-        String gender = request.getParameter("gender");
-        String material = request.getParameter("material");
         String description = StringEscapeUtils.unescapeHtml4(request.getParameter("description"));
+        long costPrice = parseLongSafe(request.getParameter("costPrice"));
+        long sellingPrice = parseLongSafe(request.getParameter("sellingPrice"));
+        int quantity = parseIntSafe(request.getParameter("quantity"));
+        int categoryId = parseIntSafe(request.getParameter("categoryId"));
+        int brandId = parseIntSafe(request.getParameter("brandId"));
+        int shapeId = parseIntSafe(request.getParameter("shapeId"));
+        String material = request.getParameter("material");
+        int gender = parseIntSafe(request.getParameter("gender"));
         String color = request.getParameter("color");
+        int status = parseByteSafe(request.getParameter("status"));
+        byte hot = parseByteSafe(request.getParameter("hot"));
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("CostPrice: " + costPrice);
 
-        adminService.updateProduct(categoryId, brandId, frameShapeId, material, name, description, "1", "0", costPrice, sellingPrice, quantity, gender, color, id);
+        Product product = new Product();
+        product.setId(id);
+        product.setName(name);
+        product.setDescription(description);
+        product.setCostPrice(costPrice);
+        product.setSellingPrice(sellingPrice);
+        product.setQuantity(quantity);
+        product.setCategoryId(categoryId);
+        product.setBrandId(brandId);
+        product.setShapeId(shapeId);
+        product.setMaterial(material);
+        product.setGender(gender);
+        product.setColor(color);
+        product.setStatus(status);
+        product.setHot(hot);
 
-        ProductImage productImage = adminService.getMainImage(id);
-
-        Part mainImagePart = request.getPart("mainImage");
-        if (mainImagePart != null && mainImagePart.getSize() > 0) {
-            String newMainImage = saveImage(mainImagePart);
-            if (productImage != null) {
-                productImage.setPath(newMainImage);
-                productImage.setUpdatedAt(LocalDateTime.now());
-            } else {
-                productImage = new ProductImage();
-                productImage.setPath(newMainImage);
-                productImage.setUpdatedAt(LocalDateTime.now());
-                productImage.setProductId(Integer.parseInt(id));
-                productImage.setIsMain(1);
-            }
-            adminService.updateProductImage(productImage.getPath(), productImage.getIsMain(), productImage.getUpdatedAt().toString(), id, String.valueOf(productImage.getId()));
+        boolean success = adminService.updateProduct(product);
+        if (success) {
+            response.sendRedirect(request.getContextPath() + "/admin/AdminProductList");
+        } else {
+            request.setAttribute("error", "có lỗi khi thêm sản phẩm");
+            request.getRequestDispatcher("/admin/UpdateProduct.jsp").forward(request, response);
         }
-        response.sendRedirect(request.getContextPath() + "/admin/AdminProductList");
 
 
     }
 
-    private String saveImage(Part imagePart) throws IOException {
-        String fileName = imagePart.getSubmittedFileName();
-        String filePath = SAVE_DIR + "/" + System.currentTimeMillis() + "_" + fileName;
-        String savePath = getServletContext().getRealPath("") + filePath;
-        imagePart.write(savePath);
-        return filePath;
+    private int parseIntSafe(String value) {
+        try {
+            return value == null || value.isEmpty() ? 0 : Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
+
+    private long parseLongSafe(String value) {
+        try {
+            return value == null || value.isEmpty() ? 0L : Long.parseLong(value);
+        } catch (NumberFormatException e) {
+            return 0L;
+        }
+    }
+
+    private byte parseByteSafe(String value) {
+        try {
+            return value == null || value.isEmpty() ? 0 : Byte.parseByte(value);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+
 }

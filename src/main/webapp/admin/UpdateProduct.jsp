@@ -36,13 +36,13 @@
                 <div class="admin-content-main-title">
                     <h1>Sửa sản phẩm</h1>
                 </div>
-                <form action="${pageContext.request.contextPath}/admin/UpdateProduct" method="post"
-                      enctype="multipart/form-data">
+                <form action="${pageContext.request.contextPath}/admin/UpdateProduct" method="post">
                     <div class="admin-content-main-content">
                         <div class="admin-content-main-content-product-add">
                             <div class="admin-content-main-content-left">
                                 <div class="admin-content-main-content-two-input">
-                                    <input type="text" placeholder="" name="id" value="Id: ${product.id}" readonly required>
+                                    <input type="text" placeholder="" name="id" value="${product.id}" readonly
+                                           required>
                                     <input type="text" placeholder="Tên sản phẩm " name="name" value="${product.name}">
                                     <input type="text" placeholder="Màu" name="color" value="${product.color}">
                                     <input type="text" placeholder="Chất liệu" name="material"
@@ -94,7 +94,8 @@
                                            value="${product.sellingPrice}">
                                 </div>
 
-                                <textarea name="description" placeholder="Chi tiết sản phẩm"></textarea>
+                                <textarea name="description"
+                                          placeholder="Chi tiết sản phẩm">${product.description}</textarea>
                                 <button class="main-btn" type="submit">Sửa sản phẩm</button>
                             </div>
                             <div class="admin-content-main-content-right">
@@ -103,8 +104,6 @@
 
                                     <img src="../${image.path}" width="200px" height="200px">
 
-                                    <input name="mainImage" type="file"
-                                           style="display: block;height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
                                 </div>
                                 <div class="admin-content-main-content-right-images" style="margin-top: 50px">
                                 </div>
