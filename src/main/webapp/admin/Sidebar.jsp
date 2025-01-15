@@ -20,7 +20,7 @@
         <ul>
             <li><a href=""><i class="ri-dashboard-line"></i>Trang quản lý<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
-                    <div class="sub-menu-items"><li><a href="admin.html"><i class="ri-arrow-right-s-fill"></i>Tổng quan</a></li></div>
+                    <div class="sub-menu-items"><li><a href="${pageContext.request.contextPath}/admin/Dashboard"><i class="ri-arrow-right-s-fill"></i>Tổng quan</a></li></div>
 
                 </ul>
             </li>

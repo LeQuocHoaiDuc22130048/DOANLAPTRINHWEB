@@ -30,40 +30,7 @@
                 <div class="admin-content-main-title">
                     <h1>Trang quản lý</h1>
                 </div>
-                <div class="admin-content-main-content admin-dashboard-top">
-                    <div class="admin-content-main-content-home-admin">
-                        <div class="admin-content-main-content-home-table">
-                            <label  class="label-table" style="display: flex; justify-content: center"><h3>Danh sách đơn hàng theo ngày</h3><i class="ri-arrow-down-s-fill"></i></label>
-                            <div id="calender" class="hidden">
-                                <input type="date" id="date-picker" min="" max="">
-                            </div>
-                            <table> <tr>
-                                <th>STT</th>
-                                <th>Mã đơn hàng</th>
-                                <th>Mã khách hàng</th>
-                                <th>Chi tiết đơn hàng</th>
-                                <th>Tổng thanh toán</th>
-                                <th>Trạng thái thanh toán</th>
-                                <th>Trạng thái vận chuyển</th>
-                                <th>Tùy chỉnh</th>
-                            </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>xyz</td>
-                                    <td>abc</td>
-                                    <td><a href="order_detail.html" class="confirm-order">Chi tiết</a></td>
-                                    <td>1000000đ</td>
-                                    <td><a href="" class="confirm-order">Đã thanh toán</a></td>
-                                    <td><a href="" class="confirm-order">Đã giao hàng</a></td>
-                                    <td>
-                                        <a href="order_detail.html" class="confirm-order">Sửa</a>
-                                    </td>
 
-                            </table>
-
-                        </div>
-
-                    </div>
 
 
 
@@ -78,41 +45,26 @@
                         <div class="admin-content-main-content-home-admin-bottom-right">
                             <label ><h3>Sản phẩm bán chạy trong tháng</h3></label>
                             <div class="admin-content-main-content-home-table">
-                                <table> <tr>
+                                <table>
+                                    <tr>
                                     <th>Mã sản phẩm</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Thương hiệu</th>
+                                    <th>Ảnh</th>
                                     <th>Số lượng đã bán</th>
 
                                 </tr>
-                                    <tr>
-                                        <td>abc</td>
-                                        <td>xyz</td>
-                                        <td>gucci</td>
-                                        <td>10</td>
 
-                                    </tr>
-                                    <tr>
-                                        <td>abc</td>
-                                        <td>xyz</td>
-                                        <td>gucci</td>
-                                        <td>10</td>
+                                    <c:forEach var="l" items="${ls}">
+                                        <tr>
+                                            <td>${l.id}</td>
+                                            <td>${l.name}</td>
+                                            <td>${l.brand}</td>
+                                            <td><img src="../${l.path}" width="70px"></td>
+                                            <td>${l.amount}</td>
 
-                                    </tr>
-                                    <tr>
-                                        <td>abc</td>
-                                        <td>xyz</td>
-                                        <td>gucci</td>
-                                        <td>10</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>abc</td>
-                                        <td>xyz</td>
-                                        <td>gucci</td>
-                                        <td>10</td>
-
-                                    </tr>
+                                        </tr>
+                                    </c:forEach>
 
                                 </table>
 

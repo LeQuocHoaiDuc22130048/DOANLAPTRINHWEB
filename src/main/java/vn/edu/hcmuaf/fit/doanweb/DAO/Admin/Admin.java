@@ -280,4 +280,37 @@ public class Admin {
                         .mapToBean(FeedBacks.class)
                         .list());
     }
+
+    public List<DashboardVM> getProductHot() {
+        String sql = "SELECT   \n" +
+                "    p.id AS product_id,  \n" +
+                "    p.name AS product_name,  \n" +
+                "    b.name AS brand_name,  \n" +
+                "    i.`path` AS img,\n" +
+                "    SUM(od.quantity) AS total_sold  \n" +
+                "FROM   \n" +
+                "    order_details od  \n" +
+                "JOIN   \n" +
+                "    products p ON od.product_id = p.id  \n" +
+                "JOIN   \n" +
+                "    brands b ON p.brand_id = b.id  \n" +
+                "JOIN \n" +
+                "\tproducts_images i ON p.id = i.product_id\n" +
+                "WHERE i.is_main = 1\n" +
+                "GROUP BY   \n" +
+                "    p.id, p.name, b.name  \n" +
+                "ORDER BY   \n" +
+                "    total_sold DESC  \n" +
+                "LIMIT 5";
+
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .map((rs, ctx) -> new DashboardVM(
+                                rs.getInt("product_id"),
+                                rs.getString("product_name"),
+                                rs.getString("brand_name"),
+                                rs.getString("img"),
+                                rs.getInt("total_sold"))).list());
+
+    }
 }

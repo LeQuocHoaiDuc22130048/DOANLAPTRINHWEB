@@ -98,10 +98,13 @@ public class AdminService {
     public List<FeedBacks> getAllFeedbacks() {
         return admin.getAllFeedbacks();
     }
+    public List<DashboardVM> getProductHot(){
+        return admin.getProductHot();
+    }
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
-//        for (FeedBacks d : adminService.getAllFeedbacks()) {
+//        for (DashboardVM d : adminService.getProductHot()) {
 //            System.out.println(d);
 //        }
 //        String path = "new_image_path.jpg";
