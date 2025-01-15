@@ -6,7 +6,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 
 import java.util.List;
 
-public interface ProductDao {
+public interface ProductDaoInterface {
 
     public Product getProductById(int id);
 
