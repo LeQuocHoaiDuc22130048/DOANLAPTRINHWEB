@@ -9,4 +9,5 @@ public interface UserDao {
     public boolean isAccountActive(int userId);
     public boolean isNewUser(String userName, String password);
     public Integer addUser(String userName, String email, String password, String phone, String address);
+    public String getPassword(String username, String email);
 }

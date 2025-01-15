@@ -29,9 +29,11 @@ public class Admin {
                 rs.getString("path"),
                 rs.getLong("selling_price"),
                 rs.getInt("quantity")
+
         )).list());
     }
 
+<<<<<<< HEAD
     public List<OrdersVM> getAllOrders() {
         String sql = "SELECT o.id AS order_id, u.name AS buyer_name, u.email AS buyer_email, u.phone AS buyer_phone, " +
                 "u.address AS buyer_address, o.created_at AS order_date, o.status_transport AS transport_status " +
@@ -47,6 +49,11 @@ public class Admin {
                 rs.getTimestamp("order_date").toLocalDateTime(),
                 rs.getInt("transport_status")
         )).list());
+=======
+    @Override
+    public Product getProductById(int id) {
+        return null;
+>>>>>>> 04f194d9b9870f11ed800820736c7cbedd2498c7
     }
 
     public List<OrderDetailVM> getAllOrderDetails(int orderId) {
