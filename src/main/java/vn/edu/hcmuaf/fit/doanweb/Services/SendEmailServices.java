@@ -35,7 +35,7 @@ public class SendEmailServices {
 
 
         // tạo phiên
-        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+        Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(from, password);
 

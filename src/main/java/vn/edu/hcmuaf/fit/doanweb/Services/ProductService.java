@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.doanweb.Services;
 
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDao;
+import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 
 import java.util.List;
 
@@ -10,30 +11,55 @@ public class ProductService {
 
     ProductDao dao = new ProductDao();
 
-    public List<ProductOfMaterial> getProductOfMaterial(String material){
-        return dao.getProductOfMaterial(material);
+    public List<ProductByMaterial> getProductByMaterial(String material){
+        return dao.getProductByMaterial(material);
     }
 
-    public List<ProductOfGender> getProductOfGender(int gender){
-        return dao.getProductOfGender(gender);
+    public List<ProductByGender> getProductByGender(int gender){
+        return dao.getProductByGender(gender);
     }
 
-    public List<ProductOfColor> getProductOfColor(String color){
-        return dao.getProductOfColor(color);
+    public List<ProductByColor> getProductByColor(String color){
+        return dao.getProductByColor(color);
     }
 
-    public List<ProductOfShape> getProductOfShape(int  shape){
-        return dao.getProductOfShape(shape);
+    public List<ProductByShape> getProductByShape(int  shape){
+        return dao.getProductByShape(shape);
     }
 
-    public List<ProductOfBrand> getProductOfBrand(int brand){
-        return dao.getProductOfBrand(brand);
+    public List<ProductByBrand> getProductByBrand(int brand){
+        return dao.getProductByBrand(brand);
 
     }
 
-    public List<ProductOfCategory> getProductOfCategory(int category){
-        return dao.getProductOfCategory(category);
+    public List<ProductByCategory> getProductByCategory(int category){
+        return dao.getProductByCategory(category);
     }
+
+    public List<ProductByPriceRange> getProductByprice(long minPrice, long maxPrice){
+        return dao.getProductByPrice(minPrice, maxPrice);
+    }
+
+    static ProductDaoImp daoImp = new ProductDaoImp();
+
+    public ProductIndex getProductById(int id){
+        return daoImp.getProductById(id);
+    }
+
+    public List<ProductIndex> getProductsByGender(int id){
+        return daoImp.getProductsByGender(id);
+    }
+
+    public List<ProductImage> getProductImages(int id){
+        return daoImp.getImagesByProductId(id); //ảnh phụ
+    }
+
+
+
+
+
+
+
 
 
 }

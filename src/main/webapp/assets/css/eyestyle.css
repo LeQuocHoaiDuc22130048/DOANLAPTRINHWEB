@@ -21,10 +21,33 @@ font & reset css
 --------------------------------------------- 
 */
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
-/* 
+/* ---------------------------------------------
+Table of contents
+------------------------------------------------
+01. font & reset css
+02. reset
+03. global styles
+04. header
+05. banner
+06. features
+07. testimonials
+08. contact
+09. footer
+10. preloader
+11. search
+12. portfolio
+
+--------------------------------------------- */
+/*
+---------------------------------------------
+font & reset css
+---------------------------------------------
+*/
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+/*
 ---------------------------------------------
 reset
---------------------------------------------- 
+---------------------------------------------
 */
 html,
 body,
@@ -167,10 +190,10 @@ p {
   color: #2a2a2a;
 }
 
-/* 
+/*
 ---------------------------------------------
 global styles
---------------------------------------------- 
+---------------------------------------------
 */
 html,
 body {
@@ -259,10 +282,10 @@ body {
   font-weight: 400;
 }
 
-/* 
+/*
 ---------------------------------------------
 header
---------------------------------------------- 
+---------------------------------------------
 */
 
 .background-header {
@@ -456,7 +479,7 @@ header
   visibility: hidden;
   z-index: -1;
   transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
-    z-index 0s linear 0.01s;
+  z-index 0s linear 0.01s;
 }
 
 .header-area .main-nav .nav li.submenu ul li {
@@ -759,10 +782,10 @@ header
   right: 127px;
 }
 
-/* 
+/*
 ---------------------------------------------
 banner
---------------------------------------------- 
+---------------------------------------------
 */
 
 .main-banner {
@@ -817,22 +840,22 @@ banner
 }
 
 .main-banner
-  .right-content
-  .right-first-image
-  .thumb
-  .inner-content
-  button:hover {
+.right-content
+.right-first-image
+.thumb
+.inner-content
+button:hover {
   color: #0021f5;
   background-color: #fff;
   border: 1px solid #0021f5;
 }
 
 .main-banner
-  .right-content
-  .right-first-image
-  .thumb
-  .inner-content
-  button:active {
+.right-content
+.right-first-image
+.thumb
+.inner-content
+button:active {
   border: none;
   transform: scale(0.98);
 }
@@ -951,7 +974,8 @@ kinh_mat
   margin: 0px 10px;
 }
 
-#kinh_mat .item .thumb .hover-content ul li a {
+#kinh_mat .item .thumb .hover-content ul li a,
+#kinh_mat .item .thumb .hover-content ul li form{
   width: 50px;
   height: 50px;
   text-align: center;
@@ -959,6 +983,17 @@ kinh_mat
   display: inline-block;
   color: #2a2a2a;
   background-color: #fff;
+}
+
+#kinh_mat .item .thumb .hover-content ul li form button{
+  border: none;
+  background: #fff;
+}
+
+#kinh_mat .item .thumb .hover-content ul li form button:active,
+#kinh_mat .item .thumb .hover-content ul li form button:focus{
+  outline:none;
+  border: none;
 }
 
 #kinh_mat .owl-nav {
@@ -1041,27 +1076,36 @@ kinh_mat
   align-items: flex-start;
 }
 
-#kinh_mat .container .row .col-lg-6 .radio_gioi_tinh {
+#kinh_mat .container .row .col-lg-6 .radio_gioi_tinh ul{
   display: flex;
   justify-content: flex-end;
 }
 
-#kinh_mat .container .row .col-lg-6 .radio_gioi_tinh button:last-of-type {
+#kinh_mat .container .row .col-lg-6 .radio_gioi_tinh ul li a{
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  border-radius:5px ;
+  background-color: #1a59a6;
+}
+
+#kinh_mat .container .row .col-lg-6 .radio_gioi_tinh ul li:last-child {
   margin-left: 10px;
 }
 
-#kinh_mat .san_pham {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  position: absolute; /* Giữ vị trí cố định khi ẩn */
-}
+/*#kinh_mat .san_pham {*/
+/*  visibility: visible;*/
+/*opacity: 0;*/
+/*!*visibility: hidden;*!*/
+/*transition: opacity 0.5s ease, visibility 0.5s ease;*/
+/*position: absolute; !* Giữ vị trí cố định khi ẩn *!*/
+/*}*/
 
-#kinh_mat .san_pham.active {
-  opacity: 1;
-  visibility: visible;
-  position: relative;
-}
+/*#kinh_mat .san_pham.active {*/
+/*  opacity: 1;*/
+/*  visibility: visible;*/
+/*  position: relative;*/
+/*}*/
 
 /*
 ---------------------------------------------
@@ -1137,7 +1181,8 @@ gong_kinh
   margin: 0px 10px;
 }
 
-#gong_kinh .item .thumb .hover-content ul li a {
+#gong_kinh .item .thumb .hover-content ul li a ,
+#gong_kinh .item .thumb .hover-content ul li form{
   width: 50px;
   height: 50px;
   text-align: center;
@@ -1145,6 +1190,17 @@ gong_kinh
   display: inline-block;
   color: #2a2a2a;
   background-color: #fff;
+}
+
+#gong_kinh .item .thumb .hover-content ul li form button{
+  border: none;
+  background: #fff;
+}
+
+#gong_kinh .item .thumb .hover-content ul li form button:active,
+#gong_kinh .item .thumb .hover-content ul li form button:focus{
+  outline:none;
+  border: none;
 }
 
 #gong_kinh .owl-nav {
@@ -1446,10 +1502,10 @@ bo_suu_tap
   transform: scale(1.1);
 }
 
-/* 
+/*
 ---------------------------------------------
 thuong_hieu
---------------------------------------------- 
+---------------------------------------------
 */
 
 #thuong_hieu {
@@ -1476,10 +1532,10 @@ thuong_hieu
   filter: grayscale(100%);
 }
 
-/* 
+/*
 ---------------------------------------------
 Subscribe
---------------------------------------------- 
+---------------------------------------------
 */
 
 .subscribe {
@@ -1508,7 +1564,7 @@ Subscribe
   box-shadow: none;
 }
 
-.subscribe form input::focus {
+.subscribe form input:focus {
   border-color: #2a2a2a;
   border-radius: 0px;
 }
@@ -1554,10 +1610,10 @@ Subscribe
   color: #2a2a2a;
 }
 
-/* 
+/*
 ---------------------------------------------
 footer
---------------------------------------------- 
+---------------------------------------------
 */
 
 footer {
@@ -1798,10 +1854,10 @@ footer #chatBox form .submit_container button.submit-btn:active {
   outline: none;
 }
 
-/* 
+/*
 ---------------------------------------------
 sản phẩm
---------------------------------------------- 
+---------------------------------------------
 */
 
 .sp_ct {
@@ -1896,10 +1952,10 @@ sản phẩm
   margin-bottom: 30px;
 }
 
-/* 
+/*
 ---------------------------------------------
 contact Us Page
---------------------------------------------- 
+---------------------------------------------
 */
 .page-contact {
   margin-top: 160px;
@@ -1968,10 +2024,10 @@ contact Us Page
   border: 1px solid #0021f5;
 }
 
-/* 
+/*
 ---------------------------------------------
 giỏ hàng
---------------------------------------------- 
+---------------------------------------------
 */
 
 .gio_hang {
@@ -2054,29 +2110,28 @@ giỏ hàng
   border-radius: 12px;
   background-color: #f7f7f78f;
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
-    rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
+  rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
 }
 
-.gio_hang .cart_checkout_page .cart_wrapper .cart_form {
+.gio_hang .cart_checkout_page .cart_wrapper{
   margin-bottom: 20px;
 }
 
-.gio_hang .cart_checkout_page .cart_wrapper .cart_form .cart_item {
+.gio_hang .cart_checkout_page .cart_wrapper .cart_item {
   margin-bottom: 16px;
   padding-bottom: 16px;
   border-bottom: thin solid #eee;
 }
 
-.gio_hang .cart_checkout_page .cart_wrapper .cart_form .cart_item {
+.gio_hang .cart_checkout_page .cart_wrapper .cart_item {
   display: flex;
 }
 
 .gio_hang
-  .cart_checkout_page
-  .cart_wrapper
-  .cart_form
-  .cart_item
-  .product_thumbnail {
+.cart_checkout_page
+.cart_wrapper
+.cart_item
+.product_thumbnail {
   width: 132px;
 }
 
@@ -2169,6 +2224,10 @@ giỏ hàng
   border-top: 1px solid #ccc;
 }
 
+.gio_hang .cart_checkout_page .checkout_wrapper .total_top {
+  border-top: none;
+}
+
 .gio_hang .cart_checkout_page .checkout_wrapper .total .label {
   font-weight: bold;
 }
@@ -2200,20 +2259,20 @@ giỏ hàng
 }
 
 .gio_hang
-  .cart_checkout_page
-  .checkout_wrapper
-  .details
-  .payment_method
-  input[type="radio"] {
+.cart_checkout_page
+.checkout_wrapper
+.details
+.payment_method
+input[type="radio"] {
   margin-right: 10px;
 }
 
 .gio_hang
-  .cart_checkout_page
-  .checkout_wrapper
-  .details
-  .payment_method
-  .payment_method_bank,
+.cart_checkout_page
+.checkout_wrapper
+.details
+.payment_method
+.payment_method_bank,
 .payment_method_cod {
   background: #ececec;
   margin: 14px 0;
@@ -2222,21 +2281,21 @@ giỏ hàng
 }
 
 .gio_hang
-  .cart_checkout_page
-  .checkout_wrapper
-  .details
-  .payment_method
-  .payment_box {
+.cart_checkout_page
+.checkout_wrapper
+.details
+.payment_method
+.payment_box {
   display: block;
 }
 
 .gio_hang
-  .cart_checkout_page
-  .checkout_wrapper
-  .details
-  .payment_method
-  .payment_box
-  p {
+.cart_checkout_page
+.checkout_wrapper
+.details
+.payment_method
+.payment_box
+p {
   color: #888;
   font-size: 0.8rem;
 }
@@ -2260,6 +2319,52 @@ giỏ hàng
 
 .gio_hang .cart_checkout_page .checkout_wrapper .button_order:focus {
   outline: none;
+}
+
+.coupon-wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start; /* Đặt nội dung sang trái */
+}
+
+.coupon {
+  background-color: #ffe4b2;
+  border: 1px dashed #e6b800;
+  border-radius: 8px;
+  padding: 16px;
+  width: 250px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.coupon-code {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff9900;
+}
+
+.coupon-details {
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.copy-btn:hover {
+  color: #333;
 }
 
 /* 

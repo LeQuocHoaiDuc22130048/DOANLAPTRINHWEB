@@ -29,12 +29,12 @@
                         <li class="submenu">
                             <a href="javascript:;">Trang phụ</a>
                             <ul>
-                                <li><a href="gong_kinh.html">Sản phẩm</a></li>
+                                <li><a href="gong_kinh.jsp">Sản phẩm</a></li>
                                 <li>
-                                    <a href="chi_tiet_san_pham.html">Chi tiết sản phẩm</a>
+                                    <a href="chi_tiet_san_pham.jsp">Chi tiết sản phẩm</a>
                                 </li>
                                 <li class="scroll-to-section">
-                                    <a href="bai_viet.html">Bài viết</a>
+                                    <a href="bai_viet.jsp">Bài viết</a>
                                 </li>
                                 <li><a href="lien_he.jsp">Liên hệ</a></li>
                             </ul>

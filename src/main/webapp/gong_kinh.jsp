@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="./assets/css/style-for-products.css"/>
     <link rel="stylesheet" href="./assets/css/owl-carousel.css"/>
     <link rel="stylesheet" href="./assets/css/lightbox.css"/>
+    <link rel="stylesheet" href="assets/css/sanpham.css" />
+    <link rel="stylesheet" href="assets/css/eyestyle.css" />
 
     <style>
 
@@ -76,7 +78,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px; /* Khoảng cách giữa các nút */
+            gap: 10px;
         }
 
         .page-number {
@@ -94,6 +96,84 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
+
+        .product-item .thumb {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-item .thumb .hover-content {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .product-item .thumb:hover .hover-content {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .product-item .thumb .hover-content ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-item .thumb .hover-content ul li {
+            display: inline-block;
+        }
+
+        .product-item .thumb .hover-content ul li a {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 0%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .product-item .thumb .hover-content ul li a:hover {
+            background-color: #000;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+
+        .product-item .product-info .stars {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 5px;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            top: -25px;
+            right: 0;
+        }
+
+        .product-item .product-info .stars li {
+            display: inline-block;
+            font-size: 15px;
+            color: #000;
+        }
+
+        .product-item .product-info .stars li i {
+            transition: color 0.3s;
+        }
 
     </style>
 </head>
@@ -127,7 +207,7 @@
                                 <a href="index.jsp">Trang chủ</a>
                             </li>
                             <li class="scroll-to-section">
-                                <a href="kinh_mat.html">Kính mát</a>
+                                <a href="kinh_mat.jsp">Kính mát</a>
                                 <div class="sub-menu nav-dropdown">
                                     <div id="col-142015409" class="col medium-6 large-6">
                                         <div class="col-inner">
@@ -149,25 +229,25 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_dior.html">
+                                                               href="gong_kinh_dior.jsp">
                                                                 <img src="assets/images/dior.jpg" alt=""/>
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_cartier.html">
+                                                               href="gong_kinh_cartier.jsp">
                                                                 <img
                                                                         src="assets/images/cartier.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_versace.html">
+                                                               href="gong_kinh_versace.jsp">
                                                                 <img
                                                                         src="assets/images/versace-1.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_gucci.html">
+                                                               href="gong_kinh_gucci.jsp">
                                                                 <img src="assets/images/gucci.jpg" alt=""/>
                                                             </a>
                                                         </div>
@@ -184,28 +264,28 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_montblanc.html">
+                                                               href="gong_kinh_montblanc.jsp">
                                                                 <img
                                                                         src="assets/images/montblanc.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_rayban.html">
+                                                               href="gong_kinh_rayban.jsp">
                                                                 <img
                                                                         src="assets/images/rayban.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_burberry.html">
+                                                               href="gong_kinh_burberry.jsp">
                                                                 <img
                                                                         src="assets/images/burberry-1.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_prada.html">
+                                                               href="gong_kinh_prada.jsp">
                                                                 <img
                                                                         src="assets/images/logo-prada.jpg"
                                                                         alt=""
@@ -225,32 +305,32 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_police.html">
+                                                               href="gong_kinh_police.jsp">
                                                                 <img
                                                                         src="assets/images/police.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_chopard.html">
+                                                               href="gong_kinh_chopard.jsp">
                                                                 <img
                                                                         src="assets/images/Chopard.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_daniel_wellington.html">
+                                                               href="gong_kinh_daniel_wellington.jsp">
                                                                 <img
                                                                         src="assets/images/daniel-wellington.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_parim.html">
+                                                               href="gong_kinh_parim.jsp">
                                                                 <img src="assets/images/parim.jpg" alt=""/>
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_oakley.html">
+                                                               href="gong_kinh_oakley.jsp">
                                                                 <img
                                                                         src="assets/images/oakley.jpg"
                                                                         alt=""
@@ -270,29 +350,29 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_molsion.html">
+                                                               href="gong_kinh_molsion.jsp">
                                                                 <img
                                                                         src="assets/images/molsion.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_exfash.html">
+                                                               href="gong_kinh_exfash.jsp">
                                                                 <img
                                                                         src="assets/images/exfash.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_furla.html">
+                                                               href="gong_kinh_furla.jsp">
                                                                 <img src="assets/images/furla.jpg" alt=""/>
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_bolon.html">
+                                                               href="gong_kinh_bolon.jsp">
                                                                 <img src="assets/images/bolon.jpg" alt=""/>
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_eyescloud.html">
+                                                               href="gong_kinh_eyescloud.jsp">
                                                                 <img
                                                                         src="assets/images/eyescloud.jpg"
                                                                         alt=""
@@ -329,25 +409,25 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_dior.html">
-                                                                <img src="assets/images/dior.jpg" alt=""/>
+                                                               href="gong_kinh_dior.jsp">
+                                                                <img src="assets/images/icon_brand/dior1.jpg" alt=""/>
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_cartier.html">
+                                                               href="gong_kinh_cartier.jsp">
                                                                 <img
                                                                         src="assets/images/cartier.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_versace.html">
+                                                               href="gong_kinh_versace.jsp">
                                                                 <img
                                                                         src="assets/images/versace-1.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_gucci.html">
+                                                               href="gong_kinh_gucci.jsp">
                                                                 <img src="assets/images/gucci.jpg" alt=""/>
                                                             </a>
                                                         </div>
@@ -364,28 +444,28 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_montblanc.html">
+                                                               href="gong_kinh_montblanc.jsp">
                                                                 <img
                                                                         src="assets/images/montblanc.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_rayban.html">
+                                                               href="gong_kinh_rayban.jsp">
                                                                 <img
                                                                         src="assets/images/rayban.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_burberry.html">
+                                                               href="gong_kinh_burberry.jsp">
                                                                 <img
                                                                         src="assets/images/burberry-1.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_prada.html">
+                                                               href="gong_kinh_prada.jsp">
                                                                 <img
                                                                         src="assets/images/logo-prada.jpg"
                                                                         alt=""
@@ -405,32 +485,32 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_police.html">
+                                                               href="gong_kinh_police.jsp">
                                                                 <img
                                                                         src="assets/images/police.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_chopard.html">
+                                                               href="gong_kinh_chopard.jsp">
                                                                 <img
                                                                         src="assets/images/Chopard.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_daniel_wellington.html">
+                                                               href="gong_kinh_daniel_wellington.jsp">
                                                                 <img
                                                                         src="assets/images/daniel-wellington.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_parim.html">
+                                                               href="gong_kinh_parim.jsp">
                                                                 <img src="assets/images/parim.jpg" alt=""/>
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_oakley.html">
+                                                               href="gong_kinh_oakley.jsp">
                                                                 <img
                                                                         src="assets/images/oakley.jpg"
                                                                         alt=""
@@ -450,29 +530,29 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_molsion.html">
+                                                               href="gong_kinh_molsion.jsp">
                                                                 <img
                                                                         src="assets/images/molsion.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_exfash.html">
+                                                               href="gong_kinh_exfash.jsp">
                                                                 <img
                                                                         src="assets/images/exfash.jpg"
                                                                         alt=""
                                                                 />
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_furla.html">
+                                                               href="gong_kinh_furla.jsp">
                                                                 <img src="assets/images/furla.jpg" alt=""/>
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_bolon.html">
+                                                               href="gong_kinh_bolon.jsp">
                                                                 <img src="assets/images/bolon.jpg" alt=""/>
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="gong_kinh_eyescloud.html">
+                                                               href="gong_kinh_eyescloud.jsp">
                                                                 <img
                                                                         src="assets/images/eyescloud.jpg"
                                                                         alt=""
@@ -487,7 +567,7 @@
                                 </div>
                             </li>
                             <li class="scroll-to-section">
-                                <a href="trong_kinh.html">Tròng kính</a>
+                                <a href="trong_kinh.jsp">Tròng kính</a>
                                 <div class="sub-menu nav-dropdown">
                                     <div id="col-142015409" class="col medium-6 large-6">
                                         <div class="col-inner">
@@ -509,11 +589,11 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="trong_kinh_tog.html">
+                                                               href="trong_kinh_tog.jsp">
                                                                 <img src="assets/images/TOG.jpg" alt=""/>
                                                             </a>
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="trong_kinh_essilor.html">
+                                                               href="trong_kinh_essilor.jsp">
                                                                 <img
                                                                         src="assets/images/logo-essilor.jpg"
                                                                         alt=""
@@ -535,7 +615,7 @@
                                                             <a
                                                                     class="img-inner image-zoom-fade dark"
                                                                     style="height: 50px"
-                                                                    href="trong_kinh_rodenstock.html"
+                                                                    href="trong_kinh_rodenstock.jsp"
                                                             >
                                                                 <img
                                                                         src="assets/images/icon-rodenstock.jpg"
@@ -546,7 +626,7 @@
                                                             <a
                                                                     class="img-inner image-zoom-fade dark"
                                                                     style="height: 50px"
-                                                                    href="trong_kinh_zeiss.html"
+                                                                    href="trong_kinh_zeiss.jsp"
                                                             >
                                                                 <img
                                                                         src="assets/images/zeiss-logo-rgb_2023.jpg"
@@ -568,7 +648,7 @@
                                                                 id="image_578401213"
                                                         >
                                                             <a class="img-inner image-zoom-fade dark"
-                                                               href="trong_kinh_Levalens.html">
+                                                               href="trong_kinh_Levalens.jsp">
                                                                 <img
                                                                         src="assets/images/Levalens.jpg"
                                                                         alt=""
@@ -583,17 +663,17 @@
                                 </div>
                             </li>
                             <li class="scroll-to-section">
-                                <a href="kinh_ap_trong.html">Kính áp tròng</a>
+                                <a href="kinh_ap_trong.jsp">Kính áp tròng</a>
                             </li>
                             <li class="submenu">
                                 <a href="javascript:;">Trang phụ</a>
                                 <ul>
                                     <li><a href="#">Sản phẩm</a></li>
                                     <li>
-                                        <a href="chi_tiet_san_pham.html">Chi tiết sản phẩm</a>
+                                        <a href="chi_tiet_san_pham.jsp">Chi tiết sản phẩm</a>
                                     </li>
                                     <li class="scroll-to-section">
-                                        <a href="bai_viet.html">Bài viết</a>
+                                        <a href="bai_viet.jsp">Bài viết</a>
                                     </li>
                                     <li><a href="lien_he.jsp">Liên hệ</a></li>
                                 </ul>
@@ -1142,7 +1222,7 @@
                               </label>
 
                               <label class="product-ft-parim">
-                                <input type="checkbox" value="kimloai" name="material"/>
+                                <input type="checkbox" value="kim loai" name="material"/>
                                 <span
                                 ><img
                                         src="assets/images/icon-kim-loai.jpg"
@@ -1160,7 +1240,7 @@
                               </label>
 
                               <label class="product-ft-parim">
-                                <input type="checkbox" value="xi_mavang" name="material"/>
+                                <input type="checkbox" value="xi/mavang" name="material"/>
                                 <span
                                 ><img
                                         src="assets/images/icon_chatlieu/icon-chat-lieu-gong-xi-ma-vang.jpg"
@@ -1169,7 +1249,7 @@
                               </label>
 
                               <label class="product-ft-parim">
-                                <input type="checkbox" value="nhua_deo" name="material"/>
+                                <input type="checkbox" value="nhua deo" name="material"/>
                                 <span
                                 ><img
                                         src="assets/images/icon_chatlieu/icon-chat-lieu-gong-nhua-deo-tr90.jpg"
@@ -1178,7 +1258,7 @@
                               </label>
 
                               <label class="product-ft-parim">
-                                <input type="checkbox" value="nhua_acetate" name="material"/>
+                                <input type="checkbox" value="nhua acetate" name="material"/>
                                 <span
                                 ><img
                                         src="assets/images/icon_chatlieu/icon-chat-lieu-gong-nhua-acetate.jpg"
@@ -1187,7 +1267,7 @@
                               </label>
 
                               <label class="product-ft-parim">
-                                <input type="checkbox" value="vang_nguyen_khoi" name="material"/>
+                                <input type="checkbox" value="vang nguyen khoi" name="material"/>
                                 <span
                                 ><img
                                         src="assets/images/icon_chatlieu/icon-chat-lieu-gong-vang-nguyen-khoi.jpg"
@@ -1196,7 +1276,7 @@
                               </label>
 
                               <label class="product-ft-parim">
-                                <input type="checkbox" value="nhua_ultem" name="material"/>
+                                <input type="checkbox" value="nhua ultem" name="material"/>
                                 <span
                                 ><img
                                         src="assets/images/icon_chatlieu/icon-chat-lieu-gong-nhua-ultem.jpg"
@@ -1525,42 +1605,89 @@
                 </form>
             </div>
 
-            <div class="product-list-container">
-                <div class="row page show-list" id="productContainer">
-                    <c:forEach var="product" items="${products}">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <img src="${product.img}" alt="${product.productName}" class="product-image">
+                    <div class="product-list-container">
+                        <div class="row page show-list" id="productContainer">
+                            <c:forEach var="product" items="${products}">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="product-item">
+                                        <!-- Phần hình ảnh sản phẩm -->
+                                        <div class="thumb">
+                                            <div class="hover-content">
+                                                <ul>
+                                                    <!-- Xem chi tiết -->
+                                                    <li>
+                                                        <a href="#"><i class="fa fa-eye"></i></a>
+                                                    </li>
+                                                    <!-- Đánh giá -->
+                                                    <li>
+                                                        <a href="#" class="rate-product"><i class="fa fa-star"></i></a>
+                                                    </li>
+                                                    <!-- Thêm vào giỏ hàng -->
+                                                    <li>
+                                                        <a href="#" class="btn_gio_hang"><i class="fa fa-shopping-cart"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="${product.img}" alt="${product.productName}" class="product-image" style="width: 100%;">
+                                        </div>
 
-                                <div class="product-info">
-                                    <h4 class="product-name">${product.productName}</h4>
-                                    <span class="product-price">
-                            <fmt:formatNumber value="${product.price}" type="currency" currencySymbol="VND"
-                                              minFractionDigits="0"/>
-                                        </span>
+                                        <!-- Thông tin sản phẩm -->
+                                        <div class="product-info">
+                                            <h4 class="product-name">${product.productName}</h4>
+                                            <span class="product-price">
+                                            <fmt:formatNumber value="${product.price}" type="currency" currencySymbol="VND" minFractionDigits="0" />
+                                             </span>
+                                            <ul class="stars">
+                                                <!-- Hiển thị 5 ngôi sao mặc định -->
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </c:forEach>
                         </div>
-                    </c:forEach>
+                    </div>
+<%--                    phân trang--%>
+                    <div class="pagination">
+                        <!-- Nút quay lại -->
+                        <c:if test="${currentPage > 1}">
+                            <div class="page-number">
+                                <a href="?page=${currentPage - 1}
+               <c:if test="${param.material != null}">&material=${param.material}</c:if>
+               <c:if test="${param.gender != null}">&gender=${param.gender}</c:if>
+               <c:if test="${param.color != null}">&color=${param.color}</c:if>
+               <c:if test="${param.shape != null}">&shape=${param.shape}</c:if>
+               <c:if test="${param.brand != null}">&brand=${param.brand}</c:if>
+               <c:if test="${param.category != null}">&category=${param.category}</c:if>
+               <c:if test="${param.price != null}">&price=${param.price}</c:if>
+            "> &lt; </a> <!-- Nút quay lại -->
+                            </div>
+                        </c:if>
+
+                        <!-- Nút tiếp theo -->
+                        <c:if test="${currentPage < totalPages}">
+                            <div class="page-number">
+                                <a href="?page=${currentPage + 1}
+               <c:if test="${param.material != null}">&material=${param.material}</c:if>
+               <c:if test="${param.gender != null}">&gender=${param.gender}</c:if>
+               <c:if test="${param.color != null}">&color=${param.color}</c:if>
+               <c:if test="${param.shape != null}">&shape=${param.shape}</c:if>
+               <c:if test="${param.brand != null}">&brand=${param.brand}</c:if>
+               <c:if test="${param.category != null}">&category=${param.category}</c:if>
+               <c:if test="${param.price != null}">&price=${param.price}</c:if>
+            "> &gt; </a> <!-- Nút tiếp theo -->
+                            </div>
+                        </c:if>
+                    </div>
+
+
+
+
                 </div>
-            </div>
-
-            <!-- Phân trang -->
-            <div class="pagination">
-                <c:if test="${currentPage > 1}">
-                    <div class="page-number">
-                        <a href="?page=${currentPage - 1}">&lt;</a> <!-- Nút quay lại -->
-                    </div>
-                </c:if>
-                <c:if test="${currentPage < totalPages}">
-                    <div class="page-number"><a href="?page=${currentPage + 1}">&gt;</a> <!-- Nút tiếp theo -->
-                    </div>
-                </c:if>
-            </div>
-
-
-        </div>
-</div>
 </div>
 </main>
 <!-- ***** Main Banner Area End ***** -->
