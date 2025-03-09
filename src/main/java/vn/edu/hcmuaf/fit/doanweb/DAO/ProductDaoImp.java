@@ -5,6 +5,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 
 import java.util.List;
 
@@ -12,14 +13,14 @@ public class ProductDaoImp implements ProductDaoInterface {
     public Jdbi jdbi= JDBIConnect.get();
 
     @Override
-    public Product getProductById(int id) {
-        Product product = jdbi.withHandle(handle ->
+    public ProductIndex getProductById(int id) {
+        ProductIndex product = jdbi.withHandle(handle ->
                 handle.createQuery(
                                 "SELECT * FROM products WHERE id = :id"
                         )
                         .bind("id", id)
                         .map((rs, ctx) -> {
-                            Product p = new Product();
+                            ProductIndex p = new ProductIndex();
                             p.setId(rs.getInt("id"));
                             p.setCategoryId(rs.getInt("category_id"));
                             p.setBrandId(rs.getInt("brand_id"));
@@ -58,15 +59,15 @@ public class ProductDaoImp implements ProductDaoInterface {
     }
 
     @Override
-    public List<Product> getProductsByGender(int gender) {
+    public List<ProductIndex> getProductsByGender(int gender) {
         // Truy vấn danh sách sản phẩm theo giới tính
-        List<Product> productList = jdbi.withHandle(handle ->
+        List<ProductIndex> productList = jdbi.withHandle(handle ->
                 handle.createQuery(
                                 "SELECT * FROM products WHERE gender = :gender"
                         )
                         .bind("gender", gender) // Gán giá trị giới tính vào câu truy vấn
                         .map((rs, ctx) -> {
-                            Product p = new Product();
+                            ProductIndex p = new ProductIndex();
                             p.setId(rs.getInt("id"));
                             p.setCategoryId(rs.getInt("category_id"));
                             p.setBrandId(rs.getInt("brand_id"));
@@ -76,13 +77,13 @@ public class ProductDaoImp implements ProductDaoInterface {
                             p.setDescription(rs.getString("description"));
                             p.setStatus(rs.getInt("status"));
                             p.setHot(rs.getByte("hot"));
-                            p.setCostPrice(rs.getDouble("cost_price"));
-                            p.setSellingPrice(rs.getDouble("selling_price"));
+                            p.setCostPrice((float) rs.getDouble("cost_price"));
+                            p.setSellingPrice((float) rs.getDouble("selling_price"));
                             p.setQuantity(rs.getInt("quantity"));
                             p.setGender(rs.getInt("gender"));
                             p.setColor(rs.getString("color"));
-                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
-                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
+//                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
+//                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
                             return p;
                         })
                         .list() // Lấy danh sách sản phẩm
@@ -131,7 +132,7 @@ public class ProductDaoImp implements ProductDaoInterface {
 
     @Override
     // Phương thức lấy khuyến mãi có status = 1
-     public Discounts getActiveDiscounts() {
+    public Discounts getActiveDiscounts() {
         Discounts discount = jdbi.withHandle(handle ->
                 handle.createQuery(
                                 "SELECT * FROM discounts WHERE status = 1 LIMIT 1"
@@ -152,11 +153,11 @@ public class ProductDaoImp implements ProductDaoInterface {
     }
 
     public static void main(String[] args) {
-        ProductDaoImp productDao = new ProductDaoImp();
-        Product product = productDao.getProductById(4);
-        Product product1 = productDao.getProductById(5);
-        Product product2 = productDao.getProductById(10);
-        Discounts d= productDao.getActiveDiscounts();
+//        ProductDaoImp productDao = new ProductDaoImp();
+//        Product product = productDao.getProductById(4);
+//        Product product1 = productDao.getProductById(5);
+//        Product product2 = productDao.getProductById(10);
+//        Discounts d= productDao.getActiveDiscounts();
 //        System.out.println(d.toString());
 //        List<Product> d= productDao.getProductsByGender(1);
 //        System.out.println(d);

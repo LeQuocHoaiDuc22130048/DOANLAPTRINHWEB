@@ -1,6 +1,5 @@
 package vn.edu.hcmuaf.fit.doanweb.Controller.cart;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,8 +14,7 @@ import java.io.IOException;
 public class Update extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
-
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int productId = Integer.parseInt(request.getParameter("id"));
         int newQuantity = Integer.parseInt(request.getParameter("quantity"));
 
@@ -34,7 +32,10 @@ public class Update extends HttpServlet {
         // Điều hướng trở lại trang giỏ hàng
 //        response.sendRedirect("gio_hang.jsp?update-cart=OK");
         response.sendRedirect(request.getContextPath() + "/gio_hang");
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
     }
 }
-

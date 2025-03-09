@@ -17,11 +17,8 @@
     <div class="admin-content-top-left">
         <ul class="flex-box">
             <li>
-                <input type="text" placeholder="Tìm kiếm sản phẩm" class="find-products"
-                       style="width: 50vw;padding: 10px;border-radius: 10px;border: none;outline: none;">
-                <button class="btn-find"
-                        style="background: #2e404f; color: white; padding: 10px; border-radius: 10px; cursor: pointer; border: none; outline: none">
-                    <i class="ri-search-line" style="margin: 0;"></i></button>
+
+
             </li>
         </ul>
     </div>

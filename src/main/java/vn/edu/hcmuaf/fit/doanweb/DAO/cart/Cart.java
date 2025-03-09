@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.doanweb.DAO.cart;
 
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +15,7 @@ public class Cart {
 
     Map<Integer, CartProduct> data = new HashMap<>();
 
-    public boolean add(Product product) {
+    public boolean add(ProductIndex product) {
         if (data.containsKey(product.getId())) {
             update(product.getId(), data.get(product.getId()).getQuantity() + 1);
             return true;
@@ -52,7 +53,7 @@ public class Cart {
         return i.get();
     }
 
-    private CartProduct convert(Product product) {
+    private CartProduct convert(ProductIndex product) {
         CartProduct cp = new CartProduct();
         cp.setId(product.getId());
         cp.setPrice(product.getSellingPrice());

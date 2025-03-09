@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="asset/css/style.css">
 </head>
-<div class="admin-sidebar" style="height: 120vh">
+<div class="admin-sidebar" style="height: 104vh">
     <div class="admin-sidebar-top">
         <img src="asset/imgs/logo.png" alt="">
     </div>
@@ -20,14 +20,14 @@
         <ul>
             <li><a href=""><i class="ri-dashboard-line"></i>Trang quản lý<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
-                    <div class="sub-menu-items"><li><a href="admin.html"><i class="ri-arrow-right-s-fill"></i>Tổng quan</a></li></div>
+                    <div class="sub-menu-items"><li><a href="${pageContext.request.contextPath}/admin/Dashboard"><i class="ri-arrow-right-s-fill"></i>Tổng quan</a></li></div>
 
                 </ul>
             </li>
             <li><a href=""><i class="ri-file-list-line"></i>Đơn hàng<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="order_list.html"><i class="ri-arrow-right-s-fill"></i>Danh sách</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/OrderList"><i class="ri-arrow-right-s-fill"></i>Danh sách</a></li>
 
                     </div>
 
@@ -36,31 +36,31 @@
             <li></i><a href=""><i class="ri-file-list-line"></i>Sản phẩm<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="admin/AdminProductList"><i class="ri-arrow-right-s-fill"></i>Danh sách sản phẩm</a></li>
-                        <li><a href="product_add.html"><i class="ri-arrow-right-s-fill"></i>Thêm</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/AdminProductList"><i class="ri-arrow-right-s-fill"></i>Danh sách sản phẩm</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/ProductAdd"><i class="ri-arrow-right-s-fill"></i>Thêm</a></li>
                     </div>
                 </ul>
 
             </li>
 
-            <li></i><a href="category_product.html"><i class="ri-file-list-line"></i>Danh mục sản phẩm<i class="ri-add-box-line"></i></a>
+            <li></i><a href=""><i class="ri-file-list-line"></i>Danh mục sản phẩm<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="category_product_list.html"><i class="ri-arrow-right-s-fill"></i>Quản lý danh mục</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/ListCategories"><i class="ri-arrow-right-s-fill"></i>Quản lý danh mục</a></li>
                     </div>
                 </ul>
             </li>
             <li></i><a href=""><i class="ri-discount-percent-line"></i>Khuyến mãi<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="promotion.html"><i class="ri-arrow-right-s-fill"></i>Danh sách mã giảm giá</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/PromotionList"><i class="ri-arrow-right-s-fill"></i>Danh sách mã giảm giá</a></li>
                     </div>
                 </ul>
             </li>
             <li><a href=""><i class="ri-user-line"></i>Người dùng<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="manager_user.html"><i class="ri-arrow-right-s-fill"></i>Quản lý người dùng</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/ListUser"><i class="ri-arrow-right-s-fill"></i>Quản lý người dùng</a></li>
 
                     </div>
 
@@ -69,7 +69,7 @@
             <li><a href=""><i class="ri-feedback-line"></i>Phản hồi<i class="ri-add-box-line"></i></a>
                 <ul class="sub-menu">
                     <div class="sub-menu-items">
-                        <li><a href="feedback.html"><i class="ri-arrow-right-s-fill"></i>Phản hồi</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/ListFeedback"><i class="ri-arrow-right-s-fill"></i>Phản hồi</a></li>
                     </div>
 
                 </ul>

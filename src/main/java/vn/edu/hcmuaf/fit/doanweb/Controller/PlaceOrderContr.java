@@ -1,18 +1,16 @@
 package vn.edu.hcmuaf.fit.doanweb.Controller;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import java.io.*;
 
-import java.io.IOException;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 
-@WebServlet(name= "Order" , value="/place-order")
+@WebServlet(name = "PlaceOrderContr", value = "/place-order")
 public class PlaceOrderContr extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
@@ -34,6 +32,10 @@ public class PlaceOrderContr extends HttpServlet {
 
         request.getSession().setAttribute("orderSuccess", true);
         response.sendRedirect("gio_hang.jsp");
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
     }
 }

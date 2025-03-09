@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
 import vn.edu.hcmuaf.fit.doanweb.Services.ProductService;
 
@@ -17,9 +18,9 @@ import java.io.IOException;
 public class Add extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         ProductService productService = new ProductService();
-        Product product = productService.getProductById(Integer.parseInt(request.getParameter("id")));
+        ProductIndex product = productService.getProductById(Integer.parseInt(request.getParameter("id")));
 
         if (product == null) {
             response.sendRedirect("index");
@@ -39,4 +40,8 @@ public class Add extends HttpServlet {
 
     }
 
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+    }
 }

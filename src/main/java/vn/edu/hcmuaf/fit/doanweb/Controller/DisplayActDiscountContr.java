@@ -12,11 +12,11 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
 
 import java.io.IOException;
 
-@WebServlet(name = "Discount", value = "/gio_hang")
+@WebServlet(name = "DisplayActDiscountContr", value = "/gio_hang")
 public class DisplayActDiscountContr extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         ProductDaoImp productDao = new ProductDaoImp();
         Discounts discount = productDao.getActiveDiscounts();
 
@@ -41,5 +41,10 @@ public class DisplayActDiscountContr extends HttpServlet {
 
         // Chuyển tiếp đến trang gio_hang.jsp
         request.getRequestDispatcher("gio_hang.jsp").forward(request, response);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
     }
 }

@@ -42,7 +42,7 @@ public class FilterController extends HttpServlet {
             } else {
                 if (filterColor != null && !filterColor.isEmpty()) {
                     // Lọc theo chất liệu
-                    List<ProductOfColor> listOfColor = proService.getProductOfColor(filterColor);
+                    List<ProductByColor> listOfColor = proService.getProductByColor(filterColor);
                     products = listOfColor.stream()
                             .map(mat -> new ProductVM(mat.getId(), mat.getName(), mat.getPrice(), mat.getPath(),mat.getColor()))
                             .toList();
@@ -71,14 +71,14 @@ public class FilterController extends HttpServlet {
                     }
 
                     // Lấy sản phẩm theo giới tính
-                    List<ProductOfGender> listOfGender = proService.getProductOfGender(genderValue);
+                    List<ProductByGender> listOfGender = proService.getProductByGender(genderValue);
                     products = listOfGender.stream()
                             .map(mat -> new ProductVM(mat.getId(), mat.getName(), mat.getPrice(), mat.getPath()))
                             .toList();
                 }
 
                 if(filterMaterial!=null && !filterMaterial.isEmpty()){
-                    List<ProductOfMaterial> listOfMaterial = proService.getProductOfMaterial(filterMaterial);
+                    List<ProductByMaterial> listOfMaterial = proService.getProductByMaterial(filterMaterial);
                     products = listOfMaterial.stream()
                             .map(mat -> new ProductVM(mat.getId(), mat.getName(), mat.getPrice(), mat.getPath()))
                             .toList();
@@ -121,7 +121,7 @@ public class FilterController extends HttpServlet {
                             break;
 
                     }
-                    List<ProductOfShape> listOfShape = proService.getProductOfShape(shapeValue);
+                    List<ProductByShape> listOfShape = proService.getProductByShape(shapeValue);
                     products = listOfShape.stream()
                             .map(mat -> new ProductVM(mat.getId(), mat.getName(), mat.getPrice(), mat.getPath()))
                             .toList();
@@ -204,7 +204,7 @@ public class FilterController extends HttpServlet {
                             break;
                     }
 
-                    List<ProductOfBrand> listOfBrand = proService.getProductOfBrand(brandValue);
+                    List<ProductByBrand> listOfBrand = proService.getProductByBrand(brandValue);
                     products = listOfBrand.stream()
                             .map(mat -> new ProductVM(mat.getId(), mat.getName(), mat.getPrice(), mat.getPath()))
                             .toList();
@@ -259,7 +259,7 @@ public class FilterController extends HttpServlet {
                             break;
                     }
 
-                    List<ProductOfCategory>listOfCategory = proService.getProductOfCategory(categoryValue);
+                    List<ProductByCategory>listOfCategory = proService.getProductByCategory(categoryValue);
                     products = listOfCategory.stream()
                             .map(mat -> new ProductVM(mat.getId(), mat.getName(), mat.getPrice(), mat.getPath()))
                             .toList();

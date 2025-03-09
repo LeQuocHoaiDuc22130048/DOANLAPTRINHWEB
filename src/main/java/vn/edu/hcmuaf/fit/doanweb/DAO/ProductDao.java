@@ -18,31 +18,29 @@ public class ProductDao {
 
 
     // lọc sản phẩm theo chất liệu
-    public List<ProductOfMaterial> getProductOfMaterial(String material) {
-        String query = "SELECT p.id, p.name, p.selling_price, p.material, pi.path " +
-                "FROM products p " +
-                "JOIN products_images pi ON p.id = pi.product_id " +
-                "WHERE pi.is_main = 1 AND p.material LIKE :material";
+    public List<ProductByMaterial>getProductByMaterial(String material){
 
-        String processedMaterial = "%" + material + "%";
-        return jdbi.withHandle(h ->
+        String query = "SELECT p.id, p.name, p.selling_price, p.material,pi.path" +
+                " FROM products p JOIN products_images pi ON p.id = pi.product_id" +
+                " WHERE p.material LIKE :material AND pi.is_main = 1";
+
+        return jdbi.withHandle(h->
                 h.createQuery(query)
-                        .bind("material",processedMaterial )
-                        .map((rs, ctx) -> new ProductOfMaterial(
+                        .bind("material",material)
+                        .map((rs, ctx)-> new ProductByMaterial(
                                 rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getLong("selling_price"),
                                 rs.getString("path"),
                                 rs.getString("material")
-                        ))
-                        .list()
+                        )).list()
         );
     }
 
 
     // lọc sản phẩm theo giới tính
 
-    public List<ProductOfGender>getProductOfGender(int gender){
+    public List<ProductByGender>getProductByGender(int gender){
 
         String query = "SELECT p.id, p.name, p.selling_price, p.gender , pi.path" +
                 " FROM products p JOIN products_images pi ON p.id = pi.product_id" +
@@ -51,7 +49,7 @@ public class ProductDao {
         return jdbi.withHandle(handle ->
                 handle.createQuery(query)
                         .bind("gender", gender) // Truyền tham số gender
-                        .map((rs, ctx) -> new ProductOfGender(
+                        .map((rs, ctx) -> new ProductByGender(
                                 rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getLong("selling_price"),
@@ -65,14 +63,14 @@ public class ProductDao {
 
     // lọc san phẩm theo màu sắc
 
-    public List<ProductOfColor> getProductOfColor(String color){
+    public List<ProductByColor> getProductByColor(String color){
 
         String query = "SELECT p.id, p.name, p.selling_price, p.color, pi.path" +
                 " FROM products p JOIN products_images pi ON p.id = pi.product_id " +
                 "WHERE p.color LIKE :color AND pi.is_main = 1";
         return jdbi.withHandle(h->
                 h.createQuery(query).bind("color", color)
-                        .map((rs,ctx)-> new ProductOfColor(
+                        .map((rs,ctx)-> new ProductByColor(
                                 rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getLong("selling_price"),
@@ -85,7 +83,7 @@ public class ProductDao {
 
     // lọc sản phẩm theo hình dáng
 
-    public List<ProductOfShape>getProductOfShape(int shape){
+    public List<ProductByShape>getProductByShape(int shape){
 
         String query = "SELECT p.id, p.name, p.selling_price, p.shape_id, pi.path " +
                 "FROM products p " +
@@ -93,10 +91,10 @@ public class ProductDao {
                 "JOIN frame_shapes fs ON p.shape_id = fs.id " +
                 "WHERE p.shape_id = :shape AND pi.is_main = 1"; // Lọc theo shape_id
 
-        return jdbi.withHandle(handle ->
-                handle.createQuery(query)
+        return jdbi.withHandle(h ->
+                h.createQuery(query)
                         .bind("shape", shape)
-                        .map((rs, ctx) -> new ProductOfShape(
+                        .map((rs, ctx) -> new ProductByShape(
                                 rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getLong("selling_price"),
@@ -109,7 +107,7 @@ public class ProductDao {
 
 
     // lọc sản phẩm theo thương hiệu
-    public List<ProductOfBrand> getProductOfBrand(int brand){
+    public List<ProductByBrand> getProductByBrand(int brand){
 
         String query = "SELECT p.id, p.name, p.selling_price, p.brand_id, pi.path " +
                 "FROM products p " +
@@ -117,10 +115,10 @@ public class ProductDao {
                 "JOIN brands b ON p.brand_id = b.id " +
                 "WHERE p.brand_id = :brand AND pi.is_main = 1";
 
-        return jdbi.withHandle(handle ->
-                handle.createQuery(query)
+        return jdbi.withHandle(h ->
+                h.createQuery(query)
                         .bind("brand", brand)
-                        .map((rs, ctx) -> new ProductOfBrand(
+                        .map((rs, ctx) -> new ProductByBrand(
                                 rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getLong("selling_price"),
@@ -132,17 +130,17 @@ public class ProductDao {
     }
 
     // lọc sản phẩm theo danh mục
-    public List<ProductOfCategory> getProductOfCategory(int category){
+    public List<ProductByCategory> getProductByCategory(int category){
         String query = "SELECT p.id, p.name, p.selling_price, p.category_id, pi.path " +
                 "FROM products p " +
                 "JOIN products_images pi ON p.id = pi.product_id " +
                 "JOIN categories c ON p.category_id = c.id " +
                 "WHERE p.category_id = :category AND pi.is_main = 1";
 
-        return jdbi.withHandle(handle ->
-                handle.createQuery(query)
+        return jdbi.withHandle(h ->
+                h.createQuery(query)
                         .bind("category", category)
-                        .map((rs,ctx)-> new ProductOfCategory(
+                        .map((rs,ctx)-> new ProductByCategory(
                                 rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getLong("selling_price"),
@@ -153,8 +151,28 @@ public class ProductDao {
         );
 
     }
+
+    // lọc san phẩm theo  khoảng giá
+
+    public List<ProductByPriceRange> getProductByPrice(long minPrice, long maxPrice){
+
+        String query = "SELECT p.id, p.name, p.selling_price, pi.path " +
+                "FROM products p JOIN products_images pi ON p.id = pi.product_id " +
+                "WHERE p.selling_price BETWEEN :minPrice AND :maxPrice " +
+                "AND pi.is_main = 1";
+
+        return jdbi.withHandle(h ->
+                h.createQuery(query)
+                        .bind("minPrice", minPrice)
+                        .bind("maxPrice", maxPrice)
+                        .map((rs, ctx) -> new ProductByPriceRange(
+                                rs.getInt("id"),
+                                rs.getString("name"),
+                                rs.getLong("selling_price"),
+                                rs.getString("path")
+                        ))
+                        .list()
+        );
+    }
+
 }
-
-
-
-

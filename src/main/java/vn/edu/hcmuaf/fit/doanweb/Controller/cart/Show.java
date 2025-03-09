@@ -1,20 +1,21 @@
 package vn.edu.hcmuaf.fit.doanweb.Controller.cart;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import java.io.*;
 
-import java.io.IOException;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 
-@WebServlet(name="Show",value = "/show-cart")
+@WebServlet(name = "Show", value = "/show-cart")
 public class Show extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         req.getRequestDispatcher("gio_hang.jsp").forward(req, resp);
     }
 
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+    }
 }
