@@ -10,11 +10,13 @@ import java.io.IOException;
 @WebServlet(name = "DangKiController", value = "/sign-in")
 public class DangKiController extends HttpServlet {
 
-    private UserDaoImp userDaoImp = new UserDaoImp();
+    private UserDaoImp userDaoImp ;
 
-    public DangKiController(){
-
+    @Override
+    public void init() throws ServletException {
+        userDaoImp = new UserDaoImp();
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

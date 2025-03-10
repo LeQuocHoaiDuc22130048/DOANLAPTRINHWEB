@@ -3,6 +3,8 @@ package vn.edu.hcmuaf.fit.doanweb.DAO;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.UsersTypes;
 
 public interface UserDao {
+    public boolean checkEmailExists(String email);
+    public boolean CreateUserTemp (String email , String password , String username );
     public boolean isValidUser(String userName, String password);
     public Integer getUserId(String userName);
     public UsersTypes getUserType(int userId);

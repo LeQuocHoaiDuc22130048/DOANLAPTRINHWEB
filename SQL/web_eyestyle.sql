@@ -16,7 +16,7 @@
 
 
 -- Dumping database structure for web_eyestyle
-CREATE DATABASE IF NOT EXISTS `web_eyestyle` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE IF NOT EXISTS `web_eyestyweb_eyestyleusersusersle` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `web_eyestyle`;
 
 -- Dumping structure for table web_eyestyle.brands

@@ -21,7 +21,4 @@ public class DBProperties {
     public static String password(){return properties.get("db.password").toString();}
     public static String option(){return properties.get("db.option").toString();}
 
-//    public static void main(String[] args) {
-//        System.out.println(host());
-//    }
 }
