@@ -555,58 +555,58 @@
   <div class="container">
     <div class="row images">
       <div class="col-2 image_brand">
-        <a href="gong_kinh_cartier.html"><img src="./assets/images/cartier1.jpg" alt=""></a>
+        <a href="gong_kinh_cartier.jsp"><img src="./assets/images/icon_brand/cartier1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_rayban.html"><img src="./assets/images/rayBan1.jpg" alt=""></a>
+        <a href="gong_kinh_rayban.jsp"><img src="./assets/images/icon_brand/rayBan1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_gucci.html"><img src="./assets/images/gucci1.jpg" alt=""></a>
+        <a href="gong_kinh_gucci.jsp"><img src="./assets/images/icon_brand/gucci1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_dior.html"><img src="./assets/images/dior1.jpg" alt=""></a>
+        <a href="gong_kinh_dior.jsp"><img src="./assets/images/icon_brand/dior1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_montblanc.html"><img src="./assets/images/montblanc1.jpg" alt=""></a>
+        <a href="gong_kinh_montblanc.jsp"><img src="./assets/images/icon_brand/montblanc1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_molsion.html"><img src="./assets/images/molsion1.jpg" alt=""></a>
+        <a href="gong_kinh_molsion.jsp"><img src="./assets/images/icon_brand/molsion1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_bolon.html"><img src="./assets/images/bolon1.jpg" alt=""></a>
+        <a href="gong_kinh_bolon.jsp"><img src="./assets/images/icon_brand/bolon1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_furla.html"><img src="./assets/images/furla1.jpg" alt=""></a>
+        <a href="gong_kinh_furla.jsp"><img src="./assets/images/icon_brand/furla1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_prada.html"><img src="./assets/images/prada1.jpg" alt=""></a>
+        <a href="gong_kinh_prada.jsp"><img src="./assets/images/icon_brand/prada1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_oakley.html"><img src="./assets/images/bakley1.jpg" alt=""></a>
+        <a href="gong_kinh_oakley.jsp"><img src="./assets/images/icon_brand/bakley1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_parim.html"><img src="./assets/images/parim1.jpg" alt=""></a>
+        <a href="gong_kinh_parim.jsp"><img src="./assets/images/icon_brand/parim1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_burberry.html"><img src="./assets/images/burberry1.jpg" alt=""></a>
+        <a href="gong_kinh_burberry.jsp"><img src="./assets/images/icon_brand/burberry1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_chopard.html"><img src="./assets/images/chopard.webp" alt=""></a>
+        <a href="gong_kinh_chopard.jsp"><img src="./assets/images/chopard.webp" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_versace.html"><img src="./assets/images/versace1.jpg" alt=""></a>
+        <a href="gong_kinh_versace.jsp"><img src="./assets/images/icon_brand/versace1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_police.html"><img src="./assets/images/police1.jpg" alt=""></a>
+        <a href="gong_kinh_police.jsp"><img src="./assets/images/icon_brand/police1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_eyescloud.html"><img src="./assets/images/eyeclouds1.jpg" alt=""></a>
+        <a href="gong_kinh_eyescloud.jsp"><img src="./assets/images/icon_brand/eyeclouds1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_daniel_wellington.html"><img src="./assets/images/daniel-wellington1.jpg" alt=""></a>
+        <a href="gong_kinh_daniel_wellington.jsp"><img src="./assets/images/icon_brand/daniel-wellington1.jpg" alt=""></a>
       </div>
       <div class="col-2 image_brand">
-        <a href="gong_kinh_exfash.html"><img src="./assets/images/exfash1.jpg" alt=""></a>
+        <a href="gong_kinh_exfash.jsp"><img src="./assets/images/icon_brand/exfash1.jpg" alt=""></a>
       </div>
     </div>
   </div>
