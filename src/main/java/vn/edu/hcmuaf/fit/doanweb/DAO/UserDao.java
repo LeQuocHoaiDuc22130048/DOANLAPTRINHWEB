@@ -4,7 +4,8 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.UsersTypes;
 
 public interface UserDao {
     public boolean checkEmailExists(String email);
-    public boolean CreateUserTemp (String email , String password , String username );
+    public boolean  CreateUserTemp (String email , String password , String username );
+    public boolean ActiveAccountExists(int userId);
     public boolean isValidUser(String userName, String password);
     public Integer getUserId(String userName);
     public UsersTypes getUserType(int userId);

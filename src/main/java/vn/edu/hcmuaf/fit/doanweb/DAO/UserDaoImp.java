@@ -11,8 +11,9 @@ public class UserDaoImp implements UserDao {
     private final static int UserRole = 2;
     private final static int Active = 1;
     private final static int Inactive = 0;
-        private final static String CheckEmail = "SELECT email FROM users WHERE email = :email";
-        private final static String CreateUserTemp = "INSERT INTO users VALUES (:username , :email  :password ,NULL , NULL 0 , NOW() , NOW() )";
+    private final static String CheckEmail = "SELECT email FROM users WHERE email = :email";
+    private final static String CreateUserTemp = "INSERT INTO users VALUES (:username , :email  :password ,NULL , NULL 0 , NOW() , NOW() )";
+    private final static String ActiveAccount = "UPDATE users set email = :email where userId = :userId";
     private final static String QUERYPASSWORD = "SELECT password FROM users WHERE name = :userName AND status = " + Active;
     private final static String GETPASSWORD = "SELECT password FROM users WHERE name = :userName AND email = :email";
     private final static String ACTIVED = "UPDATE users SET status = " + Active + ", updated_at = NOW() WHERE id = :userId";
@@ -27,27 +28,29 @@ public class UserDaoImp implements UserDao {
 
     public UserDaoImp() {
     }
+
     @Override
     public boolean checkEmailExists(String email) {
         return jdbi.withHandle((handle) -> handle.createQuery(CheckEmail)
-                .bind("email" , email).mapTo(String.class)
+                .bind("email", email).mapTo(String.class)
                 .findOne().orElse(email) != null);
+    }
+    @Override
+    public boolean  CreateUserTemp(String email, String password, String username) {
+        return  jdbi.withHandle(handle -> handle.execute(CreateUserTemp,email,password,username) > 0
+        );
     }
 
     @Override
-    public boolean CreateUserTemp(String email, String password, String username) {
-        return jdbi.withHandle(handle -> handle.createQuery(CreateUserTemp)
-                .bind("email", email)
-                .bind("username", username)
-                .bind("password", password).mapTo(boolean.class).first()
-        );
+    public boolean ActiveAccountExists(int userId) {
+        return  jdbi.withHandle(handle -> handle.createUpdate(ActiveAccount).bind("userId", userId).execute() > 0);
     }
 
     @Override
     public boolean isValidUser(String userName, String password) {
 
         String passwordValid = this.jdbi.withHandle((h) -> h.createQuery(QUERYPASSWORD).bind("userName", userName).mapTo(String.class).findFirst().orElse(null));
-        return passwordValid != null &&  BCrypt.checkpw(password, passwordValid);
+        return passwordValid != null && BCrypt.checkpw(password, passwordValid);
     }
 
     @Override

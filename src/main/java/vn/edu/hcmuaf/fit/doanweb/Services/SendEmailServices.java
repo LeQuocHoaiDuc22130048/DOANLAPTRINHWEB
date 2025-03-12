@@ -1,62 +1,46 @@
 package vn.edu.hcmuaf.fit.doanweb.Services;
 
-import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 public class SendEmailServices {
-
-    private UserDaoImp userDaoImp = new UserDaoImp();
-    private static final Logger logger = Logger.getLogger(SendEmailServices.class.getName());
-
-    public SendEmailServices() {
-
-    }
-
-    public String getPassword(String userName, String email) {
-        return userDaoImp.getPassword(userName, email);
-    }
-
-    public void sendEmail(String to, String subject, String content) throws MessagingException {
-
-        final String from = "22130177@st.hcmuaf.edu.vn";
-        final String password = "tloy jdcq rfkd blhn";
-
-        // thuộc tính cho phiên gửi email
-        Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-        props.put("mail.smtp.auth", true);
-        props.put("mail.smtp.starttls.enable", true);
-
-
-        // tạo phiên
-        Session session = Session.getInstance(props, new Authenticator() {
+    // Cấu hình thông tin SMTP
+    private final String host = "smtp.gmail.com"; // SMTP server của Gmail
+    private final String port = "587"; // Port mặc định của Gmail
+    private final String senderEmail = "22130015@st.hcmuaf.edu.vn"; // Email gửi
+    private final String senderPassword = "sqtw uubu kqtc lcje"; // Mật khẩu ứng dụng (app password)
+    private  Properties properties ;
+    private Message message;
+    public SendEmailServices() throws MessagingException {
+        // Config stmp
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", port);
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.ssl.trust", "smtp.gmail.com"); // Hoặc máy chủ SMTP bạn sử dụng
+        // Create session with email
+        Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, password);
-
+                return new PasswordAuthentication(senderEmail, senderPassword);
             }
         });
+        message = new MimeMessage(session);
+
+    }
+
+        public Message sendEmail(String to, String subject, String content) throws MessagingException {
+        message.setFrom(new InternetAddress(senderEmail));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+        message.setSubject(subject);
+        message.setText( content);
+        return message;
 
 
-        try {
-
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            message.setSubject(subject);
-            message.setContent(content,"charset=utf-8");
-
-            Transport.send(message);
-
-
-        } catch (Exception e) {
-
-        }
     }
 
 
