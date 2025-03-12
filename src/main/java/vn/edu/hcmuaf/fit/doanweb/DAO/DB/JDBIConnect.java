@@ -13,6 +13,8 @@ public class JDBIConnect {
         if (jdbi == null) {
             makeConnect();
         }
+        jdbi.open();
+        System.out.println("Connected to database");
         return jdbi;
     }
 
@@ -30,6 +32,4 @@ public class JDBIConnect {
         jdbi = Jdbi.create(dataSource);
     }
 
-//    public static void main(String[] args) {
-//    }
 }
