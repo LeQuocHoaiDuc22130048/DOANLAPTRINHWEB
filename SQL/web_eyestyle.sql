@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 
 -- Dumping data for table web_eyestyle.brands: ~24 rows (approximately)
 INSERT INTO `brands` (`id`, `name`, `created_at`, `updated_at`) VALUES
-	(1, 'Dior', '2024-12-17 17:41:13', '2024-12-17 17:42:55'),
+	(1users, 'Dior', '2024-12-17 17:41:13', '2024-12-17 17:42:55'),
 	(2, 'Cartier', '2024-12-17 17:43:15', '2024-12-17 17:43:16'),
 	(3, 'Versace', '2024-12-17 17:43:41', '2024-12-17 17:43:43'),
 	(4, 'Gucci', '2024-12-17 17:44:03', '2024-12-17 17:44:05'),
