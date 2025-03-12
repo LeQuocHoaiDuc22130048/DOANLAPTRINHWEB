@@ -6,7 +6,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-public class SendEmailServices {
+public class  SendEmailServices {
     // Cấu hình thông tin SMTP
     private final String host = "smtp.gmail.com"; // SMTP server của Gmail
     private final String port = "587"; // Port mặc định của Gmail
@@ -39,8 +39,6 @@ public class SendEmailServices {
         message.setSubject(subject);
         message.setText( content);
         return message;
-
-
     }
 
 

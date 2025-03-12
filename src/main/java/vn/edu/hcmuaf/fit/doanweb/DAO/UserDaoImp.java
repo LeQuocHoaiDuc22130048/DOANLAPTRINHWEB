@@ -12,8 +12,12 @@ public class UserDaoImp implements UserDao {
     private final static int Active = 1;
     private final static int Inactive = 0;
     private final static String CheckEmail = "SELECT email FROM users WHERE email = :email";
-    private final static String CreateUserTemp = "INSERT INTO users VALUES (:username , :email  :password ,NULL , NULL 0 , NOW() , NOW() )";
-    private final static String ActiveAccount = "UPDATE users set email = :email where userId = :userId";
+    private final static String CreateUserTemp = "INSERT INTO users (name, email, password, phone , address , status, created_at, updated_at)" +
+            " VALUES (:name, :email, :password, NULL, NULL, 0, NOW(), NOW())";
+    ;
+        private final static String ActiveAccount = "UPDATE users set status = 1 where id = :id";
+    private final static String GetUserId = "SELECT id FROM users WHERE email = :email";
+
     private final static String QUERYPASSWORD = "SELECT password FROM users WHERE name = :userName AND status = " + Active;
     private final static String GETPASSWORD = "SELECT password FROM users WHERE name = :userName AND email = :email";
     private final static String ACTIVED = "UPDATE users SET status = " + Active + ", updated_at = NOW() WHERE id = :userId";
@@ -36,14 +40,24 @@ public class UserDaoImp implements UserDao {
                 .findOne().orElse(email) != null);
     }
     @Override
-    public boolean  CreateUserTemp(String email, String password, String username) {
-        return  jdbi.withHandle(handle -> handle.execute(CreateUserTemp,email,password,username) > 0
+    public boolean CreateUserTemp(String username ,String email, String password) {
+        return jdbi.withHandle(handle ->
+                handle.createUpdate(CreateUserTemp)
+                        .bind("name", username)
+                        .bind("email", email)
+                        .bind("password", password)
+                        .execute() > 0 // 🔥 Cần đặt execute() trong lambda
         );
     }
 
     @Override
     public boolean ActiveAccountExists(int userId) {
-        return  jdbi.withHandle(handle -> handle.createUpdate(ActiveAccount).bind("userId", userId).execute() > 0);
+        return  jdbi.withHandle(handle -> handle.createUpdate(ActiveAccount).bind("id", userId).execute() > 0);
+    }
+
+    @Override
+    public int GetUserIdByEmail(String email) {
+        return jdbi.withHandle((handle -> handle.createQuery(GetUserId).bind("email" , email).mapTo(Integer.class).first()));
     }
 
     @Override
@@ -73,16 +87,8 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public boolean isAccountActive(int userId) {
-        return this.jdbi.withHandle((h) -> {
-            Integer status = h.createQuery(ACTIVEACCOUNT)
-                    .bind("userId", userId)
-                    .mapTo(Integer.class)
-                    .findFirst().orElse(null);
-            return status != null && status == 1;
-        });
+         return jdbi.withHandle((h) -> h.createUpdate(ActiveAccount).bind("id" , userId).execute() > 0);
     }
-
-
     // phương thức kiểm tra người dùng mới
     @Override
     public boolean isNewUser(String userName, String password) {

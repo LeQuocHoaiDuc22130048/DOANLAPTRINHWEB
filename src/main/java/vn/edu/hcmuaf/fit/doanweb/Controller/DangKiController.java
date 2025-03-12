@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @WebServlet(name = "DangKiController", value = "/sign-in")
 public class DangKiController extends HttpServlet {
-
+    private static final String Link = "http://localhost:8080/DoAnWeb/ActiveMail?userId=";
     private UserDaoImp userDaoImp ;
 
     @Override
@@ -32,15 +32,20 @@ public class DangKiController extends HttpServlet {
         String userName = request.getParameter("userName");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        SendEmailServices services ;
+        System.out.println(userName);
+        System.out.println(email);
+        System.out.println(password);
+        if (!userDaoImp.CreateUserTemp(userName, email, password)) response.sendRedirect("index.jsp"); ;
+        int userId = userDaoImp.GetUserIdByEmail(email);
+
 
         try {
-            services = new SendEmailServices();
-            Transport.send(services.sendEmail(email ,"Link kích hoạt tai khoản của bạn !" , "http://localhost:8080/DoAnWeb/ActiveMail/"+"?userId=1" ));
+            SendEmailServices    services = new SendEmailServices();
+            Transport.send(services.sendEmail(email ,"Link kích hoạt tai khoản của bạn !" , Link + userId ));
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
         System.out.println("Send mail success");
-        response.sendRedirect("DangKiController");
+        response.sendRedirect("index.jsp");
     }
 }
