@@ -2,9 +2,7 @@ package vn.edu.hcmuaf.fit.doanweb.DAO;
 
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
-import org.mindrot.jbcrypt.BCrypt;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.UsersTypes;
 
 public class UserDaoImp implements UserDao {
     private Jdbi jdbi = JDBIConnect.get();
@@ -20,7 +18,7 @@ public class UserDaoImp implements UserDao {
     private final static String Login = "SELECT id FROM users WHERE name = :name and password = :password";
     private final static String GetUserPassword = "SELECT password FROM users WHERE name = :name LIMIT 1";
     private final static String UserExists = "SELECT id FROM users WHERE name = :name LIMIT 1";
-
+    private final static String CheckActive = "SELECT status FROM users WHERE name = :name";
     public UserDaoImp() {
     }
 
@@ -30,9 +28,11 @@ public class UserDaoImp implements UserDao {
                 handle.createQuery(CheckEmail)
                         .bind("email", email)
                         .mapTo(String.class)
-                        .first().isEmpty() // Kiểm tra xem giá trị có tồn tại hay không
+                        .findFirst() // Tránh lỗi nếu không có kết quả
+                        .isPresent() // Kiểm tra xem có giá trị không
         );
     }
+
 
     @Override
     public boolean CreateUserTemp(String username, String email, String password) {
@@ -58,7 +58,8 @@ public class UserDaoImp implements UserDao {
     @Override
     public int Login(String userName, String password) {
         return jdbi.withHandle((handle -> handle.createQuery(Login)
-                .bind("name", userName).bind("password", password).mapTo(Integer.class).first()));
+                .bind("name", userName).bind("password", password)
+                .mapTo(Integer.class).findOne().orElse(-1)));
     }
 
     @Override
@@ -71,6 +72,12 @@ public class UserDaoImp implements UserDao {
     public boolean CheckUserExists(String userName) {
         return jdbi.withHandle((Handle handle) -> handle.createQuery(UserExists).bind("name", userName)
                 .mapTo(Integer.class).findFirst().orElse(-1) > 0);
+    }
+
+    @Override
+    public boolean CheckActiveAccount(String userName) {
+        return jdbi.withHandle((handle -> handle.createQuery(CheckActive).bind("name" , userName)
+                .mapTo(Integer.class).findFirst().orElse(-1) > 0));
     }
 
 

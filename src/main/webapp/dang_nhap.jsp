@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="assets/css/lightbox.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/blog.css" />
-    <head>
       <style>
         .login-container {
           display: flex;
@@ -361,5 +360,4 @@
         </div>
       </footer>
     </body>
-  </head>
 </html>

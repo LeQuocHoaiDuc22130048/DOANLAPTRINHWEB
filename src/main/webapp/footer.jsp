@@ -1,21 +1,15 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-3 inf_first">
                 <div class="first-item">
                     <div class="logo">
-                        <img
-                                src="assets/images/logo.png"
-                                alt="eyestyle nhom 65"
-                        />
+                        <img src="assets/images/logo.png" alt="eyestyle nhom 65"/>
                     </div>
                     <ul>
-                        <li>
-                            <a href="index.jsp"
-                            >Đại học Nông Lâm TPHCM</a
-                            >
-                        </li>
+                        <li><a href="index.jsp">Đại học Nông Lâm TPHCM</a></li>
                         <li><a href="index.jsp">nhom65@company.com</a></li>
                         <li><a href="index.jsp">0123 456 789</a></li>
                     </ul>
@@ -50,28 +44,14 @@
             </div>
             <div class="col-lg-12">
                 <div class="under-footer">
-                    <p>
-                        Group65 © 2022 HexaShop Co., Ltd. All Rights Reserved.
-
-                        <br />Design:
-                        <a
-                                href="index.jsp"
-                        >Group 65</a
-                        >
+                    <p>Group65 © 2022 HexaShop Co., Ltd. All Rights Reserved.
+                        <br/>Design:<a href="index.jsp">Group 65</a>
                     </p>
                     <ul>
-                        <li>
-                            <a href="index.jsp"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="index.jsp"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="index.jsp"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                        <li>
-                            <a href="index.jsp"><i class="fa fa-behance"></i></a>
-                        </li>
+                        <li><a href="index.jsp"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="index.jsp"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="index.jsp"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="index.jsp"><i class="fa fa-behance"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -96,22 +76,22 @@
         </div>
     </div>
 
-    <!-- Chat Box -->
-    <div id="chatBox">
-        <h2>Chuyên viên tư vấn</h2>
-        <div class="status">Online</div>
-        <p>Hỏi chúng tôi bất cứ điều gì. Chúng tôi sẽ trả lời ngay lập tức</p>
-        <form>
-            <input type="text" placeholder="Tên của bạn" required>
-            <input type="tel" placeholder="Phone" required>
-            <textarea placeholder="Tin nhắn của bạn" rows="3" required style="resize: none;"></textarea>
-            <div class="submit_container">
-                <button type="submit" class="submit-btn">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
-            </div>
-        </form>
-    </div>
-    <!-- chat box ở phần footer End-->
+    <%--    <!-- Chat Box -->--%>
+    <%--    <div id="chatBox">--%>
+    <%--        <h2>Chuyên viên tư vấn</h2>--%>
+    <%--        <div class="status">Online</div>--%>
+    <%--        <p>Hỏi chúng tôi bất cứ điều gì. Chúng tôi sẽ trả lời ngay lập tức</p>--%>
+    <%--        <form>--%>
+    <%--            <input type="text" placeholder="Tên của bạn" required>--%>
+    <%--            <input type="tel" placeholder="Phone" required>--%>
+    <%--            <textarea placeholder="Tin nhắn của bạn" rows="3" required style="resize: none;"></textarea>--%>
+    <%--            <div class="submit_container">--%>
+    <%--                <button type="submit" class="submit-btn">--%>
+    <%--                    <i class="fa-solid fa-paper-plane"></i>--%>
+    <%--                </button>--%>
+    <%--            </div>--%>
+    <%--        </form>--%>
+    <%--    </div>--%>
+    <%--    <!-- chat box ở phần footer End-->--%>
 
 </footer>

@@ -11,7 +11,8 @@ import java.io.IOException;
 @WebServlet(name = "ActiveMail", value = "/ActiveMail")
 public class ActiveMail extends HttpServlet {
     private UserDao userDao;
-
+    private String Home = "index.jsp";
+    private String ActiveSuccess = "active mail success";
     @Override
     public void init() throws ServletException {
         userDao = new UserDaoImp();
@@ -19,9 +20,10 @@ public class ActiveMail extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int userId = Integer.parseInt(request.getParameter("userId"));
-    userDao.ActiveAccountExists(userId);
-    response.sendRedirect("index.jsp");
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        userDao.ActiveAccountExists(userId);
+        request.setAttribute("Success", ActiveSuccess);
+        request.getRequestDispatcher(Home).forward(request, response);
     }
 
     @Override

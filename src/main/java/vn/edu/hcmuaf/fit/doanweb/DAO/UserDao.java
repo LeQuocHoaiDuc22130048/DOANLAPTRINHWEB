@@ -10,4 +10,5 @@ public interface UserDao {
     public int  Login(String userName, String password);
     public String GetUserPassword(String name);
     public boolean CheckUserExists(String userName);
+    public boolean CheckActiveAccount(String userName);
 }

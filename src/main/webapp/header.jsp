@@ -1,12 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<header class="header-area header-sticky">
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<header class="header-area header-sticky fixed-top ">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index" class="logo">
-                        <img src="assets/images/logo.png" />
+                        <img alt="Logo" src="assets/images/logo.png" />
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->

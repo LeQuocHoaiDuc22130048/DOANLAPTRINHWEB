@@ -23,30 +23,36 @@ public class DangNhapController extends HttpServlet {
     public void init() throws ServletException {
         userDaoImp = new UserDaoImp();
     }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         String realPassword = userDaoImp.GetUserPassword(userName);
-        BCrypt.gensalt(12);
+
         if (!userDaoImp.CheckUserExists(userName)) {
             request.setAttribute("Error", UserNotExist);
             request.getRequestDispatcher(Login).forward(request, response);
+            return;
         }
-        if (!BCrypt.checkpw(password, realPassword)) {
+        if (  realPassword == null||!BCrypt.checkpw(password, realPassword)) {
             request.setAttribute("Error", PasswordIncorect);
             request.getRequestDispatcher(Login).forward(request, response);
+            return;
+        }
+        if (!userDaoImp.CheckActiveAccount(userName)) {
+            request.setAttribute("Error", UserNotExist);
+            request.getRequestDispatcher(Login).forward(request, response);
+            return;
         }
         int userId = userDaoImp.Login(userName, realPassword);
         if (userId == -1) {
             request.setAttribute("Error", LoginFailed);
             request.getRequestDispatcher(Login).forward(request, response);
+            return;
         }
         request.setAttribute("userId", userId);
         request.getRequestDispatcher(Home).forward(request, response);
