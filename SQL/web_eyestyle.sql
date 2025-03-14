@@ -14,6 +14,20 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Dumping database structure for web_eyestyle
+CREATE DATABASE IF NOT EXISTS `web_eyestyweb_eyestyleusersusersle` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `web_eyestyle`;
+
+-- Dumping structure for table web_eyestyle.brands
+CREATE TABLE IF NOT EXISTS `brands` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Dumping data for table web_eyestyle.brands: ~24 rows (approximately)
 INSERT INTO `brands` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'Dior', '2024-12-17 17:41:13', '2024-12-17 17:42:55'),
@@ -41,6 +55,17 @@ INSERT INTO `brands` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(23, 'Zeiss', '2024-12-18 12:18:10', '2024-12-18 12:18:13'),
 	(24, 'Levanlens', '2024-12-18 12:18:28', '2024-12-18 12:18:28');
 
+-- Dumping structure for table web_eyestyle.categories
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `hot` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Dumping data for table web_eyestyle.categories: ~13 rows (approximately)
 INSERT INTO `categories` (`id`, `name`, `status`, `hot`, `created_at`, `updated_at`) VALUES
 	(1, 'Mắt kính cận nam', 1, 1, '2024-06-17 08:00:00', '2024-06-17 08:00:00'),
@@ -56,6 +81,16 @@ INSERT INTO `categories` (`id`, `name`, `status`, `hot`, `created_at`, `updated_
 	(11, 'Đơn tròng', 1, 1, '2024-12-18 12:30:36', '2024-12-18 12:30:37'),
 	(12, 'Đa Tròng', 1, 0, '2024-12-18 12:30:54', '2024-12-18 12:30:55'),
 	(13, 'Hai Tròng', 1, 0, '2024-12-18 12:31:08', '2024-12-18 12:31:08');
+
+-- Dumping structure for table web_eyestyle.discounts
+CREATE TABLE IF NOT EXISTS `discounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `discount_percentage` double DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.discounts: ~25 rows (approximately)
 INSERT INTO `discounts` (`id`, `code`, `description`, `discount_percentage`, `status`) VALUES
@@ -83,8 +118,20 @@ INSERT INTO `discounts` (`id`, `code`, `description`, `discount_percentage`, `st
 	(22, 'VALENTINE20', 'Khuyến mãi ngày Valentine, giảm 20%', 20, 1),
 	(23, 'CYBERMONDAY45', 'Khuyến mãi Cyber Monday, giảm 45%', 45, 1),
 	(24, 'EIDSALE25', 'Khuyến mãi đặc biệt Eid, giảm 25%', 25, 1),
-	(25, 'TEACHERDAY10', 'Tri ân ngày Nhà giáo, giảm 10% cho tất cả đơn', 10, 1),
-	(26, 'XSM', 'Giảm 24%', 24, 2);
+	(25, 'TEACHERDAY10', 'Tri ân ngày Nhà giáo, giảm 10% cho tất cả đơn', 10, 1);
+
+-- Dumping structure for table web_eyestyle.feedbacks
+CREATE TABLE IF NOT EXISTS `feedbacks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `response` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.feedbacks: ~15 rows (approximately)
 INSERT INTO `feedbacks` (`id`, `name`, `email`, `message`, `response`, `status`, `created_at`, `updated_at`) VALUES
@@ -104,6 +151,13 @@ INSERT INTO `feedbacks` (`id`, `name`, `email`, `message`, `response`, `status`,
 	(14, 'Đỗ Bảo An', 'dobaoan@gmail.com', 'Sản phẩm này phù hợp cho nam hay nữ vậy?', NULL, 0, '2024-12-17 08:58:18', '2024-12-17 08:58:18'),
 	(15, 'Lâm Ngọc Yến', 'lamngocyen@gmail.com', 'Làm sao để hủy đơn hàng đã đặt?', NULL, 0, '2024-12-17 08:58:18', '2024-12-17 08:58:18');
 
+-- Dumping structure for table web_eyestyle.frame_shapes
+CREATE TABLE IF NOT EXISTS `frame_shapes` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Dumping data for table web_eyestyle.frame_shapes: ~9 rows (approximately)
 INSERT INTO `frame_shapes` (`id`, `name`) VALUES
 	(1, 'Vuông'),
@@ -116,27 +170,65 @@ INSERT INTO `frame_shapes` (`id`, `name`) VALUES
 	(8, 'Đa giác'),
 	(9, 'Hình thang');
 
+-- Dumping structure for table web_eyestyle.orders
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `price` double DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `total_quantity` int(11) DEFAULT NULL,
+  `status_payment` int(11) DEFAULT NULL,
+  `status_transport` int(11) DEFAULT NULL,
+  `discount_id` int(11) DEFAULT NULL,
+  `total_discount` double DEFAULT NULL,
+  `total_price` double DEFAULT NULL,
+  `note` text DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `discount_id` (`discount_id`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`discount_id`) REFERENCES `discounts` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Dumping data for table web_eyestyle.orders: ~20 rows (approximately)
 INSERT INTO `orders` (`id`, `price`, `user_id`, `total_quantity`, `status_payment`, `status_transport`, `discount_id`, `total_discount`, `total_price`, `note`, `created_at`, `updated_at`) VALUES
-	(1, 8000000, 9, 3, 1, 1, 1, 800000, 7200000, 'Giao hàng nhanh, mong sớm nhận được', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(2, 14000000, 5, 5, 0, 0, 2, 2800000, 11200000, 'Thanh toán khi nhận hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(3, 4700000, 11, 1, 1, 1, 3, 1410000, 3290000, 'Yêu cầu giao vào chiều mai', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(4, 16900000, 3, 2, 1, 0, NULL, 0, 16900000, 'Giao nhanh, hỗ trợ kiểm tra sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(5, 21000000, 8, 3, 0, 1, 4, 10500000, 10500000, 'Giao hàng hẹn trước', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(6, 1800000, 3, 2, 1, 0, 5, 0, 1800000, 'Mong muốn đổi sản phẩm nếu không hài lòng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(7, 35000000, 8, 4, 1, 1, NULL, 0, 35000000, 'Cần kiểm tra kỹ khi giao hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(8, 14600000, 14, 3, 1, 1, 6, 2190000, 12410000, 'Hỗ trợ đổi sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(9, 33000000, 1, 6, 0, 0, 7, 8250000, 24750000, 'Yêu cầu thanh toán qua chuyển khoản', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(10, 4000000, 14, 3, 1, 0, 8, 800000, 3200000, 'Yêu cầu giao hàng vào cuối tuần', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(11, 47000000, 1, 4, 1, 1, 9, 4700000, 42300000, 'Đặt hàng cho quà tặng sinh nhật', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(12, 3000000, 8, 5, 0, 0, 10, 1200000, 1800000, 'Mong muốn giao hàng vào buổi sáng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(13, 500000, 14, 8, 1, 1, NULL, 0, 500000, 'Sản phẩm bị lỗi, cần hỗ trợ đổi', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(14, 1800000, 7, 3, 0, 0, 11, 90000, 1710000, 'Khuyến mãi áp dụng cho tất cả sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(15, 13500000, 13, 2, 1, 1, 12, 2025000, 11475000, 'Thanh toán qua ví điện tử', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(16, 6000000, 7, 4, 1, 0, 13, 3600000, 2400000, 'Sản phẩm còn mới, yêu cầu giao gấp', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(17, 12000000, 13, 5, 0, 0, 14, 3000000, 9000000, 'Giảm giá cho khách hàng thân thiết', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(18, 15600000, 10, 1, 1, 1, 15, 1560000, 14040000, 'Nhận hàng trong vòng 24h', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(19, 1800000, 4, 7, 0, 0, 16, 900000, 900000, 'Đặt hàng cho các sự kiện', '2024-12-17 09:48:12', '2024-12-17 09:48:12');
+	(1, 8000000, NULL, 3, 1, 1, 1, 800000, 7200000, 'Giao hàng nhanh, mong sớm nhận được', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(2, 14000000, NULL, 5, 0, 0, 2, 2800000, 11200000, 'Thanh toán khi nhận hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(3, 4700000, NULL, 1, 1, 1, 3, 1410000, 3290000, 'Yêu cầu giao vào chiều mai', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(4, 16900000, NULL, 2, 1, 0, NULL, 0, 16900000, 'Giao nhanh, hỗ trợ kiểm tra sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(5, 21000000, NULL, 3, 0, 1, 4, 10500000, 10500000, 'Giao hàng hẹn trước', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(6, 1800000, NULL, 2, 1, 0, 5, 0, 1800000, 'Mong muốn đổi sản phẩm nếu không hài lòng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(7, 35000000, NULL, 4, 1, 1, NULL, 0, 35000000, 'Cần kiểm tra kỹ khi giao hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(8, 14600000, NULL, 3, 1, 1, 6, 2190000, 12410000, 'Hỗ trợ đổi sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(9, 33000000, NULL, 6, 0, 0, 7, 8250000, 24750000, 'Yêu cầu thanh toán qua chuyển khoản', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(10, 4000000, NULL, 3, 1, 0, 8, 800000, 3200000, 'Yêu cầu giao hàng vào cuối tuần', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(11, 47000000, NULL, 4, 1, 1, 9, 4700000, 42300000, 'Đặt hàng cho quà tặng sinh nhật', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(12, 3000000, NULL, 5, 0, 0, 10, 1200000, 1800000, 'Mong muốn giao hàng vào buổi sáng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(13, 500000, NULL, 8, 1, 1, NULL, 0, 500000, 'Sản phẩm bị lỗi, cần hỗ trợ đổi', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(14, 1800000, NULL, 3, 0, 0, 11, 90000, 1710000, 'Khuyến mãi áp dụng cho tất cả sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(15, 13500000, NULL, 2, 1, 1, 12, 2025000, 11475000, 'Thanh toán qua ví điện tử', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(16, 6000000, NULL, 4, 1, 0, 13, 3600000, 2400000, 'Sản phẩm còn mới, yêu cầu giao gấp', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(17, 12000000, NULL, 5, 0, 0, 14, 3000000, 9000000, 'Giảm giá cho khách hàng thân thiết', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(18, 15600000, NULL, 1, 1, 1, 15, 1560000, 14040000, 'Nhận hàng trong vòng 24h', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(19, 1800000, NULL, 7, 0, 0, 16, 900000, 900000, 'Đặt hàng cho các sự kiện', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+	(20, 900000, NULL, 3, 1, 1, NULL, 0, 900000, 'Đặt sản phẩm từ lâu, cần giao ngay', '2024-12-17 09:48:12', '2024-12-17 09:48:12');
+
+-- Dumping structure for table web_eyestyle.order_details
+CREATE TABLE IF NOT EXISTS `order_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `total_price` double DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `order_id` (`order_id`),
+  KEY `product_id` (`product_id`),
+  CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.order_details: ~28 rows (approximately)
 INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `quantity`, `total_price`, `created_at`, `updated_at`) VALUES
@@ -166,9 +258,37 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `quantity`, `total_
 	(24, 16, 133, 2, 6000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
 	(25, 17, 1, 1, 12000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
 	(26, 18, 11, 2, 15600000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(27, 19, 126, 3, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56');
+	(27, 19, 126, 3, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
+	(28, 20, 117, 1, 900000, '2024-12-17 10:49:56', '2024-12-17 10:49:56');
 
--- Dumping data for table web_eyestyle.products: ~159 rows (approximately)
+-- Dumping structure for table web_eyestyle.products
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `brand_id` int(11) DEFAULT NULL,
+  `shape_id` int(11) DEFAULT NULL,
+  `material` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `hot` tinyint(1) DEFAULT NULL,
+  `cost_price` double DEFAULT NULL,
+  `selling_price` double DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `gender` int(11) DEFAULT NULL,
+  `color` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `category_id` (`category_id`),
+  KEY `brand_id` (`brand_id`),
+  KEY `shape_id` (`shape_id`),
+  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
+  CONSTRAINT `products_ibfk_2` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
+  CONSTRAINT `products_ibfk_3` FOREIGN KEY (`shape_id`) REFERENCES `frame_shapes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table web_eyestyle.products: ~151 rows (approximately)
 INSERT INTO `products` (`id`, `category_id`, `brand_id`, `shape_id`, `material`, `name`, `description`, `status`, `hot`, `cost_price`, `selling_price`, `quantity`, `gender`, `color`, `created_at`, `updated_at`) VALUES
 	(1, 10, 1, 1, 'Kim loại', 'GG1144O_54_002', 'Gọng kính Thép không gỉ', 1, 1, 11900000, 12000000, 20, 4, 'Bạc-Xanh', '2024-12-15 22:16:05', '2024-12-17 22:16:04'),
 	(2, 1, 2, 7, 'Nhựa', 'CT0291OA_005', 'Gọng kính nhựa', 1, 1, 15500000, 16000000, 15, 1, 'Đen', '2024-12-15 22:20:41', '2024-12-17 22:21:08'),
@@ -313,12 +433,29 @@ INSERT INTO `products` (`id`, `category_id`, `brand_id`, `shape_id`, `material`,
 	(141, 12, 23, NULL, NULL, 'Zeiss Digital Light 2 3D', 'Tròng kính chống tia UV, Kháng khuẩn, Lọc ánh sáng xanh – Cho người mới bắt đầu lão thị', 1, 0, 3700000, 4000000, 10, 4, NULL, '2024-12-18 12:58:25', '2024-12-25 12:58:26'),
 	(142, 4, 12, 4, 'Nhựa', '62210_B1', 'Gọng kính Nhựa – Lọc tia UV', 1, 1, 1100000, 1200000, 10, 3, 'Đen-Cam', '2024-12-18 13:00:23', '2024-12-25 13:00:30'),
 	(143, 4, 1, 1, 'Kim loại', 'DIORSTELLAIRESU_59_B0B0', 'Gọng kính Kim loại – Chống tia UV', 1, 0, 10800000, 11000000, 10, 2, 'Vàng-Xanh dương', '2024-12-18 13:03:11', '2024-12-26 13:03:19'),
-	(159, 1, 1, 1, 'Nhựa', 'Sản phẩm mẫu', 'Mô tả sản phẩm mẫu', 0, 0, 100000, 120000, 10, 1, 'Tím', '2025-01-14 01:45:49', '2024-12-25 13:18:26'),
-	(160, 1, 1, 1, 'Nhựa', 'Sản phẩm mẫu', 'Mô tả sản phẩm mẫu', 0, 0, 100000, 120000, 10, 1, 'Tím', '2025-01-14 01:52:17', '2025-01-15 13:14:48'),
-	(161, 1, 1, 1, 'Nhựa', 'Sản phẩm mẫu', 'Mô tả sản phẩm mẫu', 1, 0, 100000, 120000, 10, 1, 'Tím', '2025-01-14 02:04:37', '2025-01-15 13:19:05'),
-	(162, 1, 1, 1, 'Nhựa', 'Sản phẩm mẫu', 'Mô tả sản phẩm mẫu', 1, 0, 100000, 120000, 10, 1, 'Tím', '2025-01-14 02:08:20', NULL);
+	(144, 4, 7, 1, 'Nhựa', '0BE4364F_39958G_51', 'Gọng kính Nhựa – Lọc tia UV', 1, 0, 6015000, 6200000, 15, 2, 'Trắng-Đen-Xám', '2024-12-18 13:04:52', '2024-12-26 13:04:52'),
+	(145, 4, 17, 1, 'Nhựa Acetate', 'BL3079_C10', 'Gọng kính Nhựa – Chống tia UV, Phân cực', 1, 0, 3780000, 3900000, 20, 1, 'Đen', '2024-12-18 13:06:02', '2024-12-26 13:06:03'),
+	(146, 4, 7, 1, 'Kim loại', '0BE3133_133713_5', 'Gọng kính Kim Loại – Chống tia UV', 1, 0, 6000000, 6100000, 10, 2, 'Vàng-Hồng', '2024-12-18 13:07:15', '2024-12-25 13:07:15'),
+	(147, 4, 4, 3, 'Nhựa Optyl', 'GG0702SK_54_003', 'Gọng kính Nhựa Optyl – Lọc tia UV', 1, 0, 8900000, 9000000, 10, 4, 'Đồi mồi-Nâu', '2024-12-18 13:08:31', '2024-12-24 13:08:32'),
+	(148, 4, 4, 2, 'Kim loại', 'GG0680S_56_002', 'Gọng kính Kim loại – Lọc tia UV', 1, 0, 10900000, 11000000, 7, 4, 'Bạc-Đồi mồi-Xám', '2024-12-18 13:09:42', '2024-12-26 13:09:43'),
+	(149, 4, 15, 4, 'Kim loại', 'EF70951_C25', 'Gọng kính Kim loại – Chống tia UV', 1, 0, 1000000, 1200000, 15, 2, 'Hồng', '2024-12-18 13:11:25', '2024-12-25 13:11:26'),
+	(150, 4, 3, 4, 'Nhựa', 'VE4417U_GB1_87', 'Gọng kính Nhựa – Lọc tia UV', 1, 0, 6800000, 7000000, 10, 2, 'Đen', '2024-12-18 13:12:26', '2024-12-26 13:12:27'),
+	(151, 4, 7, 4, 'Nhựa', '0BE4361F_300187_51', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 7350000, 7500000, 10, 2, 'Đen', '2024-12-18 13:18:25', '2024-12-25 13:18:26');
 
--- Dumping data for table web_eyestyle.products_images: ~243 rows (approximately)
+-- Dumping structure for table web_eyestyle.products_images
+CREATE TABLE IF NOT EXISTS `products_images` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `is_main` int(11) DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `product_id` (`product_id`),
+  CONSTRAINT `products_images_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table web_eyestyle.products_images: ~221 rows (approximately)
 INSERT INTO `products_images` (`id`, `product_id`, `is_main`, `path`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, 'assets/images/product2.jpg', '2024-12-18 10:20:34', '2024-12-18 10:20:34'),
 	(2, 1, 0, 'assets/images/product2b.jpg', '2024-12-18 10:25:00', '2024-12-01 10:25:00'),
@@ -533,8 +670,28 @@ INSERT INTO `products_images` (`id`, `product_id`, `is_main`, `path`, `created_a
 	(211, 141, 1, 'assets/images/product169.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(212, 142, 1, 'assets/images/product170.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(213, 143, 1, 'assets/images/product171.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
-	(237, 162, 0, '/assets/images/products/image1.jpg', NULL, NULL),
-	(238, 162, 0, '/assets/images/products/image2.jpg', NULL, NULL);
+	(214, 144, 1, 'assets/images/product172.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
+	(215, 145, 1, 'assets/images/product173.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
+	(216, 146, 1, 'assets/images/product174.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
+	(217, 147, 1, 'assets/images/product175.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
+	(218, 148, 1, 'assets/images/product176.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
+	(219, 149, 1, 'assets/images/product177.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
+	(220, 150, 1, 'assets/images/product178.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
+	(221, 151, 1, 'assets/images/product179.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56');
+
+-- Dumping structure for table web_eyestyle.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.users: ~16 rows (approximately)
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`, `created_at`, `updated_at`) VALUES
@@ -550,10 +707,22 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `address`, `sta
 	(10, 'Phan Nhật Ánh', 'anhphan@gmail.com', 'nhatanh789', '0945678123', 'Số 20, Đường Phạm Văn Đồng, Vũng Tàu', 1, '2024-12-10 17:30:10', '2024-12-10 17:30:10'),
 	(11, 'Lý Thị Hồng', 'hongly@gmail.com', 'hongly456', '0921345678', 'Số 5, Đường Hà Huy Tập, Hà Tĩnh', 1, '2024-12-11 18:20:00', '2024-12-11 18:20:00'),
 	(12, 'Trịnh Văn Lâm', 'lamtrinh@gmail.com', 'lamvan123', '0908765432', 'Số 17, Đường Bà Triệu, Thanh Hóa', 1, '2024-12-12 19:40:47', '2024-12-12 19:40:47'),
-	(13, 'Đỗ Ngọc Bảo', 'baodo@gmail.com', 'ngocbao987', '0932146789', 'Số 34, Đường Lý Thường Kiệt, Nam Định', 0, '2024-12-25 09:57:01', '2024-12-25 09:57:04'),
+	(13, 'Đỗ Ngọc Bảo', 'baodo@gmail.com', 'ngocbao987', '0932146789', 'Số 34, Đường Lý Thường Kiệt, Nam Định', 0, NULL, NULL),
 	(14, 'Phạm Thanh Hà', 'hapham@gmail.com', 'phamha456', '0943215678', 'Số 7, Đường Nguyễn Thị Minh Khai, Thái Nguyên', 1, '2024-12-14 21:50:39', '2024-12-14 21:50:39'),
 	(15, 'Nguyễn Hoàng Minh', 'minhnguyen@gmail.com', 'hoangminh123', '0987654321', 'Số 90, Đường Bắc Ninh, Bắc Ninh', 1, '2024-12-15 22:30:18', '2024-12-15 22:30:18'),
 	(16, 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, '2024-12-16 23:00:56', '2024-12-16 23:00:56');
+
+-- Dumping structure for table web_eyestyle.users_types
+CREATE TABLE IF NOT EXISTS `users_types` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `user_type_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `user_type_id` (`user_type_id`),
+  CONSTRAINT `users_types_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `users_types_ibfk_2` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.users_types: ~16 rows (approximately)
 INSERT INTO `users_types` (`id`, `user_id`, `user_type_id`) VALUES
@@ -573,6 +742,14 @@ INSERT INTO `users_types` (`id`, `user_id`, `user_type_id`) VALUES
 	(14, 14, 2),
 	(15, 15, 2),
 	(16, 16, 2);
+
+-- Dumping structure for table web_eyestyle.user_type
+CREATE TABLE IF NOT EXISTS `user_type` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.user_type: ~2 rows (approximately)
 INSERT INTO `user_type` (`id`, `name`, `description`) VALUES
