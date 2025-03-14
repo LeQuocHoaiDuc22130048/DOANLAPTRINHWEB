@@ -5,26 +5,26 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.jsp" class="logo">
+                    <a href="index" class="logo">
                         <img src="assets/images/logo.png" />
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li class="scroll-to-section">
-                            <a href="index.jsp#top" class="active">Trang chủ</a>
+                            <a href="index" class="active">Trang chủ</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index.jsp#kinh_mat">Kính mát</a>
+                            <a href="index#kinh_mat">Kính mát</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index.jsp#gong_kinh">Gọng kính</a>
+                            <a href="index#gong_kinh">Gọng kính</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index.jsp#trong_kinh">Tròng kính</a>
+                            <a href="index#trong_kinh">Tròng kính</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index.jsp#kinh_ap_trong">Kính áp tròng</a>
+                            <a href="index#kinh_ap_trong">Kính áp tròng</a>
                         </li>
                         <li class="submenu">
                             <a href="javascript:;">Trang phụ</a>

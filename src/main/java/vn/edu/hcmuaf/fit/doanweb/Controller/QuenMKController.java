@@ -15,8 +15,6 @@ import java.util.regex.Pattern;
 @WebServlet(name = "QuenMKController", value = "/forget")
 public class QuenMKController extends HttpServlet {
 
-    private UserDaoImp userDaoImp = new UserDaoImp();
-    private SendEmailServices mailService = new SendEmailServices();
 
     public QuenMKController() {
 
@@ -47,44 +45,7 @@ public class QuenMKController extends HttpServlet {
         String email = request.getParameter("email");
 
         logger.info("Received POST request at /forget with username: " + username + " and email: " + email);
-        if (!isValidEmail(email)) {
-            request.setAttribute("fail-message", "Email không hợp lệ");
-            request.getRequestDispatcher("quen_mat_khau.jsp").forward(request, response);
-            return;
-        }
 
-        if (!userDaoImp.checkUserExist(username, email)) {
-            request.setAttribute("fail-message", "Tài khoản hoặc email không tồn tại trong hệ thống.");
-            request.getRequestDispatcher("quen_mat_khau.jsp").forward(request, response);
-            return;
-        }
-
-        String password = mailService.getPassword(username, email);
-
-        if (password == null) {
-            request.setAttribute("fail-message", "Không tìm thấy mật khẩu");
-            request.getRequestDispatcher("quen_mat_khau.jsp").forward(request, response);
-            return;
-
-        }
-
-
-        String subject = "Khôi phục mật khẩu";
-        String content = "Mật khẩu của bạn là: " + password;
-
-        try {
-                mailService.sendEmail(email, subject, content);
-                request.setAttribute("success-message", "Tài khoản và email hợp lệ. Mật khẩu đã được gửi qua email.");
-                request.getRequestDispatcher("quen_mat_khau.jsp").forward(request, response);
-
-        } catch (MessagingException e) {
-            e.printStackTrace();
-            logger.severe("Failed to send email: " + e.getMessage());
-            request.setAttribute("fail-message", "Không thể gửi email. Vui lòng thử lại sau.");
-            request.getRequestDispatcher("quen_mat_khau.jsp").forward(request, response);
-        }
-
-        logger.info("Finished processing POST request at /forget");
 
 
     }

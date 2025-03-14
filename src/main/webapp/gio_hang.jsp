@@ -60,7 +60,7 @@
 
 <!-- ***** Header Area Start ***** -->
 <jsp:include page="header.jsp"/>
-;
+
 <!-- ***** Header Area End ***** -->
 
 <!-- ***** Giỏ hàng Start ***** -->

@@ -257,11 +257,11 @@
               placeholder="Nhập tên tài khoản"
               required
             />
-            <div id="error-message" class="error-message"></div>
+            <div  class="error-message"></div>
           </div>
 
           <div class="email">
-            <label for="email" class="form-label">Email</label>
+            <label  class="form-label">Email</label>
             <input
               type="text"
               class="form-control"
@@ -270,11 +270,11 @@
               placeholder="Nhập email"
               required
             />
-            <div id="error-message" class="error-message"></div>
+            <div  class="error-message"></div>
           </div>
 
           <div class="matkhau">
-            <label for="password" class="form-label">Mật khẩu</label>
+            <label  class="form-label">Mật khẩu</label>
             <input
               type="password"
               class="form-control"

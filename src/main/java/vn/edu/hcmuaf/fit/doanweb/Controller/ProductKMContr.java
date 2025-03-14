@@ -33,9 +33,9 @@ public class ProductKMContr extends HttpServlet {
         ProductDaoImp productDAO = new ProductDaoImp();
         List<ProductIndex> productList = productDAO.getProductsByGender(gender);
 
-        for (ProductIndex product : productList) {
-            System.out.println(product.toString());
-        }
+//        for (ProductIndex product : productList) {
+//            System.out.println(product.toString());
+//        }
 
         // Gửi danh sách sản phẩm sang JSP
         request.setAttribute("productList", productList);
