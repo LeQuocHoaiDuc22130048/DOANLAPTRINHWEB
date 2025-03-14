@@ -13,37 +13,10 @@
   />
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-  <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
-  />
-  <link
-          href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-          rel="stylesheet"
-  />
-
   <title>EyeStyle</title>
 
-  <!-- Additional CSS Files -->
-  <link
-          rel="stylesheet"
-          type="text/css"
-          href="assets/css/bootstrap.min.css"
-  />
-
-  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css"/>
-  <link rel="stylesheet" href="assets/css/sanpham.css"/>
-  <link rel="stylesheet" href="assets/css/eyestyle.css"/>
-
-
-  <link rel="stylesheet" href="assets/css/owl-carousel.css"/>
-
-  <link rel="stylesheet" href="assets/css/lightbox.css"/>
-
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+<c:import url="link.jsp"/>
 </head>
 
 <body>
@@ -62,15 +35,13 @@
 <!-- ***** Header Area End ***** -->
 
 <!-- ***** Main Banner Area Start ***** -->
-<div class="main-banner" id="top">
+<div class="main-banner container" id="top">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-6">
         <div class="left-content">
           <div class="thumb">
-            <a href="chi_tiet_san_pham.jsp"
-            ><img src="assets/images/left_banner_img.png" alt=""
-            /></a>
+            <a href="chi_tiet_san_pham.jsp"><img src="assets/images/left_banner_img.png" alt=""/></a>
           </div>
         </div>
       </div>
@@ -80,12 +51,10 @@
             <div class="col-lg-6">
               <div class="right-first-image">
                 <div class="thumb">
-                  <a href=""><img src="assets/images/img_type2.jpg"/></a>
+                  <a href=""><img alt="thumb" src="assets/images/img_type2.jpg"/></a>
                   <div class="inner-content">
                     <p>KÍNH MÁT</p>
-                    <button
-                            onclick="window.location.href='kinh_mat.html';"
-                    >
+                    <button onclick="window.location.href='kinh_mat.html';">
                       Mua ngay
                     </button>
                   </div>
@@ -178,8 +147,6 @@
       </div>
       <div class="col-lg-6 text-end">
         <div class="radio_gioi_tinh">
-          <%--                    <button class="nu btn btn-primary" onclick="showProducts(2)">Nữ</button>--%>
-          <%--                    <button class="nam btn btn-primary" onclick="showProducts(1)">Nam</button>--%>
           <ul>
             <li><a href="${pageContext.request.contextPath}/index?gender=1">Nam</a></li>
             <li><a href="${pageContext.request.contextPath}/index?gender=2">Nữ</a></li>
@@ -711,37 +678,6 @@
  </div>
 </div> -->
 <!-- confirm diolog End-->
-
-<!-- jQuery -->
-<script src="assets/js/jquery-2.1.0.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="assets/js/popper.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-
-<!-- Plugins -->
-<script src="assets/js/owl-carousel.js"></script>
-<%--<script src="assets/js/phan-loai-gioi-tinh.js--%>
-<%--    "></script>--%>
-<script src="assets/js/accordions.js"></script>
-<script src="assets/js/datepicker.js"></script>
-<script src="assets/js/scrollreveal.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/add-to_cart.js"></script>
-<script src="assets/js/imgfix.min.js"></script>
-<script src="assets/js/slick.js"></script>
-<script src="assets/js/lightbox.js"></script>
-<script src="assets/js/isotope.js"></script>
-<script src="assets/js/back_to_top.js"></script>
-<script src="assets/js/toggle.js"></script>
-<script src="assets/js/chat_box.js"></script>
-<script src="assets/js/doi_mau_sao.js"></script>
-<%--    <script src="assets/js/gio_hang.js" defer></script>--%>
-<script src="assets/js/hien_thi_ten_dangnhap.js"></script>
-
-<!-- Global Init -->
-<script src="assets/js/custom.js"></script>
-
+<c:import url="script.jsp"/>
 </body>
 </html>
