@@ -15,13 +15,19 @@ public class Cart {
 
     Map<Integer, CartProduct> data = new HashMap<>();
 
-    public boolean add(ProductIndex product) {
+    public CartProduct getProduct(int productId) {
+        return data.get(productId);
+    }
+
+    public boolean add(ProductIndex product, int quantity) {
         if (data.containsKey(product.getId())) {
-            update(product.getId(), data.get(product.getId()).getQuantity() + 1);
+            update(product.getId(), data.get(product.getId()).getQuantity() + quantity);
             return true;
         }
 
-        data.put(product.getId(), convert(product));
+        CartProduct cartProduct = convert(product);
+        cartProduct.setQuantity(quantity); // Gán số lượng cụ thể
+        data.put(product.getId(), cartProduct);
         return true;
     }
 

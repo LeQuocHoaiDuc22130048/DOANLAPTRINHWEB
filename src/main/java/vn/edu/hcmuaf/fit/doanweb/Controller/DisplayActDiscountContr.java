@@ -16,7 +16,7 @@ import java.io.IOException;
 public class DisplayActDiscountContr extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
         ProductDaoImp productDao = new ProductDaoImp();
         Discounts discount = productDao.getActiveDiscounts();
 
@@ -41,10 +41,5 @@ public class DisplayActDiscountContr extends HttpServlet {
 
         // Chuyển tiếp đến trang gio_hang.jsp
         request.getRequestDispatcher("gio_hang.jsp").forward(request, response);
-    }
-
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
     }
 }
