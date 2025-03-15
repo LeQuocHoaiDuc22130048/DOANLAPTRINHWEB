@@ -377,7 +377,6 @@
 <script src="assets/js/dropdown.js"></script>
 <script src="assets/js/back_to_top.js"></script>
 <script src="assets/js/chat_box.js"></script>
-<%--<script src="assets/js/gio_hang.js" defer></script>--%>
 <script src="assets/js/hien_thi_ten_dangnhap.js"></script>
 <script src="assets/js/confirmRemove.js"></script>
 <script src="assets/js/copy_code.js"></script>
