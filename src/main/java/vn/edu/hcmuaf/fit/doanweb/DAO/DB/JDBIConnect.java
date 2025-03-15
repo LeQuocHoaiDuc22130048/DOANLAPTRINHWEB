@@ -14,7 +14,6 @@ public class JDBIConnect {
             makeConnect();
         }
         jdbi.open();
-        System.out.println("Connected to database");
         return jdbi;
     }
 
