@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -20,11 +20,11 @@
     <title>Chi Tiết Sản Phẩm</title>
 
     <!-- link file css -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./assets/css/font-awesome.css" />
-    <link rel="stylesheet" href="./assets/css/style-for-products.css" />
-    <link rel="stylesheet" href="./assets/css/owl-carousel.css" />
-    <link rel="stylesheet" href="./assets/css/lightbox.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./assets/css/font-awesome.css"/>
+    <link rel="stylesheet" href="./assets/css/style-for-products.css"/>
+    <link rel="stylesheet" href="./assets/css/owl-carousel.css"/>
+    <link rel="stylesheet" href="./assets/css/lightbox.css"/>
 </head>
 <body>
 <!-- preloader start -->
@@ -111,16 +111,16 @@
                     </div>
                     <div class="more-images">
                         <div class="col-4-images">
-                            <img src="${product.path_image}" alt="" />
+                            <img src="${product.path_image}" alt=""/>
                         </div>
                         <div class="col-4-images">
-                            <img src="${images[1].path}" alt="" />
+                            <img src="${images[1].path}" alt=""/>
                         </div>
                         <div class="col-4-images">
-                            <img src="${images[2].path}" alt="" />
+                            <img src="${images[2].path}" alt=""/>
                         </div>
                         <div class="col-4-images">
-                            <img src="${images[0].path}" alt="" />
+                            <img src="${images[0].path}" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -153,31 +153,31 @@
                             </div>
                         </div>
 
-                        <div class="quantity button-added">
-                            <input type="button" value="-" class="minus" />
-                            <input
-                                    type="number"
-                                    step="1"
-                                    min="1"
-                                    max=""
-                                    name="quantity"
-                                    value="1"
-                                    title=""
-                                    class="input-text qty text"
-                                    size="4"
-                                    pattern=""
-                                    inputmode=""
-                            />
-                            <input type="button" value="+" class="plus" />
-                        </div>
-                        <div class="add-to-cart-container form-normal is-large">
-                            <form action="add-cart" method="post">
-                                <input type="hidden" name="id" value="${product.id}" /> <!-- ID sản phẩm -->
-                                <button type="submit" id="add-to-cart" class="single_add_to_cart_button button alt">
+                        <form class="addCartForm">
+                            <div class="quantity button-added">
+                                <input type="button" value="-" class="minus"/>
+                                <input
+                                        type="number"
+                                        step="1"
+                                        min="1"
+                                        max=""
+                                        name="quantity"
+                                        value="1"
+                                        title=""
+                                        class="input-text qty text"
+                                        size="4"
+                                        pattern=""
+                                        inputmode=""
+                                />
+                                <input type="button" value="+" class="plus"/>
+                            </div>
+                            <div class="add-to-cart-container form-normal is-large">
+                                <input type="hidden" name="id" value="${product.id}"/> <!-- ID sản phẩm -->
+                                <button id="add-to-cart" class="single_add_to_cart_button button alt">
                                     Thêm vào giỏ hàng
                                 </button>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -667,6 +667,7 @@
 <script src="assets/js/slider.js"></script>
 <script src="assets/js/jquery-2.1.0.min.js"></script>
 <script src="assets/js/hien_thi_ten_dangnhap.js"></script>
+<script src="assets/js/add_cart.js"></script>
 
 <!-- Global Init -->
 <script src="assets/js/custom.js"></script>
