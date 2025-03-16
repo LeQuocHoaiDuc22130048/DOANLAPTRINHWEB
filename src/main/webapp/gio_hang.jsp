@@ -23,6 +23,9 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link
             href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
             rel="stylesheet"
@@ -67,8 +70,8 @@
 <main id="main" class="gio_hang">
 
     <c:choose>
-        <c:when test="${orderSuccess}">
-            <!-- thong bao dat hang thanh cong start -->
+<%--        Khi đặt hàng thanh công--%>
+        <c:when test="${sessionScope.orderSuccess != null && sessionScope.orderSuccess}">
             <div class="container no-list" id="nolist">
                 <div class="non_product">
                     <i class="fa-solid fa-circle-check success-icon"></i>
@@ -82,12 +85,11 @@
                     <a href="index" class="btn_continue">Tiếp tục mua hàng</a>
                 </div>
             </div>
-            <!-- thong bao dat hang thanh cong end -->
+            <c:remove var="orderSuccess" scope="session"/>
         </c:when>
         <c:otherwise>
-
-            <!-- chưa có sản phẩm -->
             <c:choose>
+<%--                Khi giỏ hàng trống--%>
                 <c:when test="${sessionScope.cart != null && sessionScope.cart.totalQuantity == 0}">
                     <div class="container no-list">
                         <div class="non_product">
@@ -104,8 +106,8 @@
                         </div>
                     </div>
                 </c:when>
+<%--                Khi giỏ hàng có sản pham--%>
                 <c:otherwise>
-                    <!-- có sản phẩm -->
                     <div class="container list">
                         <div class="cart_checkout_page">
                             <div class="cart_wrapper">
@@ -131,7 +133,7 @@
                                                     Đơn giá: <span id="unit_price"><f:formatNumber
                                                         value="${cp.price}"/></span>đ
                                                 </div>
-                                                <form action="update-cart" method="post" id="updateForm${cp.id}">
+                                                <form id="updateForm${cp.id}">
                                                     <input type="hidden" name="id" value="${cp.id}">
                                                     <input
                                                             type="number"
@@ -142,12 +144,12 @@
                                                             step="1"
                                                             value="${cp.quantity}"
                                                             style="width: 50px"
-                                                            onchange="document.getElementById('updateForm${cp.id}').submit()"
+                                                            onchange="updateCart(${cp.id})"
                                                     />
                                                 </form>
 
                                                 <div class="so_tien">
-                                                    Số tiền: <span id="total_price"><f:formatNumber
+                                                    Số tiền: <span id="total_price${cp.id}"><f:formatNumber
                                                         value="${cp.totalPrice}"/></span>đ
                                                 </div>
                                             </div>
@@ -157,7 +159,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </c:forEach>>
+                                </c:forEach>
                                 <div class="uu_dai" onclick="toggleDropdown()">
                                     <i class="fa-solid fa-tags"></i>
                                     <span>Phiếu ưu đãi</span>
@@ -172,7 +174,7 @@
                                                         placeholder="Điền mã ưu đãi"
                                                         style="width: 100%"
                                                         id="discount-code-input"
-                                                        value="" }
+                                                        value=""
                                                 />
                                             </td>
                                             <td>
@@ -196,7 +198,7 @@
                             <div class="checkout_wrapper">
                                 <div class="total">
                                     <span>Khuyến mãi:</span>
-                                    <span><f:formatNumber value="${discountAmount}"/>đ</span>
+                                    <span id="discount"><f:formatNumber value="${discountAmount}"/>đ</span>
                                 </div>
                                 <div class="total total_top">
                                     <span class="label">Tổng:</span>
@@ -205,35 +207,38 @@
                                             value="${totalAfterDiscount}"/>đ</span></span
                                     >
                                 </div>
-                                <form action="place-order" method="POST" class="details">
+                                <div class="details">
                                     <div class="customer_details">
                                         <h5>Thông tin khách hàng</h5>
                                         <div class="row">
                                             <div class="col-lg-6 mb-3">
+                                                <label>Họ và tên*</label>
                                                 <input
                                                         type="text"
                                                         class="form-control"
                                                         id="customerName"
                                                         name="customerName"
-                                                        placeholder="Nhập tên khách hàng"
+                                                        placeholder="Họ tên của bạn"
                                                 />
                                             </div>
                                             <div class="col-lg-6 mb-3">
+                                                <label>Phone*</label>
                                                 <input
-                                                        type="text"
+                                                        type="tel"
                                                         class="form-control"
                                                         id="phoneNumber"
                                                         name="phoneNumber"
-                                                        placeholder="Nhập số điện thoại"
+                                                        placeholder="Số điện thoại của bạn"
                                                 />
                                             </div>
                                             <div class="col-lg-12 mb-3">
+                                                <label>Email address (optional)</label>
                                                 <input
                                                         type="email"
                                                         class="form-control"
                                                         id="email"
                                                         name="email"
-                                                        placeholder="Nhập email"
+                                                        placeholder="Nhập email của bạn"
                                                 />
                                             </div>
                                         </div>
@@ -242,17 +247,17 @@
                                         <h5>Thông tin nhận hàng</h5>
                                         <div class="row">
                                             <div class="col-lg-12 mb-3">
-                                                <label for="address" class="form-label">Địa chỉ*</label>
+                                                <label>Địa chỉ*</label>
                                                 <input
                                                         type="text"
                                                         class="form-control"
                                                         id="address"
-                                                        name="addess"
+                                                        name="address"
                                                         placeholder="Số nhà - Tên đường - Phường/Xã"
                                                 />
                                             </div>
                                             <div class="col-lg-6 mb-3">
-                                                <label for="city" class="form-label">Tỉnh/Thành phố*</label>
+                                                <label>Tỉnh/Thành phố*</label>
                                                 <input
                                                         type="text"
                                                         class="form-control"
@@ -322,7 +327,7 @@
                                     <button type="submit" value="Đặt hàng" class="button_order">
                                         Đặt hàng
                                     </button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -331,7 +336,6 @@
 
         </c:otherwise>
     </c:choose>
-
 </main>
 <!-- ***** Giỏ hàng End ***** -->
 
@@ -373,11 +377,11 @@
 <script src="assets/js/dropdown.js"></script>
 <script src="assets/js/back_to_top.js"></script>
 <script src="assets/js/chat_box.js"></script>
-<%--<script src="assets/js/gio_hang.js" defer></script>--%>
 <script src="assets/js/hien_thi_ten_dangnhap.js"></script>
 <script src="assets/js/confirmRemove.js"></script>
 <script src="assets/js/copy_code.js"></script>
-
+<script src="assets/js/update_cart.js"></script>
+<script src="assets/js/place_order.js"></script>
 
 <!-- Global Init -->
 <script src="assets/js/custom.js"></script>

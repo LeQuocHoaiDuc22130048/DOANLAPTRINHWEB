@@ -4,3 +4,4 @@ function copyCode() {
     document.execCommand("copy");
     alert("Đã sao chép mã khuyến mãi: " + discountCode.value);
 }
+

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -30,7 +31,6 @@
     <link rel="stylesheet" href="assets/css/lightbox.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/blog.css" />
-    <head>
       <style>
         .login-container {
           display: flex;
@@ -275,24 +275,17 @@
 
             <!-- Thông báo đăng kí thành công -->
             <div id="login-success-message" class="success-message" style="${empty requestScope['success-message'] ? 'display: none;' : 'display: block;'}">
+
               <p>${requestScope['success-message']}</p>
             </div>
 
             <!-- Thông báo đăng kí thất bại -->
-            <div id="login-fail-message" class="fail-message" style="${empty requestScope['fail-message'] ? 'display: none;' : 'display: block;'}">
-              <p>${requestScope['fail-message']}</p>
-            </div>
+            <c:set var="Error" value="${requestScope.Error}" />
+            <p class="text-center text-danger">${Error}</p>
           </form>
-
-          <div
-            id="login-success-message"
-            class="success-message"
-            style="display: none"
-          >
             <p>Đăng nhập thành công!</p>
           </div>
         </div>
-      </div>
 
       <!-- ***** Footer Start ***** -->
       <footer>
@@ -367,5 +360,4 @@
         </div>
       </footer>
     </body>
-  </head>
 </html>
