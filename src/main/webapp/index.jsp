@@ -14,9 +14,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>EyeStyle</title>
-
-  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-  <c:import url="link.jsp"/>
+    <c:import url="link.jsp"/>
 </head>
 
 <body>
@@ -36,81 +34,81 @@
 
 <!-- ***** Main Banner Area Start ***** -->
 <div class="main-banner container" id="top">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="left-content">
-          <div class="thumb">
-            <a href="chi_tiet_san_pham.jsp"><img src="assets/images/left_banner_img.png" alt=""/></a>
-          </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="left-content">
+                    <div class="thumb">
+                        <a href="chi_tiet_san_pham.jsp"><img src="assets/images/left_banner_img.png" alt=""/></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="right-content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <a href=""><img alt="thumb" src="assets/images/img_type2.jpg"/></a>
+                                    <div class="inner-content">
+                                        <p>KÍNH MÁT</p>
+                                        <button onclick="window.location.href='kinh_mat.jsp';">
+                                            Mua ngay
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <img src="assets/images/img_type3.jpg"/>
+                                    <div class="inner-content">
+                                        <p>GỌNG KÍNH</p>
+                                        <button
+                                                onclick="window.location.href='gong_kinh.jsp';"
+                                        >
+                                            Mua ngay
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-first-image bottom_img">
+                                <div class="thumb">
+                                    <img src="assets/images/img_type4.jpg"/>
+                                    <div class="inner-content">
+                                        <p>TRÒNG KÍNH</p>
+                                        <button
+                                                onclick="window.location.href='trong_kinh.jsp';"
+                                        >
+                                            Mua ngay
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-first-image bottom_img">
+                                <div class="thumb">
+                                    <img src="assets/images/img_type5.jpg"/>
+                                    <div class="inner-content">
+                                        <p>KÍNH ÁP TRÒNG</p>
+                                        <button
+                                                onclick="window.location.href='kinh_ap_trong.jsp';"
+                                        >
+                                            Mua ngay
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="right-content">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="right-first-image">
-                <div class="thumb">
-                  <a href=""><img alt="thumb" src="assets/images/img_type2.jpg"/></a>
-                  <div class="inner-content">
-                    <p>KÍNH MÁT</p>
-                    <button onclick="window.location.href='kinh_mat.jsp';">
-                      Mua ngay
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="right-first-image">
-                <div class="thumb">
-                  <img src="assets/images/img_type3.jpg"/>
-                  <div class="inner-content">
-                    <p>GỌNG KÍNH</p>
-                    <button
-                            onclick="window.location.href='gong_kinh.jsp';"
-                    >
-                      Mua ngay
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="right-first-image bottom_img">
-                <div class="thumb">
-                  <img src="assets/images/img_type4.jpg"/>
-                  <div class="inner-content">
-                    <p>TRÒNG KÍNH</p>
-                    <button
-                            onclick="window.location.href='trong_kinh.jsp';"
-                    >
-                      Mua ngay
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="right-first-image bottom_img">
-                <div class="thumb">
-                  <img src="assets/images/img_type5.jpg"/>
-                  <div class="inner-content">
-                    <p>KÍNH ÁP TRÒNG</p>
-                    <button
-                            onclick="window.location.href='kinh_ap_trong.jsp';"
-                    >
-                      Mua ngay
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 <div class="main-banner banner_child">
     <div class="container">
@@ -135,23 +133,14 @@
 </div>
 <!-- ***** Main Banner Area End ***** -->
 
-<!-- ***** kinh_mat Starts ***** -->
-<section class="section" id="kinh_mat" >
-  <div class="container">
-    <div class="row content_head">
-      <div class="col-lg-6">
-        <div class="section-heading">
-          <h2>Kính mát</h2>
-          <span>Kính Mát Thời Thượng - Bảo Vệ Đôi Mắt, Tôn Vẻ Đẳng Cấp</span>
-        </div>
-      </div>
-      <div class="col-lg-6 text-end">
-        <div class="radio_gioi_tinh">
-          <ul>
-            <li><a href="${pageContext.request.contextPath}/index?gender=1">Nam</a></li>
-            <li><a href="${pageContext.request.contextPath}/index?gender=2">Nữ</a></li>
-          </ul>
-
+<!-- ***** kinh_mat nam Starts ***** -->
+<section class="section kinh" id="kinh_mat_nam">
+    <div class="container">
+        <div class="row content_head">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h2>Kính mát nam</h2>
+                    <span>Kính Mát Thời Thượng - Bảo Vệ Đôi Mắt, Tôn Vẻ Đẳng Cấp cho nam giới</span>
                 </div>
             </div>
         </div>
@@ -160,9 +149,9 @@
     <div class="container san_pham_" style="visibility: visible">
         <div class="row">
             <div class="col-lg-12">
-                <div class="men-item-carousel">
-                    <div class="owl-men-item owl-carousel">
-                        <c:forEach var="product" items="${productList}">
+                <div class="women-item-carousel">
+                    <div class="owl-women-item owl-carousel">
+                        <c:forEach var="product" items="${productListNam}">
                             <div class="item">
                                 <div class="thumb">
                                     <div class="hover-content">
@@ -178,7 +167,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <form class="addCartForm" >
+                                                <form class="addCartForm">
                                                     <input type="hidden" name="id" value="${product.id}">
                                                     <button class="btn_gio_hang">
                                                         <i class="fa fa-shopping-cart"></i>
@@ -206,10 +195,74 @@
         </div>
     </div>
 </section>
-<!-- ***** kinh_mat Ends ***** -->
+<!-- ***** kinh_mat nam Ends ***** -->
+
+<!-- ***** kinh_mat nữ Starts ***** -->
+<section class="section kinh" id="kinh_mat_nu">
+    <div class="container">
+        <div class="row content_head">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h2>Kính mát nữ</h2>
+                    <span>Kính Mát Thời Thượng - Bảo Vệ Đôi Mắt, Tôn Vẻ Đẳng Cấp cho phái nữ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container san_pham_" style="visibility: visible">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="women-item-carousel">
+                    <div class="owl-women-item owl-carousel">
+                        <c:forEach var="product" items="${productListNu}">
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rate-product">
+                                                    <i class="fa fa-star"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <form class="addCartForm">
+                                                    <input type="hidden" name="id" value="${product.id}">
+                                                    <button class="btn_gio_hang">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <img src="${product.path_image}" alt="${product.name}"/>
+                                </div>
+                                <div class="down-content">
+                                    <h4>${product.name}</h4>
+                                    <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
+                                    <ul class="stars">
+                                        <% for (int i = 0; i < 5; i++) { %>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** kinh_mat nữ Ends ***** -->
 
 <!-- ***** gọng kính Area Starts ***** -->
-<section class="section" id="gong_kinh">
+<section class="section kinh" id="gong_kinh">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -228,7 +281,7 @@
             <div class="col-lg-12">
                 <div class="women-item-carousel">
                     <div class="owl-women-item owl-carousel">
-                        <c:forEach var="product" items="${productList}">
+                        <c:forEach var="product" items="${productListNam}">
                             <div class="item">
                                 <div class="thumb">
                                     <div class="hover-content">
@@ -244,7 +297,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <form class="addCartForm" >
+                                                <form class="addCartForm">
                                                     <input type="hidden" name="id" value="${product.id}">
                                                     <button class="btn_gio_hang">
                                                         <i class="fa fa-shopping-cart"></i>
@@ -655,30 +708,21 @@
                                 Mạng xã hội:<br/><span
                             ><a href="#">Facebook</a>, <a href="#">Instagram</a>,
                       <a href="#">Behance</a>, <a href="#">Linkedin</a></span
-              >
-              </li>
-            </ul>
-          </div>
+                            >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <!-- ***** Subscribe Area Ends ***** -->
 
 <!-- ***** Footer Start ***** -->
 <jsp:include page="footer.jsp"/>
 <!-- ***** Footer End ***** -->
-
-<!-- confirm diolog Start-->
-<!-- <div id="confirmDialog" class="confirm-dialog">
- <div class="dialog-content">
-  <p>Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?</p>
-  <button id="confirmYes">Có</button>
-  <button id="confirmNo">Không</button>
- </div>
-</div> -->
-<!-- confirm diolog End-->
 <c:import url="script.jsp"/>
+
 </body>
 </html>

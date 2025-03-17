@@ -20,16 +20,16 @@
                             <a href="index" class="active">Trang chủ</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index#kinh_mat">Kính mát</a>
+                            <a href="kinh_mat.jsp">Kính mát</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index#gong_kinh">Gọng kính</a>
+                            <a href="gong_kinh.jsp">Gọng kính</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index#trong_kinh">Tròng kính</a>
+                            <a href="trong_kinh.jsp">Tròng kính</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index#kinh_ap_trong">Kính áp tròng</a>
+                            <a href="kinh_ap_trong.jsp">Kính áp tròng</a>
                         </li>
                         <li class="submenu">
                             <a href="javascript:;">Trang phụ</a>

@@ -13,6 +13,9 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link
             href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
             rel="stylesheet"
@@ -137,7 +140,6 @@
                         </div>
                         <div class="product-title-container">
                             <h1 class="product-title product_title entry-title">
-                                <%--                    Gucci Unisex – Gọng kính Thép không gỉ – Mã GG1144O_54_002--%>
                                 ${product.name}
                                 ${product.description}
                             </h1>
@@ -660,10 +662,8 @@
 <script src="assets/js/back_to_top.js"></script>
 <script src="assets/js/chat_box.js"></script>
 <script src="assets/js/custom.js"></script>
-<%--    <script src="assets/js/cart.js"></script>--%>
 <script src="assets/js/handle-buttom.js"></script>
 <script src="assets/js/plusminus.js"></script>
-<%--    <script src="assets/js/add-to_cart.js"></script>--%>
 <script src="assets/js/slider.js"></script>
 <script src="assets/js/jquery-2.1.0.min.js"></script>
 <script src="assets/js/hien_thi_ten_dangnhap.js"></script>
