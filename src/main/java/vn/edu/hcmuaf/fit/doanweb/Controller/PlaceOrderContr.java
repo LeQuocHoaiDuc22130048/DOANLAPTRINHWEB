@@ -43,7 +43,6 @@ public class PlaceOrderContr extends HttpServlet {
 
         // Đặt hàng thành công
         request.getSession().setAttribute("orderSuccess", true);
-        System.out.println("Session orderSuccess: " + request.getSession().getAttribute("orderSuccess"));
         jsonResponse.addProperty("status", "success");
         jsonResponse.addProperty("message", "Đặt hàng thành công!");
         response.getWriter().write(jsonResponse.toString());

@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $(".addCartForm").each(function () {
+    $(".addCartForm").submit(function () {
+        event.preventDefault();
         let form = $(this);
         let quantityInput = form.find('input[name="quantity"]'); // Lấy input số lượng
         let minusBtn = form.find('.minus');
@@ -29,13 +30,9 @@ $(document).ready(function () {
             quantityInput.val(currentVal + 1);
         });
 
-        form.submit(function (event) {
-            event.preventDefault();
-
             let product_id = $(this).find('input[name="id"]').val();
             let quantity =quantityInput.val();
             addCart(product_id, quantity);
-        });
     });
 });
 
