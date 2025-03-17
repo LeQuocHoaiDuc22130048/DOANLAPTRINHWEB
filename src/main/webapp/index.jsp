@@ -352,13 +352,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 img_trong">
-                <a href="./trong_kinh_don_trong.html"> <img src="./assets/images/trong_kinh_type_1.jpg" alt=""/></a>
+                <a href="./trong_kinh_don_trong.jsp"> <img src="./assets/images/trong_kinh_type_1.jpg" alt=""/></a>
             </div>
             <div class="col-lg-4 img_trong">
-                <a href="./trong_kinh_hai_trong.html"> <img src="./assets/images/trong_kinh_type_2.jpg" alt=""/></a>
+                <a href="./trong_kinh_hai_trong.jsp"> <img src="./assets/images/trong_kinh_type_2.jpg" alt=""/></a>
             </div>
             <div class="col-lg-4 img_trong">
-                <a href="./trong_kinh_da_trong.html"> <img src="./assets/images/trong_kinh_type_3.jpg" alt=""/></a>
+                <a href="./trong_kinh_da_trong.jsp"> <img src="./assets/images/trong_kinh_type_3.jpg" alt=""/></a>
             </div>
         </div>
     </div>
@@ -381,107 +381,37 @@
     </div>
     <div class="container">
         <div class="row img_type">
-            <div class="col-lg-3 san_pham_kat">
-                <div class="item">
-                    <div class="thumb">
-                        <div class="hover-content">
-                            <ul>
-                                <li>
-                                    <a href="chi_tiet_san_pham.jsp"
-                                    ><i class="fa fa-eye"></i
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a href="gio_hang.jsp" class="btn_gio_hang"
-                                    ><i class="fa fa-shopping-cart"></i
-                                    ></a>
-                                </li>
-                            </ul>
+            <c:forEach var="product" items="${productListKAT}">
+                <div class="col-lg-3 san_pham_kat">
+                    <div class="item">
+                        <div class="thumb">
+                            <div class="hover-content">
+                                <ul>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <form class="addCartForm">
+                                            <input type="hidden" name="id" value="${product.id}">
+                                            <button class="btn_gio_hang">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            <img src="${product.path_image}" alt="${product.name}"/>
                         </div>
-                        <img src="./assets/images/kinh_ap_trong_1.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <h4>Kính áp tròng 1-Day Acuvue® Define® – Lens màu đẹp tự nhiên
-                        </h4>
-                        <span>1.000.000đ</span>
+                        <div class="down-content">
+                            <h4>${product.name}
+                            </h4>
+                            <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 san_pham_kat">
-                <div class="item">
-                    <div class="thumb">
-                        <div class="hover-content">
-                            <ul>
-                                <li>
-                                    <a href="chi_tiet_san_pham.jsp"
-                                    ><i class="fa fa-eye"></i
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a href="gio_hang.jsp" class="btn_gio_hang"
-                                    ><i class="fa fa-shopping-cart"></i
-                                    ></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <img src="./assets/images/kinh_ap_trong_2.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <h4>Kính áp tròng Acuvue® Vita™ HÀNG THÁNG</h4>
-                        <span>500.000đ</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 san_pham_kat">
-                <div class="item">
-                    <div class="thumb">
-                        <div class="hover-content">
-                            <ul>
-                                <li>
-                                    <a href="chi_tiet_san_pham.jsp"
-                                    ><i class="fa fa-eye"></i
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a href="gio_hang.jsp" class="btn_gio_hang"
-                                    ><i class="fa fa-shopping-cart"></i
-                                    ></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <img src="./assets/images/kinh_ap_trong_3.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <h4>Kính áp tròng 2 TUẦN Acuvue® Oasys® – Dành cho dân văn phòng</h4>
-                        <span>350.000đ</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 san_pham_kat">
-                <div class="item">
-                    <div class="thumb">
-                        <div class="hover-content">
-                            <ul>
-                                <li>
-                                    <a href="chi_tiet_san_pham.jsp"
-                                    ><i class="fa fa-eye"></i
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a href="gio_hang.jsp" class="btn_gio_hang"
-                                    ><i class="fa fa-shopping-cart"></i
-                                    ></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <img src="./assets/images/kinh_ap_trong_4.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <h4>Kính áp tròng 1-Day Acuvue® Moist® – Dành cho mắt kích ứng</h4>
-                        <span>580.000đ</span>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </section>
