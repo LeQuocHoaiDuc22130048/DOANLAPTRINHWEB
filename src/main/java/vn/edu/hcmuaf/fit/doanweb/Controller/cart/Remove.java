@@ -9,28 +9,29 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+
 @WebServlet(name = "Remove", value = "/remove-cart")
 public class Remove extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        int id=-1;
+        int id = -1;
 
-        try{
-            id= Integer.parseInt(request.getParameter("id"));
+        try {
+            id = Integer.parseInt(request.getParameter("id"));
 
-            HttpSession session=request.getSession(true);
-            Cart c=(Cart) session.getAttribute("cart");
-            if(c==null) c= new Cart();
+            HttpSession session = request.getSession(true);
+            Cart c = (Cart) session.getAttribute("cart");
+            if (c == null) c = new Cart();
             c.remove(id);
-            session.setAttribute("cart",c);
+            session.setAttribute("cart", c);
 
 //            req.getRequestDispatcher("/gio_hang").forward(req, resp);
-            response.sendRedirect(request.getContextPath()+"/gio_hang");
+            response.sendRedirect(request.getContextPath() + "/gio_hang");
 
         } catch (Exception e) {
 //            req.getRequestDispatcher("/gio_hang").forward(req, resp);
-            response.sendRedirect(request.getContextPath()+"/gio_hang");
+            response.sendRedirect(request.getContextPath() + "/gio_hang");
         }
     }
 

@@ -975,7 +975,7 @@ kinh_mat_nam, kinh_mat_nu, gong_kinh
 }
 
 .kinh .item .thumb .hover-content ul li a ,
-.kinh .item .thumb .hover-content ul li form{
+.kinh .item .thumb .hover-content ul li form,#kinh_ap_trong .item .thumb .hover-content ul li form {
   width: 50px;
   height: 50px;
   text-align: center;
@@ -985,13 +985,14 @@ kinh_mat_nam, kinh_mat_nu, gong_kinh
   background-color: #fff;
 }
 
-.kinh .item .thumb .hover-content ul li form button{
+.kinh .item .thumb .hover-content ul li form button,#kinh_ap_trong .item .thumb .hover-content ul li form button{
   border: none;
   background: #fff;
 }
 
 .kinh .item .thumb .hover-content ul li form button:active,
-.kinh .item .thumb .hover-content ul li form button:focus{
+.kinh .item .thumb .hover-content ul li form button:focus,#kinh_ap_trong .item .thumb .hover-content ul li form button:active,
+#kinh_ap_trong .item .thumb .hover-content ul li form button:focus{
   outline:none;
   border: none;
 }
@@ -1180,8 +1181,15 @@ kinh_ap_trong
   position: relative;
 }
 
+#kinh_ap_trong .thumb .hover-content ul{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
 #kinh_ap_trong .thumb .hover-content ul li {
-  display: inline;
+  display: inline-block;
   margin: 0px 10px;
 }
 
@@ -1193,13 +1201,17 @@ kinh_ap_trong
   line-height: 50px;
   display: inline-block;
   color: #2a2a2a;
-  background-color: #c9c7c7;
+  background-color: #ffffff;
 }
 
 #kinh_ap_trong .container .row .san_pham_kat img {
   width: 100%;
   height: 120px;
   object-fit: cover;
+}
+
+#kinh_ap_trong .container .row .san_pham_kat .down-content{
+  margin-left: 20px;
 }
 
 #kinh_ap_trong .container .row .san_pham_kat .down-content h4 {
