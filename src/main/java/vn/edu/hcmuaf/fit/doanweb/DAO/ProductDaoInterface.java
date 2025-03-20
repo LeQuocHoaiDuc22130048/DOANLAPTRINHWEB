@@ -1,9 +1,6 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO;
 
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 
 import java.util.List;
 

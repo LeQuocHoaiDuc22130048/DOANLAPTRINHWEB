@@ -19,29 +19,5 @@ public class Add extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ProductService productService = new ProductService();
-        ProductIndex product = productService.getProductById(Integer.parseInt(request.getParameter("id")));
-
-        if (product == null) {
-            response.sendRedirect("index");
-        }
-
-        HttpSession session = request.getSession(true);
-        Cart c = (Cart) session.getAttribute("cart");
-        if (c == null) {
-            c = new Cart();
-        }
-
-        assert product != null;
-        c.add(product);
-        session.setAttribute("cart", c);
-
-        response.sendRedirect("index");
-
-    }
-
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
     }
 }

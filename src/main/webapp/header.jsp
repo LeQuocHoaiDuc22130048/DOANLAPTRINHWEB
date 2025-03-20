@@ -40,7 +40,7 @@
                             </ul>
                         </li>
                         <li class="username">
-                            <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                            <a href="dang_nhap.jsp" id="login-link"><i class="fa-solid fa-user-large"></i></a>
                             <div class=username_login id="username-info" style="display: none;"><span id="username"></span></div>
                         </li>
                         <li class="gio_hang_shop">

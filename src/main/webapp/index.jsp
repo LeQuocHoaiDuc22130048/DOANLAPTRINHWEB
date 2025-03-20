@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
-<c:set var="context" value="${pageContext}"/>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +14,8 @@
   <meta name="description" content=""/>
   <meta name="author" content=""/>
   <title>EyeStyle</title>
-
-  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-<c:import url="link.jsp"/>
+ <jsp:include page="link.jsp"/>
 </head>
-
 <body>
 <!-- ***** Preloader Start ***** -->
 <div id="preloader">
@@ -31,7 +28,7 @@
 <!-- ***** Preloader End ***** -->
 
 <!-- ***** Header Area Start ***** -->
-<jsp:include page="header.jsp"/>
+<c:import url="header.jsp"/>
 <!-- ***** Header Area End ***** -->
 
 <!-- ***** Main Banner Area Start ***** -->
@@ -51,7 +48,7 @@
             <div class="col-lg-6">
               <div class="right-first-image">
                 <div class="thumb">
-                  <a href=""><img alt="thumb" src="assets/images/img_type2.jpg"/></a>
+                  <a href=""><img alt="thumb" src="${context}/assets/images/img_type2.jpg"/></a>
                   <div class="inner-content">
                     <p>KÍNH MÁT</p>
                     <button onclick="window.location.href='kinh_mat.html';">
@@ -148,8 +145,8 @@
       <div class="col-lg-6 text-end">
         <div class="radio_gioi_tinh">
           <ul>
-            <li><a href="${pageContext.request.contextPath}/index?gender=1">Nam</a></li>
-            <li><a href="${pageContext.request.contextPath}/index?gender=2">Nữ</a></li>
+            <li><a href="${context}/index?gender=1">Nam</a></li>
+            <li><a href="${context}/index?gender=2">Nữ</a></li>
           </ul>
 
         </div>
@@ -168,7 +165,7 @@
                   <div class="hover-content">
                     <ul>
                       <li>
-                        <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                        <a href="${context}/product-detail?id=${product.id}">
                           <i class="fa fa-eye"></i>
                         </a>
                       </li>
@@ -178,7 +175,7 @@
                         </a>
                       </li>
                       <li>
-                        <form action="${pageContext.request.contextPath}/add-cart" method="post">
+                        <form action="${context}/add-cart" method="post">
                           <input type="hidden" name="id" value="${product.id}">
                           <button type="submit" class="btn_gio_hang">
                             <i class="fa fa-shopping-cart"></i>
@@ -193,9 +190,9 @@
                   <h4>${product.name}</h4>
                   <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                   <ul class="stars">
-                    <% for (int i = 0; i < 5; i++) { %>
-                    <li><i class="fa fa-star"></i></li>
-                    <% } %>
+                      <c:forEach var="i" begin="0" end="4">
+                        <li><i class="fa fa-star text-warning"></i></li>
+                      </c:forEach>
                   </ul>
                 </div>
               </div>
@@ -234,7 +231,7 @@
                   <div class="hover-content">
                     <ul>
                       <li>
-                        <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                        <a href="${context}/product-detail?id=${product.id}">
                           <i class="fa fa-eye"></i>
                         </a>
                       </li>
@@ -244,7 +241,7 @@
                         </a>
                       </li>
                       <li>
-                        <form action="${pageContext.request.contextPath}/add-cart" method="post">
+                        <form action="${context}/add-cart" method="post">
                           <input type="hidden" name="id" value="${product.id}">
                           <button type="submit" class="btn_gio_hang">
                             <i class="fa fa-shopping-cart"></i>
@@ -259,9 +256,9 @@
                   <h4>${product.name}</h4>
                   <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                   <ul class="stars">
-                    <% for (int i = 0; i < 5; i++) { %>
-                    <li><i class="fa fa-star"></i></li>
-                    <% } %>
+               <c:forEach begin="0" end="4" step="1">
+                 <li><i class="fa fa-star text-warning"></i></li>
+               </c:forEach>
                   </ul>
                 </div>
               </div>
@@ -666,7 +663,7 @@
 <!-- ***** Subscribe Area Ends ***** -->
 
 <!-- ***** Footer Start ***** -->
-<jsp:include page="footer.jsp"/>
+<c:import url="footer.jsp"/>
 <!-- ***** Footer End ***** -->
 
 <!-- confirm diolog Start-->

@@ -5,12 +5,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ProductKMContr", value = "/index")
@@ -33,11 +30,6 @@ public class ProductKMContr extends HttpServlet {
         ProductDaoImp productDAO = new ProductDaoImp();
         List<ProductIndex> productList = productDAO.getProductsByGender(gender);
 
-//        for (ProductIndex product : productList) {
-//            System.out.println(product.toString());
-//        }
-
-        // Gửi danh sách sản phẩm sang JSP
         request.setAttribute("productList", productList);
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
