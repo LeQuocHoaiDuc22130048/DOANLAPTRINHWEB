@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.doanweb.Controller;
 
 import java.io.*;
 
+import com.google.gson.JsonObject;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -10,9 +11,12 @@ import jakarta.servlet.annotation.*;
 public class PlaceOrderContr extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");  //trả về json
+
+        JsonObject jsonResponse = new JsonObject();
 
         // Lấy dữ liệu từ form
         String customerName = request.getParameter("customerName");
@@ -22,20 +26,26 @@ public class PlaceOrderContr extends HttpServlet {
         String city = request.getParameter("city");
         String paymentMethod = request.getParameter("payment_method");
 
-        // Kiểm tra dữ liệu
-//        if (customerName == null || phoneNumber == null || email == null || address == null || city == null || paymentMethod == null) {
-//         System.out.println("err");
-////            request.setAttribute("error", "Vui lòng điền đầy đủ thông tin!");
-////            response.sendRedirect(request.getContextPath()+"/gio_hang");
-//            return;
-//        }
+        // Kiểm tra dữ liệu có bị thiếu không
+        if (customerName == null || customerName.trim().isEmpty() ||
+                phoneNumber == null || phoneNumber.trim().isEmpty() ||
+                email == null || email.trim().isEmpty() ||
+                address == null || address.trim().isEmpty() ||
+                city == null || city.trim().isEmpty() ||
+                paymentMethod == null || paymentMethod.trim().isEmpty()) {
 
+            jsonResponse.addProperty("status", "error");
+            jsonResponse.addProperty("message", "Vui lòng điền đầy đủ thông tin!");
+            response.getWriter().write(jsonResponse.toString());
+            return;
+
+        }
+
+        // Đặt hàng thành công
         request.getSession().setAttribute("orderSuccess", true);
-        response.sendRedirect("gio_hang.jsp");
+        jsonResponse.addProperty("status", "success");
+        jsonResponse.addProperty("message", "Đặt hàng thành công!");
+        response.getWriter().write(jsonResponse.toString());
     }
 
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-    }
 }

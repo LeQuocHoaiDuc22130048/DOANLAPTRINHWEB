@@ -6,7 +6,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
+import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
+import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
 
 import java.io.IOException;
 
@@ -14,28 +17,40 @@ import java.io.IOException;
 public class Update extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int productId = Integer.parseInt(request.getParameter("id"));
         int newQuantity = Integer.parseInt(request.getParameter("quantity"));
 
-        // Lấy giỏ hàng từ session
-        HttpSession session = request.getSession(false); // Không tạo session mới nếu không tồn tại
+        ProductDaoImp productDao = new ProductDaoImp();
+        Discounts discount = productDao.getActiveDiscounts();
+
+        double totalPrice = 0;
+        double discountAmount = 0;
+        double totalAfterDiscount=0;
+
+        HttpSession session = request.getSession();
         if (session != null) {
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart != null) {
-                // Cập nhật số lượng sản phẩm trong giỏ hàng
                 cart.update(productId, newQuantity);
-                session.setAttribute("cart", cart); // Cập nhật lại session
+                session.setAttribute("cart", cart);
+
+                CartProduct product = cart.getProduct(productId);
+                if (product != null) {
+                    totalPrice = product.getTotalPrice();
+                }
+
+                discountAmount = cart.getDiscountAmount(discount);
+                // Tổng giá trị sau khi áp dụng giảm giá
+                totalAfterDiscount = cart.getTotalPrices() - discountAmount;
             }
         }
 
-        // Điều hướng trở lại trang giỏ hàng
-//        response.sendRedirect("gio_hang.jsp?update-cart=OK");
-        response.sendRedirect(request.getContextPath() + "/gio_hang");
-    }
-
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write("{\"totalPrice\": " + totalPrice + ", \"discountAmount\": " + discountAmount + ", \"totalAfterDiscount\": " + totalAfterDiscount + "}");
 
     }
+
+
 }

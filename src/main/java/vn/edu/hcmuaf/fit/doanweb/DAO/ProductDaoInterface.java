@@ -8,9 +8,11 @@ public interface ProductDaoInterface {
 
     public ProductIndex getProductById(int id);
 
-    List<ProductIndex> getProductsByGender(int gender);
+    public List<ProductIndex> getProductsByGender(int gender);
 
-    List<ProductImage> getImagesByProductId(int productId);
+    public List<ProductImage> getImagesByProductId(int productId);
+
+    public List<ProductIndex> getProductsByCategory(int categoryId);
 
     public Discounts getActiveDiscounts();
 }

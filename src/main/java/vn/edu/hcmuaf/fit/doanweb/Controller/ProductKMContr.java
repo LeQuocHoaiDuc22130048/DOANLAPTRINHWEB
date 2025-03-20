@@ -7,36 +7,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
+
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "ProductKMContr", value = "/index")
 public class ProductKMContr extends HttpServlet {
+    ProductDaoImp productDAO = new ProductDaoImp();
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String genderParam = request.getParameter("gender");
-        int gender = 1;
+        List<ProductIndex> productListNam = productDAO.getProductsByGender(1);
+        List<ProductIndex> productListNu = productDAO.getProductsByGender(2);
 
-        // Kiểm tra tham số gender có hợp lệ hay không
-        if (genderParam != null && !genderParam.isEmpty()) {
-            try {
-                gender = Integer.parseInt(genderParam);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
-        }
+        List<ProductIndex> productListKAT= productDAO.getProductsByCategory(7);
 
-        ProductDaoImp productDAO = new ProductDaoImp();
-        List<ProductIndex> productList = productDAO.getProductsByGender(gender);
+        // Gửi danh sách sản phẩm sang JSP
+        request.setAttribute("productListNam", productListNam);
+        request.setAttribute("productListNu", productListNu);
+        request.setAttribute("productListKAT", productListKAT);
 
-        request.setAttribute("productList", productList);
         request.getRequestDispatcher("index.jsp").forward(request, response);
-
     }
 
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-    }
 }

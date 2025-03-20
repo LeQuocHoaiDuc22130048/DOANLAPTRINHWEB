@@ -18,6 +18,33 @@ import java.io.IOException;
 public class Add extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ProductService productService = new ProductService();
+        int quantity = 1;
+        String quantityParam = request.getParameter("quantity");
+
+        if(quantityParam != null || !quantityParam.isEmpty()) {
+            quantity = Integer.parseInt(quantityParam);
+        }
+
+        HttpSession session = request.getSession();
+        Cart c = (Cart) session.getAttribute("cart");
+        if (c == null) {
+            c = new Cart();
+            session.setAttribute("cart", c);
+        }
+
+        session.setAttribute("cart", c);
+
+        // Trả về số lượng mới cho AJAX
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write("{\"cartQuantity\": " + c.getTotalQuantity() + "}");
+
+
+
     }
+
+
+
 }

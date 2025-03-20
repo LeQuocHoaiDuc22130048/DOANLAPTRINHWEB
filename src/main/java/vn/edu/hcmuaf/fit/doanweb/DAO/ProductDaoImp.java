@@ -129,6 +129,55 @@ public class ProductDaoImp implements ProductDaoInterface {
     }
 
     @Override
+    public List<ProductIndex> getProductsByCategory(int categoryId) {
+        // Truy vấn danh sách sản phẩm theo category_id
+        List<ProductIndex> productList = jdbi.withHandle(handle ->
+                        handle.createQuery(
+                                        "SELECT * FROM products WHERE category_id = :categoryId"
+                                )
+                                .bind("categoryId", categoryId) // Gán giá trị category_id vào câu truy vấn
+                                .map((rs, ctx) -> {
+                                    ProductIndex p = new ProductIndex();
+                                    p.setId(rs.getInt("id"));
+                                    p.setCategoryId(rs.getInt("category_id"));
+                                    p.setBrandId(rs.getInt("brand_id"));
+                                    p.setShapeId(rs.getInt("shape_id"));
+                                    p.setMaterial(rs.getString("material"));
+                                    p.setName(rs.getString("name"));
+                                    p.setDescription(rs.getString("description"));
+                                    p.setStatus(rs.getInt("status"));
+                                    p.setHot(rs.getByte("hot"));
+                                    p.setCostPrice((float) rs.getDouble("cost_price"));
+                                    p.setSellingPrice((float) rs.getDouble("selling_price"));
+                                    p.setQuantity(rs.getInt("quantity"));
+                                    p.setGender(rs.getInt("gender"));
+                                    p.setColor(rs.getString("color"));
+//                        p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
+//                        p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
+                                    return p;
+                                })
+                                .list() // Lấy danh sách sản phẩm
+        );
+
+        // Lấy đường dẫn hình ảnh chính (is_main = 1) cho từng sản phẩm
+        productList.forEach(product -> {
+            String mainImage = jdbi.withHandle(handle ->
+                    handle.createQuery(
+                                    "SELECT path FROM products_images WHERE product_id = :id AND is_main = 1"
+                            )
+                            .bind("id", product.getId())
+                            .mapTo(String.class)
+                            .findOne() // Lấy hình ảnh chính
+                            .orElse(null) // Nếu không có, trả về null
+            );
+            product.setPath_image(mainImage); // Gán hình ảnh chính cho sản phẩm
+        });
+
+        return productList; // Trả về danh sách sản phẩm
+    }
+
+
+    @Override
     // Phương thức lấy khuyến mãi có status = 1
     public Discounts getActiveDiscounts() {
         Discounts discount = jdbi.withHandle(handle ->

@@ -1,6 +1,9 @@
 
 <!-- jQuery -->
 <script src="assets/js/jquery-2.1.0.min.js"></script>
+<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"--%>
+<%--        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="--%>
+<%--        crossorigin="anonymous" referrerpolicy="no-referrer"></script>--%>
 
 <!-- Bootstrap -->
 <script src="assets/js/popper.js"></script>
@@ -13,7 +16,6 @@
 <script src="assets/js/scrollreveal.min.js"></script>
 <script src="assets/js/waypoints.min.js"></script>
 <script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/add-to_cart.js"></script>
 <script src="assets/js/imgfix.min.js"></script>
 <script src="assets/js/slick.js"></script>
 <script src="assets/js/lightbox.js"></script>
@@ -24,4 +26,7 @@
 <script src="assets/js/doi_mau_sao.js"></script>
 <script src="assets/js/hien_thi_ten_dangnhap.js"></script>
 <script src="assets/js/custom.js"></script>
+<script src="assets/js/add_cart.js"></script>
+
+
 

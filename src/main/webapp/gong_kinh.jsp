@@ -55,7 +55,6 @@
             width: 103%;
             margin-bottom: 20px;
             object-fit: cover; /* Cắt bớt ảnh nếu cần để đảm bảo ảnh đúng kích thước */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng cho hình ảnh */
         }
 
         /* Định dạng khi không có hình ảnh */
@@ -1207,10 +1206,8 @@
 <script src="assets/js/chat_box.js"></script>
 <script src="assets/js/doi_mau_sao_new.js"></script>
 <script src="assets/js/custom.js"></script>
-<%--    <script src="assets/js/cart.js"></script>--%>
 <script src="assets/js/handle-buttom.js"></script>
 <script src="assets/js/jquery-2.1.0.min.js"></script>
-<script src="assets/js/gio_hang.js" defer></script>
 <script src="assets/js/hien_thi_ten_dangnhap.js"></script>
 
 <!-- Global Init -->

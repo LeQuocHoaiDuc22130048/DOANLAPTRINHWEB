@@ -1,12 +1,17 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<header class="header-area header-sticky fixed-top ">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<head>
+    <meta charset="UTF-8">
+    <title>Website của bạn</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<header class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index" class="logo">
-                        <img alt="Logo" src="assets/images/logo.png" />
+                    <a href="index" class="logo shadow-none">
+                        <img src="assets/images/logo.png"/>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -15,16 +20,16 @@
                             <a href="index" class="active">Trang chủ</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index#kinh_mat">Kính mát</a>
+                            <a href="kinh_mat.jsp">Kính mát</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index#gong_kinh">Gọng kính</a>
+                            <a href="gong_kinh.jsp">Gọng kính</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index#trong_kinh">Tròng kính</a>
+                            <a href="trong_kinh.jsp">Tròng kính</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="index#kinh_ap_trong">Kính áp tròng</a>
+                            <a href="kinh_ap_trong.jsp">Kính áp tròng</a>
                         </li>
                         <li class="submenu">
                             <a href="javascript:;">Trang phụ</a>
@@ -40,15 +45,20 @@
                             </ul>
                         </li>
                         <li class="username">
-                            <a href="dang_nhap.jsp" id="login-link"><i class="fa-solid fa-user-large"></i></a>
-                            <div class=username_login id="username-info" style="display: none;"><span id="username"></span></div>
+                            <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                            <div class=username_login id="username-info" style="display: none;"><span
+                                    id="username"></span></div>
                         </li>
                         <li class="gio_hang_shop">
-                            <a href="./gio_hang.jsp">
+                            <a href="${pageContext.request.contextPath}/gio_hang">
                                 <span>Giỏ hàng </span>
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>
-                            <div class="count_div"><span class="cart-count">0</span> </div>
+                            <div class="count_div">
+                                <span class="cart-count">
+                                    ${sessionScope.cart != null ? sessionScope.cart.totalQuantity : 0}
+                                </span>
+                            </div>
                         </li>
                     </ul>
                     <a class="menu-trigger">
