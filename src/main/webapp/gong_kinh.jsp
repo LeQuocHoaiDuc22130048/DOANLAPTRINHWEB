@@ -55,7 +55,6 @@
             width: 103%;
             margin-bottom: 20px;
             object-fit: cover; /* Cắt bớt ảnh nếu cần để đảm bảo ảnh đúng kích thước */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng cho hình ảnh */
         }
 
         /* Định dạng khi không có hình ảnh */
@@ -254,7 +253,7 @@
                     <table style="width: 100%; border-collapse: collapse">
                         <tbody>
                         <tr style="height: 95px">
-                            <td style="width: 33, 3%; height: 95px; text-align: center">
+                            <td style="width: 33,3%; height: 95px; text-align: center">
                                 <a title="Gọng kính nữ" href="gong_kinh_nu.html">
                                     <img
                                             src="assets/images/banner_brand/banner-gong-kinh-can-nu-dep-chinh-hang.jpg"

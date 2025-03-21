@@ -21,6 +21,4 @@ public class Product {
     private String color;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
-
-
 }
