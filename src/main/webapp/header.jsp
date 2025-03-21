@@ -10,7 +10,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index" class="logo">
+                    <a href="index" class="logo shadow-none">
                         <img src="assets/images/logo.png"/>
                     </a>
                     <!-- ***** Logo End ***** -->

@@ -324,22 +324,13 @@
                         <a href="" title="Gọng kính Police">Gọng Police</a>
                     </p>
                     <div class="productfilter-wc productfilter-woocommerce">
-                        <form action="filter_mat" class="product-ordering" method="get">
-
-
-                            <div
-                                    class="productfilter_filter_wrapper productfilter_columns_3"
-                            >
+                        <form action="filter" class="product-ordering" method="POST">
+                            <div class="productfilter_filter_wrapper productfilter_columns_3">
                                 <div class="product-filter-inner">
-                                    <div
-                                            class="prodctfilter_filter productfilter_pa_thuong-hieu"
-                                    >
-                                        <input type="hidden" name="pa-thuong-hieu"/>
-                                        <span
-                                                class="product_regular-title"
-                                                data-dropdown="dropdown-thuongHieu"
-                                        >
-                          Thương hiệu
+                                    <div class="prodctfilter_filter productfilter_pa_thuong-hieu">
+                                        <input class="d-none" checked type="text" name="type" value="brand_id"/>
+
+                                        <span class="product_regular-title" data-dropdown="dropdown-thuongHieu">Thương hiệu
                           <i class="fa-solid fa-angle-down"></i>
 
                           <div class="productfilter-down">
@@ -348,17 +339,18 @@
                                     id="dropdown-thuongHieu"
                             >
                               <label class="product-ft-parim">
-                                <input type="checkbox" name="brand" value="parim"/>
+                                <input type="checkbox" name="value" value="parim"/>
                                 <span>Parim</span>
                               </label>
 
                               <label class="product-ft-exfash">
+                                  <span>exfash </span>
                                 <input type="checkbox" name="brand" value="exfash"/>
-                                <span>exfash </span>
+
                               </label>
 
                               <label class="product-ft-burberry">
-                                <input type="checkbox" name="brand" value="burberry"/>
+                                <input type="checkbox" name="value" value="7"/>
                                 <span>burberry</span>
                               </label>
 
@@ -444,7 +436,7 @@
 
                             </div>
                             <div class="filter-footer">
-                                <button class="apply-filter">Xem kết quả</button>
+                                <button TYPE="submit" class="apply-filter">Xem kết quả</button>
                             </div>
                           </div>
                         </span>

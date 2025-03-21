@@ -20,7 +20,6 @@ public class Add extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductService productService = new ProductService();
-        ProductIndex product = productService.getProductById(Integer.parseInt(request.getParameter("id")));
         int quantity = 1;
         String quantityParam = request.getParameter("quantity");
 
@@ -35,7 +34,6 @@ public class Add extends HttpServlet {
             session.setAttribute("cart", c);
         }
 
-        c.add(product,quantity);
         session.setAttribute("cart", c);
 
         // Trả về số lượng mới cho AJAX
