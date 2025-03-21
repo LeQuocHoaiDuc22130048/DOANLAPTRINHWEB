@@ -12,12 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-            href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-            rel="stylesheet"
-    />
-    <link rel="stylesheet" href="asset/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <c:import url="DashboardLink.jsp"/>
     <title>Trang quản lý</title>
 </head>
 <body>
@@ -30,10 +26,6 @@
                 <div class="admin-content-main-title">
                     <h1>Trang quản lý</h1>
                 </div>
-
-
-
-
                 </div>
 
                 <div class="admin-content-main-content admin-dashboard-bottom">
@@ -75,7 +67,6 @@
             </div>
         </div>
 
-    </div>
 </section>
 
 <script src="asset/js/app.js"></script>

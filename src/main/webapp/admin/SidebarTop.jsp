@@ -29,18 +29,8 @@
 
             </li>
             <li class="flex-box"><img style="width: 50px;" src="asset/imgs/logo.png" alt="">
-                <div class="admin-menu"><p>Nhóm 65<i class="ri-arrow-down-s-fill"></i></p></div>
-                <div class="sub-menu-admin-container hidden">
-                    <div class="traingle"></div>
-                    <ul class="sub-menu-admin" style="z-index: 1">
-                        <li>
+                <div class="admin-menu"><p>Nhóm 65</p></div>
 
-                            <div class="logout">
-                                <a href="../dang_nhap.html">Đăng xuất</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </li>
 
         </ul>
