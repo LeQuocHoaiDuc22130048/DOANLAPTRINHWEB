@@ -154,8 +154,8 @@ public class ProductDaoImp implements ProductDaoInterface {
                                     p.setQuantity(rs.getInt("quantity"));
                                     p.setGender(rs.getInt("gender"));
                                     p.setColor(rs.getString("color"));
-//                        p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
-//                        p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
+                                    p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
+                                    p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
                                     return p;
                                 })
                                 .list() // Lấy danh sách sản phẩm

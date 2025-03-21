@@ -1519,6 +1519,8 @@ table{
 
 
 .quantity.button-added{
+  display: flex;
+  justify-content: center;
   text-align: center;
   position: relative;
   white-space: nowrap;
