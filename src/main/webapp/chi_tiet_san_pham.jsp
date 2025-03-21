@@ -1,33 +1,34 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link
-            href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-            rel="stylesheet"
-    />
+<%--    <link--%>
+<%--            rel="stylesheet"--%>
+<%--            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"--%>
+<%--            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="--%>
+<%--            crossorigin="anonymous"--%>
+<%--            referrerpolicy="no-referrer"--%>
+<%--    />--%>
+<%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"--%>
+<%--            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="--%>
+<%--            crossorigin="anonymous" referrerpolicy="no-referrer"></script>--%>
+<%--    <link--%>
+<%--            href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"--%>
+<%--            rel="stylesheet"--%>
+<%--    />--%>
     <title>Chi Tiết Sản Phẩm</title>
-
+   <c:import url="link.jsp"/>
     <!-- link file css -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="./assets/css/font-awesome.css"/>
-    <link rel="stylesheet" href="./assets/css/style-for-products.css"/>
-    <link rel="stylesheet" href="./assets/css/owl-carousel.css"/>
-    <link rel="stylesheet" href="./assets/css/lightbox.css"/>
+<%--    <link rel="stylesheet" href="./assets/css/bootstrap.min.css"/>--%>
+<%--    <link rel="stylesheet" href="./assets/css/font-awesome.css"/>--%>
+<%--    <link rel="stylesheet" href="./assets/css/style-for-products.css"/>--%>
+<%--    <link rel="stylesheet" href="./assets/css/owl-carousel.css"/>--%>
+<%--    <link rel="stylesheet" href="./assets/css/lightbox.css"/>--%>
 </head>
 <body>
 <!-- preloader start -->
@@ -58,7 +59,7 @@
                     <nav class="woocommerce-breadcrumb breadcrumbs">
                         <a href="index">Trang Chủ</a>
                         <span class="divider">/</span>
-                        Gọng kính cận
+                        Kính
                         <span class="divider">/</span>
                         Gucci
                     </nav>
@@ -183,143 +184,143 @@
                     </div>
                 </div>
             </div>
-            <div class="is-divider divider"></div>
-            <%--          <div--%>
-            <%--            class="row align-middle-align-center tab-button"--%>
-            <%--            id="row-1581544597"--%>
-            <%--          >--%>
-            <%--            <div--%>
-            <%--              id="col-918240496"--%>
-            <%--              class="col hide-for-small small-12 large-12"--%>
-            <%--            >--%>
-            <%--              <div class="col-inner text-left">--%>
-            <%--                <div class="row list-tab-icon-title" id="row-1146947431">--%>
-            <%--                  <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
-            <%--                    <div class="col-inner">--%>
-            <%--                      <div--%>
-            <%--                        class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
-            <%--                      >--%>
-            <%--                        <div class="icon-box-img">--%>
-            <%--                          <div class="icon">--%>
-            <%--                            <div class="icon-inner">--%>
-            <%--                              <img src="assets/images/doiTra.jpg" alt="" />--%>
-            <%--                            </div>--%>
-            <%--                          </div>--%>
-            <%--                        </div>--%>
+<%--            <div class="is-divider divider"></div>--%>
+<%--                      <div--%>
+<%--                        class="row align-middle-align-center tab-button"--%>
+<%--                        id="row-1581544597"--%>
+<%--                      >--%>
+<%--                        <div--%>
+<%--                          id="col-918240496"--%>
+<%--                          class="col hide-for-small small-12 large-12"--%>
+<%--                        >--%>
+<%--                          <div class="col-inner text-left">--%>
+<%--                            <div class="row list-tab-icon-title" id="row-1146947431">--%>
+<%--                              <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
+<%--                                <div class="col-inner">--%>
+<%--                                  <div--%>
+<%--                                    class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
+<%--                                  >--%>
+<%--                                    <div class="icon-box-img">--%>
+<%--                                      <div class="icon">--%>
+<%--                                        <div class="icon-inner">--%>
+<%--                                          <img src="assets/images/doiTra.jpg" alt="" />--%>
+<%--                                        </div>--%>
+<%--                                      </div>--%>
+<%--                                    </div>--%>
 
-            <%--                        <div class="icon-box-text last-reset">--%>
-            <%--                          <div class="ly-do-mua">--%>
-            <%--                            Bảo hành 6 tháng--%>
-            <%--                            <br />--%>
-            <%--                            Duy nhất tại Việt Nam--%>
-            <%--                          </div>--%>
-            <%--                        </div>--%>
-            <%--                      </div>--%>
-            <%--                    </div>--%>
-            <%--                  </div>--%>
-            <%--                </div>--%>
-            <%--              </div>--%>
-            <%--            </div>--%>
+<%--                                    <div class="icon-box-text last-reset">--%>
+<%--                                      <div class="ly-do-mua">--%>
+<%--                                        Bảo hành 6 tháng--%>
+<%--                                        <br />--%>
+<%--                                        Duy nhất tại Việt Nam--%>
+<%--                                      </div>--%>
+<%--                                    </div>--%>
+<%--                                  </div>--%>
+<%--                                </div>--%>
+<%--                              </div>--%>
+<%--                            </div>--%>
+<%--                          </div>--%>
+<%--                        </div>--%>
 
-            <%--            <div--%>
-            <%--              id="col-918240496"--%>
-            <%--              class="col hide-for-small small-12 large-12"--%>
-            <%--            >--%>
-            <%--              <div class="col-inner text-left">--%>
-            <%--                <div class="row list-tab-icon-title" id="row-1146947431">--%>
-            <%--                  <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
-            <%--                    <div class="col-inner">--%>
-            <%--                      <div--%>
-            <%--                        class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
-            <%--                      >--%>
-            <%--                        <div class="icon-box-img">--%>
-            <%--                          <div class="icon">--%>
-            <%--                            <div class="icon-inner">--%>
-            <%--                              <img src="assets/images/camket.jpg" alt="" />--%>
-            <%--                            </div>--%>
-            <%--                          </div>--%>
-            <%--                        </div>--%>
+<%--                        <div--%>
+<%--                          id="col-918240496"--%>
+<%--                          class="col hide-for-small small-12 large-12"--%>
+<%--                        >--%>
+<%--                          <div class="col-inner text-left">--%>
+<%--                            <div class="row list-tab-icon-title" id="row-1146947431">--%>
+<%--                              <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
+<%--                                <div class="col-inner">--%>
+<%--                                  <div--%>
+<%--                                    class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
+<%--                                  >--%>
+<%--                                    <div class="icon-box-img">--%>
+<%--                                      <div class="icon">--%>
+<%--                                        <div class="icon-inner">--%>
+<%--                                          <img src="assets/images/camket.jpg" alt="" />--%>
+<%--                                        </div>--%>
+<%--                                      </div>--%>
+<%--                                    </div>--%>
 
-            <%--                        <div class="icon-box-text last-reset">--%>
-            <%--                          <div class="ly-do-mua">--%>
-            <%--                            Cam kết sản phẩm chính hãng--%>
-            <%--                            <br />--%>
-            <%--                            Đền gấp 10 lần--%>
-            <%--                          </div>--%>
-            <%--                        </div>--%>
-            <%--                      </div>--%>
-            <%--                    </div>--%>
-            <%--                  </div>--%>
-            <%--                </div>--%>
-            <%--              </div>--%>
-            <%--            </div>--%>
+<%--                                    <div class="icon-box-text last-reset">--%>
+<%--                                      <div class="ly-do-mua">--%>
+<%--                                        Cam kết sản phẩm chính hãng--%>
+<%--                                        <br />--%>
+<%--                                        Đền gấp 10 lần--%>
+<%--                                      </div>--%>
+<%--                                    </div>--%>
+<%--                                  </div>--%>
+<%--                                </div>--%>
+<%--                              </div>--%>
+<%--                            </div>--%>
+<%--                          </div>--%>
+<%--                        </div>--%>
 
-            <%--            <div--%>
-            <%--              id="col-918240496"--%>
-            <%--              class="col hide-for-small small-12 large-12"--%>
-            <%--            >--%>
-            <%--              <div class="col-inner text-left">--%>
-            <%--                <div class="row list-tab-icon-title" id="row-1146947431">--%>
-            <%--                  <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
-            <%--                    <div class="col-inner">--%>
-            <%--                      <div--%>
-            <%--                        class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
-            <%--                      >--%>
-            <%--                        <div class="icon-box-img">--%>
-            <%--                          <div class="icon">--%>
-            <%--                            <div class="icon-inner">--%>
-            <%--                              <img src="assets/images/quytrinh.jpg" alt="" />--%>
-            <%--                            </div>--%>
-            <%--                          </div>--%>
-            <%--                        </div>--%>
+<%--                        <div--%>
+<%--                          id="col-918240496"--%>
+<%--                          class="col hide-for-small small-12 large-12"--%>
+<%--                        >--%>
+<%--                          <div class="col-inner text-left">--%>
+<%--                            <div class="row list-tab-icon-title" id="row-1146947431">--%>
+<%--                              <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
+<%--                                <div class="col-inner">--%>
+<%--                                  <div--%>
+<%--                                    class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
+<%--                                  >--%>
+<%--                                    <div class="icon-box-img">--%>
+<%--                                      <div class="icon">--%>
+<%--                                        <div class="icon-inner">--%>
+<%--                                          <img src="assets/images/quytrinh.jpg" alt="" />--%>
+<%--                                        </div>--%>
+<%--                                      </div>--%>
+<%--                                    </div>--%>
 
-            <%--                        <div class="icon-box-text last-reset">--%>
-            <%--                          <div class="ly-do-mua">--%>
-            <%--                            Quy trình đo mắt chuẩn Quốc Tế--%>
-            <%--                            <br />--%>
-            <%--                            Thời gian đo tối thiểu 20 phút--%>
-            <%--                          </div>--%>
-            <%--                        </div>--%>
-            <%--                      </div>--%>
-            <%--                    </div>--%>
-            <%--                  </div>--%>
-            <%--                </div>--%>
-            <%--              </div>--%>
-            <%--            </div>--%>
+<%--                                    <div class="icon-box-text last-reset">--%>
+<%--                                      <div class="ly-do-mua">--%>
+<%--                                        Quy trình đo mắt chuẩn Quốc Tế--%>
+<%--                                        <br />--%>
+<%--                                        Thời gian đo tối thiểu 20 phút--%>
+<%--                                      </div>--%>
+<%--                                    </div>--%>
+<%--                                  </div>--%>
+<%--                                </div>--%>
+<%--                              </div>--%>
+<%--                            </div>--%>
+<%--                          </div>--%>
+<%--                        </div>--%>
 
-            <%--            <div--%>
-            <%--              id="col-918240496"--%>
-            <%--              class="col hide-for-small small-12 large-12"--%>
-            <%--            >--%>
-            <%--              <div class="col-inner text-left">--%>
-            <%--                <div class="row list-tab-icon-title" id="row-1146947431">--%>
-            <%--                  <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
-            <%--                    <div class="col-inner">--%>
-            <%--                      <div--%>
-            <%--                        class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
-            <%--                      >--%>
-            <%--                        <div class="icon-box-img">--%>
-            <%--                          <div class="icon">--%>
-            <%--                            <div class="icon-inner">--%>
-            <%--                              <img src="assets/images/baotri.jpg" alt="" />--%>
-            <%--                            </div>--%>
-            <%--                          </div>--%>
-            <%--                        </div>--%>
+<%--                        <div--%>
+<%--                          id="col-918240496"--%>
+<%--                          class="col hide-for-small small-12 large-12"--%>
+<%--                        >--%>
+<%--                          <div class="col-inner text-left">--%>
+<%--                            <div class="row list-tab-icon-title" id="row-1146947431">--%>
+<%--                              <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
+<%--                                <div class="col-inner">--%>
+<%--                                  <div--%>
+<%--                                    class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
+<%--                                  >--%>
+<%--                                    <div class="icon-box-img">--%>
+<%--                                      <div class="icon">--%>
+<%--                                        <div class="icon-inner">--%>
+<%--                                          <img src="assets/images/baotri.jpg" alt="" />--%>
+<%--                                        </div>--%>
+<%--                                      </div>--%>
+<%--                                    </div>--%>
 
-            <%--                        <div class="icon-box-text last-reset">--%>
-            <%--                          <div class="ly-do-mua">--%>
-            <%--                            Hệ thống máy móc hàng đầu VN--%>
-            <%--                            <br />--%>
-            <%--                            Giảm tối thiểu sai số do lỗi thao tác--%>
-            <%--                          </div>--%>
-            <%--                        </div>--%>
-            <%--                      </div>--%>
-            <%--                    </div>--%>
-            <%--                  </div>--%>
-            <%--                </div>--%>
-            <%--              </div>--%>
-            <%--            </div>--%>
-            <%--          </div>--%>
+<%--                                    <div class="icon-box-text last-reset">--%>
+<%--                                      <div class="ly-do-mua">--%>
+<%--                                        Hệ thống máy móc hàng đầu VN--%>
+<%--                                        <br />--%>
+<%--                                        Giảm tối thiểu sai số do lỗi thao tác--%>
+<%--                                      </div>--%>
+<%--                                    </div>--%>
+<%--                                  </div>--%>
+<%--                                </div>--%>
+<%--                              </div>--%>
+<%--                            </div>--%>
+<%--                          </div>--%>
+<%--                        </div>--%>
+<%--                      </div>--%>
             <div class="is-divider divider"></div>
             <div class="row" id="row-1942874916">
                 <div id="col-1676309046" class="col medium-5 small-12 large-5">
@@ -364,31 +365,31 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset">
-                                <%--                    <div class="accordion van-chuyen">--%>
-                                <%--                      <div--%>
-                                <%--                        id="accordion-761411772"--%>
-                                <%--                        class="accordion-item chinh_sach"--%>
-                                <%--                      >--%>
-                                <%--                        <a id="accordion-761411772-label">--%>
-                                <%--                          <span class="chinh-sach">Chính sách vận chuyển</span>--%>
-                                <%--                          <span><i class="fa-solid fa-chevron-down"></i></span>--%>
-                                <%--                        </a>--%>
+<%--                                                    <div class="accordion van-chuyen">--%>
+<%--                                                      <div--%>
+<%--                                                        id="accordion-761411772"--%>
+<%--                                                        class="accordion-item chinh_sach"--%>
+<%--                                                      >--%>
+<%--                                                        <a id="accordion-761411772-label">--%>
+<%--                                                          <span class="chinh-sach">Chính sách vận chuyển</span>--%>
+<%--                                                          <span><i class="fa-solid fa-chevron-down"></i></span>--%>
+<%--                                                        </a>--%>
 
-                                <%--                        <div--%>
-                                <%--                          id="accordion-761411772-content"--%>
-                                <%--                          class="accordion-inner hidden"--%>
-                                <%--                        >--%>
-                                <%--                          <ul>--%>
-                                <%--                            <li>Giao hàng toàn quốc nhanh chóng.</li>--%>
-                                <%--                            <li>Giao siêu tốc trong vòng 2 giờ tại HCM.</li>--%>
-                                <%--                            <li>--%>
-                                <%--                              Giao hàng ngoại thành: 2-3 ngày (có thể lên đến 7--%>
-                                <%--                              ngày tùy khu vực)--%>
-                                <%--                            </li>--%>
-                                <%--                          </ul>--%>
-                                <%--                        </div>--%>
-                                <%--                      </div>--%>
-                                <%--                    </div>--%>
+<%--                                                        <div--%>
+<%--                                                          id="accordion-761411772-content"--%>
+<%--                                                          class="accordion-inner hidden"--%>
+<%--                                                        >--%>
+<%--                                                          <ul>--%>
+<%--                                                            <li>Giao hàng toàn quốc nhanh chóng.</li>--%>
+<%--                                                            <li>Giao siêu tốc trong vòng 2 giờ tại HCM.</li>--%>
+<%--                                                            <li>--%>
+<%--                                                              Giao hàng ngoại thành: 2-3 ngày (có thể lên đến 7--%>
+<%--                                                              ngày tùy khu vực)--%>
+<%--                                                            </li>--%>
+<%--                                                          </ul>--%>
+<%--                                                        </div>--%>
+<%--                                                      </div>--%>
+<%--                                                    </div>--%>
                             </div>
                         </div>
 

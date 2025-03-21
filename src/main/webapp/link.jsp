@@ -27,6 +27,7 @@
 />
 <link rel="stylesheet" href="assets/css/index.css"/>
 <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css"/>
+<link rel="stylesheet" href="./assets/css/style-for-products.css"/>
 <link rel="stylesheet" href="assets/css/owl-carousel.css"/>
 <link rel="stylesheet" href="assets/css/lightbox.css"/>
 <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
