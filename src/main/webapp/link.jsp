@@ -33,3 +33,4 @@
 <link rel="stylesheet" type="text/css" href="assets/css/blog.css"/>
 <link rel="stylesheet" href="assets/css/sanpham.css"/>
 <link rel="stylesheet" href="assets/css/eyestyle.css"/>
+<link rel="stylesheet" href="assets/css/style-for-products.css"/>

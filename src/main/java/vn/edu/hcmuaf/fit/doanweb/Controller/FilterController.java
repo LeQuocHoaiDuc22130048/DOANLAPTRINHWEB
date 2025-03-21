@@ -3,6 +3,7 @@ package vn.edu.hcmuaf.fit.doanweb.Controller;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.ProductByCondition;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.ProductVM;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
@@ -15,15 +16,17 @@ import java.util.List;
 @WebServlet(name = "FilterController", value = "/filter")
 public class FilterController extends HttpServlet {
 
-        private static final int PRODUCTS_PER_PAGE = 9;
-        private final AdminService service = new AdminService();
-        private final ProductService proService = new ProductService();
+    private static final int PRODUCTS_PER_PAGE = 9;
+    private final AdminService service = new AdminService();
+    private final ProductService proService = new ProductService();
 
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String type = request.getParameter("type");
-            String value = request.getParameter("value");
-            proService.getProduct(type, value);
-            System.out.println(proService.getProduct(type, value));
-        }
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String type = request.getParameter("type");
+        String value = request.getParameter("value");
+        List<ProductByCondition> list = proService.getProduct(type, value);
+        request.setAttribute("product_list", list);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
+    }
+
 }
