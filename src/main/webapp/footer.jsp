@@ -57,10 +57,10 @@
             </div>
         </div>
     </div>
-<%--    <!--nút di chuyển lên đầu trang-->--%>
-<%--    <a href="#top" class="btn_di_chuyen" id="backToTop">--%>
-<%--        <i class="fa-solid fa-angle-up"></i>--%>
-<%--    </a>--%>
+    <!--nút di chuyển lên đầu trang-->
+    <a href="#top" class="btn_di_chuyen" id="backToTop">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
 
     <!-- chat box ở phần footer Start-->
     <div id="chatButton">
