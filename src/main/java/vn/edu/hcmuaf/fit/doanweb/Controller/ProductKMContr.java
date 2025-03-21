@@ -17,8 +17,9 @@ public class ProductKMContr extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        List<ProductIndex> productListNam = productDAO.getProductsByGender(1);
-        List<ProductIndex> productListNu = productDAO.getProductsByGender(2);
+        List<ProductIndex> productListNam = productDAO.getProductsByCategory(1);
+        List<ProductIndex> productListNu = productDAO.getProductsByCategory(2);
+        List<ProductIndex> productListGK= productDAO.getProductsByCategory(9);
 
         List<ProductIndex> productListKAT= productDAO.getProductsByCategory(7);
 
@@ -26,6 +27,7 @@ public class ProductKMContr extends HttpServlet {
         request.setAttribute("productListNam", productListNam);
         request.setAttribute("productListNu", productListNu);
         request.setAttribute("productListKAT", productListKAT);
+        request.setAttribute("productListGK", productListGK);
 
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
