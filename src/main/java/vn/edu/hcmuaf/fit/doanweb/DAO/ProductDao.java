@@ -14,9 +14,6 @@ public class ProductDao {
 
     }
 
-
-
-
     // lọc sản phẩm theo chất liệu
     public List<ProductByMaterial>getProductByMaterial(String material){
 

@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.4.32-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
--- HeidiSQL Version:             12.8.0.6908
+-- HeidiSQL Version:             12.10.0.7000
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,7 +16,7 @@
 
 
 -- Dumping database structure for web_eyestyle
-CREATE DATABASE IF NOT EXISTS `web_eyestyweb_eyestyleusersusersle` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE IF NOT EXISTS `web_eyestyle` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `web_eyestyle`;
 
 -- Dumping structure for table web_eyestyle.brands
@@ -63,24 +63,30 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `hot` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `title` varchar(250) DEFAULT NULL,
+  `img` varchar(250) DEFAULT NULL,
+  `description` mediumtext DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.categories: ~13 rows (approximately)
-INSERT INTO `categories` (`id`, `name`, `status`, `hot`, `created_at`, `updated_at`) VALUES
-	(1, 'Mắt kính cận nam', 1, 1, '2024-06-17 08:00:00', '2024-06-17 08:00:00'),
-	(2, 'Mắt kính cận nữ', 1, 1, '2024-06-17 08:05:00', '2024-06-17 08:05:00'),
-	(3, 'Mắt kính trẻ em', 1, 0, '2024-06-17 08:10:00', '2024-06-17 08:10:00'),
-	(4, 'Kính râm', 1, 1, '2024-06-17 08:15:00', '2024-06-17 08:15:00'),
-	(5, 'Kính cận', 1, 0, '2024-06-17 08:20:00', '2024-06-17 08:20:00'),
-	(6, 'Kính không độ', 1, 1, '2024-06-17 08:25:00', '2024-06-17 08:25:00'),
-	(7, 'Kính áp tròng', 1, 0, '2024-06-17 08:30:00', '2024-06-17 08:30:00'),
-	(8, 'Kính thời trang cao cấp', 1, 1, '2024-06-17 08:35:00', '2024-06-17 08:35:00'),
-	(9, 'Phụ kiện kính', 1, 0, '2024-06-17 08:40:00', '2024-06-17 08:40:00'),
-	(10, 'Mắt kính unisex', 1, 1, '2024-06-17 22:43:18', '2024-06-17 22:43:23'),
-	(11, 'Đơn tròng', 1, 1, '2024-12-18 12:30:36', '2024-12-18 12:30:37'),
-	(12, 'Đa Tròng', 1, 0, '2024-12-18 12:30:54', '2024-12-18 12:30:55'),
-	(13, 'Hai Tròng', 1, 0, '2024-12-18 12:31:08', '2024-12-18 12:31:08');
+-- Dumping data for table web_eyestyle.categories: ~16 rows (approximately)
+INSERT INTO `categories` (`id`, `name`, `status`, `hot`, `created_at`, `updated_at`, `title`, `img`, `description`) VALUES
+	(1, 'Kính mát nam', 1, 1, '2024-06-17 08:00:00', '2024-06-17 08:00:00', '00+ Kính mát nam, kính râm thời trang, đẹp, hàng h', 'assets/images/kinh-mat-nam-chinh-hang-thoi-trang.jpg', 'Hơn 30 thương hiệu kính mát nam thời trang từ RayBan, Gucci, Dior, Montblanc, Prada, Versace. Từ kiểu dáng phi công cổ điển, thể thao năng động đến gọng vuông lịch lãm, kính râm nam đáp ứng mọi phong cách và cá tính. Chất liệu gọng kính đa dạng từ kim loại sang trọng, nhựa dẻo trẻ trung đến titan cao cấp, kết hợp cùng tròng kính phân cực, chống chói, mang đến tầm nhìn rõ nét và thoải mái. Mắt kính nam, không chỉ là phụ kiện thời trang sành điệu, mà còn là “vệ sĩ” đắc lực bảo vệ đôi mắt khỏi tác hại của tia UV.'),
+	(2, 'Kính mát nữ', 1, 1, '2024-06-17 08:05:00', '2024-06-17 08:05:00', '300+ Kính mát nữ, kính râm thời trang, hàng hiệu, chính hãng', 'assets/images/kinh-mat-nu-thoi-trang-chinh-hang.jpg', 'Với bản sắc kiêu sa bóng bẩy cùng gam màu thời thượng, kính mát nữ ngày nay không đơn thuần là vật dụng bảo vệ mắt mà còn là phụ kiện không thể thiếu khi nói về thời trang. Dù bạn đang sở hữu gương mặt ra sao thì sự đa dạng của các bộ sưu tập mắt kính nữ cũng mang đến đến bạn sản phẩm ưng ý giúp tôn mọi đường nét. Hãy chọn một chiếc kính mát phù hợp, chúng sẽ trở thành “vũ khí” nâng tầm phong cách và sự lôi cuốn cho chị em.'),
+	(3, 'Kính mát', 1, 0, '2024-06-17 08:10:00', '2024-06-17 08:10:00', 'Kính mát hiệu thời trang, chính hãng 100%, mẫu mới 2024', 'assets/images/kinh-mat-thoi-trang-chinh-hang-100.jpg', 'Qua nhiều thập kỷ, kính mát vẫn là phụ kiện thời trang được ưa chuộng. Sự chung sức của các thương hiệu xa xỉ hàng đầu như RayBan, Gucci, Dior,…đã góp phần làm đầy thị trường kính râm bằng vô vàn kiểu dáng hot trend, xịn, ngầu và có nhiều tính năng vượt trội, chinh phục thành công không ít các tín đồ. Tất cả đã mở ra thế giới sắc màu cho kính mắt hàng hiệu, không chỉ nâng tầm phong cách mà còn mang đến khả năng bảo vệ mắt tối ưu.'),
+	(4, 'Kính mát trẻ em', 1, 1, '2024-06-17 08:15:00', '2024-06-17 08:15:00', 'Kính mát trẻ em thời trang, chống tia UV, bảo vệ mắt tối ưu', 'assets/images/kinh-mat-tre-em-thoi-trang.jpg', 'Kính mát trẻ em là vật dụng thiết yếu để bảo vệ đôi mắt non nớt của bé khỏi tác hại của tia UV. Chọn kính râm trẻ em cần ưu tiên chất liệu an toàn, gọng nhẹ, dẻo dai, không kích ứng và có khả năng chống trầy xước cao. Thiết kế kính cần ôm sát khuôn mặt, vừa vặn và thoải mái để bé dễ dàng vận động. Ngoài ra, kiểu dáng và màu sắc bắt mắt cũng sẽ giúp bé thích thú hơn khi đeo kính. Hãy lựa chọn kính mát cao cấp đến từ các thương hiệu nổi tiếngđể đảm bảo an toàn và sức khỏe cho đôi mắt của trẻ.'),
+	(5, 'Tròng kính', 1, 0, '2024-06-17 08:20:00', '2024-06-17 08:20:00', 'Tròng kính chính hãng: Giá, Tư vấn cắt tròng theo nhu cầu', 'assets/images/trong-kinh-chinh-hang-banner.jpg', 'Ngày nay, thị trường đang cung cấp đa dạng các loại tròng kính cận, loạn, viễn tốt trong việc điều chỉnh tật khúc xạ. Không chỉ là giải pháp hỗ trợ thị lực hiệu quả, sản phẩm còn đi kèm những tính năng ưu việt như chống tia UV, ánh sáng xanh, đổi màu, chống chói… Dù vấn đề tật khúc xạ của bạn là gì và có nhu cầu cao trong việc bảo vệ thị lực như thế nào thì tròng kính cao cấp, chính hãng đều có thể đáp ứng.'),
+	(6, 'Tròng kính đơn tròng', 1, 1, '2024-06-17 08:25:00', '2024-06-17 08:25:00', 'Tròng kính chính hãng: Giá, Tư vấn cắt tròng theo nhu cầu', 'assets/images/kinh-don-trong-chinh-hang-banner.jpg', 'Kính đơn tròng (Single Vision) là thấu kính một vùng nhìn quen thuộc được sử dụng cho người mắc tật khúc xạ cận, viễn, loạn thị. Đơn tròng mang đến tầm nhìn sắc nét ở khoảng cách gần hoặc xa. Ngày nay, sản phẩm còn sở hữu công nghệ tiên tiến đem đến tính năng vượt trội gồm chống chói, chống tia UV và đặc biệt là lọc ánh sáng xanh thông minh. Điều này giúp người dùng cải thiện khả năng nhận biết độ rõ nét của vật thể, đồng thời bảo vệ thị lực do hạn chế được nguồn ánh sáng độc hại.'),
+	(7, 'Kính áp tròng', 1, 0, '2024-06-17 08:30:00', '2024-06-17 08:30:00', 'Kính áp tròng (Contact Lens) cận, loạn đẹp, chính hãng 100%', 'assets/images/kinh-ap-trong-chinh-hang-banner.jpg', 'Kính áp tròng – giải pháp điều chỉnh vấn đề tật khúc xạ phổ biến. Chúng có thể thay thế kính thông thường bởi khả năng cung cấp tầm nhìn như một đơn kính thuốc nhưng mang tính thẩm mỹ vượt trội hơn. Sản phẩm như một lớp nhựa mỏng, trong suốt nên khi tiếp xúc với mắt không có cảm như mình đang đeo một chiếc kính quá nặng nề. Vì vậy, kính áp tròng là sự lựa chọn hoàn hảo cho mọi hoạt động, mọi kiểu mặt và mọi phong cách người dùng.'),
+	(8, 'Tròng kính đa tròng', 1, 1, '2024-06-17 08:35:00', '2024-06-17 08:35:00', 'Bảng giá kính đa tròng thế hệ mới dễ đeo, hợp mọi nhu cầu', 'assets/images/trong-kinh-da-trong-chinh-hang.jpg', 'Kính đa tròng là giải pháp hoàn hảo cho người suy giảm tầm nhìn do lão hóa thị lực. Để khắc phục tình trạng khó chịu cho đôi mắt ở tuổi trung niên, đa tròng ra đời, sở hữu 3 vùng nhìn (xa, gần, trung gian) cải thiện hình ảnh sắc nét, rõ ràng như đôi mắt tinh tường lúc trẻ.'),
+	(9, 'Gọng kính', 1, 0, '2024-06-17 08:40:00', '2024-06-17 08:40:00', 'Gọng kính cận đẹp: Giá, Mẫu mới, Tư vấn kiểu hợp mặt', 'assets/images/gong-kinh-can-chinh-hang-banner .jpg', 'ọng kính hợp mặt không chỉ đóng vai trò quan trọng trong việc gia tăng thẩm mỹ mà còn ảnh hưởng trực tiếp đến trải nghiệm thị giác của mỗi cá nhân. Ngày nay, gọng kính cận đẹp rất đa dạng. Từ những thiết kế cơ bản như tròn, vuông, oval đến kiểu dáng phức tạp hơn như phi công, cánh bướm, mắt mèo,… đều xuất hiện vô vàn trên thị trường, giúp khách hàng dễ dàng chọn lựa.'),
+	(10, 'Gọng kính nam', 1, 1, '2024-06-17 22:43:18', '2024-06-17 22:43:23', 'Gọng kính cận nam đẹp: Mẫu mới, Giá, Tư vấn kiểu hợp mặt', 'assets/images/banner_brand/banner-gong-kinh-can-nam.jpg', 'Thời trang thịnh hành, gọng kính cận nam ngày nay cũng sở hữu đa dạng mẫu mã và kiểu dáng hơn. Bởi là phụ kiện gắn liền trên gương mặt nên yếu tố đẹp, xịn phải được đi đầu khi lựa chọn. Hiểu rõ điều đó, các thương hiệu thời trang nổi tiếng như Gucci, Dior, RayBan,…dần trình làng nhiều loại mắt kính cận nam phù hợp với từng độ tuổi và phong cách, giúp phái mạnh tự tin và lịch lãm hơn khi diện. Chất liệu chế tác gọng kính cũng được đầu tư nhằm đem lại trải nghiệm sử dụng tốt hơn, như kính nam titan, nhựa acetate, nhựa dẻo, vàng, gỗ,…'),
+	(11, 'Gọng kính nữ', 1, 1, '2024-12-18 12:30:36', '2024-12-18 12:30:37', '300+ Gọng kính cận nữ đẹp, hàng hiệu hợp mọi khuôn mặt', 'assets/images/banner_brand/banner-gong-kinh-can-nu.jpg', 'Gọng kính cận nữ không chỉ là phụ kiện hỗ trợ thị lực mà còn là món đồ tôn lên đường nét của gương mặt. Một chiếc kính phù hợp giúp phái nữ che đi những khuyết điểm và nâng tầm phong cách mang đến sự tự tin đáng kể cho các quý cô. Để thêm năng động và cá tính có thể thử qua kính gọng mắt mèo, nửa viền hay oversized. Đối với những cô gái văn phòng thì khung chữ nhật không viền là tương xứng nhất, mang đến diện mạo thanh lịch khó cưỡng.'),
+	(12, 'Gọng kính trẻ em', 1, 0, '2024-12-18 12:30:54', '2024-12-18 12:30:55', '100+ Gọng kính trẻ em hàng hiệu, bền nhẹ, không kích ứng', 'assets/images/blog_images/banner-gong-kinh-can-tre-em-dep-chinh-hang.jpg', 'Với các bé mắc tật khúc xạ, việc lựa chọn gọng kính trẻ em phù hợp là vô cùng cần thiết. Chọn mắt kính cận cho bé cần ưu tiên chất liệu an toàn, không gây kích ứng, đặc biệt là nhẹ và dẻo dai như nhựa TR90, Acetate, Optyl. Hãy lựa chọn các loại gọng kính cận trẻ em có kiểu dáng và màu màu sắc bắt mắt cũng giúp bé thích thú và thoải mái hơn khi học tập và vận động.'),
+	(13, 'Gọng kính nhựa', 1, 0, '2024-12-18 12:31:08', '2024-12-18 12:31:08', '00+ Gọng kính nhựa thời trang, cao cấp, chính hãng 100%', 'assets/images/banner_brand/banner-gong-kinh-nhua.jpg', 'Gọng kính nhựa là lựa chọn hàng đầu cho phong cách năng động và trẻ trung. Chất liệu nhựa cao cấp từ Acetate đến TR90 mang đến cảm giác nhẹ nhàng, thoải mái khi đeo, đồng thời dễ dàng điều chỉnh để phù hợp với mọi khuôn mặt. Từ gam màu trung tính, thanh lịch đến những sắc màu rực rỡ, bắt mắt, gọng kính cận nhựa cho phép bạn tự do thể hiện cá tính và gu thẩm mỹ riêng. Bên cạnh đó, trọng lượng nhẹ và độ bền cao khiến gọng kính nhựa trở thành lựa chọn lý tưởng cho hoạt động hàng ngày.'),
+	(14, 'Gọng kính kim loại', 1, 0, '2025-03-20 10:19:55', '2025-03-20 10:19:56', '300+ Gọng kính kim loại nam, nữ bền đẹp, thời trang', 'assets/images/banner_brand/banner-gong-kinh-kim-loai.jpg', 'Gọng kính kim loại được yêu thích nhờ vẻ đẹp sang trọng và tinh tế. Chất liệu kim loại cao cấp mang đến độ bền vượt trội, khả năng chống va đập tốt và dễ dàng điều chỉnh để phù hợp với mọi khuôn mặt. Từ vẻ đẹp cổ điển, quý phái của vàng đến titanium sáng bóng mang đến sự hiện đại, trẻ trung. Gọng kính kim loại đáp ứng mọi phong cách thời trang, từ tối giản, thanh lịch đến cá tính, nổi bật. Dù là bất kỳ ai, bạn đều có thể tìm thấy kính cận kim loại hoàn hảo để tôn lên vẻ đẹp riêng của mình.'),
+	(15, 'Gọng kính vàng', 1, 0, '2025-03-20 10:20:09', '2025-03-20 10:20:10', 'Kính gọng vàng nguyên khối 18k, 24k cao cấp, chính hãng 100%', 'assets/images/gong-kinh-vang-nguyen-khoi-chinh-hang.jpg', 'Gọng kính vàng – Tuyệt tác vượt thời gian, biểu tượng của sự sang trọng, đẳng cấp và quyền lực. Từ xa xưa, vàng đã được xem là kim loại quý hiếm, đại diện cho sự giàu có và thịnh vượng. Ngày nay, gọng kính vàng tiếp tục là lựa chọn hàng đầu của giới thượng lưu, doanh nhân thành đạt và những người yêu thích phong cách cổ điển, sang trọng. Vẻ đẹp lấp lánh, ấm áp của vàng kết hợp với thiết kế tinh xảo, tỉ mỉ tạo nên một tổng thể hoàn mỹ giúp bạn sẽ luôn tự tin tỏa sáng và khẳng định đẳng cấp khác biệt.'),
+	(16, 'Tròng kính hai tròng', 1, 0, '2025-03-20 10:24:07', '2025-03-20 10:24:07', 'Tròng kính hai tròng cao cấp, chính hãng 100%, BH 1 năm', 'assets/images/kinh-hai-trong-chinh-hang-banner.jpg', 'Kính hai tròng là loại tròng phổ biến dành cho người trung niên hoặc lão thị. Sở hữu vùng nhìn ưu việt, tròng kính giúp người đeo cải thiện khả năng quan sát hình ảnh ở xa và gần sắc nét hơn. Việc sử dụng cặp kính lưỡng tiêu giúp chúng ta tiết kiệm nhiều chi phí, bởi không cần phải cắt hai cặp kính để nhìn xa và gần. Bên cạnh đó, thấu kính 2 tầm nhìn còn được trang bị những lớp phủ tính năng đặc biệt giúp người sử dụng giảm mỏi, chống lóa và hạn chế bụi bẩn hiệu quả');
 
 -- Dumping structure for table web_eyestyle.discounts
 CREATE TABLE IF NOT EXISTS `discounts` (
@@ -96,29 +102,29 @@ CREATE TABLE IF NOT EXISTS `discounts` (
 INSERT INTO `discounts` (`id`, `code`, `description`, `discount_percentage`, `status`) VALUES
 	(1, 'DISCOUNT10', 'Giảm giá 10% cho đơn hàng đầu tiên', 10, 1),
 	(2, 'SUMMER20', 'Khuyến mãi mùa hè, giảm 20%', 20, 1),
-	(3, 'VIP30', 'Ưu đãi dành cho khách VIP, giảm 30%', 30, 1),
-	(4, 'BLACKFRIDAY50', 'Khuyến mãi Black Friday, giảm 50%', 50, 1),
-	(5, 'FREESHIP', 'Miễn phí vận chuyển cho đơn trên 500k', 0, 1),
-	(6, 'SALE15', 'Giảm giá 15% tất cả sản phẩm hot', 15, 1),
+	(3, 'VIP30', 'Ưu đãi dành cho khách VIP, giảm 30%', 30, 0),
+	(4, 'BLACKFRIDAY50', 'Khuyến mãi Black Friday, giảm 50%', 50, 0),
+	(5, 'FREESHIP', 'Miễn phí vận chuyển cho đơn trên 500k', 0, 0),
+	(6, 'SALE15', 'Giảm giá 15% tất cả sản phẩm hot', 15, 0),
 	(7, 'CODE25', 'Mã giảm giá đặc biệt, giảm 25%', 25, 0),
-	(8, 'NEWYEAR2024', 'Ưu đãi chào năm mới 2024, giảm 20%', 20, 1),
-	(9, 'MIDYEAR10', 'Giảm 10% giữa năm cho đơn từ 300k', 10, 1),
-	(10, 'XMAS40', 'Giáng sinh vui vẻ - Giảm 40%', 40, 1),
-	(11, 'FLASHSALE5', 'Giảm 5% cho tất cả đơn hàng trong giờ flash sale', 5, 1),
-	(12, 'WELCOME2024', 'Chào mừng khách hàng mới năm 2024, giảm 15%', 15, 1),
-	(13, 'BIGSALE60', 'Siêu giảm giá cuối mùa, giảm đến 60%', 60, 1),
+	(8, 'NEWYEAR2024', 'Ưu đãi chào năm mới 2024, giảm 20%', 20, 0),
+	(9, 'MIDYEAR10', 'Giảm 10% giữa năm cho đơn từ 300k', 10, 0),
+	(10, 'XMAS40', 'Giáng sinh vui vẻ - Giảm 40%', 40, 0),
+	(11, 'FLASHSALE5', 'Giảm 5% cho tất cả đơn hàng trong giờ flash sale', 5, 0),
+	(12, 'WELCOME2024', 'Chào mừng khách hàng mới năm 2024, giảm 15%', 15, 0),
+	(13, 'BIGSALE60', 'Siêu giảm giá cuối mùa, giảm đến 60%', 60, 0),
 	(14, 'LOYALTY25', 'Dành cho khách hàng thân thiết, giảm 25%', 25, 0),
-	(15, 'WEEKEND10', 'Giảm giá 10% vào các ngày cuối tuần', 10, 1),
-	(16, 'HOLIDAY50', 'Khuyến mãi ngày lễ đặc biệt, giảm 50%', 50, 1),
-	(17, 'CLEARANCE30', 'Xả kho sản phẩm tồn, giảm 30%', 30, 1),
-	(18, 'BIRTHDAY20', 'Ưu đãi sinh nhật khách hàng, giảm 20%', 20, 1),
-	(19, 'REFERFRIEND', 'Giảm 15% khi giới thiệu bạn bè mua hàng', 15, 1),
-	(20, 'STUDENT15', 'Ưu đãi dành cho sinh viên, giảm 15%', 15, 1),
-	(21, 'FESTIVE40', 'Khuyến mãi mùa lễ hội, giảm 40%', 40, 1),
-	(22, 'VALENTINE20', 'Khuyến mãi ngày Valentine, giảm 20%', 20, 1),
-	(23, 'CYBERMONDAY45', 'Khuyến mãi Cyber Monday, giảm 45%', 45, 1),
-	(24, 'EIDSALE25', 'Khuyến mãi đặc biệt Eid, giảm 25%', 25, 1),
-	(25, 'TEACHERDAY10', 'Tri ân ngày Nhà giáo, giảm 10% cho tất cả đơn', 10, 1);
+	(15, 'WEEKEND10', 'Giảm giá 10% vào các ngày cuối tuần', 10, 0),
+	(16, 'HOLIDAY50', 'Khuyến mãi ngày lễ đặc biệt, giảm 50%', 50, 0),
+	(17, 'CLEARANCE30', 'Xả kho sản phẩm tồn, giảm 30%', 30, 0),
+	(18, 'BIRTHDAY20', 'Ưu đãi sinh nhật khách hàng, giảm 20%', 20, 0),
+	(19, 'REFERFRIEND', 'Giảm 15% khi giới thiệu bạn bè mua hàng', 15, 0),
+	(20, 'STUDENT15', 'Ưu đãi dành cho sinh viên, giảm 15%', 15, 0),
+	(21, 'FESTIVE40', 'Khuyến mãi mùa lễ hội, giảm 40%', 40, 0),
+	(22, 'VALENTINE20', 'Khuyến mãi ngày Valentine, giảm 20%', 20, 0),
+	(23, 'CYBERMONDAY45', 'Khuyến mãi Cyber Monday, giảm 45%', 45, 0),
+	(24, 'EIDSALE25', 'Khuyến mãi đặc biệt Eid, giảm 25%', 25, 0),
+	(25, 'TEACHERDAY10', 'Tri ân ngày Nhà giáo, giảm 10% cho tất cả đơn', 10, 0);
 
 -- Dumping structure for table web_eyestyle.feedbacks
 CREATE TABLE IF NOT EXISTS `feedbacks` (
@@ -297,18 +303,18 @@ INSERT INTO `products` (`id`, `category_id`, `brand_id`, `shape_id`, `material`,
 	(5, 1, 10, 9, 'Xi/Mạ Vàng', 'VCHL18_0300', 'Gọng kính Kim loại, Mạ vàng ', 1, 0, 24500000, 25000000, 3, 1, 'Vàng', '2024-12-17 22:29:12', '2024-12-20 22:29:31'),
 	(6, 1, 10, 9, 'Xi/Mạ Vàng', 'VCHG86_0300', 'Gọng kính Kim loại, Mạ vàng', 1, 0, 25800000, 26000000, 3, 1, 'Vàng', '2024-12-17 22:31:05', '2024-12-21 22:31:08'),
 	(7, 1, 10, 8, 'Xi/Mạ vàng', 'VCHL38J_08FC', 'Gọng kính Gỗ hồng, Titanium, Mạ vàng – Limited Edition 150 mẫu', 1, 0, 33000000, 33500000, 4, 1, 'Vàng', '2024-12-17 22:33:16', '2024-12-22 22:33:21'),
-	(8, 10, 4, 7, 'Nhựa', 'GG1277OA_52_001', 'Gọng kính Nhựa, Kim loại', 1, 1, 10950000, 11000000, 10, 4, 'Đen-Bạc', '2024-12-17 22:35:36', '2024-12-23 22:35:40'),
+	(8, 9, 4, 7, 'Nhựa', 'GG1277OA_52_001', 'Gọng kính Nhựa, Kim loại', 1, 1, 10950000, 11000000, 10, 4, 'Đen-Bạc', '2024-12-17 22:35:36', '2024-12-23 22:35:40'),
 	(9, 1, 5, 7, 'Kim loại', 'MB0236SK_60_003', 'Gọng kính Kim loại – Chống tia UV', 1, 0, 11700000, 12000000, 20, 1, 'Vàng hồng', '2024-12-17 22:40:01', '2024-12-24 22:40:10'),
-	(10, 10, 5, 7, 'Kim loại', 'MB0030O_57_003', 'Gọng kính Kim loại', 1, 0, 10900000, 11000000, 15, 4, 'Xám', '2024-12-17 22:52:33', '2024-12-24 22:52:35'),
+	(10, 9, 5, 7, 'Kim loại', 'MB0030O_57_003', 'Gọng kính Kim loại', 1, 0, 10900000, 11000000, 15, 4, 'Xám', '2024-12-17 22:52:33', '2024-12-24 22:52:35'),
 	(11, 1, 8, 9, 'Nhựa', '0PR01ZVD_01G1O1_56', 'Gọng kính Nhựa', 1, 0, 7510000, 7800000, 20, 1, 'Xám', '2024-12-17 22:52:47', '2024-12-25 22:52:50'),
-	(12, 10, 8, 8, 'Kim loại', '0PRA53V_1BC1O1_56', 'Gọng kính Kim loại ', 1, 0, 10530000, 11000000, 10, 4, 'Bạc-Đen', '2024-12-16 22:57:17', '2024-12-25 22:57:23'),
-	(13, 1, 8, 8, 'Kim loại', '0PRA51V_1AB1O1_53', 'Gọng kính Kim loại', 1, 0, 10530000, 11000000, 10, 4, 'Đen', '2024-12-17 22:59:14', '2024-12-27 22:59:21'),
-	(14, 10, 13, 6, 'Nhựa', '0OY8004_80040447', 'Gọng kính Nhựa', 1, 0, 3060000, 3500000, 30, 4, 'Đen', '2024-12-17 23:01:34', '2024-12-25 23:01:35'),
-	(15, 10, 13, 4, 'Nhựa', '0OY8029F_80290148', 'Gọng kính Nhựa', 1, 0, 2750000, 2900000, 30, 4, 'Đen', '2024-12-17 23:03:22', '2024-12-22 23:03:23'),
-	(16, 10, 12, 9, 'Nhựa', '84034_V1', 'Gọng kính Nhựa', 1, 0, 1560000, 1800000, 30, 4, 'Xám', '2024-12-17 23:05:05', '2024-12-21 23:05:07'),
-	(17, 10, 12, 7, 'Nhựa', 'PR82415_B2', 'Gọng kính Nhựa', 1, 0, 1560000, 1700000, 30, 4, 'Đen', '2024-12-17 23:08:20', '2024-12-20 23:08:21'),
-	(18, 10, 12, 2, 'Kim loại', 'PG83511_B1', 'Gọng kính Kim loại', 1, 0, 1680000, 1900000, 30, 4, 'Đen', '2024-12-17 23:10:02', '2024-12-21 23:10:06'),
-	(19, 10, 15, 2, 'Kim loại', 'EF71564_582', 'Gọng kính Kim loại', 1, 1, 800000, 900000, 30, 4, 'Xanh', '2024-12-17 23:12:27', '2024-12-23 23:12:28'),
+	(12, 9, 8, 8, 'Kim loại', '0PRA53V_1BC1O1_56', 'Gọng kính Kim loại ', 1, 0, 10530000, 11000000, 10, 4, 'Bạc-Đen', '2024-12-16 22:57:17', '2024-12-25 22:57:23'),
+	(13, 1, 8, 8, 'Kim loại', '0PRA51V_1AB1O1_53', 'Gọng kính Kim loại', 1, 0, 10530000, 11000000, 10, 1, 'Đen', '2024-12-17 22:59:14', '2024-12-27 22:59:21'),
+	(14, 9, 13, 6, 'Nhựa', '0OY8004_80040447', 'Gọng kính Nhựa', 1, 0, 3060000, 3500000, 30, 4, 'Đen', '2024-12-17 23:01:34', '2024-12-25 23:01:35'),
+	(15, 9, 13, 4, 'Nhựa', '0OY8029F_80290148', 'Gọng kính Nhựa', 1, 0, 2750000, 2900000, 30, 4, 'Đen', '2024-12-17 23:03:22', '2024-12-22 23:03:23'),
+	(16, 9, 12, 9, 'Nhựa', '84034_V1', 'Gọng kính Nhựa', 1, 0, 1560000, 1800000, 30, 4, 'Xám', '2024-12-17 23:05:05', '2024-12-21 23:05:07'),
+	(17, 9, 12, 7, 'Nhựa', 'PR82415_B2', 'Gọng kính Nhựa', 1, 0, 1560000, 1700000, 30, 4, 'Đen', '2024-12-17 23:08:20', '2024-12-20 23:08:21'),
+	(18, 14, 12, 2, 'Kim loại', 'PG83511_B1', 'Gọng kính Kim loại', 1, 0, 1680000, 1900000, 30, 4, 'Đen', '2024-12-17 23:10:02', '2024-12-21 23:10:06'),
+	(19, 9, 15, 2, 'Kim loại', 'EF71564_582', 'Gọng kính Kim loại', 1, 1, 800000, 900000, 30, 4, 'Xanh', '2024-12-17 23:12:27', '2024-12-23 23:12:28'),
 	(20, 1, 15, 9, 'Kim loại', 'EF32287T_542B', 'Gọng kính Kim loại', 1, 1, 1350000, 1500000, 20, 1, 'Bạc', '2024-12-17 23:14:33', '2024-12-21 23:14:36'),
 	(21, 10, 12, 2, 'Kim loại', 'PG81502_G1', 'Gọng kính Kim loại', 1, 0, 1750000, 2000000, 10, 4, 'Xám', '2024-12-17 23:16:43', '2024-12-11 11:11:11'),
 	(22, 10, 1, 7, 'Kim loại', 'DIORBLACKSUITON2U_F000', 'Gọng kính Kim loại', 1, 0, 10500000, 11000000, 15, 4, 'Bạc-Đen', '2024-12-17 23:18:21', '2024-12-22 23:18:26'),
@@ -382,26 +388,26 @@ INSERT INTO `products` (`id`, `category_id`, `brand_id`, `shape_id`, `material`,
 	(90, 3, 9, 6, 'Nhựa', 'VK093J_0856', 'Gọng kính Nhựa', 1, 0, 1600000, 1800000, 15, 3, 'Hồng', '2024-12-18 01:10:24', '2024-12-25 01:10:25'),
 	(91, 10, 9, 8, 'Kim loại-Nhựa', 'SPLF13_0300', 'Gọng kính Nhựa, Kim loại', 1, 0, 4600000, 5000000, 10, 4, 'Vàng-Xanh dương', '2024-12-18 10:17:22', '2024-12-24 10:17:26'),
 	(92, 10, 6, 1, 'Nhựa', '0RB3825_001_GG_58', 'Gọng kính Nhựa', 1, 1, 4880000, 5000000, 10, 4, 'Đen', '2024-12-18 10:18:46', '2024-12-25 10:18:47'),
-	(93, 4, 9, 8, 'Kim loại', 'SPLN39_300Y', 'Gọng kính Kim loại – Chống tia UV ', 1, 1, 5200000, 5500000, 10, 1, 'Vàng-Hông', '2024-12-18 10:21:33', '2024-12-23 10:21:35'),
-	(94, 4, 2, 8, 'Kim loại', 'CT0025SA_001', 'Gọng Kim loại – Chống tia UV', 1, 0, 21000000, 21500000, 5, 2, 'Vàng-Đen', '2024-12-18 10:23:28', '2024-12-26 10:23:29'),
-	(95, 4, 7, 9, 'Nhựa', '0BE4337F_379887_56', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 5800000, 6000000, 15, 1, 'Đen', '2024-12-18 10:24:38', '2024-12-26 10:24:39'),
-	(96, 4, 17, 6, 'Nhựa', 'BL3189_C10.CS', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 3820000, 4000000, 20, 2, 'Đen', '2024-12-18 10:25:55', '2024-12-26 10:25:56'),
+	(93, 4, 9, 8, 'Kim loại', 'SPLN39_300Y', 'Gọng kính Kim loại – Chống tia UV ', 1, 1, 5200000, 5500000, 10, 4, 'Vàng-Hông', '2024-12-18 10:21:33', '2024-12-23 10:21:35'),
+	(94, 4, 2, 8, 'Kim loại', 'CT0025SA_001', 'Gọng Kim loại – Chống tia UV', 1, 0, 21000000, 21500000, 5, 4, 'Vàng-Đen', '2024-12-18 10:23:28', '2024-12-26 10:23:29'),
+	(95, 4, 7, 9, 'Nhựa', '0BE4337F_379887_56', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 5800000, 6000000, 15, 4, 'Đen', '2024-12-18 10:24:38', '2024-12-26 10:24:39'),
+	(96, 4, 17, 6, 'Nhựa', 'BL3189_C10.CS', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 3820000, 4000000, 20, 4, 'Đen', '2024-12-18 10:25:55', '2024-12-26 10:25:56'),
 	(97, 8, 6, 5, 'Kim loại', '0RB3825_001_GG_58', 'Gọng Kim loại – Chống tia UV', 1, 1, 7840000, 8000000, 10, 1, 'Vàng', '2024-12-18 10:28:34', '2024-12-24 10:28:36'),
-	(98, 4, 6, 5, 'Kim loại', '0RB3029_181_62', 'Gọng Kim loại – Chống tia UV', 1, 0, 4800000, 5000000, 10, 1, 'Vàng', '2024-12-18 10:30:05', '2024-12-21 10:30:06'),
-	(99, 4, 1, 8, 'Kim loại', 'CDLINKA1U_61_F0B8', 'Gọng kính Kim loại – Chống tia UV', 1, 0, 12200000, 12500000, 10, 1, 'Bạc', '2024-12-18 10:32:01', '2024-12-22 10:32:02'),
+	(98, 4, 6, 5, 'Kim loại', '0RB3029_181_62', 'Gọng Kim loại – Chống tia UV', 1, 0, 4800000, 5000000, 10, 4, 'Vàng', '2024-12-18 10:30:05', '2024-12-21 10:30:06'),
+	(99, 4, 1, 8, 'Kim loại', 'CDLINKA1U_61_F0B8', 'Gọng kính Kim loại – Chống tia UV', 1, 0, 12200000, 12500000, 10, 4, 'Bạc', '2024-12-18 10:32:01', '2024-12-22 10:32:02'),
 	(100, 8, 1, 4, 'Kim loại', 'MISSDIORB4U_55_12B0', 'Gọng kính Kim loại', 1, 0, 12220000, 12500000, 10, 2, 'Vàng', '2024-12-18 10:33:14', '2024-12-20 10:33:15'),
-	(101, 4, 4, 8, 'Nhựa', 'GG1140SK_54_002', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 8700000, 9000000, 10, 2, 'Đen', '2024-12-18 10:34:19', '2024-12-26 10:34:20'),
-	(102, 4, 1, 5, 'Kim loại', 'CDDIAMONDA1U_59_F0I4', 'Gọng kính Kim loại', 1, 0, 20500000, 21000000, 5, 1, 'Bạc-Đồi mồi', '2024-12-18 10:36:29', '2024-12-21 10:36:29'),
+	(101, 4, 4, 8, 'Nhựa', 'GG1140SK_54_002', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 8700000, 9000000, 10, 4, 'Đen', '2024-12-18 10:34:19', '2024-12-26 10:34:20'),
+	(102, 4, 1, 5, 'Kim loại', 'CDDIAMONDA1U_59_F0I4', 'Gọng kính Kim loại', 1, 0, 20500000, 21000000, 5, 4, 'Bạc-Đồi mồi', '2024-12-18 10:36:29', '2024-12-21 10:36:29'),
 	(103, 4, 8, 7, 'Nhựa', '0PRA12SF_17K08Z_54', 'Gọng Nhựa', 1, 0, 11400000, 11500000, 10, 4, 'Trắng', '2024-12-18 10:45:29', '2024-12-25 10:45:30'),
 	(104, 4, 8, 8, 'Kim loại', '0PRA51S_15N01T_58', 'Gọng Kim loại – Chống tia UV', 1, 0, 12280000, 12500000, 15, 4, 'Vàng-Đen', '2024-12-18 10:48:58', '2024-12-22 10:48:59'),
 	(105, 4, 8, 7, 'Kim loại', '0PRA52S_ZVN30C_56', 'Gọng Kim loại – Chống tia UV', 1, 0, 12200000, 12500000, 10, 4, 'Vàng-Hồng', '2024-12-18 10:51:07', '2024-12-24 10:51:13'),
-	(106, 4, 14, 6, 'Nhựa', 'MS3053_C10.CS', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 2900000, 3000000, 15, 2, 'Đen', '2024-12-18 10:53:25', '2024-12-29 10:53:26'),
-	(107, 4, 9, 7, 'Kim loại-Nhựa', 'SPLL85_08M2', 'Gọng kính Kim loại – Nhựa – Chống tia UV', 1, 0, 5400000, 5500000, 15, 1, 'Vàng-Đồi mồi', '2024-12-18 10:55:56', '2024-12-23 10:55:57'),
-	(108, 4, 4, 1, 'Kim loại', 'GG1289S_62_001', 'Gọng kính Kim loại Ruthenium – Chống tia UV', 1, 0, 12900000, 13000000, 10, 1, 'Xám-Đen', '2024-12-18 10:57:34', '2025-01-03 10:57:35'),
-	(109, 4, 12, 1, 'Kim loại', '76042_B2PR', 'Gọng Kim Loại – Chống tia UV', 1, 1, 2260000, 2500000, 15, 1, 'Đen', '2024-12-18 11:00:07', '2025-01-01 11:00:10'),
-	(110, 4, 12, 9, 'Nhựa', '76054_W1PR', 'Gọng kính Nhựa – Chống tia UV', 1, 1, 2260000, 2500000, 20, 2, 'Trắng-Đen', '2024-12-18 11:01:43', '2024-12-30 11:01:44'),
-	(111, 4, 12, 4, 'Nhựa', '76056_T2R', 'Gọng kính Nhựa – Chống tia UV', 1, 1, 1780000, 1900000, 20, 2, 'Trắng', '2024-12-18 11:04:13', '2024-12-26 11:04:14'),
-	(112, 4, 17, 4, 'Nhựa Acetate', 'BL3167_A28.CS', 'Gọng kính nhựa Acetate – Chống tia UV', 1, 0, 3280000, 3500000, 10, 2, 'Nâu-Xám', '2024-12-18 11:06:04', '2024-12-31 11:06:05'),
+	(106, 4, 14, 6, 'Nhựa', 'MS3053_C10.CS', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 2900000, 3000000, 15, 4, 'Đen', '2024-12-18 10:53:25', '2024-12-29 10:53:26'),
+	(107, 4, 9, 7, 'Kim loại-Nhựa', 'SPLL85_08M2', 'Gọng kính Kim loại – Nhựa – Chống tia UV', 1, 0, 5400000, 5500000, 15, 4, 'Vàng-Đồi mồi', '2024-12-18 10:55:56', '2024-12-23 10:55:57'),
+	(108, 4, 4, 1, 'Kim loại', 'GG1289S_62_001', 'Gọng kính Kim loại Ruthenium – Chống tia UV', 1, 0, 12900000, 13000000, 10, 4, 'Xám-Đen', '2024-12-18 10:57:34', '2025-01-03 10:57:35'),
+	(109, 4, 12, 1, 'Kim loại', '76042_B2PR', 'Gọng Kim Loại – Chống tia UV', 1, 1, 2260000, 2500000, 15, 4, 'Đen', '2024-12-18 11:00:07', '2025-01-01 11:00:10'),
+	(110, 4, 12, 9, 'Nhựa', '76054_W1PR', 'Gọng kính Nhựa – Chống tia UV', 1, 1, 2260000, 2500000, 20, 4, 'Trắng-Đen', '2024-12-18 11:01:43', '2024-12-30 11:01:44'),
+	(111, 4, 12, 4, 'Nhựa', '76056_T2R', 'Gọng kính Nhựa – Chống tia UV', 1, 1, 1780000, 1900000, 20, 4, 'Trắng', '2024-12-18 11:04:13', '2024-12-26 11:04:14'),
+	(112, 4, 17, 4, 'Nhựa Acetate', 'BL3167_A28.CS', 'Gọng kính nhựa Acetate – Chống tia UV', 1, 0, 3280000, 3500000, 10, 4, 'Nâu-Xám', '2024-12-18 11:06:04', '2024-12-31 11:06:05'),
 	(113, 4, 5, 5, 'Kim loại', 'MB0074S_59_002', 'Gọng kính Kim loại – Lọc tia UV', 1, 0, 9900000, 10000000, 15, 4, 'Vàng-Xanh lá', '2024-12-18 11:09:50', '2024-12-24 11:09:51'),
 	(114, 4, 13, 1, 'Nhựa', '0OO9018_901815_55', 'Gọng kính Nhựa O Matter – Lọc tia UV400, Phân cực', 1, 0, 6800000, 7000000, 15, 4, 'Đen', '2024-12-18 11:11:12', '2025-01-03 11:11:14'),
 	(115, 4, 13, 9, 'Nhựa', '0OO9245_9245D1_54', 'Gọng kính Nhựa – Lọc tia UV, Phân cực', 1, 0, 4180000, 4300000, 15, 4, 'Nâu-Đồi mồi', '2024-12-18 11:14:50', '2025-01-02 11:14:52'),
@@ -415,32 +421,32 @@ INSERT INTO `products` (`id`, `category_id`, `brand_id`, `shape_id`, `material`,
 	(123, 11, 21, NULL, NULL, 'Essilor Transitions Xtractive Polarized', 'Tròng kính đổi màu chống chói ấn tượng – Thế hệ 2021', 1, 1, 7300000, 7500000, 15, 4, NULL, '2024-12-18 12:39:12', '2024-12-26 12:39:13'),
 	(124, 11, 21, NULL, NULL, 'Essilor Transitions Xtractive', 'Tròng kính đổi màu lý tưởng ngay trong ô tô – Thế hệ 2021', 1, 1, 4300000, 4500000, 20, 4, NULL, '2024-12-18 12:40:47', '2024-12-26 12:40:48'),
 	(125, 11, 21, NULL, NULL, 'Essilor Transitions Style Color Gen 8', 'Bảng màu thời trang, định hình phong cách – Thế hệ 2019', 1, 0, 4500000, 4700000, 15, 4, NULL, '2024-12-18 12:41:46', '2024-12-28 12:41:46'),
-	(126, 11, 20, NULL, NULL, 'TOG VV MR8 HMCS 1.60', 'Tròng kính chống tia UV, chống chói, hạn chế bám bụi – Mỏng nhẹ cho tầm nhìn chân thực', 1, 1, 540000, 600000, 40, 4, NULL, '2024-12-18 12:42:36', '2025-01-04 12:42:37'),
+	(126, 15, 20, NULL, NULL, 'TOG VV MR8 HMCS 1.60', 'Tròng kính chống tia UV, chống chói, hạn chế bám bụi – Mỏng nhẹ cho tầm nhìn chân thực', 1, 1, 540000, 600000, 40, 4, NULL, '2024-12-18 12:42:36', '2025-01-04 12:42:37'),
 	(127, 11, 20, NULL, NULL, 'TOG AS HMC 1.67', 'Tròng kính siêu mỏng, chống tia UV, chống chói', 1, 0, 1540000, 1600000, 30, 4, NULL, '2024-12-18 12:43:25', '2024-12-23 12:43:26'),
 	(128, 11, 22, NULL, NULL, 'Rodenstock SV Lifestyle', 'Tròng kính đổi màu Xám khói – Dành cho dân văn phòng', 1, 0, 5750000, 6000000, 10, 4, NULL, '2024-12-18 12:44:32', '2024-12-29 12:44:33'),
 	(129, 11, 22, NULL, NULL, 'Rodenstock SV Lifestyle', 'Chống tia UV, chống bể – Hợp với người thường xuyên tiếp xúc màn hình điện tử', 1, 0, 2900000, 3000000, 15, 4, NULL, '2024-12-18 12:45:52', '2024-12-29 12:45:52'),
 	(130, 11, 21, NULL, NULL, 'Essilor Crizal Easy Pro', 'Tròng kính chống bám bẩn vượt trội, chống lóa, chống tia UV – Hợp với người thường hoạt động ngoài trời', 1, 1, 800000, 900000, 30, 4, NULL, '2024-12-18 12:46:55', '2024-12-26 12:46:56'),
 	(131, 13, 22, NULL, NULL, 'Rodenstock Bifo Smart Add', 'Chống tia UV, chống bể – Hợp với người đọc sách, tập đeo đa tròng', 1, 0, 2500000, 3000000, 15, 4, NULL, '2024-12-18 12:48:43', '2024-12-28 12:48:44'),
-	(132, 12, 21, NULL, NULL, 'Essilor Essentials Home Work', 'Tròng kính chống ánh sáng xanh, Chống UV – Cho người làm việc ở nhà', 1, 0, 2300000, 2500000, 10, 4, NULL, '2024-12-18 12:49:53', '2024-12-23 12:49:54'),
-	(133, 12, 21, NULL, NULL, 'Essilor Essentials Everyday Plus', 'Tròng kính chống tia UV, Chống bể (Trivex) – Cho mọi đối tượng', 1, 0, 2900000, 3000000, 10, 4, NULL, '2024-12-18 12:50:48', '2024-12-24 12:50:49'),
-	(134, 12, 21, NULL, NULL, 'Essilor Essentials Active Plus', 'Tròng kính chống tia UV, Chống bể (Trivex) – Cho người hay di chuyển, vận động ngoài trời', 1, 0, 2900000, 3000000, 10, 4, NULL, '2024-12-23 12:51:44', '2024-12-24 12:51:46'),
-	(135, 12, 21, NULL, NULL, 'Essilor Varilux Comfort 3.0', 'Ngăn UV 2 mặt, lọc ánh sáng xanh, chống phản quang, đổi màu', 1, 0, 6950000, 7000000, 15, 4, NULL, '2024-12-18 12:52:43', '2024-12-23 12:52:43'),
-	(136, 12, 21, NULL, NULL, 'Essilor Varilux Physio 3.0', 'Ngăn UV 2 mặt, lọc ánh sáng xanh, chống phản quang, đổi màu – Hợp với khách hàng có độ 2 mắt bị lệch', 1, 0, 11750000, 12000000, 10, 4, NULL, '2024-12-18 12:53:27', '2024-12-25 12:53:28'),
-	(137, 12, 21, NULL, NULL, 'Essilor Varilux Liberty 3.0', 'Ngăn UV 2 mặt, lọc ánh sáng xanh, chống phản quang, đổi màu – Hợp với người mới đeo đa tròng', 1, 0, 4900000, 5000000, 10, 4, NULL, '2024-12-18 12:54:09', '2024-12-25 12:54:10'),
-	(138, 12, 23, NULL, NULL, 'Zeiss Light 2 3Dv', 'Tròng kính chống tia UV, Kháng khuẩn, Lọc ánh sáng xanh – Cho người hay dùng thiết bị điện tử', 1, 0, 8250000, 8500000, 5, 4, NULL, '2024-12-18 12:55:03', '2024-12-26 12:55:03'),
-	(139, 12, 23, NULL, NULL, 'Zeiss Light 2 3D', 'Tròng kính chống tia UV, Kháng khuẩn, Lọc ánh sáng xanh – Cho người hay đọc sách, xem điện thoại', 1, 0, 6600000, 6500000, 7, 4, NULL, '2024-12-18 12:56:02', '2024-12-25 12:56:03'),
-	(140, 12, 23, NULL, NULL, 'Zeiss Light 2 D', 'Tròng kính chống tia UV, Kháng khuẩn, Lọc ánh sáng xanh – Cho người mới đeo đa tròng', 1, 0, 4380000, 4500000, 7, 4, NULL, '2024-12-18 12:57:35', '2024-12-30 12:56:24'),
-	(141, 12, 23, NULL, NULL, 'Zeiss Digital Light 2 3D', 'Tròng kính chống tia UV, Kháng khuẩn, Lọc ánh sáng xanh – Cho người mới bắt đầu lão thị', 1, 0, 3700000, 4000000, 10, 4, NULL, '2024-12-18 12:58:25', '2024-12-25 12:58:26'),
-	(142, 4, 12, 4, 'Nhựa', '62210_B1', 'Gọng kính Nhựa – Lọc tia UV', 1, 1, 1100000, 1200000, 10, 3, 'Đen-Cam', '2024-12-18 13:00:23', '2024-12-25 13:00:30'),
-	(143, 4, 1, 1, 'Kim loại', 'DIORSTELLAIRESU_59_B0B0', 'Gọng kính Kim loại – Chống tia UV', 1, 0, 10800000, 11000000, 10, 2, 'Vàng-Xanh dương', '2024-12-18 13:03:11', '2024-12-26 13:03:19'),
-	(144, 4, 7, 1, 'Nhựa', '0BE4364F_39958G_51', 'Gọng kính Nhựa – Lọc tia UV', 1, 0, 6015000, 6200000, 15, 2, 'Trắng-Đen-Xám', '2024-12-18 13:04:52', '2024-12-26 13:04:52'),
-	(145, 4, 17, 1, 'Nhựa Acetate', 'BL3079_C10', 'Gọng kính Nhựa – Chống tia UV, Phân cực', 1, 0, 3780000, 3900000, 20, 1, 'Đen', '2024-12-18 13:06:02', '2024-12-26 13:06:03'),
-	(146, 4, 7, 1, 'Kim loại', '0BE3133_133713_5', 'Gọng kính Kim Loại – Chống tia UV', 1, 0, 6000000, 6100000, 10, 2, 'Vàng-Hồng', '2024-12-18 13:07:15', '2024-12-25 13:07:15'),
+	(132, 5, 21, NULL, NULL, 'Essilor Essentials Home Work', 'Tròng kính chống ánh sáng xanh, Chống UV – Cho người làm việc ở nhà', 1, 0, 2300000, 2500000, 10, 4, NULL, '2024-12-18 12:49:53', '2024-12-23 12:49:54'),
+	(133, 5, 21, NULL, NULL, 'Essilor Essentials Everyday Plus', 'Tròng kính chống tia UV, Chống bể (Trivex) – Cho mọi đối tượng', 1, 0, 2900000, 3000000, 10, 4, NULL, '2024-12-18 12:50:48', '2024-12-24 12:50:49'),
+	(134, 5, 21, NULL, NULL, 'Essilor Essentials Active Plus', 'Tròng kính chống tia UV, Chống bể (Trivex) – Cho người hay di chuyển, vận động ngoài trời', 1, 0, 2900000, 3000000, 10, 4, NULL, '2024-12-23 12:51:44', '2024-12-24 12:51:46'),
+	(135, 5, 21, NULL, NULL, 'Essilor Varilux Comfort 3.0', 'Ngăn UV 2 mặt, lọc ánh sáng xanh, chống phản quang, đổi màu', 1, 0, 6950000, 7000000, 15, 4, NULL, '2024-12-18 12:52:43', '2024-12-23 12:52:43'),
+	(136, 5, 21, NULL, NULL, 'Essilor Varilux Physio 3.0', 'Ngăn UV 2 mặt, lọc ánh sáng xanh, chống phản quang, đổi màu – Hợp với khách hàng có độ 2 mắt bị lệch', 1, 0, 11750000, 12000000, 10, 4, NULL, '2024-12-18 12:53:27', '2024-12-25 12:53:28'),
+	(137, 5, 21, NULL, NULL, 'Essilor Varilux Liberty 3.0', 'Ngăn UV 2 mặt, lọc ánh sáng xanh, chống phản quang, đổi màu – Hợp với người mới đeo đa tròng', 1, 0, 4900000, 5000000, 10, 4, NULL, '2024-12-18 12:54:09', '2024-12-25 12:54:10'),
+	(138, 5, 23, NULL, NULL, 'Zeiss Light 2 3Dv', 'Tròng kính chống tia UV, Kháng khuẩn, Lọc ánh sáng xanh – Cho người hay dùng thiết bị điện tử', 1, 0, 8250000, 8500000, 5, 4, NULL, '2024-12-18 12:55:03', '2024-12-26 12:55:03'),
+	(139, 5, 23, NULL, NULL, 'Zeiss Light 2 3D', 'Tròng kính chống tia UV, Kháng khuẩn, Lọc ánh sáng xanh – Cho người hay đọc sách, xem điện thoại', 1, 0, 6600000, 6500000, 7, 4, NULL, '2024-12-18 12:56:02', '2024-12-25 12:56:03'),
+	(140, 5, 23, NULL, NULL, 'Zeiss Light 2 D', 'Tròng kính chống tia UV, Kháng khuẩn, Lọc ánh sáng xanh – Cho người mới đeo đa tròng', 1, 0, 4380000, 4500000, 7, 4, NULL, '2024-12-18 12:57:35', '2024-12-30 12:56:24'),
+	(141, 5, 23, NULL, NULL, 'Zeiss Digital Light 2 3D', 'Tròng kính chống tia UV, Kháng khuẩn, Lọc ánh sáng xanh – Cho người mới bắt đầu lão thị', 1, 0, 3700000, 4000000, 10, 4, NULL, '2024-12-18 12:58:25', '2024-12-25 12:58:26'),
+	(142, 4, 12, 4, 'Nhựa', '62210_B1', 'Gọng kính Nhựa – Lọc tia UV', 1, 1, 1100000, 1200000, 10, 4, 'Đen-Cam', '2024-12-18 13:00:23', '2024-12-25 13:00:30'),
+	(143, 4, 1, 1, 'Kim loại', 'DIORSTELLAIRESU_59_B0B0', 'Gọng kính Kim loại – Chống tia UV', 1, 0, 10800000, 11000000, 10, 4, 'Vàng-Xanh dương', '2024-12-18 13:03:11', '2024-12-26 13:03:19'),
+	(144, 4, 7, 1, 'Nhựa', '0BE4364F_39958G_51', 'Gọng kính Nhựa – Lọc tia UV', 1, 0, 6015000, 6200000, 15, 4, 'Trắng-Đen-Xám', '2024-12-18 13:04:52', '2024-12-26 13:04:52'),
+	(145, 4, 17, 1, 'Nhựa Acetate', 'BL3079_C10', 'Gọng kính Nhựa – Chống tia UV, Phân cực', 1, 0, 3780000, 3900000, 20, 4, 'Đen', '2024-12-18 13:06:02', '2024-12-26 13:06:03'),
+	(146, 4, 7, 1, 'Kim loại', '0BE3133_133713_5', 'Gọng kính Kim Loại – Chống tia UV', 1, 0, 6000000, 6100000, 10, 4, 'Vàng-Hồng', '2024-12-18 13:07:15', '2024-12-25 13:07:15'),
 	(147, 4, 4, 3, 'Nhựa Optyl', 'GG0702SK_54_003', 'Gọng kính Nhựa Optyl – Lọc tia UV', 1, 0, 8900000, 9000000, 10, 4, 'Đồi mồi-Nâu', '2024-12-18 13:08:31', '2024-12-24 13:08:32'),
 	(148, 4, 4, 2, 'Kim loại', 'GG0680S_56_002', 'Gọng kính Kim loại – Lọc tia UV', 1, 0, 10900000, 11000000, 7, 4, 'Bạc-Đồi mồi-Xám', '2024-12-18 13:09:42', '2024-12-26 13:09:43'),
-	(149, 4, 15, 4, 'Kim loại', 'EF70951_C25', 'Gọng kính Kim loại – Chống tia UV', 1, 0, 1000000, 1200000, 15, 2, 'Hồng', '2024-12-18 13:11:25', '2024-12-25 13:11:26'),
-	(150, 4, 3, 4, 'Nhựa', 'VE4417U_GB1_87', 'Gọng kính Nhựa – Lọc tia UV', 1, 0, 6800000, 7000000, 10, 2, 'Đen', '2024-12-18 13:12:26', '2024-12-26 13:12:27'),
-	(151, 4, 7, 4, 'Nhựa', '0BE4361F_300187_51', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 7350000, 7500000, 10, 2, 'Đen', '2024-12-18 13:18:25', '2024-12-25 13:18:26');
+	(149, 4, 15, 4, 'Kim loại', 'EF70951_C25', 'Gọng kính Kim loại – Chống tia UV', 1, 0, 1000000, 1200000, 15, 4, 'Hồng', '2024-12-18 13:11:25', '2024-12-25 13:11:26'),
+	(150, 4, 3, 4, 'Nhựa', 'VE4417U_GB1_87', 'Gọng kính Nhựa – Lọc tia UV', 1, 0, 6800000, 7000000, 10, 4, 'Đen', '2024-12-18 13:12:26', '2024-12-26 13:12:27'),
+	(151, 4, 7, 4, 'Nhựa', '0BE4361F_300187_51', 'Gọng kính Nhựa – Chống tia UV', 1, 0, 7350000, 7500000, 10, 4, 'Đen', '2024-12-18 13:18:25', '2024-12-25 13:18:26');
 
 -- Dumping structure for table web_eyestyle.products_images
 CREATE TABLE IF NOT EXISTS `products_images` (
@@ -678,6 +684,42 @@ INSERT INTO `products_images` (`id`, `product_id`, `is_main`, `path`, `created_a
 	(219, 149, 1, 'assets/images/product177.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(220, 150, 1, 'assets/images/product178.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(221, 151, 1, 'assets/images/product179.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56');
+
+-- Dumping structure for table web_eyestyle.table_item
+CREATE TABLE IF NOT EXISTS `table_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `sub_category` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_table_item_categories` (`category_id`,`sub_category`) USING BTREE,
+  KEY `FK_table_item_categories_2` (`sub_category`),
+  CONSTRAINT `FK_table_item_categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_table_item_categories_2` FOREIGN KEY (`sub_category`) REFERENCES `categories` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table web_eyestyle.table_item: ~18 rows (approximately)
+INSERT INTO `table_item` (`id`, `category_id`, `sub_category`) VALUES
+	(1, 3, 1),
+	(2, 3, 2),
+	(3, 3, 4),
+	(4, 5, 6),
+	(5, 5, 8),
+	(6, 5, 16),
+	(8, 9, 10),
+	(7, 9, 11),
+	(9, 9, 12),
+	(10, 9, 13),
+	(11, 9, 14),
+	(12, 9, 15),
+	(16, 10, 13),
+	(17, 10, 14),
+	(18, 10, 15),
+	(13, 11, 13),
+	(14, 11, 14),
+	(15, 11, 15),
+	(19, 12, 13),
+	(20, 12, 14),
+	(21, 12, 15);
 
 -- Dumping structure for table web_eyestyle.users
 CREATE TABLE IF NOT EXISTS `users` (
