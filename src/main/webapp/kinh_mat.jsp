@@ -252,7 +252,7 @@
                         <tbody>
                         <tr style="height: 95px">
                             <td style="width: 33.3%; height: 95px; text-align: center">
-                                <a title="Gọng mát nữ" href="kinh_mat_nu.html">
+                                <a title="Gọng mát nữ" href="kinh_mat_nu.jsp">
                                     <img
                                             src="assets/images/bst-kinh-mat-nu-thoi-trang.jpg"
                                             alt=""

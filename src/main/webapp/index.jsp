@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
-<c:set var="context" value="${pageContext}"/>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +39,7 @@
             <div class="col-lg-6">
                 <div class="left-content">
                     <div class="thumb">
-                        <a href="chi_tiet_san_pham.jsp"><img src="assets/images/left_banner_img.png" alt=""/></a>
+                        <a href="index"><img src="assets/images/left_banner_img.png" alt=""/></a>
                     </div>
                 </div>
             </div>
@@ -49,10 +49,10 @@
                         <div class="col-lg-6">
                             <div class="right-first-image">
                                 <div class="thumb">
-                                    <a href=""><img alt="thumb" src="assets/images/img_type2.jpg"/></a>
+                                    <img alt="thumb" src="assets/images/img_type2.jpg"/>
                                     <div class="inner-content">
                                         <p>KÍNH MÁT</p>
-                                        <button onclick="window.location.href='kinh_mat.jsp';">
+                                        <button onclick="window.location.href='product-category?categoryId=3'">
                                             Mua ngay
                                         </button>
                                     </div>
@@ -66,7 +66,7 @@
                                     <div class="inner-content">
                                         <p>GỌNG KÍNH</p>
                                         <button
-                                                onclick="window.location.href='gong_kinh.jsp';"
+                                                onclick="window.location.href='product-category?categoryId=9'"
                                         >
                                             Mua ngay
                                         </button>
@@ -81,7 +81,7 @@
                                     <div class="inner-content">
                                         <p>TRÒNG KÍNH</p>
                                         <button
-                                                onclick="window.location.href='trong_kinh.jsp';"
+                                                onclick="window.location.href='product-category?categoryId=5'"
                                         >
                                             Mua ngay
                                         </button>
@@ -96,7 +96,7 @@
                                     <div class="inner-content">
                                         <p>KÍNH ÁP TRÒNG</p>
                                         <button
-                                                onclick="window.location.href='kinh_ap_trong.jsp';"
+                                                onclick="window.location.href='product-category?categoryId=7'"
                                         >
                                             Mua ngay
                                         </button>
@@ -157,7 +157,7 @@
                                     <div class="hover-content">
                                         <ul>
                                             <li>
-                                                <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                                                <a href="${context}/product-detail?id=${product.id}">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
                                             </li>
@@ -221,7 +221,7 @@
                                     <div class="hover-content">
                                         <ul>
                                             <li>
-                                                <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                                                <a href="${context}/product-detail?id=${product.id}">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
                                             </li>
@@ -281,7 +281,7 @@
             <div class="col-lg-12">
                 <div class="women-item-carousel">
                     <div class="owl-women-item owl-carousel">
-                        <c:forEach var="product" items="${productListNam}">
+                        <c:forEach var="product" items="${productListGK}">
                             <div class="item">
                                 <div class="thumb">
                                     <div class="hover-content">
@@ -388,7 +388,7 @@
                             <div class="hover-content">
                                 <ul>
                                     <li>
-                                        <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                                        <a href="${context}/product-detail?id=${product.id}">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </li>
