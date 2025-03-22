@@ -2,9 +2,10 @@ package vn.edu.hcmuaf.fit.doanweb.DAO.Model;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 @Data
-public class Brands {
+public class Brands implements Serializable {
     private int id;
     private String name;
     private LocalDateTime createdAt;

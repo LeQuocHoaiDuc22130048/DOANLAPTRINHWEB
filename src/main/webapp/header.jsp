@@ -20,7 +20,7 @@
                             <a href="index" class="active">Trang chủ</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="kinh_mat.jsp">Kính mát</a>
+                            <a href="KinhMat">Kính mát</a>
                         </li>
                         <li class="scroll-to-section">
                             <a href="gong_kinh.jsp">Gọng kính</a>

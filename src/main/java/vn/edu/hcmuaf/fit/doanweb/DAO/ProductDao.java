@@ -11,7 +11,7 @@ public class ProductDao {
     public List<ProductByCondition> getProductByCondition(String type, String value) {
         List<ProductByCondition> list;
         list = jdbi.withHandle((handle -> handle.createQuery(GenerateQuery.GetProductBy(type))
-                .bind("value", Integer.parseInt(value))
+                .bind("value",value)
                 .mapToBean(ProductByCondition.class).list()));
         return list;
     }

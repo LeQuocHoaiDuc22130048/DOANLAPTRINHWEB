@@ -7,174 +7,8 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-    />
-    <link
-            href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-            rel="stylesheet"
-    />
-    <link
-            rel="shortcut icon"
-            href="assets/images/logo.png"
-            type="image/x-icon"
-    />
     <title>Gọng kính</title>
-
-    <!-- link file css -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="./assets/css/font-awesome.css"/>
-    <link rel="stylesheet" href="./assets/css/style-for-products.css"/>
-    <link rel="stylesheet" href="./assets/css/owl-carousel.css"/>
-    <link rel="stylesheet" href="./assets/css/lightbox.css"/>
-    <link rel="stylesheet" href="assets/css/sanpham.css"/>
-    <link rel="stylesheet" href="assets/css/eyestyle.css"/>
-
-    <style>
-
-        /* Container chứa tất cả các sản phẩm */
-        .product-list-container {
-            width: 100%;
-            padding: 20px;
-
-        }
-
-        /* Chia các sản phẩm thành các hàng (row) và cột (col) */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        /* Định dạng cho mỗi ảnh sản phẩm */
-        .row img {
-            width: 103%;
-            margin-bottom: 20px;
-            object-fit: cover; /* Cắt bớt ảnh nếu cần để đảm bảo ảnh đúng kích thước */
-        }
-
-        /* Định dạng khi không có hình ảnh */
-        .row p {
-            text-align: center;
-            width: 100%;
-            font-size: 18px;
-            color: #888;
-            margin-top: 20px;
-        }
-
-        .product-price {
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #9f9c9c;
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .page-number {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .page-number a {
-            display: inline-block;
-            font-weight: bold;
-            font-size: 20px;
-            padding: 8px 12px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-
-        .product-item .thumb {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-item .thumb .hover-content {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-
-        .product-item .thumb:hover .hover-content {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .product-item .thumb .hover-content ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        .product-item .thumb .hover-content ul li {
-            display: inline-block;
-        }
-
-        .product-item .thumb .hover-content ul li a {
-            display: inline-block;
-            background-color: #fff;
-            border-radius: 0%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #000;
-            text-decoration: none;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
-        }
-
-        .product-item .thumb .hover-content ul li a:hover {
-            background-color: #000;
-            color: #fff;
-            transform: scale(1.1);
-        }
-
-
-        .product-item .product-info .stars {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 5px;
-            justify-content: flex-end;
-            align-items: center;
-            position: relative;
-            top: -25px;
-            right: 0;
-        }
-
-        .product-item .product-info .stars li {
-            display: inline-block;
-            font-size: 15px;
-            color: #000;
-        }
-
-        .product-item .product-info .stars li i {
-            transition: color 0.3s;
-        }
-
-    </style>
+    <c:import url="link.jsp"/>
 </head>
 <body>
 <div class="wrapper">
@@ -187,18 +21,9 @@
         </div>
     </div>
     <!-- preloader end -->
-
-    <!-- ***** Header Area Start ***** -->
-
-    <jsp:include page="header.jsp"/>
-    <!-- ***** Header Area End ***** -->
-
-    <div
-            class="shop-page-title category-page-title featured-title page-title"
-    >
-        <div
-                class="page-title-inner flex-row container medium-flex-wrap flex-has-center"
-        >
+ <c:import url="header.jsp"/>
+    <div class="shop-page-title category-page-title featured-title page-title">
+        <div class="page-title-inner flex-row container medium-flex-wrap flex-has-center">
             <div class="flex-col flex-center text-center">
                 <div class="is-large">
                     <nav class="woocommerce-breadcrumb breadcrumbs">
@@ -210,25 +35,12 @@
             </div>
         </div>
     </div>
-
-    <!-- ***** Main Banner Area Start ***** -->
-    <main id="main">
+    <main id="main" class="container-fluid">
         <div class="shop-container">
             <div class="archive-product-wrap">
                 <div class="container-banner-product">
-                    <h1 style="text-align: center">
-                        <strong>
-                  <span>
-                    Gọng kính cận đẹp: Giá, Mẫu mới, Tư vấn kiểu hợp mặt
-                  </span>
-                        </strong>
-                    </h1>
-                    <p>
-                        <img
-                                src="assets/images/gong-kinh-can-chinh-hang-banner .jpg"
-                                alt=""
-                        />
-                    </p>
+                    <h1 class="text-center">Gọng kính cận đẹp: Giá, Mẫu mới, Tư vấn kiểu hợp mặt</h1>
+                        <img src="assets/images/gong-kinh-can-chinh-hang-banner .jpg" alt=""/>
                     <div class="text hide-for-small">
                         <p class="caption-top">
                             <em>

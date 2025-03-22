@@ -6,3 +6,19 @@
 .mt-100 {
     margin-top: 100px;
 }
+.dropdown_btn {
+    border: 1px solid #d7d7d7;
+}
+.dropdown_btn:hover {
+    border:  1px solid #000;
+}
+.dropdown_item_link {
+    display: block;
+    text-decoration: none;
+    color: #0a53be;
+}
+.dropdown_item_link:hover {
+    text-decoration: underline;
+    background-color: #d7d7d7;
+    color: #000;
+}

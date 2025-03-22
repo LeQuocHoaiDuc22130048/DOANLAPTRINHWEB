@@ -21,10 +21,11 @@ public class FilterController extends HttpServlet {
     private final ProductService proService = new ProductService();
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String type = request.getParameter("type");
         String value = request.getParameter("value");
         List<ProductByCondition> list = proService.getProduct(type, value);
+        System.out.println(list.size());
         request.setAttribute("product_list", list);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
