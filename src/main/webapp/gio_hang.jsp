@@ -11,43 +11,8 @@
     />
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <link
-            rel="shortcut icon"
-            href="assets/images/logo.png"
-            type="image/x-icon"
-    />
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link
-            href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-            rel="stylesheet"
-    />
-
     <title>EyeStyle - Giỏ hàng</title>
-
-    <!-- Additional CSS Files -->
-    <link
-            rel="stylesheet"
-            type="text/css"
-            href="assets/css/bootstrap.min.css"
-    />
-
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css"/>
-
-    <link rel="stylesheet" href="assets/css/owl-carousel.css"/>
-
-    <link rel="stylesheet" href="assets/css/lightbox.css"/>
-
-    <link rel="stylesheet" href="assets/css/eyestyle.css"/>
-
+    <c:import url="link.jsp"/>
 </head>
 
 <body>
@@ -70,7 +35,7 @@
 <main id="main" class="gio_hang">
 
     <c:choose>
-<%--        Khi đặt hàng thanh công--%>
+        <%--        Khi đặt hàng thanh công--%>
         <c:when test="${sessionScope.orderSuccess != null && sessionScope.orderSuccess}">
             <div class="container no-list" id="nolist">
                 <div class="non_product">
@@ -89,7 +54,7 @@
         </c:when>
         <c:otherwise>
             <c:choose>
-<%--                Khi giỏ hàng trống--%>
+                <%--                Khi giỏ hàng trống--%>
                 <c:when test="${sessionScope.cart != null && sessionScope.cart.totalQuantity == 0}">
                     <div class="container no-list">
                         <div class="non_product">
@@ -106,7 +71,7 @@
                         </div>
                     </div>
                 </c:when>
-<%--                Khi giỏ hàng có sản pham--%>
+                <%--                Khi giỏ hàng có sản pham--%>
                 <c:otherwise>
                     <div class="container list">
                         <div class="cart_checkout_page">
@@ -355,36 +320,12 @@
 <jsp:include page="footer.jsp"/>
 <!-- ***** Footer End ***** -->
 
-<!-- jQuery -->
-<script src="assets/js/jquery-2.1.0.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="assets/js/popper.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugins -->
-<script src="assets/js/owl-carousel.js"></script>
-<script src="assets/js/accordions.js"></script>
-<script src="assets/js/datepicker.js"></script>
-<script src="assets/js/scrollreveal.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/imgfix.min.js"></script>
-<script src="assets/js/slick.js"></script>
-<script src="assets/js/lightbox.js"></script>
-<script src="assets/js/isotope.js"></script>
 <script src="assets/js/dropdown.js"></script>
-<script src="assets/js/back_to_top.js"></script>
-<script src="assets/js/chat_box.js"></script>
-<script src="assets/js/hien_thi_ten_dangnhap.js"></script>
+<c:import url="script.jsp"/>
 <script src="assets/js/confirmRemove.js"></script>
 <script src="assets/js/copy_code.js"></script>
 <script src="assets/js/update_cart.js"></script>
 <script src="assets/js/place_order.js"></script>
-
-<!-- Global Init -->
-<script src="assets/js/custom.js"></script>
 
 </body>
 </html>
