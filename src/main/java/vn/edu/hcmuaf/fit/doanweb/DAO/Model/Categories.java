@@ -29,6 +29,10 @@ public class Categories {
         this.items = items;
     }
 
+    public Categories() {
+        
+    }
+
     public int getId() {
         return id;
     }

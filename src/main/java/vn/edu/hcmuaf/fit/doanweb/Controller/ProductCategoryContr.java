@@ -5,38 +5,46 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Brands;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Categories;
-import vn.edu.hcmuaf.fit.doanweb.DAO.ProductCategoryDao;
+//import vn.edu.hcmuaf.fit.doanweb.DAO.ProductBrandDao;
+import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
+//import vn.edu.hcmuaf.fit.doanweb.DAO.ProductCategoryDao;
 
 import java.io.IOException;
 
 @WebServlet("/product-category")
 public class ProductCategoryContr extends HttpServlet {
-    private ProductCategoryDao productCategoryDao;
+    private ProductDaoImp dao;
 
     @Override
     public void init() throws ServletException {
-        productCategoryDao = new ProductCategoryDao();
+        dao = new ProductDaoImp();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         String categoryIdParam = request.getParameter("categoryId");
+        String brandIdParam = request.getParameter("brandId");
+        Object selectedItem = null;
 
-        if (categoryIdParam == null || categoryIdParam.isEmpty()) {
-            response.sendRedirect("error.jsp"); // Chuyển hướng nếu không có ID
+        if (categoryIdParam != null && !categoryIdParam.isEmpty()) {
+            selectedItem = dao.getCategoryById(Integer.parseInt(categoryIdParam));
+        } else if (brandIdParam != null && !brandIdParam.isEmpty()) {
+            selectedItem = dao.getBrandById(Integer.parseInt(brandIdParam));
+        }
+
+        if (selectedItem == null) {
+            response.sendRedirect("error.jsp");
             return;
         }
 
-        int categoryId = Integer.parseInt(categoryIdParam);
-        Categories category = productCategoryDao.getCategoryById(categoryId);
-
-        if (category == null) {
-            response.sendRedirect("error.jsp"); // Chuyển hướng nếu không có danh mục
-            return;
+        if (selectedItem instanceof Categories) {
+            request.setAttribute("isCategory", true);
+        } else {
+            request.setAttribute("isCategory", false);
         }
 
-        request.setAttribute("category", category);
-        request.setAttribute("subCategories", category.getItems());
+        request.setAttribute("selectedItem", selectedItem);
         request.getRequestDispatcher("product_category.jsp").forward(request, response);
     }
 
