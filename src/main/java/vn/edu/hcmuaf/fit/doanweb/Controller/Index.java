@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "ProductKMContr", value = "/index")
-public class ProductKMContr extends HttpServlet {
+public class Index extends HttpServlet {
     ProductDaoImp dao = new ProductDaoImp();
 
     @Override
