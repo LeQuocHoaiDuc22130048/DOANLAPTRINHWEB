@@ -1,9 +1,6 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO;
 
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 
 import java.util.List;
 
@@ -18,4 +15,12 @@ public interface ProductDaoInterface {
     public List<ProductIndex> getProductsByCategory(int categoryId);
 
     public Discounts getActiveDiscounts();
+
+    public Categories getCategoryById(int categoryId) ;
+
+    public Brands getBrandById(int id);
+
+    public List<Brands> getBrandList();
+
+    public List<Brands> getTop18Brands();
 }
