@@ -181,7 +181,7 @@
                     <nav class="woocommerce-breadcrumb breadcrumbs">
                         <a href="index">Trang Chủ</a>
                         <span class="divider">/</span>
-                        ${category.name}
+                        ${selectedItem.name}
                     </nav>
                 </div>
             </div>
@@ -196,24 +196,25 @@
                     <h1 style="text-align: center">
                         <strong>
                   <span>
-                      ${category.title}
+                      ${selectedItem.title}
                   </span>
                         </strong>
                     </h1>
                     <p>
                         <img
-                                src="${category.img}"
-                                alt="Hình ${category.name}"
+                                src="${selectedItem.img}"
+                                alt="Hình ${selectedItem.name}"
                         />
                     </p>
                     <div class="text hide-for-small">
                         <p class="caption-top">
                             <em>
-                                ${category.description}
+                                ${selectedItem.description}
                             </em>
                         </p>
                     </div>
-                    <c:if test="${not empty subCategories}">
+
+                    <c:if test="${isCategory && selectedItem.items.size()>0}">
                         <div class="shop-container section-title-container">
                             <h3 class="section-title section-title-center">
                                 <b></b>
@@ -225,7 +226,7 @@
                         <table style="width: 100%; border-collapse: collapse">
                             <tbody>
                             <tr style="height: 95px">
-                                <c:forEach var="sub" items="${subCategories}" varStatus="status">
+                                <c:forEach var="sub" items="${selectedItem.items}" varStatus="status">
                                 <td style="width: 33.3%; height: 95px; text-align: center">
                                     <a title="${sub.name}" href="product-category?categoryId=${sub.id}">
                                         <img src="${sub.img}" alt="" width="340" height="210"/>
@@ -233,7 +234,7 @@
                                 </td>
 
                                 <!-- Nếu đã hiển thị 3 phần tử, thì xuống dòng -->
-                                <c:if test="${status.index == 2 && subCategories.size() > 3}">
+                                <c:if test="${status.index == 2 && selectedItem.items.size() > 3}">
                             </tr>
                             <tr style="height: 95px">
                                 <td colspan="3"
