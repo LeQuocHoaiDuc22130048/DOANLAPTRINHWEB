@@ -7,7 +7,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Log;
 public class LogSystem {
     private static Log instance;
     private static final Jdbi jdbi = JDBIConnect.get();;
-    private final static String InsertLog = "INSERT INTO Log (Level, Log_Time, Locate, UserId, BeforeText, AfterText) " +
+    private final static String InsertLog = "INSERT INTO Log (Level, Log_Time, Locate, user_id, BeforeText, AfterText) " +
             "VALUES (? , NOW(), ?, ?, ?, ?)";
     enum LEVEL {
         INFO,
@@ -15,7 +15,7 @@ public class LogSystem {
         WARNING ,
         DANGER
     }
-    public static void CreateLog(String Level , String locate, String userId, String beforeText, String afterText) {
+    public static void CreateLog(String Level , String locate, int userId, String beforeText, String afterText) {
         jdbi.withHandle(handle ->
                 handle.createUpdate(InsertLog)
                         .bind(0, LEVEL.valueOf(Level))

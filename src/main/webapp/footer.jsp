@@ -58,8 +58,8 @@
         </div>
     </div>
     <!--nút di chuyển lên đầu trang-->
-    <a href="#top" class="btn_di_chuyen" id="backToTop">
-        <i class="fa-solid fa-angle-up"></i>
+    <a href="#top" class="btn_di_chuyen z-3" id="backToTop">
+        <i class="bi bi-chevron-up"></i>
     </a>
 
     <!-- chat box ở phần footer Start-->

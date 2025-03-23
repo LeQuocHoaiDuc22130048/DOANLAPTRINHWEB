@@ -1,15 +1,19 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               10.4.32-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win64
--- HeidiSQL Version:             12.10.0.7000
--- --------------------------------------------------------
 
--- Tạo database
 CREATE DATABASE IF NOT EXISTS `web_eyestyle` 
     DEFAULT CHARACTER SET utf8mb4 
     COLLATE utf8mb4_general_ci;
 USE `web_eyestyle`;
+
+CREATE TABLE `log` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Level VARCHAR(50) NOT NULL,
+    Log_Time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Locate VARCHAR(255),
+    user_id INT DEFAULT NULL,
+    BeforeText TEXT,
+    AfterText TEXT,
+   CONSTRAINT `fk_orders_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) 
+);
 
 -- Bảng thương hiệu
 CREATE TABLE IF NOT EXISTS `brands` (
@@ -35,6 +39,18 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `img` VARCHAR(250) DEFAULT NULL,
   `description` MEDIUMTEXT DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping structure for table web_eyestyle.table_item
+CREATE TABLE IF NOT EXISTS `table_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `sub_category` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_table_item_categories` (`category_id`,`sub_category`) USING BTREE,
+  KEY `FK_table_item_categories_2` (`sub_category`),
+  CONSTRAINT `FK_table_item_categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_table_item_categories_2` FOREIGN KEY (`sub_category`) REFERENCES `categories` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Bảng mã giảm giá
 CREATE TABLE IF NOT EXISTS `discounts` (
@@ -111,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `products_images` (
 
 
 -- Bảng phân loại người dùng
-CREATE TABLE IF NOT EXISTS `user_types` (
+CREATE TABLE IF NOT EXISTS `user_type` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` VARCHAR(255) DEFAULT NULL,
   `description` VARCHAR(255) DEFAULT NULL
@@ -122,11 +138,20 @@ CREATE TABLE IF NOT EXISTS `users_types` (
   `user_id` INT DEFAULT NULL,
   `user_type_id` INT DEFAULT NULL,
   CONSTRAINT `fk_users_types_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `fk_users_types_type` FOREIGN KEY (`user_type_id`) REFERENCES `user_types` (`id`)
+  CONSTRAINT `fk_users_types_type` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-
+CREATE TABLE `log` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Level VARCHAR(50) NOT NULL,
+    Log_Time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Locate VARCHAR(255),
+    user_id INT DEFAULT NULL,
+    BeforeText TEXT,
+    AfterText TEXT,
+   CONSTRAINT `fk_log_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) 
+);
 
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -220,6 +245,28 @@ INSERT INTO `categories` ( `name`, `status`, `hot`, `created_at`, `updated_at`, 
 	( 'Tròng kính hai tròng', 1, 0, '2025-03-20 10:24:07', '2025-03-20 10:24:07', 'Tròng kính hai tròng cao cấp, chính hãng 100%, BH 1 năm', 'assets/images/kinh-hai-trong-chinh-hang-banner.jpg', 'Kính hai tròng là loại tròng phổ biến dành cho người trung niên hoặc lão thị. Sở hữu vùng nhìn ưu việt, tròng kính giúp người đeo cải thiện khả năng quan sát hình ảnh ở xa và gần sắc nét hơn. Việc sử dụng cặp kính lưỡng tiêu giúp chúng ta tiết kiệm nhiều chi phí, bởi không cần phải cắt hai cặp kính để nhìn xa và gần. Bên cạnh đó, thấu kính 2 tầm nhìn còn được trang bị những lớp phủ tính năng đặc biệt giúp người sử dụng giảm mỏi, chống lóa và hạn chế bụi bẩn hiệu quả');
 
 
+INSERT INTO `table_item` ( `category_id`, `sub_category`) VALUES
+	(3, 1),
+	(3, 2),
+	(3, 4),
+	(5, 6),
+	(5, 8),
+	(5, 16),
+	(9, 10),
+	(9, 11),
+	(9, 12),
+	( 9, 13),
+	( 9, 14),
+	( 9, 15),
+	( 10, 13),
+	( 10, 14),
+	( 10, 15),
+	( 11, 13),
+	( 11, 14),
+	( 11, 15),
+	( 12, 13),
+	( 12, 14),
+	( 12, 15);
 -- Dumping data for table web_eyestyle.discounts: ~25 rows (approximately)
 INSERT INTO `discounts` ( `code`, `description`, `discount_percentage`, `status`) VALUES
 	( 'DISCOUNT10', 'Giảm giá 10% cho đơn hàng đầu tiên', 10, 1),
@@ -279,59 +326,53 @@ INSERT INTO `frame_shapes` (`name`) VALUES
     ('Chữ nhật'),
     ('Đa giác'),
     ('Hình thang');
+    
+-- Dumping structure for table web_eyestyle.users
+
+-- Dumping data for table web_eyestyle.users: ~16 rows (approximately)
+INSERT INTO `users` ( `name`, `email`, `password`, `phone`, `address`, `status`, `created_at`, `updated_at`) VALUES
+('Nguyễn Văn An', 'annguyen@gmail.com', 'password123', '0912345678', 'Số 12, Đường Nguyễn Trãi, Hà Nội', 1, '2024-12-01 08:30:56', '2024-12-01 09:30:08'),
+	('Trần Thị Hoa', 'hoatran@gmail.com', 'hoa2024', '0934567890', 'Số 25, Đường Lê Lợi, Hồ Chí Minh', 1, '2024-12-02 09:12:00', '2024-12-02 09:30:00'),
+	('Lê Minh Tâm', 'tamle@gmail.com', 'minhtam789', '0978123456', 'Số 30, Đường Trần Phú, Đà Nẵng', 1, '2024-12-03 10:15:34', '2024-12-03 10:15:34'),
+	('Phạm Thị Cúc', 'cucpham@gmail.com', 'cuc12345', '0965432187', 'Số 15, Đường Nguyễn Văn Linh, Cần Thơ', 0, NULL, NULL),
+	('Hoàng Văn Hải', 'haihoang@gmail.com', 'hoanghai456', '0945678901', 'Số 45, Đường Hùng Vương, Nha Trang', 1, '2024-12-05 12:45:00', '2024-12-05 12:45:00'),
+	('Đặng Hồng Nhung', 'nhungdang@gmail.com', 'nhung2024', '0983214567', 'Số 8, Đường Nguyễn Huệ, Huế', 1, '2024-12-06 13:20:30', '2024-12-06 13:20:30'),
+	('Võ Quang Huy', 'huyvo@gmail.com', 'quanghuy321', '0905671234', 'Số 12, Đường Lạch Tray, Hải Phòng', 1, '2024-12-07 14:30:16', '2024-12-07 14:30:16'),
+	('Ngô Thị Mai', 'maingo@gmail.com', 'ngomai654', '0932145678', 'Số 50, Đường Trần Hưng Đạo, Quảng Nam', 0, NULL, NULL),
+	('Bùi Thanh Sơn', 'sonbui@gmail.com', 'thanhson123', '0912348765', 'Số 65, Đường Cách Mạng Tháng Tám, Bình Dương', 1, '2024-12-09 16:19:56', '2024-12-09 16:19:56'),
+	( 'Phan Nhật Ánh', 'anhphan@gmail.com', 'nhatanh789', '0945678123', 'Số 20, Đường Phạm Văn Đồng, Vũng Tàu', 1, '2024-12-10 17:30:10', '2024-12-10 17:30:10'),
+	( 'Lý Thị Hồng', 'hongly@gmail.com', 'hongly456', '0921345678', 'Số 5, Đường Hà Huy Tập, Hà Tĩnh', 1, '2024-12-11 18:20:00', '2024-12-11 18:20:00'),
+	( 'Trịnh Văn Lâm', 'lamtrinh@gmail.com', 'lamvan123', '0908765432', 'Số 17, Đường Bà Triệu, Thanh Hóa', 1, '2024-12-12 19:40:47', '2024-12-12 19:40:47'),
+	( 'Đỗ Ngọc Bảo', 'baodo@gmail.com', 'ngocbao987', '0932146789', 'Số 34, Đường Lý Thường Kiệt, Nam Định', 0, NULL, NULL),
+	( 'Phạm Thanh Hà', 'hapham@gmail.com', 'phamha456', '0943215678', 'Số 7, Đường Nguyễn Thị Minh Khai, Thái Nguyên', 1, '2024-12-14 21:50:39', '2024-12-14 21:50:39'),
+	( 'Nguyễn Hoàng Minh', 'minhnguyen@gmail.com', 'hoangminh123', '0987654321', 'Số 90, Đường Bắc Ninh, Bắc Ninh', 1, '2024-12-15 22:30:18', '2024-12-15 22:30:18'),
+	( 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, '2024-12-16 23:00:56', '2024-12-16 23:00:56');
 
 
-INSERT INTO `orders` (`price`, `user_id`, `total_quantity`, `status_payment`, `status_transport`, `discount_id`, `total_discount`, `total_price`, `note`, `created_at`, `updated_at`) VALUES
-    (8000000, NULL, 3, 1, 1, 1, 800000, 7200000, 'Giao hàng nhanh, mong sớm nhận được', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (14000000, NULL, 5, 0, 0, 2, 2800000, 11200000, 'Thanh toán khi nhận hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (4700000, NULL, 1, 1, 1, 3, 1410000, 3290000, 'Yêu cầu giao vào chiều mai', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (16900000, NULL, 2, 1, 0, NULL, 0, 16900000, 'Giao nhanh, hỗ trợ kiểm tra sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (21000000, NULL, 3, 0, 1, 4, 10500000, 10500000, 'Giao hàng hẹn trước', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (1800000, NULL, 2, 1, 0, 5, 0, 1800000, 'Mong muốn đổi sản phẩm nếu không hài lòng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (35000000, NULL, 4, 1, 1, NULL, 0, 35000000, 'Cần kiểm tra kỹ khi giao hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (14600000, NULL, 3, 1, 1, 6, 2190000, 12410000, 'Hỗ trợ đổi sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (33000000, NULL, 6, 0, 0, 7, 8250000, 24750000, 'Yêu cầu thanh toán qua chuyển khoản', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (4000000, NULL, 3, 1, 0, 8, 800000, 3200000, 'Yêu cầu giao hàng vào cuối tuần', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (47000000, NULL, 4, 1, 1, 9, 4700000, 42300000, 'Đặt hàng cho quà tặng sinh nhật', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (3000000, NULL, 5, 0, 0, 10, 1200000, 1800000, 'Mong muốn giao hàng vào buổi sáng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (500000, NULL, 8, 1, 1, NULL, 0, 500000, 'Sản phẩm bị lỗi, cần hỗ trợ đổi', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (1800000, NULL, 3, 0, 0, 11, 90000, 1710000, 'Khuyến mãi áp dụng cho tất cả sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (13500000, NULL, 2, 1, 1, 12, 2025000, 11475000, 'Thanh toán qua ví điện tử', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (6000000, NULL, 4, 1, 0, 13, 3600000, 2400000, 'Sản phẩm còn mới, yêu cầu giao gấp', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (12000000, NULL, 5, 0, 0, 14, 3000000, 9000000, 'Giảm giá cho khách hàng thân thiết', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (15600000, NULL, 1, 1, 1, 15, 1560000, 14040000, 'Nhận hàng trong vòng 24h', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (1800000, NULL, 7, 0, 0, 16, 900000, 900000, 'Đặt hàng cho các sự kiện', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-    (900000, NULL, 3, 1, 1, NULL, 0, 900000, 'Đặt sản phẩm từ lâu, cần giao ngay', '2024-12-17 09:48:12', '2024-12-17 09:48:12');
+-- Dumping data for table web_eyestyle.user_type: ~2 rows (approximately)
+INSERT INTO `user_type` ( `name`, `description`) VALUES
+	( 'Admin', 'Quản trị viên có quyền quản lý toàn bộ hệ thống, bao gồm quản lý đơn hàng, sản phẩm và thông tin khách hàng.'),
+	( 'User', 'Người dùng bình thường có quyền mua hàng và xem các sản phẩm, không có quyền quản lý hệ thống hay dữ liệu khách hàng.');
 
-INSERT INTO `order_details` (`order_id`, `product_id`, `quantity`, `total_price`, `created_at`, `updated_at`) VALUES
-	(1, 14, 2, 7000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(1, 119, 1, 1000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(2, 129, 3, 9000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(2, 132, 2, 5000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(3, 125, 1, 4700000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(4, 117, 1, 900000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(4, 2, 1, 16000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(5, 27, 2, 16000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(5, 98, 1, 5000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(6, 130, 2, 1800000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(7, 97, 3, 24000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(7, 143, 1, 11000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(8, 126, 1, 600000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(8, 32, 2, 14000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(9, 29, 4, 26000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(9, 14, 2, 7000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(10, 66, 1, 4000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(11, 100, 2, 25000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(11, 80, 2, 22000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(12, 77, 3, 3000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(13, 54, 1, 500000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(14, 130, 2, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(15, 124, 3, 13500000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(16, 133, 2, 6000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(17, 1, 1, 12000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(18, 11, 2, 15600000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(19, 126, 3, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(20, 117, 1, 900000, '2024-12-17 10:49:56', '2024-12-17 10:49:56');
+-- Dumping data for table web_eyestyle.users_types: ~16 rows (approximately)
+INSERT INTO `users_types` ( `user_id`, `user_type_id`) VALUES
+	(1, 1),
+	(2, 2),
+	(3, 2),
+	(4, 2),
+	(5, 2),
+	(6, 2),
+	(7, 2),
+	(8, 2),
+	(9, 2),
+	( 10, 2),
+	( 11, 2),
+	( 12, 2),
+	( 13, 2),
+	( 14, 2),
+	( 15, 2),
+	( 16, 2);
+
 
 -- Dumping data for table web_eyestyle.products: ~151 rows (approximately)
 INSERT INTO `products` ( `category_id`, `brand_id`, `shape_id`, `material`, `name`, `description`, `status`, `hot`, `cost_price`, `selling_price`, `quantity`, `gender`, `color`, `created_at`, `updated_at`) VALUES
@@ -384,7 +425,7 @@ INSERT INTO `products` ( `category_id`, `brand_id`, `shape_id`, `material`, `nam
     (2, 3, 6, 'Nhựa', 'MOD.3316-F_108', 'Gọng kính Nhựa', 1, 0, 5500000, 6000000, 10, 2, 'Nâu', '2024-12-18 00:10:58', '2024-12-26 00:10:59'),
     (2, 15, 2, 'Nhựa', 'EF12451_C1', 'Gọng kính Nhựa', 1, 0, 480000, 500000, 30, 2, 'Đen', '2024-12-18 00:12:01', '2024-12-25 00:12:03'),
     (2, 9, 2, 'Nhựa', 'VPLF10_04G0', 'Gọng kính Nhựa', 1, 0, 5100000, 5500000, 10, 2, 'Xám', '2024-12-18 00:13:02', '2024-12-25 00:13:03'),
-    (2, 9, 8, 'Nhựa', 'VPLF75_714Y', 'Gọng kính Nhựa', 1, 0, 3800000, 4000000, 10, 2, 'Đồi mồi', '2024-12-18 00:14:21', '2024-12-26 00:14:28').
+    (2, 9, 8, 'Nhựa', 'VPLF75_714Y', 'Gọng kính Nhựa', 1, 0, 3800000, 4000000, 10, 2, 'Đồi mồi', '2024-12-18 00:14:21', '2024-12-26 00:14:28'),
 	( 2, 16, 4, 'Nhựa', 'VFU679V_0909', 'Gọng kính Nhựa', 1, 0, 3700000, 4000000, 15, 2, 'Đồi mồi', '2024-12-18 00:15:38', '2024-12-26 00:15:39'),
 	( 2, 16, 4, 'Nhựa', 'VFU679V_700Y', 'Gọng kính Nhựa', 1, 1, 3700000, 4000000, 20, 2, 'Đen', '2024-12-18 00:16:49', '2024-12-27 00:16:50'),
 	( 2, 15, 2, 'Nhựa', 'EF90451_503', 'Gọng kính Nhựa', 1, 1, 780000, 800000, 25, 2, 'Tím', '2024-12-18 00:18:01', '2024-12-25 00:18:02'),
@@ -710,76 +751,58 @@ INSERT INTO `products_images` ( `product_id`, `is_main`, `path`, `created_at`, `
 	( 149, 1, 'assets/images/product177.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	( 150, 1, 'assets/images/product178.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	( 151, 1, 'assets/images/product179.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56');
+	
+	
+INSERT INTO `orders` (`price`, `user_id`, `total_quantity`, `status_payment`, `status_transport`, `discount_id`, `total_discount`, `total_price`, `note`, `created_at`, `updated_at`) VALUES
+    (8000000, 1, 3, 1, 1, 1, 800000, 7200000, 'Giao hàng nhanh, mong sớm nhận được', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (14000000, 4, 5, 0, 0, 2, 2800000, 11200000, 'Thanh toán khi nhận hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (4700000, 1, 1, 1, 1, 3, 1410000, 3290000, 'Yêu cầu giao vào chiều mai', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (16900000, 3, 2, 1, 0, NULL, 0, 16900000, 'Giao nhanh, hỗ trợ kiểm tra sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (21000000, 4, 3, 0, 1, 4, 10500000, 10500000, 'Giao hàng hẹn trước', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (1800000, 6, 2, 1, 0, 5, 0, 1800000, 'Mong muốn đổi sản phẩm nếu không hài lòng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (35000000, 2, 4, 1, 1, NULL, 0, 35000000, 'Cần kiểm tra kỹ khi giao hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (14600000, 7, 3, 1, 1, 6, 2190000, 12410000, 'Hỗ trợ đổi sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (33000000, 2, 6, 0, 0, 7, 8250000, 24750000, 'Yêu cầu thanh toán qua chuyển khoản', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (4000000, 8, 3, 1, 0, 8, 800000, 3200000, 'Yêu cầu giao hàng vào cuối tuần', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (47000000, 6, 4, 1, 1, 9, 4700000, 42300000, 'Đặt hàng cho quà tặng sinh nhật', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (3000000, 2, 5, 0, 0, 10, 1200000, 1800000, 'Mong muốn giao hàng vào buổi sáng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (500000, 1, 8, 1, 1, NULL, 0, 500000, 'Sản phẩm bị lỗi, cần hỗ trợ đổi', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (1800000, 1, 3, 0, 0, 11, 90000, 1710000, 'Khuyến mãi áp dụng cho tất cả sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (13500000, 5, 2, 1, 1, 12, 2025000, 11475000, 'Thanh toán qua ví điện tử', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (6000000, 5, 4, 1, 0, 13, 3600000, 2400000, 'Sản phẩm còn mới, yêu cầu giao gấp', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (12000000, 7, 5, 0, 0, 14, 3000000, 9000000, 'Giảm giá cho khách hàng thân thiết', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (15600000, 3, 1, 1, 1, 15, 1560000, 14040000, 'Nhận hàng trong vòng 24h', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (1800000, 6, 7, 0, 0, 16, 900000, 900000, 'Đặt hàng cho các sự kiện', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
+    (900000, 2, 3, 1, 1, NULL, 0, 900000, 'Đặt sản phẩm từ lâu, cần giao ngay', '2024-12-17 09:48:12', '2024-12-17 09:48:12');
 
+INSERT INTO `order_details` (`order_id`, `product_id`, `quantity`, `total_price`, `created_at`, `updated_at`) VALUES
+	(1, 14, 2, 7000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(1, 119, 1, 1000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(2, 129, 3, 9000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(2, 132, 2, 5000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(3, 125, 1, 4700000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(4, 117, 1, 900000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(4, 2, 1, 16000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(5, 27, 2, 16000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(5, 98, 1, 5000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(6, 130, 2, 1800000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(7, 97, 3, 24000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(7, 143, 1, 11000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(8, 126, 1, 600000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(8, 32, 2, 14000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(9, 29, 4, 26000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(9, 14, 2, 7000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(10, 66, 1, 4000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(11, 100, 2, 25000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(11, 80, 2, 22000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(12, 77, 3, 3000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
+	(13, 54, 1, 500000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
+	(14, 130, 2, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
+	(15, 124, 3, 13500000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
+	(16, 133, 2, 6000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
+	(17, 1, 1, 12000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
+	(18, 11, 2, 15600000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
+	(19, 126, 3, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
+	(20, 117, 1, 900000, '2024-12-17 10:49:56', '2024-12-17 10:49:56');
 
--- Dumping data for table web_eyestyle.table_item: ~18 rows (approximately)
-INSERT INTO `table_item` (`id`, `category_id`, `sub_category`) VALUES
-(3, 1),
-	(3, 2),
-	(3, 4),
-	(5, 6),
-	(5, 8),
-	(5, 16),
-	(9, 10),
-	(9, 11),
-	(9, 12),
-	( 9, 13),
-	( 9, 14),
-	( 9, 15),
-	( 10, 13),
-	( 10, 14),
-	( 10, 15),
-	( 11, 13),
-	( 11, 14),
-	( 11, 15),
-	( 12, 13),
-	( 12, 14),
-	( 12, 15);
-
-
--- Dumping structure for table web_eyestyle.users
-
--- Dumping data for table web_eyestyle.users: ~16 rows (approximately)
-INSERT INTO `users` ( `name`, `email`, `password`, `phone`, `address`, `status`, `created_at`, `updated_at`) VALUES
-('Nguyễn Văn An', 'annguyen@gmail.com', 'password123', '0912345678', 'Số 12, Đường Nguyễn Trãi, Hà Nội', 1, '2024-12-01 08:30:56', '2024-12-01 09:30:08'),
-	('Trần Thị Hoa', 'hoatran@gmail.com', 'hoa2024', '0934567890', 'Số 25, Đường Lê Lợi, Hồ Chí Minh', 1, '2024-12-02 09:12:00', '2024-12-02 09:30:00'),
-	('Lê Minh Tâm', 'tamle@gmail.com', 'minhtam789', '0978123456', 'Số 30, Đường Trần Phú, Đà Nẵng', 1, '2024-12-03 10:15:34', '2024-12-03 10:15:34'),
-	('Phạm Thị Cúc', 'cucpham@gmail.com', 'cuc12345', '0965432187', 'Số 15, Đường Nguyễn Văn Linh, Cần Thơ', 0, NULL, NULL),
-	('Hoàng Văn Hải', 'haihoang@gmail.com', 'hoanghai456', '0945678901', 'Số 45, Đường Hùng Vương, Nha Trang', 1, '2024-12-05 12:45:00', '2024-12-05 12:45:00'),
-	('Đặng Hồng Nhung', 'nhungdang@gmail.com', 'nhung2024', '0983214567', 'Số 8, Đường Nguyễn Huệ, Huế', 1, '2024-12-06 13:20:30', '2024-12-06 13:20:30'),
-	('Võ Quang Huy', 'huyvo@gmail.com', 'quanghuy321', '0905671234', 'Số 12, Đường Lạch Tray, Hải Phòng', 1, '2024-12-07 14:30:16', '2024-12-07 14:30:16'),
-	('Ngô Thị Mai', 'maingo@gmail.com', 'ngomai654', '0932145678', 'Số 50, Đường Trần Hưng Đạo, Quảng Nam', 0, NULL, NULL),
-	('Bùi Thanh Sơn', 'sonbui@gmail.com', 'thanhson123', '0912348765', 'Số 65, Đường Cách Mạng Tháng Tám, Bình Dương', 1, '2024-12-09 16:19:56', '2024-12-09 16:19:56'),
-	( 'Phan Nhật Ánh', 'anhphan@gmail.com', 'nhatanh789', '0945678123', 'Số 20, Đường Phạm Văn Đồng, Vũng Tàu', 1, '2024-12-10 17:30:10', '2024-12-10 17:30:10'),
-	( 'Lý Thị Hồng', 'hongly@gmail.com', 'hongly456', '0921345678', 'Số 5, Đường Hà Huy Tập, Hà Tĩnh', 1, '2024-12-11 18:20:00', '2024-12-11 18:20:00'),
-	( 'Trịnh Văn Lâm', 'lamtrinh@gmail.com', 'lamvan123', '0908765432', 'Số 17, Đường Bà Triệu, Thanh Hóa', 1, '2024-12-12 19:40:47', '2024-12-12 19:40:47'),
-	( 'Đỗ Ngọc Bảo', 'baodo@gmail.com', 'ngocbao987', '0932146789', 'Số 34, Đường Lý Thường Kiệt, Nam Định', 0, NULL, NULL),
-	( 'Phạm Thanh Hà', 'hapham@gmail.com', 'phamha456', '0943215678', 'Số 7, Đường Nguyễn Thị Minh Khai, Thái Nguyên', 1, '2024-12-14 21:50:39', '2024-12-14 21:50:39'),
-	( 'Nguyễn Hoàng Minh', 'minhnguyen@gmail.com', 'hoangminh123', '0987654321', 'Số 90, Đường Bắc Ninh, Bắc Ninh', 1, '2024-12-15 22:30:18', '2024-12-15 22:30:18'),
-	( 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, '2024-12-16 23:00:56', '2024-12-16 23:00:56');
-
--- Dumping data for table web_eyestyle.users_types: ~16 rows (approximately)
-INSERT INTO `users_types` ( `user_id`, `user_type_id`) VALUES
-	(1, 1),
-	(2, 2),
-	(3, 2),
-	(4, 2),
-	(5, 2),
-	(6, 2),
-	(7, 2),
-	(8, 2),
-	(9, 2),
-	( 10, 2),
-	( 11, 2),
-	( 12, 2),
-	( 13, 2),
-	( 14, 2),
-	( 15, 2),
-	( 16, 2);
-
-
--- Dumping data for table web_eyestyle.user_type: ~2 rows (approximately)
-INSERT INTO `user_type` (`id`, `name`, `description`) VALUES
-	( 'Admin', 'Quản trị viên có quyền quản lý toàn bộ hệ thống, bao gồm quản lý đơn hàng, sản phẩm và thông tin khách hàng.'),
-	( 'User', 'Người dùng bình thường có quyền mua hàng và xem các sản phẩm, không có quyền quản lý hệ thống hay dữ liệu khách hàng.');
 

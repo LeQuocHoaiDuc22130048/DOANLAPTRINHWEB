@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Brands;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.Util.LogSystem;
 
 import java.io.IOException;
 import java.util.List;
@@ -30,8 +31,9 @@ public class Index extends HttpServlet {
         request.setAttribute("productListKAT", productListKAT);
         request.setAttribute("productListGK", productListGK);
         request.setAttribute("brandList", brandList);
-
         request.getRequestDispatcher("index.jsp").forward(request, response);
+        LogSystem.CreateLog("INFO" , Index.class.getName() , 17 , "" , "guest access website !");
+
     }
 
 }
