@@ -1,7 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <meta charset="UTF-8">
-    <title>Website của bạn</title>
+    <title>Header</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <header class="header-area header-sticky">
@@ -10,7 +11,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index" class="logo shadow-none">
+                    <a href="index" class="logo">
                         <img src="assets/images/logo.png"/>
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -20,21 +21,21 @@
                             <a href="index" class="active">Trang chủ</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="KinhMat">Kính mát</a>
+                            <a href="product-category?categoryId=3">Kính mát</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="gong_kinh.jsp">Gọng kính</a>
+                            <a href="product-category?categoryId=9">Gọng kính</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="trong_kinh.jsp">Tròng kính</a>
+                            <a href="product-category?categoryId=5">Tròng kính</a>
                         </li>
                         <li class="scroll-to-section">
-                            <a href="kinh_ap_trong.jsp">Kính áp tròng</a>
+                            <a href="product-category?categoryId=7">Kính áp tròng</a>
                         </li>
                         <li class="submenu">
                             <a href="javascript:;">Trang phụ</a>
                             <ul>
-                                <li><a href="gong_kinh.jsp">Sản phẩm</a></li>
+                                <li><a href="product-category?categoryId=3">Sản phẩm</a></li>
                                 <li>
                                     <a href="chi_tiet_san_pham.jsp">Chi tiết sản phẩm</a>
                                 </li>

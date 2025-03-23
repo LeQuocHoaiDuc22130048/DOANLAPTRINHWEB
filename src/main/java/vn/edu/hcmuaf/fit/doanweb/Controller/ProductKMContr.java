@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Brands;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 
@@ -13,19 +14,22 @@ import java.util.List;
 
 @WebServlet(name = "ProductKMContr", value = "/index")
 public class ProductKMContr extends HttpServlet {
-    ProductDaoImp productDAO = new ProductDaoImp();
+    ProductDaoImp dao = new ProductDaoImp();
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        List<ProductIndex> productListNam = productDAO.getProductsByGender(1);
-        List<ProductIndex> productListNu = productDAO.getProductsByGender(2);
-
-        List<ProductIndex> productListKAT= productDAO.getProductsByCategory(7);
+        List<ProductIndex> productListNam = dao.getProductsByCategory(1);
+        List<ProductIndex> productListNu = dao.getProductsByCategory(2);
+        List<ProductIndex> productListGK= dao.getProductsByCategory(9);
+        List<ProductIndex> productListKAT= dao.getProductsByCategory(7);
+        List<Brands> brandList= dao.getTop18Brands();
 
         // Gửi danh sách sản phẩm sang JSP
         request.setAttribute("productListNam", productListNam);
         request.setAttribute("productListNu", productListNu);
         request.setAttribute("productListKAT", productListKAT);
+        request.setAttribute("productListGK", productListGK);
+        request.setAttribute("brandList", brandList);
 
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }

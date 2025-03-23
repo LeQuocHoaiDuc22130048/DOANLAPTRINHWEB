@@ -4,11 +4,16 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
     <welcome-file-list>
-        <welcome-file>index.java</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/assets/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/admin/asset/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

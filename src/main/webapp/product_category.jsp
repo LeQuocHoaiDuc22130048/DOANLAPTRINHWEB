@@ -2,8 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<!DOCTYPE html>
+<jsp:useBean id="availableData" class="vn.edu.hcmuaf.fit.doanweb.Util.AvailableData" scope="page"/>
+<c:set var="brands" value="${availableData.getBrands('BRANDS')}"/>
+<c:set var="shapes" value="${availableData.getShapes('SHAPES')}"/>
+<c:set var="materials" value="${availableData.getMaterials('MATERIALS')}"/>
+<c:set var="colors" value="${availableData.getColors('COLORS')}"/><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>

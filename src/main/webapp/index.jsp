@@ -39,7 +39,7 @@
             <div class="col-lg-6">
                 <div class="left-content">
                     <div class="thumb">
-                        <a href="chi_tiet_san_pham.jsp"><img src="assets/images/left_banner_img.png" alt=""/></a>
+                        <a href="index"><img src="assets/images/left_banner_img.png" alt=""/></a>
                     </div>
                 </div>
             </div>
@@ -49,10 +49,10 @@
                         <div class="col-lg-6">
                             <div class="right-first-image">
                                 <div class="thumb">
-                                    <a href=""><img alt="thumb" src="assets/images/img_type2.jpg"/></a>
+                                    <img alt="thumb" src="assets/images/img_type2.jpg"/>
                                     <div class="inner-content">
                                         <p>KÍNH MÁT</p>
-                                        <button onclick="window.location.href='kinh_mat.jsp';">
+                                        <button onclick="window.location.href='product-category?categoryId=3'">
                                             Mua ngay
                                         </button>
                                     </div>
@@ -66,7 +66,7 @@
                                     <div class="inner-content">
                                         <p>GỌNG KÍNH</p>
                                         <button
-                                                onclick="window.location.href='gong_kinh.jsp';"
+                                                onclick="window.location.href='product-category?categoryId=9'"
                                         >
                                             Mua ngay
                                         </button>
@@ -81,7 +81,7 @@
                                     <div class="inner-content">
                                         <p>TRÒNG KÍNH</p>
                                         <button
-                                                onclick="window.location.href='trong_kinh.jsp';"
+                                                onclick="window.location.href='product-category?categoryId=5'"
                                         >
                                             Mua ngay
                                         </button>
@@ -96,7 +96,7 @@
                                     <div class="inner-content">
                                         <p>KÍNH ÁP TRÒNG</p>
                                         <button
-                                                onclick="window.location.href='kinh_ap_trong.jsp';"
+                                                onclick="window.location.href='product-category?categoryId=7'"
                                         >
                                             Mua ngay
                                         </button>
@@ -157,7 +157,7 @@
                                     <div class="hover-content">
                                         <ul>
                                             <li>
-                                                <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                                                <a href="${context}/product-detail?id=${product.id}">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
                                             </li>
@@ -221,7 +221,7 @@
                                     <div class="hover-content">
                                         <ul>
                                             <li>
-                                                <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                                                <a href="${context}/product-detail?id=${product.id}">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
                                             </li>
@@ -281,7 +281,7 @@
             <div class="col-lg-12">
                 <div class="women-item-carousel">
                     <div class="owl-women-item owl-carousel">
-                        <c:forEach var="product" items="${productListNam}">
+                        <c:forEach var="product" items="${productListGK}">
                             <div class="item">
                                 <div class="thumb">
                                     <div class="hover-content">
@@ -352,13 +352,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 img_trong">
-                <a href="./trong_kinh_don_trong.jsp"> <img src="./assets/images/trong_kinh_type_1.jpg" alt=""/></a>
+                <a href="product-category?categoryId=6"> <img src="assets/images/trong_kinh_type_1.jpg" alt=""/></a>
             </div>
             <div class="col-lg-4 img_trong">
-                <a href="./trong_kinh_hai_trong.jsp"> <img src="./assets/images/trong_kinh_type_2.jpg" alt=""/></a>
+                <a href="product-category?categoryId=16"> <img src="assets/images/trong_kinh_type_2.jpg" alt=""/></a>
             </div>
             <div class="col-lg-4 img_trong">
-                <a href="./trong_kinh_da_trong.jsp"> <img src="./assets/images/trong_kinh_type_3.jpg" alt=""/></a>
+                <a href="product-category?categoryId=8"> <img src="assets/images/trong_kinh_type_3.jpg" alt=""/></a>
             </div>
         </div>
     </div>
@@ -388,7 +388,7 @@
                             <div class="hover-content">
                                 <ul>
                                     <li>
-                                        <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
+                                        <a href="${context}/product-detail?id=${product.id}">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </li>
@@ -444,7 +444,7 @@
                         great website. Thank you.
                     </p>
                     <div class="main-border-button">
-                        <a href="brand_rayban_avirator.html">Khám phá thêm</a>
+                        <a href="product-category?brandId=19">Khám phá thêm</a>
                     </div>
                 </div>
             </div>
@@ -453,32 +453,32 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="brand_rayban_avirator.html"><img src="assets/images/bst_1.jpg" alt=""/></a>
+                                <a href="product-category?brandId=19"><img src="assets/images/bst_1.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="brand_rayban_wayfarer.html"><img src="assets/images/bst_2.jpg" alt=""/></a>
+                                <a href="product-category?brandId=23"><img src="assets/images/bst_2.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="brand_rayban_reverse.html"> <img src="assets/images/bst_3.jpg" alt=""/></a>
+                                <a href="product-category?brandId=21"> <img src="assets/images/bst_3.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="brand_rayBan_clubmaster.html"><img src="assets/images/bst_4.jpg" alt=""/></a>
+                                <a href="product-category?brandId=20"><img src="assets/images/bst_4.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="brand_rayban_change.html"><img src="assets/images/bst_5.jpg" alt=""/></a>
+                                <a href="product-category?brandId=22"><img src="assets/images/bst_5.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="brand_rayban_transition.html"> <img src="assets/images/bst_6.jpg" alt=""/></a>
+                                <a href="product-category?brandId=24"> <img src="assets/images/bst_6.jpg" alt=""/></a>
                             </div>
                         </div>
                     </div>
@@ -505,61 +505,11 @@
     </div>
     <div class="container">
         <div class="row images">
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_cartier.jsp"><img src="./assets/images/icon_brand/cartier1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_rayban.jsp"><img src="./assets/images/icon_brand/rayBan1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_gucci.jsp"><img src="./assets/images/icon_brand/gucci1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_dior.jsp"><img src="./assets/images/icon_brand/dior1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_montblanc.jsp"><img src="./assets/images/icon_brand/montblanc1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_molsion.jsp"><img src="./assets/images/icon_brand/molsion1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_bolon.jsp"><img src="./assets/images/icon_brand/bolon1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_furla.jsp"><img src="./assets/images/icon_brand/furla1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_prada.jsp"><img src="./assets/images/icon_brand/prada1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_oakley.jsp"><img src="./assets/images/icon_brand/bakley1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_parim.jsp"><img src="./assets/images/icon_brand/parim1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_burberry.jsp"><img src="./assets/images/icon_brand/burberry1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_chopard.jsp"><img src="./assets/images/chopard.webp" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_versace.jsp"><img src="./assets/images/icon_brand/versace1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_police.jsp"><img src="./assets/images/icon_brand/police1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_eyescloud.jsp"><img src="./assets/images/icon_brand/eyeclouds1.jpg" alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_daniel_wellington.jsp"><img src="./assets/images/icon_brand/daniel-wellington1.jpg"
-                                                               alt=""></a>
-            </div>
-            <div class="col-2 image_brand">
-                <a href="gong_kinh_exfash.jsp"><img src="./assets/images/icon_brand/exfash1.jpg" alt=""></a>
-            </div>
+            <c:forEach var="brand" items="${brandList}">
+                <div class="col-2 image_brand">
+                    <a href="product-category?brandId=${brand.id}"><img src="${brand.icon}" alt="${brand.name}"></a>
+                </div>
+            </c:forEach>
         </div>
     </div>
 </section>

@@ -74,7 +74,13 @@
 
                 </ul>
             </li>
+
+            <li><a href=""><i class="ri-logout-box-r-line"></i>Đăng xuất<i class=""></i></a>
+
+            </li>
         </ul>
     </div>
+
+
 </div>
 </html>

@@ -8,8 +8,6 @@ import java.util.List;
 
 public class ProductDaoImp implements ProductDaoInterface {
     public Jdbi jdbi = JDBIConnect.get();
-    private final static String Query = "SELECT p.name , p.cost_price , p.selling_price , p.id , pim.path FROM products p\n" +
-            "JOIN products_images pim ON p.id = pim.product_id";
 
     @Override
     public ProductIndex getProductById(int id) {
@@ -108,8 +106,7 @@ public class ProductDaoImp implements ProductDaoInterface {
     @Override
     public List<ProductImage> getImagesByProductId(int productId) {
         // Truy vấn danh sách hình ảnh phụ của sản phẩm (is_main = 0)
-
-        return jdbi.withHandle(handle ->
+        List<ProductImage> images = jdbi.withHandle(handle ->
                 handle.createQuery(
                                 "SELECT * FROM products_images WHERE product_id = :productId AND is_main = 0"
                         )
@@ -126,37 +123,39 @@ public class ProductDaoImp implements ProductDaoInterface {
                         })
                         .list()
         );
+
+        return images;
     }
 
     @Override
     public List<ProductIndex> getProductsByCategory(int categoryId) {
         // Truy vấn danh sách sản phẩm theo category_id
         List<ProductIndex> productList = jdbi.withHandle(handle ->
-                        handle.createQuery(
-                                        "SELECT * FROM products WHERE category_id = :categoryId"
-                                )
-                                .bind("categoryId", categoryId) // Gán giá trị category_id vào câu truy vấn
-                                .map((rs, ctx) -> {
-                                    ProductIndex p = new ProductIndex();
-                                    p.setId(rs.getInt("id"));
-                                    p.setCategoryId(rs.getInt("category_id"));
-                                    p.setBrandId(rs.getInt("brand_id"));
-                                    p.setShapeId(rs.getInt("shape_id"));
-                                    p.setMaterial(rs.getString("material"));
-                                    p.setName(rs.getString("name"));
-                                    p.setDescription(rs.getString("description"));
-                                    p.setStatus(rs.getInt("status"));
-                                    p.setHot(rs.getByte("hot"));
-                                    p.setCostPrice((float) rs.getDouble("cost_price"));
-                                    p.setSellingPrice((float) rs.getDouble("selling_price"));
-                                    p.setQuantity(rs.getInt("quantity"));
-                                    p.setGender(rs.getInt("gender"));
-                                    p.setColor(rs.getString("color"));
-//                        p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
-//                        p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
-                                    return p;
-                                })
-                                .list() // Lấy danh sách sản phẩm
+                handle.createQuery(
+                                "SELECT * FROM products WHERE category_id = :categoryId"
+                        )
+                        .bind("categoryId", categoryId) // Gán giá trị category_id vào câu truy vấn
+                        .map((rs, ctx) -> {
+                            ProductIndex p = new ProductIndex();
+                            p.setId(rs.getInt("id"));
+                            p.setCategoryId(rs.getInt("category_id"));
+                            p.setBrandId(rs.getInt("brand_id"));
+                            p.setShapeId(rs.getInt("shape_id"));
+                            p.setMaterial(rs.getString("material"));
+                            p.setName(rs.getString("name"));
+                            p.setDescription(rs.getString("description"));
+                            p.setStatus(rs.getInt("status"));
+                            p.setHot(rs.getByte("hot"));
+                            p.setCostPrice((float) rs.getDouble("cost_price"));
+                            p.setSellingPrice((float) rs.getDouble("selling_price"));
+                            p.setQuantity(rs.getInt("quantity"));
+                            p.setGender(rs.getInt("gender"));
+                            p.setColor(rs.getString("color"));
+                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
+                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
+                            return p;
+                        })
+                        .list() // Lấy danh sách sản phẩm
         );
 
         // Lấy đường dẫn hình ảnh chính (is_main = 1) cho từng sản phẩm
@@ -197,6 +196,61 @@ public class ProductDaoImp implements ProductDaoInterface {
         );
 
         return discount;
+    }
+
+    @Override
+    public Categories getCategoryById(int categoryId) {
+        return jdbi.withHandle(handle -> {
+            Categories category = handle.createQuery(
+                            "SELECT * FROM categories WHERE id = :categoryId")
+                    .bind("categoryId", categoryId)
+                    .mapToBean(Categories.class).findOne().orElse(null);
+
+            if (category != null) {
+                // Lấy danh sách sub-category từ bảng categories
+                List<Categories> subCategories = handle.createQuery(
+                                "SELECT c.* FROM categories c " +
+                                        "JOIN table_item t ON c.id = t.sub_category " +
+                                        "WHERE t.category_id = :categoryId")
+                        .bind("categoryId", categoryId)
+                        .mapToBean(Categories.class)
+                        .list();
+
+                category.setItems(subCategories);
+            }
+            return category;
+        });
+    }
+
+    @Override
+    public Brands getBrandById(int id) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM brands WHERE id= :id")
+                        .bind("id", id)
+                        .mapToBean(Brands.class)
+                        .findOne()
+                        .orElse(null));
+    }
+
+    @Override
+    public List<Brands> getBrandList() {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM brands")
+                        .mapToBean(Brands.class)
+                        .list()
+        );
+    }
+
+    @Override
+    public List<Brands> getTop18Brands() {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM brands LIMIT 18")
+                        .mapToBean(Brands.class)
+                        .list()
+        );
+    }
+
+    public static void main(String[] args) {
     }
 
 }
