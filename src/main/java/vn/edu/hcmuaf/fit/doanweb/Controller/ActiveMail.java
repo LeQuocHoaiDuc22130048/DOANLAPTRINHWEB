@@ -17,7 +17,6 @@ public class ActiveMail extends HttpServlet {
     public void init() throws ServletException {
         userDao = new UserDaoImp();
     }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int userId = Integer.parseInt(request.getParameter("userId"));
@@ -25,7 +24,6 @@ public class ActiveMail extends HttpServlet {
         request.setAttribute("Success", ActiveSuccess);
         request.getRequestDispatcher(Home).forward(request, response);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }

@@ -1,8 +1,10 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO;
 
 import org.jdbi.v3.core.Jdbi;
+import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.ProductByCondition;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
+import vn.edu.hcmuaf.fit.doanweb.Util.GenerateQuery;
 
 import java.util.List;
 
@@ -13,7 +15,13 @@ public class ProductDao {
     public ProductDao(){
 
     }
-
+    public List<ProductByCondition> getProductByCondition(String type, String value) {
+        List<ProductByCondition> list;
+        list = jdbi.withHandle((handle -> handle.createQuery(GenerateQuery.GetProductBy(type))
+                .bind("value",value)
+                .mapToBean(ProductByCondition.class).list()));
+        return list;
+    }
     // lọc sản phẩm theo chất liệu
     public List<ProductByMaterial>getProductByMaterial(String material){
 
@@ -101,30 +109,30 @@ public class ProductDao {
                         .list()
         );
     }
-
-
-    // lọc sản phẩm theo thương hiệu
-    public List<ProductByBrand> getProductByBrand(int brand){
-
-        String query = "SELECT p.id, p.name, p.selling_price, p.brand_id, pi.path " +
-                "FROM products p " +
-                "JOIN products_images pi ON p.id = pi.product_id " +
-                "JOIN brands b ON p.brand_id = b.id " +
-                "WHERE p.brand_id = :brand AND pi.is_main = 1";
-
-        return jdbi.withHandle(h ->
-                h.createQuery(query)
-                        .bind("brand", brand)
-                        .map((rs, ctx) -> new ProductByBrand(
-                                rs.getInt("id"),
-                                rs.getString("name"),
-                                rs.getLong("selling_price"),
-                                rs.getString("path"),
-                                rs.getInt("brand_id")
-                        ))
-                        .list()
-        );
-    }
+//
+//
+//    // lọc sản phẩm theo thương hiệu
+//    public List<ProductByBrand> getProductByBrand(int brand){
+//
+//        String query = "SELECT p.id, p.name, p.selling_price, p.brand_id, pi.path " +
+//                "FROM products p " +
+//                "JOIN products_images pi ON p.id = pi.product_id " +
+//                "JOIN brands b ON p.brand_id = b.id " +
+//                "WHERE p.brand_id = :brand AND pi.is_main = 1";
+//
+//        return jdbi.withHandle(h ->
+//                h.createQuery(query)
+//                        .bind("brand", brand)
+//                        .map((rs, ctx) -> new ProductByBrand(
+//                                rs.getInt("id"),
+//                                rs.getString("name"),
+//                                rs.getLong("selling_price"),
+//                                rs.getString("path"),
+//                                rs.getInt("brand_id")
+//                        ))
+//                        .list()
+//        );
+//    }
 
     // lọc sản phẩm theo danh mục
     public List<ProductByCategory> getProductByCategory(int category){

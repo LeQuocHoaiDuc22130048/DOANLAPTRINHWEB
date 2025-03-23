@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.*;
 import org.mindrot.jbcrypt.BCrypt;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.Services.SendEmailServices;
+import vn.edu.hcmuaf.fit.doanweb.Util.LogSystem;
 
 import javax.mail.MessagingException;
 import javax.mail.Transport;
@@ -20,6 +21,7 @@ public class DangKiController extends HttpServlet {
     private static final String SignInFailed = "Sign in failed";
     private static final String CreatedFailed = "Created failed";
     private UserDaoImp userDaoImp ;
+    private LogSystem logSystem ;
 
     @Override
     public void init() throws ServletException {
@@ -42,20 +44,24 @@ public class DangKiController extends HttpServlet {
         if (userDaoImp.checkEmailExists(email)) {
             request.setAttribute("Error" , EmailExist);
             request.getRequestDispatcher(SignIn).forward(request, response);
+            return;
         }
         // Check create user success
         if (!userDaoImp.CreateUserTemp(userName, email, EncryptedPassword)) {
             request.setAttribute("Error" , SignInFailed);
             request.getRequestDispatcher(SignIn).forward(request, response);
+            return;
         }
         System.out.println(password);
         // get user id
         int userId = userDaoImp.GetUserIdByEmail(userName);
         if (userId == -1) { request.setAttribute("Error" , CreatedFailed); return; }
+
         try {
             SendEmailServices    services = new SendEmailServices();
             Transport.send(services.sendEmail(email ,"Link kích hoạt tai khoản của bạn !" , Link + userId ));
             request.getRequestDispatcher(Home).forward(request, response);
+
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }

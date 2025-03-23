@@ -7,10 +7,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>EyeStyle</title>
@@ -38,9 +35,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="left-content">
-                    <div class="thumb">
-                        <a href="index"><img src="assets/images/left_banner_img.png" alt=""/></a>
-                    </div>
+                    <a href="index"><img class="img-thumbnail" src="assets/images/left_banner_img.png" alt=""/></a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -65,9 +60,7 @@
                                     <img src="assets/images/img_type3.jpg"/>
                                     <div class="inner-content">
                                         <p>GỌNG KÍNH</p>
-                                        <button
-                                                onclick="window.location.href='product-category?categoryId=9'"
-                                        >
+                                        <button onclick="window.location.href='product-category?categoryId=9'">
                                             Mua ngay
                                         </button>
                                     </div>
@@ -80,9 +73,7 @@
                                     <img src="assets/images/img_type4.jpg"/>
                                     <div class="inner-content">
                                         <p>TRÒNG KÍNH</p>
-                                        <button
-                                                onclick="window.location.href='product-category?categoryId=5'"
-                                        >
+                                        <button onclick="window.location.href='product-category?categoryId=5'">
                                             Mua ngay
                                         </button>
                                     </div>
@@ -92,12 +83,10 @@
                         <div class="col-lg-6">
                             <div class="right-first-image bottom_img">
                                 <div class="thumb">
-                                    <img src="assets/images/img_type5.jpg"/>
+                                    <img src="assets/images/img_type5.jpg" alt="img-type5"/>
                                     <div class="inner-content">
                                         <p>KÍNH ÁP TRÒNG</p>
-                                        <button
-                                                onclick="window.location.href='product-category?categoryId=7'"
-                                        >
+                                        <button onclick="window.location.href='product-category?categoryId=7'">
                                             Mua ngay
                                         </button>
                                     </div>
@@ -182,9 +171,9 @@
                                     <h4>${product.name}</h4>
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
-                                        <% for (int i = 0; i < 5; i++) { %>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <% } %>
+                                       <c:forEach begin="0" end="5" step="1">
+                                           <li><i class="fa fa-star"></i></li>
+                                       </c:forEach>
                                     </ul>
                                 </div>
                             </div>
@@ -268,10 +257,7 @@
             <div class="col-lg-6">
                 <div class="section-heading">
                     <h2>Gọng kính</h2>
-                    <span
-                    >Gọng Kính Thời Thượng – Phong Cách Đa Dạng, Phù Hợp Mọi Gương
-                Mặt</span
-                    >
+                    <span>Gọng Kính Thời Thượng – Phong Cách Đa Dạng, Phù Hợp Mọi GươngMặt</span>
                 </div>
             </div>
         </div>
@@ -287,20 +273,17 @@
                                     <div class="hover-content">
                                         <ul>
                                             <li>
-                                                <a href="${pageContext.request.contextPath}/product-detail?id=${product.id}">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
+                                                <a href="${context}/product-detail?id=${product.id}">
+                                                    <i class="fa fa-eye"></i></a>
                                             </li>
                                             <li>
                                                 <a href="#" class="rate-product">
-                                                    <i class="fa fa-star"></i>
-                                                </a>
+                                                    <i class="fa fa-star"></i></a>
                                             </li>
                                             <li>
                                                 <form class="addCartForm">
-                                                    <input type="hidden" name="id" value="${product.id}">
+                                                    <input type="hidden" name="id" value="">
                                                     <button class="btn_gio_hang">
-                                                        <i class="fa fa-shopping-cart"></i>
                                                     </button>
                                                 </form>
                                             </li>
@@ -312,9 +295,9 @@
                                     <h4>${product.name}</h4>
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
-                                        <% for (int i = 0; i < 5; i++) { %>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <% } %>
+                                        <c:forEach begin="0" step="1" end="5">
+                                            <li><i class="fa fa-star"></i></li>
+                                        </c:forEach>
                                     </ul>
                                 </div>
                             </div>
@@ -496,9 +479,7 @@
             <div class="col-lg-12">
                 <div class="section-heading">
                     <h2>Thương hiệu mắt kính nổi tiếng</h2>
-                    <span
-                    >Chọn Lựa Hoàn Hảo: Top Thương Hiệu Mắt Kính Sang Trọng Bạn Nên Sở Hữu.</span
-                    >
+                    <span>Chọn Lựa Hoàn Hảo: Top Thương Hiệu Mắt Kính Sang Trọng Bạn Nên Sở Hữu.</span>
                 </div>
             </div>
         </div>
@@ -522,9 +503,7 @@
             <div class="col-lg-8">
                 <div class="section-heading">
                     <h2>Nhận tin mới nhất về sản phẩm bằng cách đăng ký bản tin!</h2>
-                    <span
-                    >Cập nhật nhanh các sản phẩm mới nhất từ chúng tôi!</span
-                    >
+                    <span>Cập nhật nhanh các sản phẩm mới nhất từ chúng tôi!</span>
                 </div>
                 <form id="subscribe" action="" method="get">
                     <div class="row">
@@ -556,8 +535,7 @@
                                 <button
                                         type="submit"
                                         id="form-submit"
-                                        class="main-dark-button"
-                                >
+                                        class="main-dark-button">
                                     <i class="fa fa-paper-plane"></i>
                                 </button>
                             </fieldset>
@@ -569,10 +547,7 @@
                 <div class="row">
                     <div class="col-6">
                         <ul>
-                            <li>
-                                Địa chỉ cửa hàng:<br/><span
-                            >Nông Lâm, Thành phố Hồ Chí Minh</span
-                            >
+                            <li>Địa chỉ cửa hàng:<br/><span>Nông Lâm, Thành phố Hồ Chí Minh</span>
                             </li>
                             <li>Số điện thoại:<br/><span>0123 456 789</span></li>
                             <li>Địa chỉ văn phòng:<br/><span>Rạng Đông 306</span></li>
@@ -580,15 +555,13 @@
                     </div>
                     <div class="col-6">
                         <ul>
-                            <li>
-                                Giờ làm việc:<br/><span>07:30 sáng - 9:30 tối Giờ hành chính</span>
-                            </li>
+                            <li>Giờ làm việc:<br/><span>07:30 sáng - 9:30 tối Giờ hành chính</span></li>
                             <li>Email:<br/><span>nhom65@company.com</span></li>
-                            <li>
-                                Mạng xã hội:<br/><span
-                            ><a href="#">Facebook</a>, <a href="#">Instagram</a>,
-                      <a href="#">Behance</a>, <a href="#">Linkedin</a></span
-                            >
+                            <li> Mạng xã hội:<br/>
+                                <span><a href="#">Facebook</a>,
+                                <a href="#">Instagram</a>,
+                                <a href="#">Behance</a>
+                                , <a href="#">Linkedin</a></span>
                             </li>
                         </ul>
                     </div>
@@ -598,11 +571,9 @@
     </div>
 </div>
 <!-- ***** Subscribe Area Ends ***** -->
-
 <!-- ***** Footer Start ***** -->
 <jsp:include page="footer.jsp"/>
 <!-- ***** Footer End ***** -->
 <c:import url="script.jsp"/>
-
 </body>
 </html>
