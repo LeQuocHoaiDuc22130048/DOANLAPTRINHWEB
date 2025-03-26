@@ -4,16 +4,6 @@ CREATE DATABASE IF NOT EXISTS `web_eyestyle`
     COLLATE utf8mb4_general_ci;
 USE `web_eyestyle`;
 
-CREATE TABLE `log` (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    Level VARCHAR(50) NOT NULL,
-    Log_Time DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Locate VARCHAR(255),
-    user_id INT DEFAULT NULL,
-    BeforeText TEXT,
-    AfterText TEXT,
-   CONSTRAINT `fk_orders_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) 
-);
 
 -- Bảng thương hiệu
 CREATE TABLE IF NOT EXISTS `brands` (
@@ -141,8 +131,7 @@ CREATE TABLE IF NOT EXISTS `users_types` (
   CONSTRAINT `fk_users_types_type` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
-CREATE TABLE `log` (
+CREATE TABLE IF NOT EXISTS `log` (
     id INT AUTO_INCREMENT PRIMARY KEY,
     Level VARCHAR(50) NOT NULL,
     Log_Time DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -185,20 +174,48 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   CONSTRAINT `fk_order_details_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE IF NOT EXISTS `posts` (
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY  ,
+`thumbnail` VARCHAR(255) DEFAULT NULL ,
+ `created_at` DATETIME DEFAULT NULL,
+`title` VARCHAR(255) DEFAULT NULL ,
+`content` VARCHAR(255) DEFAULT NULL ,
+`url` VARCHAR(255) DEFAULT NULL ,
+`access` INT DEFAULT NULL 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_GENERAL_CI;
 
+INSERT INTO `posts` (`thumbnail`, `created_at`, `title`, `content`, `url`, `access`) VALUES
+('assets/images/blog_images/blog1.png', '2024-08-22 00:00:00', 'Cách chọn kính phù hợp với dáng mặt', 'Khi tìm kiếm gọng kính lý tưởng, có ba tiêu chí quan trọng bạn cần xem xét: độ tương phản, tỷ lệ, và màu sắc của gọng.', 'https://matviet.vn/blogs/tu-van-chon-kinh/bi-quyet-chon-kinh-phu-hop-voi-khuon-mat', 0),
+('assets/images/blog_images/blog3.png', '2024-08-15 00:00:00', 'Cách bảo vệ mắt trước ánh sáng xanh. Bạn đã biết?', 'Thời đại công nghệ phát triển, mọi người tiếp xúc rất nhiều với các thiết bị điện tử dẫn đến tình trạng suy giảm thị lực.', 'https://matviet.vn/blogs/kien-thuc/anh-sang-xanh-la-gi-cach-bao-ve-mat-tranh-khoi-anh-sang-xanh', 0),
+('assets/images/blog_images/blog4.png', '2024-08-09 00:00:00', 'Giải đáp: Nhỏ thuốc nhỏ mắt nhiều liệu có tốt?', 'Thuốc nhỏ mắt là một giải pháp phổ biến để giải quyết các vấn đề liên quan đến mắt như khô mắt, nhức mỏi.', 'https://kinhmatanna.com/giai-dap-nho-thuoc-nho-mat-nhieu-co-tot-khong', 0),
+('assets/images/blog_images/blog5.png', '2024-08-01 00:00:00', 'Top 5 xu hướng kính mát dành cho mùa hè', 'Khám phá những mẫu kính mát nổi bật trong mùa hè năm nay để bảo vệ mắt và thêm phần phong cách.', 'https://www.elle.vn/fashion/kinh-mat-mua-he-hop-moi-khuon-mat', 0),
+('assets/images/blog_images/blog6.png', '2024-07-25 00:00:00', 'Những điều cần biết về kính chống tia UV', 'Bảo vệ đôi mắt trước tia cực tím với kính chống tia UV và cách lựa chọn kính phù hợp.', 'https://kinhmatbichngoc.vn/nhung-dieu-can-biet-ve-kinh-mat-chong-tia-uv.htm', 0),
+('assets/images/blog_images/blog7.png', '2024-07-18 00:00:00', 'Phân biệt các loại kính cận phổ biến', 'Các loại kính cận và cách lựa chọn kính phù hợp với nhu cầu sử dụng hàng ngày. Bạn đã biết chưa?', 'https://matviet.vn/blogs/tu-van-chon-kinh/cac-loai-kinh-can-pho-bien-hien-nay', 0),
+('assets/images/blog_images/blog8.png', '2024-07-10 00:00:00', 'Hướng dẫn vệ sinh và bảo quản kính mắt', 'Cách giữ cho kính mắt luôn sạch sẽ và bền lâu theo thời gian.', 'https://www.kinhmatdangquang.vn/tin-tuc/85/3-buoc-tong-ve-sinh-kinh-mat-dung-cach.html', 0),
+('assets/images/blog_images/blog9.png', '2024-07-02 00:00:00', 'Kính thời trang và cách phối hợp trang phục', 'Tạo điểm nhấn thời trang với kính mắt và cách phối hợp cùng trang phục.', 'https://mytour.vn/vi/blog/bai-viet/cach-ket-hop-trang-phuc-phu-hop-voi-tung-loai-kinh-giup-ban-tu-tin.html', 0),
+('assets/images/blog_images/blog10.png', '2024-06-24 00:00:00', 'Các loại mắt kính cho người đi xe máy', 'Bảo vệ đôi mắt khi đi xe máy với các loại kính chuyên dụng chống bụi và tia UV.', 'https://chuyenxe.com/tho-va-xe/phu-kien/kinh-chong-bui-di-xe-may/', 0),
+('assets/images/blog_images/blog11.png', '2024-06-15 00:00:00', 'Kính mát phân cực là gì và cách phân biệt', 'Tìm hiểu về kính mát phân cực và những lợi ích khi sử dụng kính phân cực.', 'https://kinhhaitrieu.com/kinh-phan-cuc-la-gi-tac-dung-gi-cach-phan-biet', 0),
+('assets/images/blog_images/blog12.png', '2024-06-08 00:00:00', 'Kính hai tròng và những lưu ý khi sử dụng', 'Cách sử dụng kính hai tròng và những lưu ý quan trọng cho người mới.', 'https://nhathuoclongchau.com.vn/bai-viet/nhung-thong-tin-can-biet-ve-kinh-2-trong.html', 0),  
+('assets/images/blog_images/blog13.png', '2024-06-01 00:00:00', 'Hướng dẫn chọn tròng kính cận tốt nhất cho mắt', 'Tròng kính phù hợp với mắt giúp bạn thoải mái hơn trong cuộc sống hằng ngày.', 'https://matkinhhoangha.com/huong-dan-chon-trong-kinh-can-tot-nhat-cho-mat-cua-ban/', 0),  
+('assets/images/blog_images/blog14.png', '2024-05-25 00:00:00', 'Giới thiệu về kính đổi màu thông minh', 'Kính đổi màu giúp bảo vệ mắt tối đa trong mọi điều kiện ánh sáng.', 'https://buiphat.vn/kinh-xay-dung/kinh-dien-thong-minh.html', 0),  
+('assets/images/blog_images/blog15.png', '2024-05-18 00:00:00', 'Tròng kính mỏng nhẹ: Lợi ích và ứng dụng', 'Tròng kính mỏng nhẹ không chỉ giúp mắt dễ chịu mà còn nâng cao tính thẩm mỹ.', 'https://ankhangphat.com.vn/tin-tuc/mot-so-loi-ich-cua-trong-kinh-sieu-mong-ma-ban-nen-biet/', 0),  
+('assets/images/blog_images/blog16.png', '2024-05-10 00:00:00', 'Tip bảo vệ mắt cho dân văn phòng? Bạn đã biết Chưa?', 'Tròng kính giúp dân văn phòng giảm thiểu mỏi mắt khi làm việc trước máy tính.', 'https://hellobacsi.com/nhan-khoa/cham-soc-mat/bo-tui-10-cach-chong-moi-mat-danh-cho-dan-van-phong', 0),
+('assets/images/blog_images/blog17.png', '2024-05-04 00:00:00', 'Gọng kính hình bướm - Phong cách độc đáo', 'Gọng kính hình bướm là một chiếc gọng có kiểu dáng mang phong cách độc đáo, được nhiều tín đồ thời trang săn lùng.', 'https://kinhmatanna.com/gong-kinh-hinh-buom-phong-cach-gong-kinh-doc-dao', 0),  
+('assets/images/blog_images/blog18.png', '2024-04-25 00:00:00', 'Top gọng kính phù hợp nhất với mặt oval', 'Nếu như bạn đang có thắc mắc rằng mặt oval có hợp đeo kính không thì câu trả lời là có thậm chí là còn rất thoải mái.', 'https://kinhmatanna.com/mat-oval-deo-kinh-gi-top-gong-kinh-phu-hop-nhat-voi-mat-oval', 0),  
+('assets/images/blog_images/blog19.png', '2024-04-19 00:00:00', '99+ mẫu lens xám khói đẹp, hot nhất hiện nay', 'Lens mắt màu xám khói là màu lens vô cùng đặc biệt, mang lại sự tinh tế và lịch lãm cho người đeo.', 'https://kinhmatanna.com/99-mau-lens-xam-khoi-dep-hot-nhat-hien-nay', 0),  
+('assets/images/blog_images/blog20.png', '2024-04-02 00:00:00', 'Hướng dẫn chọn mua gọng nhựa mix kim loại đẹp nhất', 'Trong thế giới thời trang kính mắt, gọng kính nhựa mix kim loại đang trở thành một xu hướng rất phổ biến.', 'https://kinhmatanna.com/huong-dan-chon-mua-gong-nhua-mix-kim-loai-dep-nhat', 0),  
+('assets/images/blog_images/blog21.png', '2024-03-30 00:00:00', 'Khám phá những dáng gọng kính đa giác đẹp nhất', 'Mẫu gọng kính đa giác với các góc cạnh sắc sảo sẽ giúp cho khuôn mặt trở nên thon gọn và hài hòa hơn.', 'https://kinhmatanna.com/kham-pha-nhung-dang-gong-kinh-da-giac-dep-nhat', 0),  
+('assets/images/blog_images/blog22.png', '2024-03-18 00:00:00', 'Top 9 loại trái cây tốt cho mắt nhất', 'Trái cây tốt cho mắt sẽ giúp bạn cải thiện thị lực và giảm nguy cơ mắc các bệnh liên quan đến mắt.', 'https://kinhmatanna.com/nhung-loai-trai-cay-nao-tot-cho-mat-top-9-loai-trai-cay-tot-cho-mat-nhat', 0),
+('assets/images/blog_images/blog23.png', '2024-03-05 00:00:00', 'Top 6 app chọn kính phù hợp với khuôn mặt chuẩn nhất', 'Ứng dụng Glassify – TryOn Virtual Glass mang đến trải nghiệm độc đáo cho người dùng khi chọn lựa kính mắt phù hợp với khuôn mặt.', 'https://kinhmatanna.com/top-6-app-chon-kinh-phu-hop-voi-khuon-mat-chuan-nhat', 0),
+('assets/images/blog_images/blog24.png', '2024-02-27 00:00:00', 'Tròng kính tráng gương là gì? Lý do nên sử dụng?', 'Ngày nay, tròng kính tráng gương trở thành một trong những phụ kiện thời trang được nhiều người chú ý không chỉ bởi thiết kế thời thượng mà còn với nhiều tính năng ưu việt.', 'https://kinhmatanna.com/trong-kinh-trang-guong-la-gi-ly-do-nen-su-dung', 0),
+('assets/images/blog_images/blog25.png', '2024-02-12 00:00:00', 'Mắt kính tròng kính Polaroid là gì? Có nên mua không?', 'Tròng kính Polaroid là loại tròng kính được thiết kế để loại bỏ hoặc giảm cường độ ánh sáng phản xạ và phân cực.', 'https://kinhmatanna.com/mat-kinh-trong-kinh-polaroid-la-gi-co-nen-mua-khong', 0),
+('assets/images/blog_images/blog26.png', '2024-01-29 00:00:00', '[Giải đáp]: Đeo kính không độ có hại mắt không?', 'Những chiếc kính với đủ kiểu dáng khác nhau với phong cách Hàn Quốc, đã và đang được các tín đồ thời trang “săn lùng” và sở hữu.', 'https://kinhmatanna.com/deo-kinh-khong-do-co-hai-mat-khong', 0),
+('assets/images/blog_images/blog27.png', '2024-01-16 00:00:00', 'Top 10+ mẫu gọng kính lục giác được nhiều người ưa chuộng nhất', 'Gọng kính lục giác là sản phẩm đang dần trở thành xu hướng bởi kiểu dáng năng động, phù hợp với nhiều khuôn mặt.', 'https://kinhmatanna.com/gong-kinh-luc-giac', 0),
+('assets/images/blog_images/blog28.png', '2024-01-01 00:00:00', 'Loại vitamin nào tốt cho mắt? Top 9 thực phẩm chứa vitamin tốt cho mắt', 'Mắt giúp con người có thể nhìn thấy mọi sự vật, sự việc và tận hưởng những khoảnh khắc đẹp trong cuộc sống.', 'https://kinhmatanna.com/vitamin-tot-cho-mat', 0);
 
 INSERT INTO `brands` (`name`, `created_at`, `updated_at`, `title`, `img`, `description`, `icon`) 
 VALUES 
-('Dior', '2024-12-17 17:41:13', '2024-12-17 17:42:55', 
-'Mắt kính Dior chính hãng: Mẫu mới, giá bán, tư vấn mua', 
-'assets/images/banner_brand/banner_dior_brand.jpg', 
-'Dior thương hiệu cao cấp đến từ Pháp, đã ghi dấu ấn mạnh mẽ trong lòng giới mộ điệu nhờ vào kỹ thuật chế tác chuyên biệt của mình. 
-Bước chân vào lĩnh vực thời trang năm 1946, cho đến nay hãng đã trở thành một trong TOP 10 biểu tượng thời trang xa xỉ. 
-Lĩnh vực mắt kính Dior luôn thu hút tín đồ phụ kiện xuống tay chi mạnh ngay từ mẫu "demo". 
-Bởi tuyệt tác của nhà mốt Pháp luôn có một chất riêng khó tả, mang đến đẳng cấp cao quý nêu bật lên phong thái người sở hữu.', 
-'assets/images/icon_brand/dior1.jpg')
-,
-
+('Dior', '2024-12-17 17:41:13', '2024-12-17 17:42:55', 'Mắt kính Dior chính hãng: Mẫu mới, giá bán, tư vấn mua', 'assets/images/banner_brand/banner_dior_brand.jpg', 'Dior thương hiệu cao cấp đến từ Pháp, đã ghi dấu ấn mạnh mẽ trong lòng giới mộ điệu nhờ vào kỹ thuật chế tác chuyên biệt của mình. Bước chân vào lĩnh vực thời trang năm 1946, cho đến nay hãng đã trở thành một trong TOP 10 biểu tượng thời trang xa xỉ. Lĩnh vực mắt kính Dior luôn thu hút tín đồ phụ kiện xuống tay chi mạnh ngay từ mẫu "demo". Bởi tuyệt tác của nhà mốt Pháp luôn có một chất riêng khó tả, mang đến đẳng cấp cao quý nêu bật lên phong thái người sở hữu.', 'assets/images/icon_brand/dior1.jpg'),
 	( 'Cartier', '2024-12-17 17:43:15', '2024-12-17 17:43:16', 'Mắt kính Cartier chính hãng: Giá, Tư vấn, Góp linh hoạt', 'assets/images/banner_brand/banner_cartier_brand.jpg', 'Kính Cartier là biểu tượng của sự sang trọng, tinh tế và đẳng cấp. Thương hiệu Cartier nổi tiếng với thiết kế tinh xảo, chất liệu cao cấp và sự tỉ mỉ trong từng chi tiết. Mỗi chiếc kính Cartier đều là một tác phẩm nghệ thuật, thể hiện sự kết hợp hoàn hảo giữa phong cách cổ điển và hiện đại. Từ những mẫu kính gọng đồi mồi sang trọng đến những thiết kế kim loại hiện đại, kính Cartier luôn toát lên vẻ đẹp vượt thời gian. Logo “C” hai chữ cái lồng vào nhau đặc trưng của Cartier không chỉ là dấu hiệu nhận biết thương hiệu mà còn là biểu tượng của chất lượng và uy tín.', 'assets/images/icon_brand/cartier1.jpg'),
 	( 'Versace', '2024-12-17 17:43:41', '2024-12-17 17:43:43', 'Mắt kính Versace chính hãng: Mẫu mới, giá bán, tư vấn mua', 'assets/images/banner_brand/banner-versace.png', 'Versace gắn liền với dàn sao Hollywood “khủng” như Anne Hathaway, Lily James, Lady Gaga, Miley Cyrus, Demi Moore,… Sang trọng và lôi cuốn, cùng chất riêng trong thiết kế, mắt kính Versace đem đến cho người dùng sức hút không thể cưỡng lại. Sự kết hợp hài hòa giữa thiết kế thời trang sang trọng và công nghệ hiện đại đã khiến kính Versace trở thành lựa chọn ưu việt cho những ai yêu thích phong cách thời trang tinh tế và đẳng cấp.', 'assets/images/icon_brand/versace1.jpg'),
 	( 'Gucci', '2024-12-17 17:44:03', '2024-12-17 17:44:05', 'Mắt kính Gucci chính hãng: Giá bán, mẫu mới, tư vấn mua', 'assets/images/banner_brand/banner_gucci_brand.jpg', 'Gucci là biểu tượng thời trang hàng đầu nước Ý. Với thiết kế tinh tế và độc đáo, Gucci mang đến sự kết hợp hoàn hảo giữa thời trang và chất lượng. Vật liệu cao cấp như Acetate và hợp kim được sử dụng để tạo ra những cặp kính đẹp mắt và bền bỉ. Sự đa dạng về kiểu dáng, từ cổ điển đến hiện đại, đáp ứng mọi sở thích và phong cách cá nhân, với mắt kính Gucci, bạn sẽ tự tin và nổi bật trong mọi dịp.', 'assets/images/icon_brand/gucci1.jpg'),
@@ -346,7 +363,8 @@ INSERT INTO `users` ( `name`, `email`, `password`, `phone`, `address`, `status`,
 	( 'Đỗ Ngọc Bảo', 'baodo@gmail.com', 'ngocbao987', '0932146789', 'Số 34, Đường Lý Thường Kiệt, Nam Định', 0, NULL, NULL),
 	( 'Phạm Thanh Hà', 'hapham@gmail.com', 'phamha456', '0943215678', 'Số 7, Đường Nguyễn Thị Minh Khai, Thái Nguyên', 1, '2024-12-14 21:50:39', '2024-12-14 21:50:39'),
 	( 'Nguyễn Hoàng Minh', 'minhnguyen@gmail.com', 'hoangminh123', '0987654321', 'Số 90, Đường Bắc Ninh, Bắc Ninh', 1, '2024-12-15 22:30:18', '2024-12-15 22:30:18'),
-	( 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, '2024-12-16 23:00:56', '2024-12-16 23:00:56');
+	( 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, '2024-12-16 23:00:56', '2024-12-16 23:00:56'),
+	('GUEST',NULL,NULL,NULL,NULL,NULL,NOW(),NOW());
 
 
 -- Dumping data for table web_eyestyle.user_type: ~2 rows (approximately)

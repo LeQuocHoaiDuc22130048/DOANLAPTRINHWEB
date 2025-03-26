@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
-<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +34,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="left-content">
-                    <a href="index"><img class="img-thumbnail" src="assets/images/left_banner_img.png" alt=""/></a>
+                    <a href="index"><img class="img-thumbnail border-0" src="assets/images/left_banner_img.png" alt=""/></a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -43,7 +42,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="right-first-image">
-                                <div class="thumb">
+                                <div class="thumb border-0  ">
                                     <img alt="thumb" src="assets/images/img_type2.jpg"/>
                                     <div class="inner-content">
                                         <p>KÍNH MÁT</p>

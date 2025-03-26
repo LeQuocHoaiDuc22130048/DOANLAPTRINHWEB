@@ -1,60 +1,66 @@
-$(document).ready(function () {
-    $(".addCartForm").submit(function () {
-        event.preventDefault();
-        let form = $(this);
-        let quantityInput = form.find('input[name="quantity"]'); // Lấy input số lượng
-        let minusBtn = form.find('.minus');
-        let plusBtn = form.find('.plus');
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".addCartForm").forEach(function (form) {
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-        // Nếu không có input quantity, gán mặc định là 1
-        if (quantityInput.length === 0) {
-            quantityInput = $("<input>").attr({
-                type: "hidden",
-                name: "quantity",
-                value: "1"
-            });
-            form.append(quantityInput); // Thêm vào form
-        }
+            let quantityInput = form.querySelector('input[name="quantity"]');
+            let minusBtn = form.querySelector(".minus");
+            let plusBtn = form.querySelector(".plus");
 
-        // Sự kiện giảm số lượng
-        minusBtn.click(function () {
-            let currentVal = parseInt(quantityInput.val());
-            if (currentVal > 1) {
-                quantityInput.val(currentVal - 1);
+            // Nếu không có input quantity, gán mặc định là 1
+            if (!quantityInput) {
+                quantityInput = document.createElement("input");
+                quantityInput.type = "hidden";
+                quantityInput.name = "quantity";
+                quantityInput.value = "1";
+                form.appendChild(quantityInput);
             }
-        });
 
-        // Sự kiện tăng số lượng
-        plusBtn.click(function () {
-            let currentVal = parseInt(quantityInput.val());
-            quantityInput.val(currentVal + 1);
-        });
+            // Sự kiện giảm số lượng
+            if (minusBtn) {
+                minusBtn.addEventListener("click", function () {
+                    let currentVal = parseInt(quantityInput.value, 10);
+                    if (currentVal > 1) {
+                        quantityInput.value = currentVal - 1;
+                    }
+                });
+            }
 
-            let product_id = $(this).find('input[name="id"]').val();
-            let quantity =quantityInput.val();
+            // Sự kiện tăng số lượng
+            if (plusBtn) {
+                plusBtn.addEventListener("click", function () {
+                    let currentVal = parseInt(quantityInput.value, 10);
+                    quantityInput.value = currentVal + 1;
+                });
+            }
+
+            let product_id = form.querySelector('input[name="id"]').value;
+            let quantity = quantityInput.value;
             addCart(product_id, quantity);
+        });
     });
 });
 
 function addCart(product_id, quantity) {
-    $.ajax({
-        url: window.location.origin + "/DoAnWeb_war/add-cart",
-        type: "POST",
-        data: {id: product_id, quantity: quantity},
-        success: function (respond) {
-            $(".cart-count").text(respond.cartQuantity);
+    fetch(window.location.origin + "/DoAnWeb_war/add-cart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({ id: product_id, quantity: quantity })
+    })
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector(".cart-count").textContent = data.cartQuantity;
 
             // Hiển thị thông báo đẹp mắt (dùng SweetAlert2)
             Swal.fire({
                 text: "Sản phẩm đã được thêm vào giỏ hàng.",
                 icon: "success",
                 showConfirmButton: false,
-                timer: 2000, // Ẩn sau 2 giây
+                timer: 2000,
                 position: "top-end",
                 toast: true
             });
-        }
-    });
-
-
+        });
 }
