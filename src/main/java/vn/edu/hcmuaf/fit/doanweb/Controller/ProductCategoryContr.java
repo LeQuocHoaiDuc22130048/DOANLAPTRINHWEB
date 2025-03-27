@@ -9,6 +9,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Brands;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Categories;
 //import vn.edu.hcmuaf.fit.doanweb.DAO.ProductBrandDao;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 //import vn.edu.hcmuaf.fit.doanweb.DAO.ProductCategoryDao;
 
 import java.io.IOException;
@@ -29,7 +30,8 @@ public class ProductCategoryContr extends HttpServlet {
 
         if (categoryIdParam != null && !categoryIdParam.isEmpty()) {
             selectedItem = dao.getCategoryById(Integer.parseInt(categoryIdParam));
-        } else if (brandIdParam != null && !brandIdParam.isEmpty()) {
+        }
+        if (brandIdParam != null && !brandIdParam.isEmpty()) {
             selectedItem = dao.getBrandById(Integer.parseInt(brandIdParam));
         }
 
@@ -38,14 +40,9 @@ public class ProductCategoryContr extends HttpServlet {
             return;
         }
 
-        if (selectedItem instanceof Categories) {
-            request.setAttribute("isCategory", true);
-        } else {
-            request.setAttribute("isCategory", false);
-        }
-
+        request.setAttribute("isCategory", selectedItem instanceof Categories);
         request.setAttribute("selectedItem", selectedItem);
-        request.getRequestDispatcher("product_category.jsp").forward(request, response);
+        request.getRequestDispatcher(JSPPage.Category.getPage()).forward(request, response);
     }
 
 
