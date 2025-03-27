@@ -70,7 +70,7 @@
                         <div class="col-lg-6">
                             <div class="right-first-image bottom_img">
                                 <div class="thumb">
-                                    <img src="assets/images/img_type4.jpg"/>
+                                    <img src="assets/images/img_type4.jpg" alt=""/>
                                     <div class="inner-content">
                                         <p>TRÒNG KÍNH</p>
                                         <button onclick="window.location.href='product-category?categoryId=5'">
@@ -144,7 +144,7 @@
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
                             </c:if>
-                            <div class="item" style="width: 33%">
+                            <div class="item col-4">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -188,12 +188,12 @@
                         </c:forEach>
 
                     </div>
-                    <button class="carousel-control-prev " type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon text-primary" aria-hidden="true"></span>
+                    <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle" style="width: fit-content" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <button class="carousel-control-next position-absolute top-50 start-100 translate-middle" style="width: fit-content" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
@@ -205,7 +205,7 @@
 </section>
 <!-- ***** kinh_mat nam Ends ***** -->
 <!-- ***** kinh_mat nữ Starts ***** -->
-<section class="section kinh" id="kinh_mat_nu">
+<section class="section kinh container" id="kinh_mat_nu">
     <div class="container">
         <div class="row content_head">
             <div class="col-lg-6">
@@ -217,7 +217,7 @@
         </div>
     </div>
 
-    <div class="container san_pham_" style="visibility: visible">
+    <div class="container" style="visibility: visible">
         <div class="row">
             <div class="col-lg-12">
                 <div id="productCarousel2" class="carousel slide" data-bs-ride="carousel">
@@ -227,7 +227,7 @@
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
                             </c:if>
-                            <div class="item" style="width: 33%">
+                            <div class="item col-4">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -271,12 +271,12 @@
                         </c:forEach>
 
                     </div>
-                    <button class="carousel-control-prev " type="button" data-bs-target="#productCarousel2" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon text-primary" aria-hidden="true"></span>
+                    <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle" style="width: fit-content" type="button" data-bs-target="#productCarousel2" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel2" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <button class="carousel-control-next position-absolute top-50 start-100 translate-middle" style="width: fit-content" type="button" data-bs-target="#productCarousel2" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
@@ -309,7 +309,7 @@
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
                             </c:if>
-                            <div class="item" style="width: 33%">
+                            <div class="item col-4">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -353,12 +353,12 @@
                         </c:forEach>
 
                     </div>
-                    <button class="carousel-control-prev " type="button" data-bs-target="#productCarousel3" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon text-primary" aria-hidden="true"></span>
+                    <button class="carousel-control-prev position-absolute" style="width: fit-content" type="button" data-bs-target="#productCarousel3" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel3" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <button class="carousel-control-next position-absolute" style="width: fit-content" type="button" data-bs-target="#productCarousel3" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
