@@ -5,6 +5,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDao;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 
 import java.io.IOException;
 
@@ -22,8 +23,7 @@ public class ActiveMail extends HttpServlet {
         userDao.ActiveAccountExists(userId);
         String activeSuccess = "active mail success";
         request.setAttribute("Success", activeSuccess);
-        String home = "index.jsp";
-        request.getRequestDispatcher(home).forward(request, response);
+        request.getRequestDispatcher(JSPPage.Index.getPage()).forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
