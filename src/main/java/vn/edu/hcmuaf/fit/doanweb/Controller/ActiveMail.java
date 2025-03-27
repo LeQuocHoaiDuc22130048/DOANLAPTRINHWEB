@@ -5,14 +5,14 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDao;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 
 import java.io.IOException;
 
 @WebServlet(name = "ActiveMail", value = "/ActiveMail")
 public class ActiveMail extends HttpServlet {
     private UserDao userDao;
-    private String Home = "index.jsp";
-    private String ActiveSuccess = "active mail success";
+
     @Override
     public void init() throws ServletException {
         userDao = new UserDaoImp();
@@ -21,8 +21,9 @@ public class ActiveMail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int userId = Integer.parseInt(request.getParameter("userId"));
         userDao.ActiveAccountExists(userId);
-        request.setAttribute("Success", ActiveSuccess);
-        request.getRequestDispatcher(Home).forward(request, response);
+        String activeSuccess = "active mail success";
+        request.setAttribute("Success", activeSuccess);
+        request.getRequestDispatcher(JSPPage.Index.getPage()).forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

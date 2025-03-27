@@ -1,44 +1,44 @@
-    /* Phần chứa hình ảnh */
-.image-section {
-    flex: 1;
-    max-width: 37%;
-}
-.sign-in-form {
-    flex: 1;
-    max-width: 600px;
-    padding-top: 120px;
-}
-.sign-in-form h4 {
-    color: #666;
-    font-size: 15px;
-}
-.form-label {
-    margin-bottom: 5px;
-    display: block;
-}
+/*    !* Phần chứa hình ảnh *!*/
+/*.image-section {*/
+/*    flex: 1;*/
+/*    max-width: 37%;*/
+/*}*/
+/*.sign-in-form {*/
+/*    flex: 1;*/
+/*    max-width: 600px;*/
+/*    padding-top: 120px;*/
+/*}*/
+/*.sign-in-form h4 {*/
+/*    color: #666;*/
+/*    font-size: 15px;*/
+/*}*/
+/*.form-label {*/
+/*    margin-bottom: 5px;*/
+/*    display: block;*/
+/*}*/
 
-.form-control {
-    border: 1px solid #ddd;
-    font-size: 14px;
-}
+/*.form-control {*/
+/*    border: 1px solid #ddd;*/
+/*    font-size: 14px;*/
+/*}*/
 
-.btn-sign-in {
-    background-color: #6fe3ff;
-    font-size: 16px;
-    cursor: pointer;
-}
+/*.btn-sign-in {*/
+/*    background-color: #6fe3ff;*/
+/*    font-size: 16px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-.btn-sign-in:hover {
-    background-color: #5dcfe3;
-}
+/*.btn-sign-in:hover {*/
+/*    background-color: #5dcfe3;*/
+/*}*/
 
-/* Hiệu ứng xuất hiện mượt */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+/*!* Hiệu ứng xuất hiện mượt *!*/
+/*@keyframes fadeIn {*/
+/*    from {*/
+/*        opacity: 0;*/
+/*    }*/
+/*    to {*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
 

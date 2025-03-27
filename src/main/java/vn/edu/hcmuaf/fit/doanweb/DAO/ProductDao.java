@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ProductDao {
 
-    private Jdbi jdbi = JDBIConnect.get();
+    private final Jdbi jdbi = JDBIConnect.get();
 
     public ProductDao(){
 
