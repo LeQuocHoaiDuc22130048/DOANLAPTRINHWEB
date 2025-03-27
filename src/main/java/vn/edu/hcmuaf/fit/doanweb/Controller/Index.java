@@ -22,6 +22,7 @@ public class Index extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
         session.setAttribute("id" , 17);
+
         List<ProductIndex> productListNam = dao.getProductsByCategory(1);
         List<ProductIndex> productListNu = dao.getProductsByCategory(2);
         List<ProductIndex> productListGK= dao.getProductsByCategory(9);
@@ -35,7 +36,6 @@ public class Index extends HttpServlet {
         request.setAttribute("productListGK", productListGK);
         request.setAttribute("brandList", brandList);
         request.getRequestDispatcher("index.jsp").forward(request, response);
-        LogSystem.CreateLog("INFO" , Index.class.getName() , 17 , "" , "guest access website !");
 
     }
 

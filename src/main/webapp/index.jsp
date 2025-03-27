@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,10 +138,14 @@
     <div class="container san_pham_" style="visibility: visible">
         <div class="row">
             <div class="col-lg-12">
-                <div class="women-item-carousel">
-                    <div class="owl-women-item owl-carousel">
-                        <c:forEach var="product" items="${productListNam}">
-                            <div class="item">
+                <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <c:forEach var="product" items="${requestScope.productListNam}" varStatus="status">
+                            <c:if test="${status.index % 3 == 0}">
+                                <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
+                                <div class="row">
+                            </c:if>
+                            <div class="item" style="width: 33%">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -164,27 +169,42 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <img src="${product.path_image}" alt="${product.name}"/>
+                                    <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}" alt="${product.name}"/>
                                 </div>
                                 <div class="down-content">
                                     <h4>${product.name}</h4>
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
-                                       <c:forEach begin="0" end="5" step="1">
-                                           <li><i class="fa fa-star"></i></li>
-                                       </c:forEach>
+                                        <c:forEach begin="0" end="4">
+                                            <li><i class="fa fa-star"></i></li>
+                                        </c:forEach>
                                     </ul>
                                 </div>
                             </div>
+
+                            <c:if test="${status.index % 3 == 2 || status.last}">
+                                </div> <!-- Kết thúc row -->
+                                </div> <!-- Kết thúc carousel-item -->
+                            </c:if>
                         </c:forEach>
+
                     </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon text-primary" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
+
             </div>
+
         </div>
     </div>
 </section>
 <!-- ***** kinh_mat nam Ends ***** -->
-
 <!-- ***** kinh_mat nữ Starts ***** -->
 <section class="section kinh" id="kinh_mat_nu">
     <div class="container">
@@ -201,10 +221,14 @@
     <div class="container san_pham_" style="visibility: visible">
         <div class="row">
             <div class="col-lg-12">
-                <div class="women-item-carousel">
-                    <div class="owl-women-item owl-carousel">
-                        <c:forEach var="product" items="${productListNu}">
-                            <div class="item">
+                <div id="productCarousel2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <c:forEach var="product" items="${requestScope.productListNu}" varStatus="status">
+                            <c:if test="${status.index % 3 == 0}">
+                                <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
+                                <div class="row">
+                            </c:if>
+                            <div class="item" style="width: 33%">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -228,27 +252,42 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <img src="${product.path_image}" alt="${product.name}"/>
+                                    <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}" alt="${product.name}"/>
                                 </div>
                                 <div class="down-content">
                                     <h4>${product.name}</h4>
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
-                                        <% for (int i = 0; i < 5; i++) { %>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <% } %>
+                                        <c:forEach begin="0" end="4">
+                                            <li><i class="fa fa-star"></i></li>
+                                        </c:forEach>
                                     </ul>
                                 </div>
                             </div>
+
+                            <c:if test="${status.index % 3 == 2 || status.last}">
+                                </div> <!-- Kết thúc row -->
+                                </div> <!-- Kết thúc carousel-item -->
+                            </c:if>
                         </c:forEach>
+
                     </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#productCarousel2" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon text-primary" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel2" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
+
             </div>
+
         </div>
     </div>
 </section>
 <!-- ***** kinh_mat nữ Ends ***** -->
-
 <!-- ***** gọng kính Area Starts ***** -->
 <section class="section kinh" id="gong_kinh">
     <div class="container">
@@ -261,54 +300,76 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container san_pham_" style="visibility: visible">
         <div class="row">
             <div class="col-lg-12">
-                <div class="women-item-carousel">
-                    <div class="owl-women-item owl-carousel">
-                        <c:forEach var="product" items="${productListGK}">
-                            <div class="item">
+                <div id="productCarousel3" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <c:forEach var="product" items="${requestScope.productListGK}" varStatus="status">
+                            <c:if test="${status.index % 3 == 0}">
+                                <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
+                                <div class="row">
+                            </c:if>
+                            <div class="item" style="width: 33%">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
                                             <li>
                                                 <a href="${context}/product-detail?id=${product.id}">
-                                                    <i class="fa fa-eye"></i></a>
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
                                             </li>
                                             <li>
                                                 <a href="#" class="rate-product">
-                                                    <i class="fa fa-star"></i></a>
+                                                    <i class="fa fa-star"></i>
+                                                </a>
                                             </li>
                                             <li>
                                                 <form class="addCartForm">
-                                                    <input type="hidden" name="id" value="">
+                                                    <input type="hidden" name="id" value="${product.id}">
                                                     <button class="btn_gio_hang">
+                                                        <i class="fa fa-shopping-cart"></i>
                                                     </button>
                                                 </form>
                                             </li>
                                         </ul>
                                     </div>
-                                    <img src="${product.path_image}" alt="${product.name}"/>
+                                    <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}" alt="${product.name}"/>
                                 </div>
                                 <div class="down-content">
                                     <h4>${product.name}</h4>
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
-                                        <c:forEach begin="0" step="1" end="5">
+                                        <c:forEach begin="0" end="4">
                                             <li><i class="fa fa-star"></i></li>
                                         </c:forEach>
                                     </ul>
                                 </div>
                             </div>
+
+                            <c:if test="${status.index % 3 == 2 || status.last}">
+                                </div> <!-- Kết thúc row -->
+                                </div> <!-- Kết thúc carousel-item -->
+                            </c:if>
                         </c:forEach>
+
                     </div>
+                    <button class="carousel-control-prev " type="button" data-bs-target="#productCarousel3" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon text-primary" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel3" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
+
             </div>
+
         </div>
     </div>
 </section>
 <!-- ***** gong-kinh Area Ends ***** -->
-
 <!-- ***** trong_kinh Area Starts ***** -->
 <section class="section" id="trong_kinh">
     <div class="container">
@@ -346,7 +407,6 @@
     </div>
 </section>
 <!-- ***** trong_kinh Ends ***** -->
-
 <!-- ***** Kinh_ap_trong Starts ***** -->
 <section class="section" id="kinh_ap_trong">
     <div class="container">
@@ -363,7 +423,7 @@
     </div>
     <div class="container">
         <div class="row img_type">
-            <c:forEach var="product" items="${productListKAT}">
+            <c:forEach var="product" items="${requestScope.productListKAT}">
                 <div class="col-lg-3 san_pham_kat">
                     <div class="item">
                         <div class="thumb">
@@ -398,7 +458,6 @@
     </div>
 </section>
 <!-- ***** kinh_ap_trong Ends ***** -->
-
 <!-- ***** bo_suu_tap Starts ***** -->
 <section class="section" id="bo_suu_tap">
     <div class="container">
@@ -470,7 +529,6 @@
     </div>
 </section>
 <!-- ***** bo_suu_tap Ends ***** -->
-
 <!-- ***** thuong_hieu Starts ***** -->
 <section class="section" id="thuong_hieu">
     <div class="container">
@@ -485,7 +543,7 @@
     </div>
     <div class="container">
         <div class="row images">
-            <c:forEach var="brand" items="${brandList}">
+            <c:forEach var="brand" items="${requestScope.brandList}">
                 <div class="col-2 image_brand">
                     <a href="product-category?brandId=${brand.id}"><img src="${brand.icon}" alt="${brand.name}"></a>
                 </div>
@@ -494,7 +552,6 @@
     </div>
 </section>
 <!-- ***** thuong_hieu Ends ***** -->
-
 <!-- đăng kí nhận thông báo và ưu đãi -->
 <div class="subscribe">
     <div class="container">
