@@ -1,4 +1,4 @@
-
+-- Database web_eyestyle
 CREATE DATABASE IF NOT EXISTS `web_eyestyle` 
     DEFAULT CHARACTER SET utf8mb4 
     COLLATE utf8mb4_general_ci;
