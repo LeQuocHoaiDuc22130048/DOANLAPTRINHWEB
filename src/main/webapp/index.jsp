@@ -16,13 +16,13 @@
 
 <body>
 <!-- ***** Preloader Start ***** -->
-<div id="preloader">
-    <div class="jumper">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
+<%--<div id="preloader">--%>
+<%--    <div class="jumper">--%>
+<%--        <div></div>--%>
+<%--        <div></div>--%>
+<%--        <div></div>--%>
+<%--    </div>--%>
+<%--</div>--%>
 <!-- ***** Preloader End ***** -->
 
 <!-- ***** Header Area Start ***** -->
@@ -134,7 +134,6 @@
             </div>
         </div>
     </div>
-
     <div class="container san_pham_" style="visibility: visible">
         <div class="row">
             <div class="col-lg-12">
@@ -175,7 +174,7 @@
                                     <h4>${product.name}</h4>
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
-                                        <c:forEach begin="0" end="4">
+                                        <c:forEach begin="0" end="5" step="1">
                                             <li><i class="fa fa-star"></i></li>
                                         </c:forEach>
                                     </ul>
@@ -561,7 +560,7 @@
                     <h2>Nhận tin mới nhất về sản phẩm bằng cách đăng ký bản tin!</h2>
                     <span>Cập nhật nhanh các sản phẩm mới nhất từ chúng tôi!</span>
                 </div>
-                <form id="subscribe" action="" method="get">
+                <form id="subscribe">
                     <div class="row">
                         <div class="col-lg-5">
                             <fieldset>
@@ -578,7 +577,7 @@
                             <fieldset>
                                 <input
                                         name="email"
-                                        type="text"
+                                        type="email"
                                         id="email"
                                         pattern="[^ @]*@[^ @]*"
                                         placeholder="Email"
@@ -630,6 +629,9 @@
 <!-- ***** Footer Start ***** -->
 <jsp:include page="footer.jsp"/>
 <!-- ***** Footer End ***** -->
+
 <c:import url="script.jsp"/>
+<script src="assets/js/newsletter_subscribe.js"></script>
 </body>
 </html>
+
