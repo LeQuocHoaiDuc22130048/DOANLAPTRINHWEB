@@ -9,6 +9,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
+import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDao;
+import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoInterface;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
 import vn.edu.hcmuaf.fit.doanweb.Services.ProductService;
 
@@ -19,11 +22,12 @@ public class Add extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductService productService = new ProductService();
+        ProductDaoInterface dao = new ProductDaoImp();
+        ProductIndex product = dao.getProductById(Integer.parseInt(request.getParameter("id")));
         int quantity = 1;
         String quantityParam = request.getParameter("quantity");
 
-        if(quantityParam != null || !quantityParam.isEmpty()) {
+        if(quantityParam != null && !quantityParam.isEmpty()) {
             quantity = Integer.parseInt(quantityParam);
         }
 
@@ -34,14 +38,15 @@ public class Add extends HttpServlet {
             session.setAttribute("cart", c);
         }
 
+        c.add(product,quantity);
         session.setAttribute("cart", c);
 
         // Trả về số lượng mới cho AJAX
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write("{\"cartQuantity\": " + c.getTotalQuantity() + "}");
-
-
+        response.getWriter().flush();  // Đảm bảo dữ liệu được gửi đi
+        response.getWriter().close();  // Đóng stream để tránh lỗi
 
     }
 
