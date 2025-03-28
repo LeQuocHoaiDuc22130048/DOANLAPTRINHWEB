@@ -5,9 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Brands;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoInterface;
 import vn.edu.hcmuaf.fit.doanweb.Util.LogSystem;
 
 import java.io.IOException;
@@ -15,7 +17,7 @@ import java.util.List;
 
 @WebServlet(name = "ProductKMContr", value = "/index")
 public class Index extends HttpServlet {
-    ProductDaoImp dao = new ProductDaoImp();
+    ProductDaoInterface dao = new ProductDaoImp();
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -31,8 +33,11 @@ public class Index extends HttpServlet {
         request.setAttribute("productListKAT", productListKAT);
         request.setAttribute("productListGK", productListGK);
         request.setAttribute("brandList", brandList);
+        for (ProductIndex productIndex : productListNam) {
+            System.out.println(productIndex);
+        }
         request.getRequestDispatcher("index.jsp").forward(request, response);
-        LogSystem.CreateLog("INFO" , Index.class.getName() , 17 , "" , "guest access website !");
+//        LogSystem.CreateLog("INFO" , Index.class.getName() , 17 , "" , "guest access website !");
 
     }
 
