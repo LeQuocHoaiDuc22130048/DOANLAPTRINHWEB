@@ -20,7 +20,11 @@ public interface ProductDaoInterface {
 
     public Brands getBrandById(int id);
 
+    public List<ProductIndex> getProductsByBrandId(int brandId);
+
     public List<Brands> getBrandList();
 
     public List<Brands> getTop18Brands();
+
+    public FrameShapes getFrameShapeById(int shapeId);
 }

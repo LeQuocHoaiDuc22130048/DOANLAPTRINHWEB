@@ -975,8 +975,8 @@ kinh_mat_nam, kinh_mat_nu, gong_kinh
   margin: 0px 10px;
 }
 
-.kinh .item .thumb .hover-content ul li a ,
-.kinh .item .thumb .hover-content ul li form,#kinh_ap_trong .item .thumb .hover-content ul li form {
+.kinh .item .thumb .hover-content ul li a,
+.kinh .item .thumb .hover-content ul li form,#kinh_ap_trong .item .thumb .hover-content ul li form{
   width: 50px;
   height: 50px;
   text-align: center;
@@ -988,7 +988,9 @@ kinh_mat_nam, kinh_mat_nu, gong_kinh
 
 .kinh .item .thumb .hover-content ul li form button,#kinh_ap_trong .item .thumb .hover-content ul li form button{
   border: none;
-  background: #fff;
+  width: auto;
+  height: 70%;
+  background: #fff
 }
 
 .kinh .item .thumb .hover-content ul li form button:active,

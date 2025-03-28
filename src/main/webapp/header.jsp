@@ -37,7 +37,8 @@
                             <ul>
                                 <li><a href="product-category?categoryId=3">Sản phẩm</a></li>
                                 <li>
-                                    <a href="chi_tiet_san_pham.jsp">Chi tiết sản phẩm</a>
+                                    <!-- ***** Default when no product is selected ***** -->
+                                    <a href="product-detail?id=1">Chi tiết sản phẩm</a>
                                 </li>
                                 <li class="scroll-to-section">
                                     <a href="bai_viet.jsp">Bài viết</a>
