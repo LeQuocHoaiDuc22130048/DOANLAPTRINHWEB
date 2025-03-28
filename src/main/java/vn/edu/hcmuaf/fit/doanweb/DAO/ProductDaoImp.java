@@ -232,6 +232,54 @@ public class ProductDaoImp implements ProductDaoInterface {
                         .orElse(null));
     }
 
+    // Truy vấn danh sách sản phẩm theo brand id
+    @Override
+    public List<ProductIndex> getProductsByBrandId(int brandId) {
+        List<ProductIndex> productList = jdbi.withHandle(handle ->
+                        handle.createQuery(
+                                        "SELECT * FROM products WHERE brand_id = :brandId"
+                                )
+                                .bind("brandId", brandId)
+                                .map((rs, ctx) -> {
+                                    ProductIndex p = new ProductIndex();
+                                    p.setId(rs.getInt("id"));
+                                    p.setCategoryId(rs.getInt("category_id"));
+                                    p.setBrandId(rs.getInt("brand_id"));
+                                    p.setShapeId(rs.getInt("shape_id"));
+                                    p.setMaterial(rs.getString("material"));
+                                    p.setName(rs.getString("name"));
+                                    p.setDescription(rs.getString("description"));
+                                    p.setStatus(rs.getInt("status"));
+                                    p.setHot(rs.getByte("hot"));
+                                    p.setCostPrice((float) rs.getDouble("cost_price"));
+                                    p.setSellingPrice((float) rs.getDouble("selling_price"));
+                                    p.setQuantity(rs.getInt("quantity"));
+                                    p.setGender(rs.getInt("gender"));
+                                    p.setColor(rs.getString("color"));
+//                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
+//                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
+                                    return p;
+                                })
+                                .list() // Lấy danh sách sản phẩm
+        );
+
+        // Lấy đường dẫn hình ảnh chính (is_main = 1) cho từng sản phẩm
+        productList.forEach(product -> {
+            String mainImage = jdbi.withHandle(handle ->
+                    handle.createQuery(
+                                    "SELECT path FROM products_images WHERE product_id = :id AND is_main = 1"
+                            )
+                            .bind("id", product.getId())
+                            .mapTo(String.class)
+                            .findOne()
+                            .orElse(null)
+            );
+            product.setPath_image(mainImage);
+        });
+
+        return productList;
+    }
+
     @Override
     public List<Brands> getBrandList() {
         return jdbi.withHandle(handle ->
@@ -247,6 +295,18 @@ public class ProductDaoImp implements ProductDaoInterface {
                 handle.createQuery("SELECT * FROM brands LIMIT 18")
                         .mapToBean(Brands.class)
                         .list()
+        );
+    }
+
+    @Override
+    public FrameShapes getFrameShapeById(int shapeId) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM frame_shapes WHERE id= :id")
+                        .bind("id", shapeId)
+                        .mapToBean(FrameShapes.class)
+                        .findOne()
+                        .orElse(null)
+
         );
     }
 

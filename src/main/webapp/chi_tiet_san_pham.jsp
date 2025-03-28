@@ -8,7 +8,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Chi Tiết Sản Phẩm</title>
-   <c:import url="link.jsp"/>
+    <c:import url="link.jsp"/>
 </head>
 <body>
 <!-- preloader start -->
@@ -37,7 +37,7 @@
                         <span class="divider">/</span>
                         Kính
                         <span class="divider">/</span>
-                        Gucci
+                        ${requestScope.brand.name}
                     </nav>
                 </div>
             </div>
@@ -52,25 +52,25 @@
                         <div class="slider-container">
                             <div class="slider">
                                 <img
-                                        src="${product.path_image}"
+                                        src="${requestScope.product.path_image}"
                                         alt=""
                                         width="510px"
                                         height="510px"
                                 />
                                 <img
-                                        src="${images[1].path}"
+                                        src="${requestScope.images[1].path}"
                                         alt=""
                                         width="510px"
                                         height="510px"
                                 />
                                 <img
-                                        src="${images[2].path}"
+                                        src="${requestScope.images[2].path}"
                                         alt=""
                                         width="510px"
                                         height="510px"
                                 />
                                 <img
-                                        src="${images[0].path}"
+                                        src="${requestScope.images[0].path}"
                                         alt=""
                                         width="510px"
                                         height="510px"
@@ -81,51 +81,40 @@
                             <i class="fa-thin fa-angles-left fa"></i>
                             <i class="fa-thin fa-angles-right fa"></i>
                         </div>
-                        <div class="full-screen">
-                            <a href="" id="product_icon"
-                            ><i
-                                    class="fa-solid fa-up-right-and-down-left-from-center"
-                            ></i
-                            ></a>
-                        </div>
                     </div>
                     <div class="more-images">
                         <div class="col-4-images">
-                            <img src="${product.path_image}" alt=""/>
+                            <img src="${requestScope.product.path_image}" alt=""/>
                         </div>
                         <div class="col-4-images">
-                            <img src="${images[1].path}" alt=""/>
+                            <img src="${requestScope.images[1].path}" alt=""/>
                         </div>
                         <div class="col-4-images">
-                            <img src="${images[2].path}" alt=""/>
+                            <img src="${requestScope.images[2].path}" alt=""/>
                         </div>
                         <div class="col-4-images">
-                            <img src="${images[0].path}" alt=""/>
+                            <img src="${requestScope.images[0].path}" alt=""/>
                         </div>
                     </div>
                 </div>
-
-                <div
-                        id="col-right"
-                        class="col product-page medium-6 small-12 large-6"
-                >
+                <div id="col-right" class="col product-page medium-6 small-12 large-6">
                     <div class="col-inner">
                         <div class="thuong-hieu brand">
                             <a href="#" class="brand-ref"
-                            ><img src="assets/images/gucci_brand.jpg" alt=""
+                            ><img src="${requestScope.brand.icon}" alt="${requestScope.brand.name}"
                             /></a>
                         </div>
                         <div class="product-title-container">
                             <h1 class="product-title product_title entry-title">
-                                ${product.name}
-                                ${product.description}
+                                ${requestScope.product.name}
+                                ${requestScope.product.description}
                             </h1>
                         </div>
                         <div class="product-price-container is-xxlarge">
                             <div class="price-wrapper">
                                 <p class="price product-page-price">
                       <span class="woocommerce-Price-amount amount">
-                        <f:formatNumber value="${product.sellingPrice}"/>
+                        <f:formatNumber value="${requestScope.product.sellingPrice}"/>
                         <span class="woocommerce-Price-currencySymbol">đ</span>
                       </span>
                                 </p>
@@ -151,7 +140,7 @@
                                 <input type="button" value="+" class="plus"/>
                             </div>
                             <div class="add-to-cart-container form-normal is-large">
-                                <input type="hidden" name="id" value="${product.id}"/> <!-- ID sản phẩm -->
+                                <input type="hidden" name="id" value="${requestScope.product.id}"/>
                                 <button id="add-to-cart" class="single_add_to_cart_button button alt">
                                     Thêm vào giỏ hàng
                                 </button>
@@ -160,150 +149,131 @@
                     </div>
                 </div>
             </div>
-<%--            <div class="is-divider divider"></div>--%>
-<%--                      <div--%>
-<%--                        class="row align-middle-align-center tab-button"--%>
-<%--                        id="row-1581544597"--%>
-<%--                      >--%>
-<%--                        <div--%>
-<%--                          id="col-918240496"--%>
-<%--                          class="col hide-for-small small-12 large-12"--%>
-<%--                        >--%>
-<%--                          <div class="col-inner text-left">--%>
-<%--                            <div class="row list-tab-icon-title" id="row-1146947431">--%>
-<%--                              <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
-<%--                                <div class="col-inner">--%>
-<%--                                  <div--%>
-<%--                                    class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
-<%--                                  >--%>
-<%--                                    <div class="icon-box-img">--%>
-<%--                                      <div class="icon">--%>
-<%--                                        <div class="icon-inner">--%>
-<%--                                          <img src="assets/images/doiTra.jpg" alt="" />--%>
-<%--                                        </div>--%>
-<%--                                      </div>--%>
-<%--                                    </div>--%>
+            <div class="is-divider divider"></div>
+            <div class="row align-middle-align-center tab-button" id="row-1581544597">
+                <div class="col hide-for-small small-12 large-12">
+                    <div class="col-inner text-left">
+                        <div class="row list-tab-icon-title">
+                            <div class="col medium-3 small-6 large-3">
+                                <div class="col-inner">
+                                    <div class="icon-box featured-box tab-title-icon icon-box-left text-left">
+                                        <div class="icon-box-img">
+                                            <div class="icon">
+                                                <div class="icon-inner">
+                                                    <img src="assets/images/doiTra.jpg" alt=""/>
+                                                </div>
+                                            </div>
+                                        </div>
 
-<%--                                    <div class="icon-box-text last-reset">--%>
-<%--                                      <div class="ly-do-mua">--%>
-<%--                                        Bảo hành 6 tháng--%>
-<%--                                        <br />--%>
-<%--                                        Duy nhất tại Việt Nam--%>
-<%--                                      </div>--%>
-<%--                                    </div>--%>
-<%--                                  </div>--%>
-<%--                                </div>--%>
-<%--                              </div>--%>
-<%--                            </div>--%>
-<%--                          </div>--%>
-<%--                        </div>--%>
+                                        <div class="icon-box-text last-reset">
+                                            <div class="ly-do-mua">
+                                                Bảo hành 6 tháng
+                                                <br/>
+                                                Duy nhất tại Việt Nam
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<%--                        <div--%>
-<%--                          id="col-918240496"--%>
-<%--                          class="col hide-for-small small-12 large-12"--%>
-<%--                        >--%>
-<%--                          <div class="col-inner text-left">--%>
-<%--                            <div class="row list-tab-icon-title" id="row-1146947431">--%>
-<%--                              <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
-<%--                                <div class="col-inner">--%>
-<%--                                  <div--%>
-<%--                                    class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
-<%--                                  >--%>
-<%--                                    <div class="icon-box-img">--%>
-<%--                                      <div class="icon">--%>
-<%--                                        <div class="icon-inner">--%>
-<%--                                          <img src="assets/images/camket.jpg" alt="" />--%>
-<%--                                        </div>--%>
-<%--                                      </div>--%>
-<%--                                    </div>--%>
+                <div class="col hide-for-small small-12 large-12">
+                    <div class="col-inner text-left">
+                        <div class="row list-tab-icon-title">
+                            <div class="col medium-3 small-6 large-3">
+                                <div class="col-inner">
+                                    <div
+                                            class="icon-box featured-box tab-title-icon icon-box-left text-left"
+                                    >
+                                        <div class="icon-box-img">
+                                            <div class="icon">
+                                                <div class="icon-inner">
+                                                    <img src="assets/images/camket.jpg" alt=""/>
+                                                </div>
+                                            </div>
+                                        </div>
 
-<%--                                    <div class="icon-box-text last-reset">--%>
-<%--                                      <div class="ly-do-mua">--%>
-<%--                                        Cam kết sản phẩm chính hãng--%>
-<%--                                        <br />--%>
-<%--                                        Đền gấp 10 lần--%>
-<%--                                      </div>--%>
-<%--                                    </div>--%>
-<%--                                  </div>--%>
-<%--                                </div>--%>
-<%--                              </div>--%>
-<%--                            </div>--%>
-<%--                          </div>--%>
-<%--                        </div>--%>
+                                        <div class="icon-box-text last-reset">
+                                            <div class="ly-do-mua">
+                                                Cam kết sản phẩm chính hãng
+                                                <br/>
+                                                Đền gấp 10 lần
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<%--                        <div--%>
-<%--                          id="col-918240496"--%>
-<%--                          class="col hide-for-small small-12 large-12"--%>
-<%--                        >--%>
-<%--                          <div class="col-inner text-left">--%>
-<%--                            <div class="row list-tab-icon-title" id="row-1146947431">--%>
-<%--                              <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
-<%--                                <div class="col-inner">--%>
-<%--                                  <div--%>
-<%--                                    class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
-<%--                                  >--%>
-<%--                                    <div class="icon-box-img">--%>
-<%--                                      <div class="icon">--%>
-<%--                                        <div class="icon-inner">--%>
-<%--                                          <img src="assets/images/quytrinh.jpg" alt="" />--%>
-<%--                                        </div>--%>
-<%--                                      </div>--%>
-<%--                                    </div>--%>
+                <div class="col hide-for-small small-12 large-12">
+                    <div class="col-inner text-left">
+                        <div class="row list-tab-icon-title">
+                            <div class="col medium-3 small-6 large-3">
+                                <div class="col-inner">
+                                    <div
+                                            class="icon-box featured-box tab-title-icon icon-box-left text-left"
+                                    >
+                                        <div class="icon-box-img">
+                                            <div class="icon">
+                                                <div class="icon-inner">
+                                                    <img src="assets/images/quytrinh.jpg" alt=""/>
+                                                </div>
+                                            </div>
+                                        </div>
 
-<%--                                    <div class="icon-box-text last-reset">--%>
-<%--                                      <div class="ly-do-mua">--%>
-<%--                                        Quy trình đo mắt chuẩn Quốc Tế--%>
-<%--                                        <br />--%>
-<%--                                        Thời gian đo tối thiểu 20 phút--%>
-<%--                                      </div>--%>
-<%--                                    </div>--%>
-<%--                                  </div>--%>
-<%--                                </div>--%>
-<%--                              </div>--%>
-<%--                            </div>--%>
-<%--                          </div>--%>
-<%--                        </div>--%>
+                                        <div class="icon-box-text last-reset">
+                                            <div class="ly-do-mua">
+                                                Quy trình đo mắt chuẩn Quốc Tế
+                                                <br/>
+                                                Thời gian đo tối thiểu 20 phút
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<%--                        <div--%>
-<%--                          id="col-918240496"--%>
-<%--                          class="col hide-for-small small-12 large-12"--%>
-<%--                        >--%>
-<%--                          <div class="col-inner text-left">--%>
-<%--                            <div class="row list-tab-icon-title" id="row-1146947431">--%>
-<%--                              <div id="col-375462666" class="col medium-3 small-6 large-3">--%>
-<%--                                <div class="col-inner">--%>
-<%--                                  <div--%>
-<%--                                    class="icon-box featured-box tab-title-icon icon-box-left text-left"--%>
-<%--                                  >--%>
-<%--                                    <div class="icon-box-img">--%>
-<%--                                      <div class="icon">--%>
-<%--                                        <div class="icon-inner">--%>
-<%--                                          <img src="assets/images/baotri.jpg" alt="" />--%>
-<%--                                        </div>--%>
-<%--                                      </div>--%>
-<%--                                    </div>--%>
+                <div class="col hide-for-small small-12 large-12">
+                    <div class="col-inner text-left">
+                        <div class="row list-tab-icon-title">
+                            <div id="col-375462666" class="col medium-3 small-6 large-3">
+                                <div class="col-inner">
+                                    <div
+                                            class="icon-box featured-box tab-title-icon icon-box-left text-left"
+                                    >
+                                        <div class="icon-box-img">
+                                            <div class="icon">
+                                                <div class="icon-inner">
+                                                    <img src="assets/images/baotri.jpg" alt=""/>
+                                                </div>
+                                            </div>
+                                        </div>
 
-<%--                                    <div class="icon-box-text last-reset">--%>
-<%--                                      <div class="ly-do-mua">--%>
-<%--                                        Hệ thống máy móc hàng đầu VN--%>
-<%--                                        <br />--%>
-<%--                                        Giảm tối thiểu sai số do lỗi thao tác--%>
-<%--                                      </div>--%>
-<%--                                    </div>--%>
-<%--                                  </div>--%>
-<%--                                </div>--%>
-<%--                              </div>--%>
-<%--                            </div>--%>
-<%--                          </div>--%>
-<%--                        </div>--%>
-<%--                      </div>--%>
+                                        <div class="icon-box-text last-reset">
+                                            <div class="ly-do-mua">
+                                                Hệ thống máy móc hàng đầu VN
+                                                <br/>
+                                                Giảm tối thiểu sai số do lỗi thao tác
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="is-divider divider"></div>
             <div class="row" id="row-1942874916">
                 <div id="col-1676309046" class="col medium-5 small-12 large-5">
                     <div class="col-inner">
-                        <div
-                                class="icon-box featured-box icon-box-left text-left is-large"
-                        >
+                        <div class="icon-box featured-box icon-box-left text-left is-large">
                             <div class="icon-box-img">
                                 <div class="icon">
                                     <div class="icon-inner">
@@ -313,26 +283,19 @@
                             </div>
 
                             <div class="icon-box-text last-reset">
-                                <h5 class="uppercase">Thông tin sản phẩm</h5>
+                                <h5>Thông tin sản phẩm</h5>
                                 <div id="text-880256298" class="text thong-tin">
-                                    <p><strong>Thương hiệu:</strong> Gucci</p>
-                                    <p><strong>Mã sản phẩm:</strong> GG1144O_54_002</p>
-                                    <p><strong>Xuất xứ:</strong> Ý</p>
-                                    <p><strong>Bảo hành:</strong> 1 năm</p>
-                                    <p><strong>Giới tính:</strong> Unisex</p>
-                                    <p><strong>Phong cách vành gọng:</strong> Nguyên khung</p>
-                                    <p><strong>Kiểu dáng:</strong> Vuông</p>
-                                    <p><strong>Chất liệu gọng:</strong> Thép không gỉ</p>
-                                    <p><strong>Màu sắc:</strong> Bạc – Xanh</p>
-                                    <p><strong>Kích thước tròng:</strong> 54mm</p>
-                                    <p><strong>Độ dài gọng:</strong> 140mm</p>
-                                    <p><strong>Độ dài cầu kính:</strong> 17mm</p>
+                                    <p><strong>Thương hiệu: </strong>${requestScope.brand.name}</p>
+                                    <p><strong>Mã sản phẩm: </strong>${requestScope.product.name}</p>
+                                    <p><strong>Danh mục: </strong>${requestScope.category.name}</p>
+                                    <p><strong>Mô tả: </strong> ${requestScope.product.description}</p>
+                                    <p><strong>Kiểu dáng: </strong>${requestScope.shape.name}</p>
+                                    <p><strong>Chất liệu: </strong>${requestScope.product.material}</p>
+                                    <p><strong>Màu sắc: </strong>${requestScope.product.color}</p>
                                 </div>
                             </div>
                         </div>
-                        <div
-                                class="icon-box featured-box policy-icon icon-box-left text-left"
-                        >
+                        <div class="icon-box featured-box policy-icon icon-box-left text-left">
                             <div class="icon-box-img">
                                 <div class="icon">
                                     <div class="icon-inner">
@@ -341,33 +304,29 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset">
-<%--                                                    <div class="accordion van-chuyen">--%>
-<%--                                                      <div--%>
-<%--                                                        id="accordion-761411772"--%>
-<%--                                                        class="accordion-item chinh_sach"--%>
-<%--                                                      >--%>
-<%--                                                        <a id="accordion-761411772-label">--%>
-<%--                                                          <span class="chinh-sach">Chính sách vận chuyển</span>--%>
-<%--                                                          <span><i class="fa-solid fa-chevron-down"></i></span>--%>
-<%--                                                        </a>--%>
+                                <div class="accordion van-chuyen">
+                                    <div class="accordion-item chinh_sach">
+                                        <a>
+                                            <span class="chinh-sach">Chính sách vận chuyển</span>
+                                            <span><i class="fa-solid fa-chevron-down"></i></span>
+                                        </a>
 
-<%--                                                        <div--%>
-<%--                                                          id="accordion-761411772-content"--%>
-<%--                                                          class="accordion-inner hidden"--%>
-<%--                                                        >--%>
-<%--                                                          <ul>--%>
-<%--                                                            <li>Giao hàng toàn quốc nhanh chóng.</li>--%>
-<%--                                                            <li>Giao siêu tốc trong vòng 2 giờ tại HCM.</li>--%>
-<%--                                                            <li>--%>
-<%--                                                              Giao hàng ngoại thành: 2-3 ngày (có thể lên đến 7--%>
-<%--                                                              ngày tùy khu vực)--%>
-<%--                                                            </li>--%>
-<%--                                                          </ul>--%>
-<%--                                                        </div>--%>
-<%--                                                      </div>--%>
-<%--                                                    </div>--%>
+                                        <div class="accordion-inner hidden">
+                                            <ul>
+                                                <li>Giao hàng toàn quốc nhanh chóng.</li>
+                                                <li>Giao siêu tốc trong vòng 2 giờ tại HCM.</li>
+                                                <li>
+                                                    Giao hàng ngoại thành: 2-3 ngày (có thể lên đến 7
+                                                    ngày tùy khu vực)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <p style="height: 30px"></p>
 
                         <div class="icon-box featured-box policy-icon icon-box-left text-left">
                             <div class="icon-box-img">
@@ -379,19 +338,12 @@
                             </div>
                             <div class="icon-box-text last-reset">
                                 <div class="accordion van-chuyen">
-                                    <div
-                                            id="accordion-761411772"
-                                            class="accordion-item chinh_sach"
-                                    >
+                                    <div id="accordion-761411772" class="accordion-item chinh_sach">
                                         <a id="accordion-761411772-label">
                                             <span class="chinh-sach">Chính sách bảo hành</span>
                                             <span><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
-
-                                        <div
-                                                id="accordion-761411772-content"
-                                                class="accordion-inner hidden"
-                                        >
+                                        <div id="accordion-761411772-content" class="accordion-inner hidden">
                                             <ul>
                                                 <li>Bảo hành tầm nhìn 6 tháng.</li>
                                                 <li>
@@ -408,9 +360,7 @@
                 </div>
                 <div id="col-871754910" class="col medium-7 small-12 large-7">
                     <div class="col-inner">
-                        <div
-                                class="icon-box featured-box icon-box-left text-left is-large"
-                        >
+                        <div class="icon-box featured-box icon-box-left text-left is-large" >
                             <div class="icon-box-img">
                                 <div class="icon">
                                     <div class="icon-inner">
@@ -420,35 +370,21 @@
                             </div>
                             <div class="icon-box-text last-reset">
                                 <h5>Chi tiết sản phẩm</h5>
-                                <div
-                                        class="product-page-section"
-                                        style="background-color: rgb(247, 247, 247)"
-                                >
+                                <div class="product-page-section"  style="background-color: rgb(247, 247, 247)">
                                     <div class="product-section">
                                         <div class="panel entry-content">
                                             <h2 style="text-align: center">
-                                                <strong>Về </strong><b>GUCCI GG1144O_54_002 </b>
+                                                <strong>Về </strong><b>${requestScope.brand.name} ${requestScope.product.name}</b>
                                             </h2>
                                             <ul>
                                                 <li>
-                              <span
-                              >Gọng kim loại làm từ thép không gỉ với độ bền,
-                                khả năng chống ăn mòn cao và an toàn cho da nhạy
-                                cảm</span
-                              >
+                                                   <span>Gọng kim loại làm từ thép không gỉ với độ bền, khả năng chống ăn mòn cao và an toàn cho da nhạy cảm</span>
                                                 </li>
                                                 <li>
-                              <span
-                              >Kính dáng vuông giúp nổi bật các đường cong mềm
-                                mại của các kiểu khuôn mặt hình tròn, trái tim,
-                                oval.</span
-                              >
+                                                    <span>Kính dáng vuông giúp nổi bật các đường cong mềm mại của các kiểu khuôn mặt hình tròn, trái tim, oval.</span>
                                                 </li>
                                                 <li>
-                              <span
-                              >Hộp vải nhung mang lại cảm giác sang trọng, mềm
-                                mại khi cầm tay.</span
-                              >
+                                                    <span>Hộp vải nhung mang lại cảm giác sang trọng, mềm mại khi cầm tay.</span>
                                                 </li>
                                                 <li><span>Trọng lượng tương đối nhẹ.</span></li>
                                             </ul>
@@ -465,146 +401,59 @@
 
             <div id="text-899889134" class="text">
                 <h4>có thể bạn sẽ thích</h4>
-
-                <div class="row-container">
-                    <div class="row slider row-slider">
-                        <div class="col-lg-4 col-lg-4-slider">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content"></div>
-                                    <img
-                                            src="assets/images/product1.jpg"
-                                            alt=""
-                                            style="width: 100%"
-                                    />
-                                    <div class="down-content">
-                                        <h5>Oakley Unisex Mã 0OX8096</h5>
-                                        <span>5.090.000đ</span>
+                <div class="row kinh">
+                    <div class="col-lg-12">
+                        <div class="women-item-carousel">
+                            <div class="owl-women-item owl-carousel">
+                                <c:forEach var="product" items="${requestScope.brandList}">
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <div class="hover-content">
+                                                <ul>
+                                                    <li>
+                                                        <a href="${context}/product-detail?id=${product.id}">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="rate-product">
+                                                            <i class="fa fa-star"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <form class="addCartForm">
+                                                            <input type="hidden" name="id" value="${product.id}">
+                                                            <button class="btn_gio_hang">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </button>
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="${product.path_image}" alt="${product.name}"/>
+                                            <div class="down-content">
+                                                <h4>${product.name}</h4>
+                                                <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
+                                                <ul class="stars">
+                                                    <c:forEach begin="0" end="5" step="1">
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    </c:forEach>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-lg-4-slider">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content"></div>
-                                    <img
-                                            src="assets/images/product2.jpg"
-                                            alt=""
-                                            style="width: 100%"
-                                    />
-                                    <div class="down-content">
-                                        <h5>Oakley Unisex Mã 0OX8096</h5>
-                                        <span>5.090.000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-lg-4-slider">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content"></div>
-                                    <img
-                                            src="assets/images/product3.jpg"
-                                            alt=""
-                                            style="width: 100%"
-                                    />
-                                    <div class="down-content">
-                                        <h5>Oakley Unisex Mã 0OX8096</h5>
-                                        <span>5.090.000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-lg-4-slider">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content"></div>
-                                    <img
-                                            src="assets/images/product4.jpg"
-                                            alt=""
-                                            style="width: 100%"
-                                    />
-                                    <div class="down-content">
-                                        <h5>Oakley Unisex Mã 0OX8096</h5>
-                                        <span>5.090.000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-lg-4-slider">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content"></div>
-                                    <img
-                                            src="assets/images/product5.jpg"
-                                            alt=""
-                                            style="width: 100%"
-                                    />
-                                    <div class="down-content">
-                                        <h5>Oakley Unisex Mã 0OX8096</h5>
-                                        <span>5.090.000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-lg-4-slider">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content"></div>
-                                    <img
-                                            src="assets/images/product6.jpg"
-                                            alt=""
-                                            style="width: 100%"
-                                    />
-                                    <div class="down-content">
-                                        <h5>Oakley Unisex Mã 0OX8096</h5>
-                                        <span>5.090.000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-lg-4-slider">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content"></div>
-                                    <img
-                                            src="assets/images/product7.jpg"
-                                            alt=""
-                                            style="width: 100%"
-                                    />
-                                    <div class="down-content">
-                                        <h5>Oakley Unisex Mã 0OX8096</h5>
-                                        <span>5.090.000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-lg-4-slider">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content"></div>
-                                    <img
-                                            src="assets/images/product8.jpg"
-                                            alt=""
-                                            style="width: 100%"
-                                    />
-                                    <div class="down-content">
-                                        <h5>Oakley Unisex Mã 0OX8096</h5>
-                                        <span>5.090.000đ</span>
-                                    </div>
-                                </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
-                    <div class="arrow-angle">
-                        <div class="arrow-left">
-                            <i class="fa-solid fa-angle-left"></i>
-                        </div>
-                        <div class="arrow-right">
-                            <i class="fa-solid fa-angle-right"></i>
-                        </div>
-                    </div>
+<%--                    <div class="arrow-angle">--%>
+<%--                        <div class="arrow-left">--%>
+<%--                            <i class="fa-solid fa-angle-left"></i>--%>
+<%--                        </div>--%>
+<%--                        <div class="arrow-right">--%>
+<%--                            <i class="fa-solid fa-angle-right"></i>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
             </div>
         </div>
@@ -613,53 +462,10 @@
     <jsp:include page="footer.jsp"/>
 </div>
 
-<!-- jQuery -->
-<script src="assets/js/jquery-2.1.0.min.js"></script>
-<!-- Bootstrap -->
-<script src="assets/js/popper.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugins -->
-<script src="assets/js/owl-carousel.js"></script>
-<script src="assets/js/accordions.js"></script>
-<script src="assets/js/datepicker.js"></script>
-<script src="assets/js/scrollreveal.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/imgfix.min.js"></script>
-<script src="assets/js/slick.js"></script>
-<script src="assets/js/lightbox.js"></script>
-<script src="assets/js/isotope.js"></script>
-<script src="assets/js/dropdown.js"></script>
-<script src="assets/js/back_to_top.js"></script>
-<script src="assets/js/chat_box.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="assets/js/handle-buttom.js"></script>
+<script src=assets/js/handle-buttom.js></script>
 <script src="assets/js/plusminus.js"></script>
 <script src="assets/js/slider.js"></script>
-<script src="assets/js/jquery-2.1.0.min.js"></script>
-<script src="assets/js/hien_thi_ten_dangnhap.js"></script>
-<script src="assets/js/add_cart.js"></script>
+<c:import url="script.jsp"/>
 
-<!-- Global Init -->
-<script src="assets/js/custom.js"></script>
-
-<script>
-    $(function () {
-        var selectedClass = "";
-        $("p").click(function () {
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-            $("#portfolio div")
-                .not("." + selectedClass)
-                .fadeOut();
-            setTimeout(function () {
-                $("." + selectedClass).fadeIn();
-                $("#portfolio").fadeTo(50, 1);
-            }, 500);
-        });
-    });
-</script>
 </body>
 </html>
