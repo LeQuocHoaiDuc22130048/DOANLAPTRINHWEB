@@ -55,7 +55,7 @@
         <c:otherwise>
             <c:choose>
                 <%--                Khi giỏ hàng trống--%>
-                <c:when test="${sessionScope.cart != null && sessionScope.cart.totalQuantity == 0}">
+                <c:when test="${sessionScope.cart.totalQuantity == 0}">
                     <div class="container no-list">
                         <div class="non_product">
                             <p>Chưa có sản phẩm nào trong giỏ hàng.</p>

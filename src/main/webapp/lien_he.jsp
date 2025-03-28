@@ -186,5 +186,6 @@
     <!-- ***** Footer End ***** -->
 
      <c:import url="script.jsp"/>
+    <script src="assets/js/newsletter_subscribe.js"></script>
   </body>
 </html>
