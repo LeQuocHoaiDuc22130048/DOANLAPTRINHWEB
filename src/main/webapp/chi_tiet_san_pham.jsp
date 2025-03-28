@@ -28,12 +28,8 @@
 
     <!-- ***** Header Area End ***** -->
 
-    <div
-            class="shop-page-title category-page-title featured-title page-title"
-    >
-        <div
-                class="page-title-inner flex-row container medium-flex-wrap flex-has-center"
-        >
+    <div class="shop-page-title category-page-title featured-title page-title">
+        <div class="page-title-inner flex-row container medium-flex-wrap flex-has-center">
             <div class="flex-col flex-center text-center">
                 <div class="is-large">
                     <nav class="woocommerce-breadcrumb breadcrumbs">
@@ -373,11 +369,7 @@
                             </div>
                         </div>
 
-                        <p style="height: 30px"></p>
-
-                        <div
-                                class="icon-box featured-box policy-icon icon-box-left text-left"
-                        >
+                        <div class="icon-box featured-box policy-icon icon-box-left text-left">
                             <div class="icon-box-img">
                                 <div class="icon">
                                     <div class="icon-inner">

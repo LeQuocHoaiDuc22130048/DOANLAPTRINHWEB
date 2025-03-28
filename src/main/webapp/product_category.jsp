@@ -48,31 +48,25 @@
 
     <!-- ***** Main Banner Area Start ***** -->
     <main id="main">
-        <div class="shop-container">
+        <div class="shop-container container">
             <div class="archive-product-wrap">
-                <div class="container-banner-product">
-                    <h1 style="text-align: center">
-                        <strong>
-                  <span>
-                      ${selectedItem.title}
-                  </span>
-                        </strong>
-                    </h1>
+                <div class="absolute_center flex-column">
+                    <h1  class="mt-100 mb-2 fs-3">${requestScope.selectedItem.title}</h1>
                     <p>
-                        <img
-                                src="${selectedItem.img}"
-                                alt="Hình ${selectedItem.name}"
+                        <img class="img-fluid border-0"
+                                src="${requestScope.selectedItem.img}"
+                                alt="Hình ${requestScope.selectedItem.name}"
                         />
                     </p>
-                    <div class="text hide-for-small">
-                        <p class="caption-top">
+                    <div class="text hide-for-small absolute_center">
+                        <p class="caption-top w-auto mx-3 my-2">
                             <em>
-                                ${selectedItem.description}
+                                ${requestScope.selectedItem.description}
                             </em>
                         </p>
                     </div>
 
-                    <c:if test="${isCategory && selectedItem.items.size()>0}">
+                    <c:if test="${requestScope.isCategory && requestScope.selectedItem.items.size()>0}">
                         <div class="shop-container section-title-container">
                             <h3 class="section-title section-title-center">
                                 <b></b>
@@ -81,7 +75,7 @@
                             </h3>
                         </div>
 
-                        <table style="width: 100%; border-collapse: collapse">
+                        <table class="w-100 my-4">
                             <tbody>
                             <tr style="height: 95px">
                                 <c:forEach var="sub" items="${selectedItem.items}" varStatus="status">
@@ -112,209 +106,202 @@
                         </table>
                     </c:if>
 
-                    <p class="tag-in-category">
+                    <p class="tag-in-category mb-3">
                         <strong>Tìm kiếm nhiều:</strong>
                         <br/>
-                        <a href="" title="Mắt kính chính hãng">Gọng kính chính hãng</a>
-                        <a href="" title="Gọng kính cận thể thao">Gọng thể thao</a>
-                        <a href="" title="Gọng kính giá rẻ">Gọng giá rẻ</a>
-                        <a href="" title="Gọng kính cận màu đen">Gọng màu đen</a>
-                        <a href="" title="Gọng kính cận màu trắng">Gọng màu trắng</a>
-                        <a href="" title="Gọng kính cận màu nâu">Gọng màu nâu</a>
-                        <a href="" title="Gọng kính cận màu hồng">Gọng màu hồng</a>
-                        <a href="" title="Gọng kính cận màu vàng">Gọng màu vàng</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Mắt kính chính hãng">Gọng kính chính hãng</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính cận thể thao">Gọng thể thao</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính giá rẻ">Gọng giá rẻ</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính cận màu đen">Gọng màu đen</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính cận màu trắng">Gọng màu trắng</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính cận màu nâu">Gọng màu nâu</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính cận màu hồng">Gọng màu hồng</a>
+                        <a  class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính cận màu vàng">Gọng màu vàng</a>
                     </p>
 
-                    <p class="tag-in-category">
+                    <p class="tag-in-category mb-3">
                         <strong>Có thể bạn thích:</strong>
                         <br/>
-                        <a href="" title="Gọng kính Cartier">Cartier</a>
-                        <a href="" title="Gọng kính Montblanc">Montblanc</a>
-                        <a href="" title="Gọng kính Bolon">Bolon</a>
-                        <a href="" title="Gọng kính Chopard">Chopard</a>
-                        <a href="" title="Gọng kính Furla">Furla</a>
-                        <a href="" title="Gọng kính Exfash">Exfash</a>
-                        <a href="" title="Gọng kính Parim">Parim</a>
-                        <a href="" title="Gọng kính EyesCloud">EyesCloud</a>
-                        <a href="" title="Gọng kính Molsion">Molsion</a>
-                        <a href="" title="Gọng kính Gucci">Gọng Gucci</a>
-                        <a href="" title="Gọng kính Burberry">Gọng Burberry</a>
-                        <a href="" title="Gọng kính Versace">Gọng Versace</a>
-                        <a href="" title="Gọng kính RayBan">Gọng RayBan</a>
-                        <a href="" title="Gọng kính Oakley">Gọng Oakley</a>
-                        <a href="" title="Gọng kính Dior">Gọng Dior</a>
-                        <a href="" title="Gọng kính Police">Gọng Police</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Cartier">Cartier</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Montblanc">Montblanc</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Bolon">Bolon</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Chopard">Chopard</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Furla">Furla</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Exfash">Exfash</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Parim">Parim</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính EyesCloud">EyesCloud</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Molsion">Molsion</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Gucci">Gọng Gucci</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Burberry">Gọng Burberry</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Versace">Gọng Versace</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính RayBan">Gọng RayBan</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Oakley">Gọng Oakley</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Dior">Gọng Dior</a>
+                        <a class="btn bg-transparent border-1 border mb-1" href="" title="Gọng kính Police">Gọng Police</a>
                     </p>
-                    <div class="productfilter-wc productfilter-woocommerce">
-                            <div class="productfilter_filter_wrapper productfilter_columns_3">
-                                <div class="product-filter-inner">
-                                    <div class="productfilter_filter_wrapper productfilter_columns_3">
-                                        <div class="product-filter-inner">
-                                            <div class="dropup-center dropup">
-                                                <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
-                                                        type="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Thương hiệu
-                                                </button>
-                                                <div class="dropdown-menu container-fluid shadow ms-2" style="width: 800px">
-                                                    <div class="row row-cols-5 w-auto mx-2">
-                                                        <c:forEach var="brand" items="${brands}">
-                                                            <div class="col">
-                                                                <a class="dropdown_item_link px-2 py-2 m-2 text-center text-nowrap"
-                                                                   href="filter?type=brand_id&value=${brand.id}"> ${brand.name}
-                                                                </a>
-                                                            </div>
-                                                        </c:forEach>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="dropup-center dropup">
-                                                <label><input class="d-none" checked type="text" name="type" value="brand_id"/></label>
-                                                <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
-                                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">Giới tính
-                                                </button>
-                                                <div class="dropdown-menu container-fluid shadow " style="width: 500px">
-                                                    <div class="row row-cols-4 w-auto ms-2">
-                                                        <div class="col">
-                                                            <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=1">
-                                                                <img class="img-thumbnail" src="assets/images/icon-nam .jpg" alt=""/>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col">
-                                                            <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=2">
-                                                                <img class="img-thumbnail" src="assets/images/icon-nu .jpg" alt=""/>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col">
-                                                            <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=3">
-                                                                <img class="img-thumbnail" src="assets/images/icon-tre-em.jpg" alt=""/>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col">
-                                                            <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                               href="filter?type=gender&value=4"><img class="img-thumbnail"
-                                                                                                      src="assets/images/icon-unisex .jpg"
-                                                                                                      alt=""/> </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="dropup-center dropup">
-                                                <label><input class="d-none" checked type="text" name="type"
-                                                              value="brand_id"/></label>
-                                                <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
-                                                        type="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Kiểu dáng
-                                                </button>
-                                                <div class="dropdown-menu container-fluid shadow " style="width: 500px">
-                                                    <div class="row row-cols-4 w-auto ms-2">
-                                                        <c:forEach var="shape" items="${shapes}">
-                                                            <div class="col">
-                                                                <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                                   href="filter?type=shape_id&value=${shape.id}">
-                                                                    <img class="img-thumbnail" src="${shape.imgPath}" alt=""/>
-                                                                </a>
-                                                            </div>
-                                                        </c:forEach>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="dropup-center dropup">
-                                                <label><input class="d-none" checked type="text" name="type"
-                                                              value="brand_id"/></label>
-                                                <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
-                                                        type="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Chất liệu
-                                                </button>
-                                                <div class="dropdown-menu container-fluid shadow " style="width: 500px">
-                                                    <div class="row row-cols-4 w-auto ms-2">
-                                                        <c:forEach var="material" items="${materials}">
-                                                            <div class="col">
-                                                                <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                                   href="filter?type=material&value=${material.name}">
-                                                                    <img class="img-thumbnail" src="${material.path}" alt=""/>
-                                                                </a>
-                                                            </div>
-                                                        </c:forEach>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="dropup-center dropup">
-                                                <label><input class="d-none" checked type="text" name="type"
-                                                              value="brand_id"/></label>
-                                                <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
-                                                        type="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Color
-                                                </button>
-                                                <div class="dropdown-menu container-fluid shadow " style="width: 500px">
-                                                    <div class="row row-cols-5 w-auto ms-2">
-                                                        <c:forEach var="color" items="${colors}">
-                                                            <div class="col">
-                                                                <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                                   href="filter?type=color&value=${color.name}"><img class="img-thumbnail"
-                                                                                                                     src="${color.path}" alt=""/>
-                                                                </a>
-                                                            </div>
-                                                        </c:forEach>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="dropup-center dropup">
-                                                <label><input class="d-none" checked type="text" name="type"
-                                                              value="brand_id"/></label>
-                                                <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
-                                                        type="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Mức giá
-                                                </button>
-                                                <div class="dropdown-menu container-fluid shadow" style="width: 500px">
-                                                    <div class="row row-cols-5 w-auto mx-2">
-                                                        <div class="col p-1">
-                                                            <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                               href="${pageContext.request.contextPath}/filter?min=0&max=1000"> 0 -
-                                                                1Tr
-                                                            </a>
-                                                        </div>
-                                                        <div class="col p-1"><a
-                                                                class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                                href="${pageContext.request.contextPath}/filter?min=1000&max=2000">
-                                                            1 - 2Tr
-                                                        </a></div>
-                                                        <div class="col p-1">
-                                                            <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                               href="${pageContext.request.contextPath}/filter?min=2000&max=4000"> 2
-                                                                - 4Tr
-                                                            </a>
-                                                        </div>
-                                                        <div class="col p-1">
-                                                            <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                               href="${pageContext.request.contextPath}/filter?min=4000&max=10000">
-                                                                4 - 10Tr
-                                                            </a>
-                                                        </div>
-                                                        <div class="col p-1">
-                                                            <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                               href="${pageContext.request.contextPath}/filter?min=10000&max=20000">
-                                                                10 - 20Tr
-                                                            </a>
-                                                        </div>
-                                                        <div class="col p-1">
-                                                            <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                                               href="${pageContext.request.contextPath}/filter?min=20000&max=999999">
-                                                                trên 20Tr
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
+                   <div class="d-flex tag-in-category align-items-center gap-4 mt-5">
+                       <h4 class="text-center">Lọc sản phẩm : </h4>
+                       <div class="dropup-center dropup">
+                           <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
+                                   type="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                               Thương hiệu
+                           </button>
+                           <div class="dropdown-menu container-fluid shadow ms-2" style="width: 800px">
+                               <div class="row row-cols-5 w-auto mx-2">
+                                   <c:forEach var="brand" items="${brands}">
+                                       <div class="col">
+                                           <a class="dropdown_item_link px-2 py-2 m-2 text-center text-nowrap"
+                                              href="filter?type=brand_id&value=${brand.id}"> ${brand.name}
+                                           </a>
+                                       </div>
+                                   </c:forEach>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="dropup-center dropup">
+                           <label><input class="d-none" checked type="text" name="type" value="brand_id"/></label>
+                           <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
+                                   type="button" data-bs-toggle="dropdown" aria-expanded="false">Giới tính
+                           </button>
+                           <div class="dropdown-menu container-fluid shadow " style="width: 500px">
+                               <div class="row row-cols-4 w-auto ms-2">
+                                   <div class="col">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=1">
+                                           <img class="img-thumbnail" src="assets/images/icon-nam .jpg" alt=""/>
+                                       </a>
+                                   </div>
+                                   <div class="col">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=2">
+                                           <img class="img-thumbnail" src="assets/images/icon-nu .jpg" alt=""/>
+                                       </a>
+                                   </div>
+                                   <div class="col">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=3">
+                                           <img class="img-thumbnail" src="assets/images/icon-tre-em.jpg" alt=""/>
+                                       </a>
+                                   </div>
+                                   <div class="col">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                          href="filter?type=gender&value=4"><img class="img-thumbnail"
+                                                                                 src="assets/images/icon-unisex .jpg"
+                                                                                 alt=""/> </a>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="dropup-center dropup">
+                           <label><input class="d-none" checked type="text" name="type"
+                                         value="brand_id"/></label>
+                           <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
+                                   type="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                               Kiểu dáng
+                           </button>
+                           <div class="dropdown-menu container-fluid shadow " style="width: 500px">
+                               <div class="row row-cols-4 w-auto ms-2">
+                                   <c:forEach var="shape" items="${shapes}">
+                                       <div class="col">
+                                           <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                              href="filter?type=shape_id&value=${shape.id}">
+                                               <img class="img-thumbnail" src="${shape.imgPath}" alt=""/>
+                                           </a>
+                                       </div>
+                                   </c:forEach>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="dropup-center dropup">
+                           <label><input class="d-none" checked type="text" name="type"
+                                         value="brand_id"/></label>
+                           <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
+                                   type="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                               Chất liệu
+                           </button>
+                           <div class="dropdown-menu container-fluid shadow " style="width: 500px">
+                               <div class="row row-cols-4 w-auto ms-2">
+                                   <c:forEach var="material" items="${materials}">
+                                       <div class="col">
+                                           <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                              href="filter?type=material&value=${material.name}">
+                                               <img class="img-thumbnail" src="${material.path}" alt=""/>
+                                           </a>
+                                       </div>
+                                   </c:forEach>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="dropup-center dropup">
+                           <label><input class="d-none" checked type="text" name="type"
+                                         value="brand_id"/></label>
+                           <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
+                                   type="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                               Color
+                           </button>
+                           <div class="dropdown-menu container-fluid shadow " style="width: 500px">
+                               <div class="row row-cols-5 w-auto ms-2">
+                                   <c:forEach var="color" items="${colors}">
+                                       <div class="col">
+                                           <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                              href="filter?type=color&value=${color.name}"><img class="img-thumbnail"
+                                                                                                src="${color.path}" alt=""/>
+                                           </a>
+                                       </div>
+                                   </c:forEach>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="dropup-center dropup">
+                           <label><input class="d-none" checked type="text" name="type"
+                                         value="brand_id"/></label>
+                           <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
+                                   type="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                               Mức giá
+                           </button>
+                           <div class="dropdown-menu container-fluid shadow" style="width: 500px">
+                               <div class="row row-cols-5 w-auto mx-2">
+                                   <div class="col p-1">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                          href="${pageContext.request.contextPath}/filter?min=0&max=1000"> 0 -
+                                           1Tr
+                                       </a>
+                                   </div>
+                                   <div class="col p-1"><a
+                                           class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                           href="${pageContext.request.contextPath}/filter?min=1000&max=2000">
+                                       1 - 2Tr
+                                   </a></div>
+                                   <div class="col p-1">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                          href="${pageContext.request.contextPath}/filter?min=2000&max=4000"> 2
+                                           - 4Tr
+                                       </a>
+                                   </div>
+                                   <div class="col p-1">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                          href="${pageContext.request.contextPath}/filter?min=4000&max=10000">
+                                           4 - 10Tr
+                                       </a>
+                                   </div>
+                                   <div class="col p-1">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                          href="${pageContext.request.contextPath}/filter?min=10000&max=20000">
+                                           10 - 20Tr
+                                       </a>
+                                   </div>
+                                   <div class="col p-1">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
+                                          href="${pageContext.request.contextPath}/filter?min=20000&max=999999">
+                                           trên 20Tr
+                                       </a>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
                     <div class="product-list-container">
                         <div class="row page show-list" id="productContainer">
                             <c:forEach var="product" items="${products}">
