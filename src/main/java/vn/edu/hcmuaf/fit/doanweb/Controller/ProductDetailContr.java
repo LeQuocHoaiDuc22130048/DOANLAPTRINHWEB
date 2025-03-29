@@ -12,6 +12,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoInterface;
+import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 import vn.edu.hcmuaf.fit.doanweb.Util.LogSystem;
 
 import java.io.IOException;
@@ -38,7 +39,7 @@ public class ProductDetailContr extends HttpServlet {
                 req.setAttribute("shape",dao.getFrameShapeById(product.getShapeId()));
                 req.setAttribute("category",dao.getCategoryById(id));
                 req.setAttribute("brandList",dao.getProductsByBrandId(brand_id));
-                req.getRequestDispatcher("chi_tiet_san_pham.jsp").forward(req, resp);
+                req.getRequestDispatcher(JSPPage.ProductDetail.getPage()).forward(req, resp);
             } else {
                 resp.sendError(HttpServletResponse.SC_NOT_FOUND, "Sản phẩm không tồn tại.");
             }

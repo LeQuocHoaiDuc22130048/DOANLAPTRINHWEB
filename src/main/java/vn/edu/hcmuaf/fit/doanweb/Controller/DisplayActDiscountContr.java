@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpSession;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
+import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 
 import java.io.IOException;
 
@@ -40,6 +41,6 @@ public class DisplayActDiscountContr extends HttpServlet {
 
 
         // Chuyển tiếp đến trang gio_hang.jsp
-        request.getRequestDispatcher("gio_hang.jsp").forward(request, response);
+        request.getRequestDispatcher(JSPPage.Cart.getPage()).forward(request, response);
     }
 }

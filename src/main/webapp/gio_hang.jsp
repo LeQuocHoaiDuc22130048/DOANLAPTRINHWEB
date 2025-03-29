@@ -151,10 +151,10 @@
                                 <div class="coupon-wrapper">
                                     <div class="coupon">
                                         <div class="coupon-code">
-                                                ${discount != null ? discount.code : "Không có ưu đãi"}
+                                                ${sessionScope.discount != null ? sessionScope.discount.code : "Không có ưu đãi"}
                                         </div>
                                         <div class="coupon-details">
-                                                ${discount != null ? discount.description : "Không có chi tiết ưu đãi"}
+                                                ${sessionScope.discount != null ? sessionScope.discount.description : "Không có chi tiết ưu đãi"}
                                         </div>
                                         <button class="copy-btn" onclick="copy_code()">📋</button>
                                     </div>
@@ -163,13 +163,13 @@
                             <div class="checkout_wrapper">
                                 <div class="total">
                                     <span>Khuyến mãi:</span>
-                                    <span id="discount"><f:formatNumber value="${discountAmount}"/>đ</span>
+                                    <span id="discount"><f:formatNumber value="${requestScope.discountAmount}"/>đ</span>
                                 </div>
                                 <div class="total total_top">
                                     <span class="label">Tổng:</span>
                                     <span class="price"
                                     ><span id="total_price_orders"><f:formatNumber
-                                            value="${totalAfterDiscount}"/>đ</span></span
+                                            value="${requestScope.totalAfterDiscount}"/>đ</span></span
                                     >
                                 </div>
                                 <div class="details">
