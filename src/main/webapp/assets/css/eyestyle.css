@@ -1000,13 +1000,13 @@ kinh_mat_nam, kinh_mat_nu, gong_kinh
   border: none;
 }
 
-.kinh .owl-nav {
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  top: 40%;
-  transform: translateY(-25px);
-}
+/*.kinh .owl-nav {*/
+/*  text-align: center;*/
+/*  position: absolute;*/
+/*  width: 100%;*/
+/*  top: 40%;*/
+/*  transform: translateY(-25px);*/
+/*}*/
 
 .kinh .owl-dots {
   display: none;

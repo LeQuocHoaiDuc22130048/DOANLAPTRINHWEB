@@ -405,6 +405,7 @@
                     <div class="col-lg-12">
                         <div class="women-item-carousel">
                             <div class="owl-women-item owl-carousel">
+                                <p>Hello</p>
                                 <c:forEach var="product" items="${requestScope.brandList}">
                                     <div class="item">
                                         <div class="thumb">
@@ -446,14 +447,6 @@
                             </div>
                         </div>
                     </div>
-<%--                    <div class="arrow-angle">--%>
-<%--                        <div class="arrow-left">--%>
-<%--                            <i class="fa-solid fa-angle-left"></i>--%>
-<%--                        </div>--%>
-<%--                        <div class="arrow-right">--%>
-<%--                            <i class="fa-solid fa-angle-right"></i>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
                 </div>
             </div>
         </div>
