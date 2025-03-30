@@ -6,19 +6,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="asset/css/style.css">
-<link
-        href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-        rel="stylesheet"
-/>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet"
-      type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-<script type="text/javascript"
-        charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js">
-</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.semanticui.css">
+<!-- jQuery FIRST -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="asset/css/style.css?v=1.1">
+<!-- Fomantic UI CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css" />
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.semanticui.css" />
+
+<!-- Local Bootstrap -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap@5.3.3_dist_css_bootstrap.css">
+
+<!-- Custom CSS LAST -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/asset/css/style.css?v=1.1">
