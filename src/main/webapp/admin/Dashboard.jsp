@@ -12,64 +12,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <c:set var="titleName" value="Trang quản lý" scope="request"/>
     <c:import url="DashboardLink.jsp"/>
-    <title>Trang quản lý</title>
+    <title>${titleName}</title>
 </head>
 <body>
-<section class="admin">
-    <div class="row-grid">
-        <jsp:include page="Sidebar.jsp"/>
-        <div class="admin-content">
-        <jsp:include page="SidebarTop.jsp"/>
-            <div class="admin-content main">
-                <div class="admin-content-main-title">
-                    <h1>Trang quản lý</h1>
+<div class="side-menu">
+    <div class="brand-name">
+        <img src="asset/image/logo.png" alt="eyestyle" width="100px"/>
+    </div>
+    <ul style="padding: 0">
+        <li><a href="Dashboard" class="active"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
+        <li><a href="Order"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
+        <li><a href="./Product-list.html"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
+        <li><a href="Product-category"><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
+        <li><a href="Promotion"><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
+        <li><a href="User"><i class="fa-solid fa-user"></i>Người dùng</a></li>
+        <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
+
+    </ul>
+</div>
+
+<div class="container">
+    <jsp:include page="Header.jsp"/>
+    <div class="content">
+        <div class="cards">
+            <div class="card">
+                <div class="box">
+                    <h2>2194</h2>
+                    <h3>Thu nhập</h3>
                 </div>
+                <div class="icon-case">
+                    <img src="./asset/image/income.png" alt="" />
                 </div>
-
-                <div class="admin-content-main-content admin-dashboard-bottom">
-                    <div class="admin-content-main-content-home-admin-bottom">
-                        <div class="admin-content-main-content-home-admin-bottom-left">
-                            <label ><h3>Doanh số trong tháng</h3></label>
-                            <canvas id="revenueChart" style="box-sizing: border-box; height: 400px; width: 452px;"></canvas>
-                        </div>
-                        <div class="admin-content-main-content-home-admin-bottom-right">
-                            <label ><h3>Sản phẩm bán chạy trong tháng</h3></label>
-                            <div class="admin-content-main-content-home-table">
-                                <table>
-                                    <tr>
-                                    <th>Mã sản phẩm</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Thương hiệu</th>
-                                    <th>Ảnh</th>
-                                    <th>Số lượng đã bán</th>
-
-                                </tr>
-
-                                    <c:forEach var="l" items="${ls}">
-                                        <tr>
-                                            <td>${l.id}</td>
-                                            <td>${l.name}</td>
-                                            <td>${l.brand}</td>
-                                            <td><img src="../${l.path}" width="70px"></td>
-                                            <td>${l.amount}</td>
-
-                                        </tr>
-                                    </c:forEach>
-
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h2>3</h2>
+                    <h3>Nhân viên</h3>
+                </div>
+                <div class="icon-case">
+                    <img src="./asset/image/employee.png" alt="" />
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h2>2194</h2>
+                    <h3>Sản phẩm</h3>
+                </div>
+                <div class="icon-case">
+                    <img src="./asset/image/product.png" alt="" />
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h2>2194</h2>
+                    <h3>Đơn Hàng</h3>
+                </div>
+                <div class="icon-case">
+                    <img src="./asset/image/list.png" alt="" />
                 </div>
             </div>
         </div>
+        <div class="content-2">
+            <div class="venue">
+                <div class="title">
+                    <h2>Thống kê doanh số</h2>
+                    <select class="form-select form-select-md mb-1 w-25" aria-label="Default select example">
+                        <option selected>--Chọn--</option>
+                        <option value="1">Tuần qua</option>
+                        <option value="2">Tháng qua</option>
+                        <option value="3">Năm qua</option>
+                    </select>
+                    <button class="btn btn-primary" type="button">Lọc kết quả</button>
+                </div>
+                <canvas id="myLineChart">
+                    <!-- Biểu đồ doanh thu -->
+                </canvas>
+            </div>
+            <div class="list-customer">
+                <div class="title">
+                    <h2>Khách hàng gần đây</h2>
+                    <a href="#" class="btn_a">View all</a>
+                </div>
+                <table>
+                    <tr>
+                        <th>Mã khách hàng</th>
+                        <th>Tên</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nguyễn Văn A</td>
+                        <td><a href="#" title="chi tiết khách hàng" class="btn-detail"><i class="fa-solid fa-circle-info"></i></a></td>
+                    </tr>
 
-</section>
-
-<script src="asset/js/app.js"></script>
-<script src="asset/js/datapresudo.js"></script>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<c:import url="DashboardScript.jsp"/>
+<script src="./asset/js/Chart.js"></script>
+<script src = ./asset/js/Notification.js></script>
 </body>
 </html>
