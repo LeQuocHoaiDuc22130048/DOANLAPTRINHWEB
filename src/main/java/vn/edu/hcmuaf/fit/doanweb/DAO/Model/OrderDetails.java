@@ -2,13 +2,12 @@ package vn.edu.hcmuaf.fit.doanweb.DAO.Model;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
 @Data
-public class OrderDetail {
-    private int orderId;
-    private int productId;
-    private String productName;
+public class OrderDetails {
+    private int order_id;
+    private int product_id;
+    private String product_name;
     private int quantity;
-    private double pricePerItem;
+    private double price_per_item;
     private double totalPrice;
 }
