@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 public class OrderDetail {
     private int orderId;
     private int productId;
+    private String productName;
     private int quantity;
+    private double pricePerItem;
     private double totalPrice;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }
