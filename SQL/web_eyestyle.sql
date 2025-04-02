@@ -207,17 +207,9 @@ CREATE TABLE IF NOT EXISTS `log` (
   PRIMARY KEY (`id`),
   KEY `fk_log_user` (`user_id`),
   CONSTRAINT `fk_log_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=152 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=327 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.log: ~3 rows (approximately)
-INSERT INTO `log` (`id`, `Level`, `Log_Time`, `Locate`, `user_id`, `BeforeText`, `AfterText`) VALUES
-	(142, 'INFO', '2025-03-28 13:21:59', 'Index', 17, '', ''),
-	(146, 'INFO', '2025-03-28 14:08:36', 'Index', 17, '', ''),
-	(147, 'INFO', '2025-03-28 14:11:59', 'Index', 17, '', ''),
-	(148, 'INFO', '2025-03-28 14:14:51', 'Index', 17, '', ''),
-	(149, 'INFO', '2025-03-28 14:19:46', 'Index', 17, '', ''),
-	(150, 'INFO', '2025-03-28 14:24:06', 'Index', 17, '', ''),
-	(151, 'INFO', '2025-03-28 14:25:27', 'Index', 17, '', '');
+-- Dumping data for table web_eyestyle.log: ~172 rows (approximately)
 
 -- Dumping structure for table web_eyestyle.newsletter_subscribers
 CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (
@@ -227,153 +219,81 @@ CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (
   `created_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.newsletter_subscribers: ~4 rows (approximately)
 INSERT INTO `newsletter_subscribers` (`id`, `name`, `email`, `created_at`) VALUES
 	(1, 'Lê Văn Yên', 'ada@jjf.com', '2025-03-27 10:04:51'),
 	(2, 'An An', 'tch@gmail.com', '2025-03-27 10:05:08'),
 	(3, 'An An', 'as@gmail.com', '2025-03-27 10:27:32'),
-	(4, 'Lê Thị Bình', 'qqw@gmail.com', '2025-03-27 10:35:33');
+	(4, 'Lê Thị Bình', 'qqw@gmail.com', '2025-03-27 10:35:33'),
+	(5, 'Lê Văn An', 'cv@gmail.com', '2025-03-28 14:48:25');
 
 -- Dumping structure for table web_eyestyle.orders
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `price` double DEFAULT NULL,
-  `user_id` int(11) NOT NULL,
-  `total_quantity` int(11) DEFAULT NULL,
-  `status_payment` int(11) DEFAULT NULL,
-  `status_transport` int(11) DEFAULT NULL,
-  `discount_id` int(11) DEFAULT NULL,
-  `total_discount` double DEFAULT NULL,
-  `total_price` double DEFAULT NULL,
-  `note` text DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
+  `order_code` varchar(50) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `customer_name` varchar(255) NOT NULL,
+  `phone_number` varchar(15) NOT NULL,
+  `customer_email` varchar(50) NOT NULL,
+  `shipping_address` text NOT NULL,
+  `subtotal` double NOT NULL,
+  `total_discount` double DEFAULT 0,
+  `shipping_fee` double DEFAULT 0,
+  `total_price` double NOT NULL,
+  `total_quantity` int(11) NOT NULL,
+  `payment_method` varchar(50) NOT NULL,
+  `payment_status` tinyint(1) NOT NULL DEFAULT 0,
+  `status_order` tinyint(1) NOT NULL DEFAULT 0,
+  `order_notes` text DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `fk_orders_user` (`user_id`),
-  KEY `fk_orders_discount` (`discount_id`),
-  CONSTRAINT `fk_orders_discount` FOREIGN KEY (`discount_id`) REFERENCES `discounts` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `fk_orders_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  UNIQUE KEY `order_code` (`order_code`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.orders: ~40 rows (approximately)
-INSERT INTO `orders` (`id`, `price`, `user_id`, `total_quantity`, `status_payment`, `status_transport`, `discount_id`, `total_discount`, `total_price`, `note`, `created_at`, `updated_at`) VALUES
-	(1, 8000000, 1, 3, 1, 1, 1, 800000, 7200000, 'Giao hàng nhanh, mong sớm nhận được', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(2, 14000000, 4, 5, 0, 0, 2, 2800000, 11200000, 'Thanh toán khi nhận hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(3, 4700000, 1, 1, 1, 1, 3, 1410000, 3290000, 'Yêu cầu giao vào chiều mai', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(4, 16900000, 3, 2, 1, 0, NULL, 0, 16900000, 'Giao nhanh, hỗ trợ kiểm tra sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(5, 21000000, 4, 3, 0, 1, 4, 10500000, 10500000, 'Giao hàng hẹn trước', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(6, 1800000, 6, 2, 1, 0, 5, 0, 1800000, 'Mong muốn đổi sản phẩm nếu không hài lòng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(7, 35000000, 2, 4, 1, 1, NULL, 0, 35000000, 'Cần kiểm tra kỹ khi giao hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(8, 14600000, 7, 3, 1, 1, 6, 2190000, 12410000, 'Hỗ trợ đổi sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(9, 33000000, 2, 6, 0, 0, 7, 8250000, 24750000, 'Yêu cầu thanh toán qua chuyển khoản', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(10, 4000000, 8, 3, 1, 0, 8, 800000, 3200000, 'Yêu cầu giao hàng vào cuối tuần', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(11, 47000000, 6, 4, 1, 1, 9, 4700000, 42300000, 'Đặt hàng cho quà tặng sinh nhật', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(12, 3000000, 2, 5, 0, 0, 10, 1200000, 1800000, 'Mong muốn giao hàng vào buổi sáng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(13, 500000, 1, 8, 1, 1, NULL, 0, 500000, 'Sản phẩm bị lỗi, cần hỗ trợ đổi', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(14, 1800000, 1, 3, 0, 0, 11, 90000, 1710000, 'Khuyến mãi áp dụng cho tất cả sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(15, 13500000, 5, 2, 1, 1, 12, 2025000, 11475000, 'Thanh toán qua ví điện tử', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(16, 6000000, 5, 4, 1, 0, 13, 3600000, 2400000, 'Sản phẩm còn mới, yêu cầu giao gấp', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(17, 12000000, 7, 5, 0, 0, 14, 3000000, 9000000, 'Giảm giá cho khách hàng thân thiết', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(18, 15600000, 3, 1, 1, 1, 15, 1560000, 14040000, 'Nhận hàng trong vòng 24h', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(19, 1800000, 6, 7, 0, 0, 16, 900000, 900000, 'Đặt hàng cho các sự kiện', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(20, 900000, 2, 3, 1, 1, NULL, 0, 900000, 'Đặt sản phẩm từ lâu, cần giao ngay', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(21, 8000000, 1, 3, 1, 1, 1, 800000, 7200000, 'Giao hàng nhanh, mong sớm nhận được', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(22, 14000000, 4, 5, 0, 0, 2, 2800000, 11200000, 'Thanh toán khi nhận hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(23, 4700000, 1, 1, 1, 1, 3, 1410000, 3290000, 'Yêu cầu giao vào chiều mai', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(24, 16900000, 3, 2, 1, 0, NULL, 0, 16900000, 'Giao nhanh, hỗ trợ kiểm tra sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(25, 21000000, 4, 3, 0, 1, 4, 10500000, 10500000, 'Giao hàng hẹn trước', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(26, 1800000, 6, 2, 1, 0, 5, 0, 1800000, 'Mong muốn đổi sản phẩm nếu không hài lòng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(27, 35000000, 2, 4, 1, 1, NULL, 0, 35000000, 'Cần kiểm tra kỹ khi giao hàng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(28, 14600000, 7, 3, 1, 1, 6, 2190000, 12410000, 'Hỗ trợ đổi sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(29, 33000000, 2, 6, 0, 0, 7, 8250000, 24750000, 'Yêu cầu thanh toán qua chuyển khoản', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(30, 4000000, 8, 3, 1, 0, 8, 800000, 3200000, 'Yêu cầu giao hàng vào cuối tuần', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(31, 47000000, 6, 4, 1, 1, 9, 4700000, 42300000, 'Đặt hàng cho quà tặng sinh nhật', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(32, 3000000, 2, 5, 0, 0, 10, 1200000, 1800000, 'Mong muốn giao hàng vào buổi sáng', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(33, 500000, 1, 8, 1, 1, NULL, 0, 500000, 'Sản phẩm bị lỗi, cần hỗ trợ đổi', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(34, 1800000, 1, 3, 0, 0, 11, 90000, 1710000, 'Khuyến mãi áp dụng cho tất cả sản phẩm', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(35, 13500000, 5, 2, 1, 1, 12, 2025000, 11475000, 'Thanh toán qua ví điện tử', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(36, 6000000, 5, 4, 1, 0, 13, 3600000, 2400000, 'Sản phẩm còn mới, yêu cầu giao gấp', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(37, 12000000, 7, 5, 0, 0, 14, 3000000, 9000000, 'Giảm giá cho khách hàng thân thiết', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(38, 15600000, 3, 1, 1, 1, 15, 1560000, 14040000, 'Nhận hàng trong vòng 24h', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(39, 1800000, 6, 7, 0, 0, 16, 900000, 900000, 'Đặt hàng cho các sự kiện', '2024-12-17 09:48:12', '2024-12-17 09:48:12'),
-	(40, 900000, 2, 3, 1, 1, NULL, 0, 900000, 'Đặt sản phẩm từ lâu, cần giao ngay', '2024-12-17 09:48:12', '2024-12-17 09:48:12');
+-- Dumping data for table web_eyestyle.orders: ~7 rows (approximately)
+INSERT INTO `orders` (`id`, `order_code`, `user_id`, `customer_name`, `phone_number`, `customer_email`, `shipping_address`, `subtotal`, `total_discount`, `shipping_fee`, `total_price`, `total_quantity`, `payment_method`, `payment_status`, `status_order`, `order_notes`, `created_at`, `updated_at`) VALUES
+	(6, '97K80254B7278492L', NULL, 'Thuý Kiều', '03373254', 'tch@gmail.com', 'Phước Thiện 1, Xã Ẳng Nưa, Huyện Mường Ảng, Điện Biên', 24000000, 2400000, 20500, 843.35, 1, 'paypal', 1, 1, 'Không nhoa', '2025-04-02 18:15:02', '2025-04-02 18:15:02'),
+	(7, '6NV12435KT093442H', NULL, 'Thuý Kiều', '03373254', 'as@gmail.com', 'Phước Thiện 1, Xã Bắc Sơn, Huyện Thuận Bắc, Ninh Thuận', 24500000, 2450000, 20500, 860.91, 1, 'paypal', 1, 1, 'Không nhoa', '2025-04-02 18:26:18', '2025-04-02 18:26:18'),
+	(8, '06R42744UH186850B', NULL, 'Thuý Kiều', '03373254', 'thuykieu20040@gmail.com', 'Phước Thiện 1, Xã Mường Lèo, huyện Sốp Cộp, Sơn La', 24000000, 2400000, 20500, 843.35, 1, 'paypal', 1, 1, '', '2025-04-02 18:28:09', '2025-04-02 18:28:09'),
+	(9, '513710712N2577548', NULL, 'Thuý Kiều', '03373254', 'thuykieu20040@gmail.com', 'Phước Thiện 1, Xã Mường Mô, Huyện Nậm Nhùn, Lai Châu', 24000000, 2400000, 20500, 843.35, 1, 'paypal', 1, 1, '', '2025-04-02 18:29:09', '2025-04-02 18:29:09'),
+	(10, '000331944F633930K', NULL, 'Thuý Kiều', '03373254', 'thuykieu20040@gmail.com', 'Phước Thiện 1, Xã Nhuận Trạch, Huyện Lương Sơn, Hòa Bình', 14500000, 1450000, 20500, 13070500, 2, 'paypal', 1, 1, '', '2025-04-02 18:38:30', '2025-04-02 18:38:30'),
+	(11, '14R785374N5372737', NULL, 'Lê An', '0345678904', 'ada@jjf.com', 'Phước Thiện 1, Xã Tân Vinh, Huyện Lương Sơn, Hòa Bình', 12700000, 1270000, 20500, 11450500, 2, 'paypal', 1, 1, '', '2025-04-02 20:24:49', '2025-04-02 20:24:49'),
+	(12, '7DS35937HK8894319', NULL, 'An An', '0345678904', 'ada@jjf.com', 'Phước Thiện 1, Xã Hòa Quang Bắc, Huyện Phú Hòa, Phú Yên', 9500000, 950000, 20500, 8570500, 1, 'paypal', 1, 1, '', '2025-04-02 20:34:11', '2025-04-02 20:34:11');
 
 -- Dumping structure for table web_eyestyle.order_details
 CREATE TABLE IF NOT EXISTS `order_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `total_price` double DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(255) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
+  `price_per_item` double NOT NULL,
+  `total_total` double NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `fk_order_details_order` (`order_id`),
-  KEY `fk_order_details_product` (`product_id`),
-  CONSTRAINT `fk_order_details_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
-  CONSTRAINT `fk_order_details_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  KEY `order_id` (`order_id`),
+  KEY `product_id` (`product_id`),
+  CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.order_details: ~56 rows (approximately)
-INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `quantity`, `total_price`, `created_at`, `updated_at`) VALUES
-	(1, 1, 14, 2, 7000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(2, 1, 119, 1, 1000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(3, 2, 129, 3, 9000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(4, 2, 132, 2, 5000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(5, 3, 125, 1, 4700000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(6, 4, 117, 1, 900000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(7, 4, 2, 1, 16000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(8, 5, 27, 2, 16000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(9, 5, 98, 1, 5000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(10, 6, 130, 2, 1800000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(11, 7, 97, 3, 24000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(12, 7, 143, 1, 11000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(13, 8, 126, 1, 600000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(14, 8, 32, 2, 14000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(15, 9, 29, 4, 26000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(16, 9, 14, 2, 7000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(17, 10, 66, 1, 4000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(18, 11, 100, 2, 25000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(19, 11, 80, 2, 22000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(20, 12, 77, 3, 3000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(21, 13, 54, 1, 500000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(22, 14, 130, 2, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(23, 15, 124, 3, 13500000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(24, 16, 133, 2, 6000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(25, 17, 1, 1, 12000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(26, 18, 11, 2, 15600000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(27, 19, 126, 3, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(28, 20, 117, 1, 900000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(29, 1, 14, 2, 7000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(30, 1, 119, 1, 1000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(31, 2, 129, 3, 9000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(32, 2, 132, 2, 5000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(33, 3, 125, 1, 4700000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(34, 4, 117, 1, 900000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(35, 4, 2, 1, 16000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(36, 5, 27, 2, 16000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(37, 5, 98, 1, 5000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(38, 6, 130, 2, 1800000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(39, 7, 97, 3, 24000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(40, 7, 143, 1, 11000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(41, 8, 126, 1, 600000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(42, 8, 32, 2, 14000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(43, 9, 29, 4, 26000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(44, 9, 14, 2, 7000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(45, 10, 66, 1, 4000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(46, 11, 100, 2, 25000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(47, 11, 80, 2, 22000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(48, 12, 77, 3, 3000000, '2024-12-17 10:33:40', '2024-12-17 10:33:40'),
-	(49, 13, 54, 1, 500000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(50, 14, 130, 2, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(51, 15, 124, 3, 13500000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(52, 16, 133, 2, 6000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(53, 17, 1, 1, 12000000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(54, 18, 11, 2, 15600000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(55, 19, 126, 3, 1800000, '2024-12-17 10:49:56', '2024-12-17 10:49:56'),
-	(56, 20, 117, 1, 900000, '2024-12-17 10:49:56', '2024-12-17 10:49:56');
+-- Dumping data for table web_eyestyle.order_details: ~9 rows (approximately)
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `product_name`, `quantity`, `price_per_item`, `total_total`, `created_at`, `updated_at`) VALUES
+	(1, 6, 3, 'VCHG58_0400', 1, 24000000, 24000000, '2025-04-02 18:15:02', '2025-04-02 18:15:02'),
+	(2, 7, 4, 'VCHG39_0400', 1, 24500000, 24500000, '2025-04-02 18:26:18', '2025-04-02 18:26:18'),
+	(3, 8, 3, 'VCHG58_0400', 1, 24000000, 24000000, '2025-04-02 18:28:09', '2025-04-02 18:28:09'),
+	(4, 9, 3, 'VCHG58_0400', 1, 24000000, 24000000, '2025-04-02 18:29:09', '2025-04-02 18:29:09'),
+	(5, 10, 42, '0RX5154_8375_53', 1, 5000000, 5000000, '2025-04-02 18:38:30', '2025-04-02 18:38:30'),
+	(6, 10, 44, '0PR21ZVF_16K1O1_55', 1, 9500000, 9500000, '2025-04-02 18:38:30', '2025-04-02 18:38:30'),
+	(7, 11, 17, 'PR82415_B2', 1, 1700000, 1700000, '2025-04-02 20:24:49', '2025-04-02 20:24:49'),
+	(8, 11, 45, '0PR52ZV_SVF1O1_55', 1, 11000000, 11000000, '2025-04-02 20:24:49', '2025-04-02 20:24:49'),
+	(9, 12, 44, '0PR21ZVF_16K1O1_55', 1, 9500000, 9500000, '2025-04-02 20:34:11', '2025-04-02 20:34:11');
 
 -- Dumping structure for table web_eyestyle.posts
 CREATE TABLE IF NOT EXISTS `posts` (
@@ -847,29 +767,29 @@ CREATE TABLE IF NOT EXISTS `table_item` (
   CONSTRAINT `FK_table_item_categories_2` FOREIGN KEY (`sub_category`) REFERENCES `categories` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.table_item: ~42 rows (approximately)
+-- Dumping data for table web_eyestyle.table_item: ~21 rows (approximately)
 INSERT INTO `table_item` (`id`, `category_id`, `sub_category`) VALUES
-	(3, 1),
- 	(3, 2),
- 	(3, 4),
- 	(5, 6),
- 	(5, 8),
- 	(5, 16),
- 	(9, 10),
- 	(9, 11),
- 	(9, 12),
- 	( 9, 13),
- 	( 9, 14),
- 	( 9, 15),
- 	( 10, 13),
- 	( 10, 14),
- 	( 10, 15),
- 	( 11, 13),
- 	( 11, 14),
- 	( 11, 15),
- 	( 12, 13),
- 	( 12, 14),
- 	( 12, 15);
+	(22, 3, 1),
+	(44, 3, 2),
+	(24, 3, 4),
+	(46, 5, 6),
+	(47, 5, 8),
+	(48, 5, 16),
+	(49, 9, 10),
+	(50, 9, 11),
+	(30, 9, 12),
+	(31, 9, 13),
+	(53, 9, 14),
+	(54, 9, 15),
+	(55, 10, 13),
+	(56, 10, 14),
+	(57, 10, 15),
+	(58, 11, 13),
+	(59, 11, 14),
+	(60, 11, 15),
+	(61, 12, 13),
+	(62, 12, 14),
+	(63, 12, 15);
 
 -- Dumping structure for table web_eyestyle.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -933,7 +853,7 @@ CREATE TABLE IF NOT EXISTS `users_types` (
   CONSTRAINT `fk_users_types_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.users_types: ~32 rows (approximately)
+-- Dumping data for table web_eyestyle.users_types: ~16 rows (approximately)
 INSERT INTO `users_types` (`id`, `user_id`, `user_type_id`) VALUES
 	(1, 1, 1),
 	(2, 2, 2),
@@ -950,23 +870,7 @@ INSERT INTO `users_types` (`id`, `user_id`, `user_type_id`) VALUES
 	(13, 13, 2),
 	(14, 14, 2),
 	(15, 15, 2),
-	(16, 16, 2),
-	(17, 1, 1),
-	(18, 2, 2),
-	(19, 3, 2),
-	(20, 4, 2),
-	(21, 5, 2),
-	(22, 6, 2),
-	(23, 7, 2),
-	(24, 8, 2),
-	(25, 9, 2),
-	(26, 10, 2),
-	(27, 11, 2),
-	(28, 12, 2),
-	(29, 13, 2),
-	(30, 14, 2),
-	(31, 15, 2),
-	(32, 16, 2);
+	(16, 16, 2);
 
 -- Dumping structure for table web_eyestyle.user_type
 CREATE TABLE IF NOT EXISTS `user_type` (
@@ -976,12 +880,10 @@ CREATE TABLE IF NOT EXISTS `user_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.user_type: ~4 rows (approximately)
+-- Dumping data for table web_eyestyle.user_type: ~2 rows (approximately)
 INSERT INTO `user_type` (`id`, `name`, `description`) VALUES
 	(1, 'Admin', 'Quản trị viên có quyền quản lý toàn bộ hệ thống, bao gồm quản lý đơn hàng, sản phẩm và thông tin khách hàng.'),
-	(2, 'User', 'Người dùng bình thường có quyền mua hàng và xem các sản phẩm, không có quyền quản lý hệ thống hay dữ liệu khách hàng.'),
-	(3, 'Admin', 'Quản trị viên có quyền quản lý toàn bộ hệ thống, bao gồm quản lý đơn hàng, sản phẩm và thông tin khách hàng.'),
-	(4, 'User', 'Người dùng bình thường có quyền mua hàng và xem các sản phẩm, không có quyền quản lý hệ thống hay dữ liệu khách hàng.');
+	(2, 'User', 'Người dùng bình thường có quyền mua hàng và xem các sản phẩm, không có quyền quản lý hệ thống hay dữ liệu khách hàng.');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -151,10 +151,10 @@
                                 <div class="coupon-wrapper">
                                     <div class="coupon">
                                         <div class="coupon-code">
-                                                ${discount != null ? discount.code : "Không có ưu đãi"}
+                                                ${sessionScope.discount != null ? sessionScope.discount.code : "Không có ưu đãi"}
                                         </div>
                                         <div class="coupon-details">
-                                                ${discount != null ? discount.description : "Không có chi tiết ưu đãi"}
+                                                ${sessionScope.discount != null ? sessionScope.discount.description : "Không có chi tiết ưu đãi"}
                                         </div>
                                         <button class="copy-btn" onclick="copy_code()">📋</button>
                                     </div>
@@ -163,13 +163,17 @@
                             <div class="checkout_wrapper">
                                 <div class="total">
                                     <span>Khuyến mãi:</span>
-                                    <span id="discount"><f:formatNumber value="${discountAmount}"/>đ</span>
+                                    <span id="discount"><f:formatNumber value="${requestScope.discountAmount}"/>đ</span>
+                                </div>
+                                <div class="total ship">
+                                    <span>🚚 Phí vận chuyển:</span>
+                                    <p id="shippingFee"></p>
                                 </div>
                                 <div class="total total_top">
                                     <span class="label">Tổng:</span>
                                     <span class="price"
                                     ><span id="total_price_orders"><f:formatNumber
-                                            value="${totalAfterDiscount}"/>đ</span></span
+                                            value="${requestScope.totalAfterDiscount}"/>đ</span></span
                                     >
                                 </div>
                                 <div class="details">
@@ -211,25 +215,29 @@
                                     <div class="delivery_details">
                                         <h5>Thông tin nhận hàng</h5>
                                         <div class="row">
-                                            <div class="col-lg-12 mb-3">
-                                                <label>Địa chỉ*</label>
-                                                <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="address"
-                                                        name="address"
-                                                        placeholder="Số nhà - Tên đường - Phường/Xã"
-                                                />
-                                            </div>
                                             <div class="col-lg-6 mb-3">
                                                 <label>Tỉnh/Thành phố*</label>
-                                                <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="city"
-                                                        name="city"
-                                                        placeholder="Tỉnh/Huyện/Thành phố"
-                                                />
+                                                <select id="city" class="form-control" name="city">
+                                                    <option value="">Chọn tỉnh/thành phố</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-12 mb-3">
+                                                <label>Quận/Huyện*</label>
+                                                <select id="district" class="form-control" name="district">
+                                                    <option value="">Chọn Quận - Huyện</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-6 mb-3">
+                                                <label>Xã/Phường*</label>
+                                                <select id="ward" class="form-control" name="ward">
+                                                    <option value="">Chọn Xã - Phường</option>
+                                                </select>
+                                                <input type="hidden" id="shippingFeeHidden" value="0">
+                                            </div>
+                                            <div class="col-lg-6 mb-3">
+                                                <label>Địa chỉ cụ thể*</label>
+                                                <input type="text" id="addressDetail" class="form-control" name="addressDetail"
+                                                       placeholder="Nhập số nhà, tên đường">
                                             </div>
                                             <div class="col-lg-6 mb-3">
                                                 <label for="specialRequests" class="form-label"
@@ -287,6 +295,14 @@
                                                     <p>Thanh toán khi nhận hàng</p>
                                                 </div>
                                             </li>
+                                            <li class="payment_method_paypal">
+                                                <input type="radio" id="paypalPayment" name="payment_method"
+                                                       value="paypal" class="form-check-input"/>
+                                                <label for="paypalPayment">Thanh toán qua PayPal</label>
+                                                <div class="payment_box payment_box_paypal" style="display: none;">
+                                                    <div id="paypal-button-container"></div>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                     <button type="submit" value="Đặt hàng" class="button_order">
@@ -324,6 +340,7 @@
 <c:import url="script.jsp"/>
 <script src="assets/js/confirmRemove.js"></script>
 <script src="assets/js/copy_code.js"></script>
+<script src="assets/js/app.js"></script>
 <script src="assets/js/update_cart.js"></script>
 <script src="assets/js/place_order.js"></script>
 

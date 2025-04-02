@@ -46,7 +46,7 @@
     <div class="row-grid">
         <jsp:include page="Sidebar.jsp"/>
         <div class="admin-content">
-            <jsp:include page="SidebarTop.jsp"/>
+            <jsp:include page="Header.jsp"/>
             <div class="admin-content main">
                 <div class="admin-content-main-title">
                     <h1>Quản lý người dùng</h1>
