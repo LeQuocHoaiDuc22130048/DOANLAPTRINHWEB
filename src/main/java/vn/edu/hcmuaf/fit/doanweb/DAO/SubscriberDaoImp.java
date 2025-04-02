@@ -7,7 +7,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Subscribers;
 import java.util.List;
 
 public class SubscriberDaoImp implements SubscriberDao {
-    private Jdbi jdbi = JDBIConnect.get();
+    private final Jdbi jdbi = JDBIConnect.get();
 
     //Add Subscriber xuống db
     @Override

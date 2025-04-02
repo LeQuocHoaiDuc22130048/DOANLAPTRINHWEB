@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <header class="header-area header-sticky fixed-top">
     <div class="container">
@@ -12,7 +11,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index" class="logo">
-                        <img src="assets/images/logo.png"/>
+                        <img alt="logo" src="assets/images/logo.png"/>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -33,7 +32,7 @@
                             <a href="product-category?categoryId=7">Kính áp tròng</a>
                         </li>
                         <li class="submenu">
-                            <a href="javascript:;">Trang phụ</a>
+                            <a href="javascript:">Trang phụ</a>
                             <ul>
                                 <li><a href="product-category?categoryId=3">Sản phẩm</a></li>
                                 <li>

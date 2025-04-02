@@ -31,7 +31,7 @@ public class ProductCategoryContr extends HttpServlet {
         if (categoryIdParam != null && !categoryIdParam.isEmpty()) {
             selectedItem = dao.getCategoryById(Integer.parseInt(categoryIdParam));
         }
-        if (brandIdParam != null && !brandIdParam.isEmpty()) {
+        else   {
             selectedItem = dao.getBrandById(Integer.parseInt(brandIdParam));
         }
 

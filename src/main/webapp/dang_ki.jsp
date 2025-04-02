@@ -6,35 +6,43 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="assets/css/register.css"/>
     <c:import url="link.jsp"/>
   <title>Sign in</title>
 </head>
 <body>
 <c:import url="header.jsp"/>
-<div class="sign-in-container container d-flex align-items-center justify-content-between mx-auto">
-    <div class="image-section mt-4">
-        <img class="img-fluid border-0" src="./assets/images/background-dangnhap/bg4.png" alt=""/>
-    </div>
-    <div class="sign-in-form">
-        <h3 class="text-center font-weight-bolder mb-2 fa-2x">Đăng kí tài khoản</h3>
-        <h4 class="text-center mb-1">Hãy đăng kí ngay để được hưởng đặc quyền riêng dành cho bạn</h4>
-        <form id="register-form ab" class="" action="${context}/sign-in" method="post">
-            <div class="mb-3 w-75">
-                <label for="exampleInputUserName" class="form-label">User name</label>
-                <input type="password" class="form-control" id="exampleInputUserName">
-            </div>
-            <div class="mb-3  w-75">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" name="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3  w-75">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
+<div class="container-fluid mt-100">
+    <div class="row" style="height: 550px">
+        <div class="col-6">
+            <img class="img-fluid w-100 h-75 object-fit-cover border-0 rounded" src="${context}/assets/images/background-dangnhap/bg4.png" alt=""/>
+        </div>
+        <div class="col-6 ">
+            <div class="flex-column absolute_center">
+                <h3 class="text-center mb-3 mt-5 ">Đăng nhập</h3>
+                <form action="${pageContext.request.contextPath}/login" class="w-75">
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4 w-100">
+                        <label class="form-label" for="userName">Tên đăng nhập</label>
+                        <input type="text" id="userName" class="form-control" name="username"/>
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-4 w-100">
+                        <label class="form-label" for="email">Tên đăng nhập</label>
+                        <input type="email" id="email" class="form-control" name="username"/>
+                    </div>
+                    <!-- Password input -->
+                    <div data-mdb-input-init class="form-outline mb-4 w-100">
+                        <label class="form-label" for="password">Mật khẩu </label>
+                        <input type="password" id="password" class="form-control" name="password"/>
+                    </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+
+                    <!-- Submit button -->
+                    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block m-auto w-100">Sign up
+                    </button>
+                </form>
+                <p class="mt-3 fs-6">Bạn đã có tài khoản <a href="dang_nhap.jsp">Đăng nhập ngay !</a></p>
+            </div>
+        </div>
     </div>
 </div>
 <!-- ***** Footer Start ***** -->

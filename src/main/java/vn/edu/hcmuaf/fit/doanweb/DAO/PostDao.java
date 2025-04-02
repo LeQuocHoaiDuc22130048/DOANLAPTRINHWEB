@@ -7,7 +7,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import java.util.List;
 
 public class PostDao {
-    private   Jdbi jdbi = JDBIConnect.get();
+    private final Jdbi jdbi = JDBIConnect.get();
     private final static String GET_ALL_POSTS =
             "SELECT id, thumbnail, created_at, title, content, url, access FROM Posts";
 

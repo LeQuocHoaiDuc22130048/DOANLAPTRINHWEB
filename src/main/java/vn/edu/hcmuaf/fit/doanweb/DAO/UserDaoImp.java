@@ -5,7 +5,7 @@ import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 
 public class UserDaoImp implements UserDao {
-    private Jdbi jdbi = JDBIConnect.get();
+    private final Jdbi jdbi = JDBIConnect.get();
     private final static int AdminRole = 1;
     private final static int UserRole = 2;
     private final static int Active = 1;
