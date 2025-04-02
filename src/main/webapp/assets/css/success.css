@@ -1,0 +1,103 @@
+/* Định dạng chung cho toàn trang */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.success-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.success-message h2 {
+    color: #28a745;
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.success-message p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.order-details p{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.order-details p, .product-list p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.product-list {
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-item img {
+    border-radius: 5px;
+}
+
+/* Kiểu cho các nút và liên kết */
+.actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.actions a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #0021f5;
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.actions a:hover {
+    color: #0021f5;
+    background-color: #fff;
+}
+
+/* Đoạn văn bản khuyến khích đăng ký */
+.actions p {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.actions p a {
+    background: none;
+    color: black;
+    font-weight: bold;
+    padding: 0px;
+}
+
+.actions p a:hover {
+    color: #0056b3;
+    background:none;
+}
