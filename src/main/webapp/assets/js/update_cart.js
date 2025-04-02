@@ -8,7 +8,10 @@ function updateCart(product_id) {
         success: function (response){
             $("#total_price" + product_id).text(response.totalPrice.toLocaleString());
             $("#discount").text(response.discountAmount.toLocaleString());
-            $("#total_price_orders").text(response.totalAfterDiscount.toLocaleString());
+
+            let shippingFee = Number($("#shippingFeeHidden").val()) || 0;
+            let totalFinal = response.totalAfterDiscount + shippingFee;
+            $("#total_price_orders").text(totalFinal.toLocaleString() + " đ");
         }
 
     });

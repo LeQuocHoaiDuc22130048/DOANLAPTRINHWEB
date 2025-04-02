@@ -1,39 +1,54 @@
 $(document).ready(function () {
     $(".button_order").click(function () {
 
+        let payment_method = $("input[name='payment_method']:checked").val();
+
+        // Kiểm tra nếu chưa chọn phương thức thanh toán
+        if (!payment_method) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Lỗi!',
+                text: 'Vui lòng chọn phương thức thanh toán!',
+                confirmButtonText: 'OK',
+                width: '400px',
+                height: '150px'
+            });
+            return;
+        }
+
         //data
-        var data = {
+        const data = {
             customerName: $(".customer_details input[name='customerName']").val(),
             phoneNumber: $(".customer_details input[name='phoneNumber']").val(),
             email: $(".customer_details input[name='email']").val(),
-            address: $(".delivery_details input[name='address']").val(),
-            city: $(".delivery_details input[name='city']").val(),
-            payment_method: $("input[name='payment_method']:checked").val()
+            city: $("#city option:selected").text(),
+            district: $("#district option:selected").text(),
+            ward: $("#ward option:selected").text(),
+            addressDetail: $("#addressDetail").val(),
+            specialRequests: $("#specialRequests").val(),
+            payment_method: payment_method,
+            shippingFee: $("#shippingFeeHidden").val()
         };
 
         $.ajax({
             url: "place-order",
-            type:"POST",
+            type: "POST",
             data: data,
             dataType: "json",
             success: function (response) {
-                console.log("Response từ server:", response);
                 if (response.status === "success") {
-                    // Swal.fire({
-                    //     icon: 'success',
-                    //     title: 'Thành công!',
-                    //     text: response.message,
-                    //     confirmButtonText: 'OK'
-                    // }).then(() => {
-                        window.location.href = "gio_hang.jsp";
-                    // });
-                } else {
+                    if (payment_method === "paypal") {
+                        createPayPalOrder();
+                    } else {
+                        window.location.href = "checkout.jsp";
+                    }
+                } else if (response.status === "error") {
                     Swal.fire({
                         icon: 'error',
                         text: response.message,
                         confirmButtonText: 'OK',
                         width: '400px',
-                        height:'150px'
+                        height: '150px'
                     });
                 }
             },
@@ -49,3 +64,33 @@ $(document).ready(function () {
 
     });
 });
+
+function createPayPalOrder() {
+    //totalAfterDiscount== tong tien don hang sau khi đa tru khuyen mai
+    let totalAfterDiscount = $("#total_price_orders").text();
+
+    $.ajax({
+        url: "create-paypal-order",
+        type: "POST",
+        data: { total: totalAfterDiscount },
+        dataType: "json",
+        success: function (response) {
+            if (response.status === "success") {
+                window.location.href = "https://www.sandbox.paypal.com/checkoutnow?token=" + response.orderId;
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Không thể tạo đơn hàng PayPal!',
+                    confirmButtonText: 'OK'
+                });
+            }
+        },
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                text: 'Lỗi kết nối đến PayPal!',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+}

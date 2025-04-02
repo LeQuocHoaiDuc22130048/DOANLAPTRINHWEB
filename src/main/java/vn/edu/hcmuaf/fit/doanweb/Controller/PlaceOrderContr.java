@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Customer;
 
 @WebServlet(name = "PlaceOrderContr", value = "/place-order")
 public class PlaceOrderContr extends HttpServlet {
@@ -22,30 +23,47 @@ public class PlaceOrderContr extends HttpServlet {
         String customerName = request.getParameter("customerName");
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
-        String address = request.getParameter("address");
         String city = request.getParameter("city");
+        String district = request.getParameter("district");
+        String ward = request.getParameter("ward");
+        String addressDetail = request.getParameter("addressDetail");
         String paymentMethod = request.getParameter("payment_method");
+        String specialRequests= request.getParameter("specialRequests");
+
+        HttpSession session = request.getSession();
+        double shippingFee = Double.parseDouble(request.getParameter("shippingFee"));
+        session.setAttribute("shippingFee", shippingFee);
+        session.setAttribute("payment_method", paymentMethod);
+        String fullAddress = addressDetail + ", " + ward + ", " + district + ", " + city;
+        Customer customer = new Customer(customerName, phoneNumber, email, fullAddress);
+        session.setAttribute("customer", customer);
+        session.setAttribute("note", specialRequests);
 
         // Kiểm tra dữ liệu có bị thiếu không
-        if (customerName == null || customerName.trim().isEmpty() ||
-                phoneNumber == null || phoneNumber.trim().isEmpty() ||
-                email == null || email.trim().isEmpty() ||
-                address == null || address.trim().isEmpty() ||
-                city == null || city.trim().isEmpty() ||
-                paymentMethod == null || paymentMethod.trim().isEmpty()) {
+        if (isEmpty(customerName) || isEmpty(phoneNumber) || isEmpty(email) ||
+                isEmpty(city) || isEmpty(district) || isEmpty(ward) || isEmpty(addressDetail)) {
 
             jsonResponse.addProperty("status", "error");
             jsonResponse.addProperty("message", "Vui lòng điền đầy đủ thông tin!");
             response.getWriter().write(jsonResponse.toString());
             return;
+        }
 
+        // Kiểm tra email hợp lệ
+        if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+            jsonResponse.addProperty("status", "error");
+            jsonResponse.addProperty("message", "Email không hợp lệ!");
+            response.getWriter().write(jsonResponse.toString());
+            return;
         }
 
         // Đặt hàng thành công
-        request.getSession().setAttribute("orderSuccess", true);
         jsonResponse.addProperty("status", "success");
-        jsonResponse.addProperty("message", "Đặt hàng thành công!");
         response.getWriter().write(jsonResponse.toString());
+    }
+
+    private boolean isEmpty(String value) {
+        return value == null || value.trim().isEmpty();
     }
 
 }

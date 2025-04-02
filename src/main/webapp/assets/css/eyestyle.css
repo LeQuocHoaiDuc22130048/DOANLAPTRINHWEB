@@ -2032,7 +2032,11 @@ giỏ hàng
   border-top: 1px solid #ccc;
 }
 
-.gio_hang .cart_checkout_page .checkout_wrapper .total_top {
+.gio_hang .cart_checkout_page .checkout_wrapper .ship #shippingFee{
+  font-size: 16px;
+}
+
+.gio_hang .cart_checkout_page .checkout_wrapper .total_top,.gio_hang .cart_checkout_page .checkout_wrapper .ship {
   border-top: none;
 }
 
@@ -2058,7 +2062,7 @@ giỏ hàng
   font-weight: bold;
 }
 
-.details input {
+.details input , .details select{
   background: #eeeced;
 }
 
@@ -2081,7 +2085,9 @@ input[type="radio"] {
 .details
 .payment_method
 .payment_method_bank,
-.payment_method_cod {
+.payment_method_cod,
+.payment_method_paypal
+{
   background: #ececec;
   margin: 14px 0;
   padding: 8px 8px 8px 30px;
