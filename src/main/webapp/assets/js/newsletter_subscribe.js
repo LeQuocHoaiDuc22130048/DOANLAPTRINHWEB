@@ -3,10 +3,26 @@ $(document).ready(function () {
         event.preventDefault();
         let data = new FormData(this);
 
+        let name = $("#name").val().trim();
+        let email = $("#email").val().trim();
+
+        // Kiểm tra rỗng
+        if (name === "" || email === "") {
+            Swal.fire({ text: "Vui lòng nhập đầy đủ thông tin!", icon: "warning", timer: 2000, toast: true });
+            return;
+        }
+
+        // Kiểm tra định dạng email
+        let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            Swal.fire({ text: "Email không hợp lệ!", icon: "error", timer: 2000, toast: true });
+            return;
+        }
+
         $.ajax({
             url: "subscribe",
             type:"POST",
-            data: { name: $("#name").val(), email: $("#email").val() },
+            data: { name: name, email: email},
             success: function (response){
                 Swal.fire({
                     text: response.message,

@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import vn.edu.hcmuaf.fit.doanweb.DAO.InventoryDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Customer;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
@@ -119,6 +120,11 @@ public class PayPalCaptureOrderContr extends HttpServlet {
         order.setOrder_notes(orderNotes);
         order.setListProducts(listProducts);
         orderDao.saveOrder(order);
+
+        InventoryDaoImp inventoryDao = new InventoryDaoImp();
+        inventoryDao.updateStockAfterOrder(listProducts);  //update kho hàng
+
+        session.removeAttribute("cart");
     }
 
 
