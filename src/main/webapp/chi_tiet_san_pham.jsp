@@ -360,7 +360,7 @@
                 </div>
                 <div id="col-871754910" class="col medium-7 small-12 large-7">
                     <div class="col-inner">
-                        <div class="icon-box featured-box icon-box-left text-left is-large" >
+                        <div class="icon-box featured-box icon-box-left text-left is-large">
                             <div class="icon-box-img">
                                 <div class="icon">
                                     <div class="icon-inner">
@@ -370,7 +370,7 @@
                             </div>
                             <div class="icon-box-text last-reset">
                                 <h5>Chi tiết sản phẩm</h5>
-                                <div class="product-page-section"  style="background-color: rgb(247, 247, 247)">
+                                <div class="product-page-section" style="background-color: rgb(247, 247, 247)">
                                     <div class="product-section">
                                         <div class="panel entry-content">
                                             <h2 style="text-align: center">
@@ -378,7 +378,7 @@
                                             </h2>
                                             <ul>
                                                 <li>
-                                                   <span>Gọng kim loại làm từ thép không gỉ với độ bền, khả năng chống ăn mòn cao và an toàn cho da nhạy cảm</span>
+                                                    <span>Gọng kim loại làm từ thép không gỉ với độ bền, khả năng chống ăn mòn cao và an toàn cho da nhạy cảm</span>
                                                 </li>
                                                 <li>
                                                     <span>Kính dáng vuông giúp nổi bật các đường cong mềm mại của các kiểu khuôn mặt hình tròn, trái tim, oval.</span>
@@ -403,11 +403,14 @@
                 <h4>có thể bạn sẽ thích</h4>
                 <div class="row kinh">
                     <div class="col-lg-12">
-                        <div class="women-item-carousel">
-                            <div class="owl-women-item owl-carousel">
-                                <p>Hello</p>
-                                <c:forEach var="product" items="${requestScope.brandList}">
-                                    <div class="item">
+                        <div id="productCarousel3" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <c:forEach var="product" items="${requestScope.brandList}" varStatus="status">
+                                    <c:if test="${status.index % 3 == 0}">
+                                        <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
+                                        <div class="row">
+                                    </c:if>
+                                    <div class="item col-4">
                                         <div class="thumb">
                                             <div class="hover-content">
                                                 <ul>
@@ -431,21 +434,38 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <img src="${product.path_image}" alt="${product.name}"/>
-                                            <div class="down-content">
-                                                <h4>${product.name}</h4>
-                                                <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
-                                                <ul class="stars">
-                                                    <c:forEach begin="0" end="5" step="1">
-                                                        <li><i class="fa fa-star"></i></li>
-                                                    </c:forEach>
-                                                </ul>
-                                            </div>
+                                            <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}"
+                                                 alt="${product.name}"/>
+                                        </div>
+                                        <div class="down-content">
+                                            <h4>${product.name}</h4>
+                                            <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
+                                            <ul class="stars">
+                                                <c:forEach begin="0" end="4">
+                                                    <li><i class="fa fa-star"></i></li>
+                                                </c:forEach>
+                                            </ul>
                                         </div>
                                     </div>
+
+                                    <c:if test="${status.index % 3 == 2 || status.last}">
+                                        </div> <!-- Kết thúc row -->
+                                        </div> <!-- Kết thúc carousel-item -->
+                                    </c:if>
                                 </c:forEach>
                             </div>
+                            <button class="carousel-control-prev position-absolute" style="width: fit-content"
+                                    type="button" data-bs-target="#productCarousel3" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next position-absolute" style="width: fit-content"
+                                    type="button" data-bs-target="#productCarousel3" data-bs-slide="next">
+                                <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -22,8 +22,30 @@ public class SubscriberCtr extends HttpServlet {
         String email = req.getParameter("email");
 
         JsonObject json = new JsonObject();
-        boolean success = dao.addSubscriber(name, email);
+        //Kiểm tra rỗng
+        if(name == null || email == null || name.trim().isEmpty() || email.trim().isEmpty()){
+            json.addProperty("status","error");
+            json.addProperty("message", "Vui lòng nhập đầy đủ thông tin");
+            resp.getWriter().write(json.toString());
+            return;
+        }
+        //kiem tra email hop le
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        if(!email.matches(emailRegex)){
+            json.addProperty("status","error");
+            json.addProperty("message", "Email không hợp lệ");
+            resp.getWriter().write(json.toString());
+            return;
+        }
+        //Kiểm tra email có tồn tại chưa
+        if(dao.isExistEmail(email)){
+            json.addProperty("status","error");
+            json.addProperty("message", "Email đã được đăng kí trước đó!");
+            resp.getWriter().write(json.toString());
+            return;
+        }
 
+        boolean success = dao.addSubscriber(name, email);
         if (success) {
             json.addProperty("success", true);
             json.addProperty("message", "Đăng ký thành công!");
