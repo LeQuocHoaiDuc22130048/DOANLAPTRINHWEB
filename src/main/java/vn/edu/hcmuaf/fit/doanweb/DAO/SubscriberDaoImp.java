@@ -20,7 +20,20 @@ public class SubscriberDaoImp implements SubscriberDao {
         );
     }
 
+    @Override
+    public boolean isExistEmail(String email) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery(
+                                "SELECT COUNT(*) FROM newsletter_subscribers WHERE email= :email")
+                        .bind("email", email)
+                        .mapTo(Integer.class)
+                        .findOne()
+                        .orElse(0) > 0
+        );
+    }
+
     // get all subscriber
+    @Override
     public List<Subscribers> getSubscriberList() {
         return jdbi.withHandle(handle ->
                 handle.createQuery("SELECT * FROM newsletter_subscribers")
@@ -31,13 +44,23 @@ public class SubscriberDaoImp implements SubscriberDao {
     }
 
     // find subscriber by email
+    @Override
     public Subscribers getSubscriberByEmail(String email) {
         return jdbi.withHandle(handle ->
                 handle.createQuery("SELECT * FROM newsletter_subscribers WHERE email= :email")
-                        .bind("email",email)
+                        .bind("email", email)
                         .mapToBean(Subscribers.class)
                         .findOne()
                         .orElse(null)
+        );
+    }
+
+    @Override
+    public List<String> getAllEmails() {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT email FROM newsletter_subscribers")
+                        .mapTo(String.class)
+                        .list()
         );
     }
 

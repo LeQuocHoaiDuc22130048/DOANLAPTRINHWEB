@@ -21,7 +21,7 @@ public class Orders {
         private int total_quantity;
         private String payment_method;
         private boolean payment_status; // 0: chưa thanh toán, 1: đã thanh toán
-        private boolean status_order;   // 0: chờ xử lý, 1: đã xử lý
+        private boolean status_order;   // 0: Cancel, 1: Done
         private String order_notes;
         private List<CartProduct> listProducts;
 
