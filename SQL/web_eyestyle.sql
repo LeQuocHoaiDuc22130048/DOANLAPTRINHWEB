@@ -800,6 +800,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT  NULL , 
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)

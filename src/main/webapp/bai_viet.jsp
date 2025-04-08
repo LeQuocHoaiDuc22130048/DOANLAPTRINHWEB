@@ -58,8 +58,8 @@
                             <img src="${item.thumbnail}" class="border border-0 img-thumbnail object-fit-cover mb-3 "
                                  style="height: 400px ; width: 400px" alt="Blog Image 1">
                             <div class="date"></div>
-                            <h3 class="fw-bold text-center fs-5 text-wrap w-75">${item.title}</h3>
-                            <p class="w-100 px-3 my-4">${item.content}</p>
+                            <h3 class="fw-bold text-center fs-5 text-wrap w-75  ">${item.title}</h3>
+                            <p class="w-100 px-3 my-4 collapse">${item.content}</p>
                             <div class="w-100 p-2"><a href="${item.url}" class="btn btn-primary float-end">Đọc thêm</a></div>
                         </div>
                     </div>
@@ -68,10 +68,10 @@
             <!--pagination-->
             <div class="pagination-left-right position-absolute d-flex justify-content-between align-items-center top-50">
                 <a href="#" class="page-link left-button " aria-label="Previous">
-                    <span aria-hidden="true" class="btn btn-primary fs-4">&lsaquo;</span>
+                    <span aria-hidden="true" class="btn btn-primary fs-4 px-4 rounded-circle">&lsaquo;</span>
                 </a>
                 <a href="#" class="page-link right-button" aria-label="Next">
-                    <span aria-hidden="true" class="btn btn-primary fs-4">&rsaquo;</span>
+                    <span aria-hidden="true" class="btn btn-primary fs-4 px-4 rounded-circle">&rsaquo;</span>
                 </a>
             </div>
             <!--end pagination-->
@@ -79,24 +79,6 @@
     </div>
 </div>
 <!--end blog-->
-
-
-<!--chat box-->
-<div class="chat-box" id="chat-box">
-    <div class="chat-header">
-        <span>Chat!</span>
-        <button id="close-chat">X</button>
-    </div>
-    <div class="chat-body" id="chat-body">
-        <div class="messages" id="messages"></div>
-
-        <!-- Phần nhập tin nhắn và nút gửi -->
-        <div class="input-wrapper">
-            <input type="text" id="message-input" placeholder="Nhập tin nhắn..."/>
-            <button id="send-message">Gửi</button>
-        </div>
-    </div>
-</div>
 <c:import url="footer.jsp"/>
 <c:import url="script.jsp"/>
 <script src="assets/js/pagination.js"></script>

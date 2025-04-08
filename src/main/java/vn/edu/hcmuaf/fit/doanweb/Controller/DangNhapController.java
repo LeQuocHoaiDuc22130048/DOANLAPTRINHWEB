@@ -7,6 +7,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.UsersTypes;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
+import vn.edu.hcmuaf.fit.doanweb.Util.JwtUtil;
 
 
 import java.io.IOException;
@@ -14,47 +16,41 @@ import java.io.IOException;
 @WebServlet(name = "DangNhapController", value = "/login")
 public class DangNhapController extends HttpServlet {
     private UserDaoImp userDaoImp;
-    private String LoginFailed = "Login Failed";
-    private String PasswordIncorect = "Incorrect Password";
-    private String UserNotExist = "User Not Exist";
-    private String Home = "/index.jsp";
-    private String Login = "/dang_nhap.jsp";
+    private final String Home = JSPPage.Index.getPage();
+    private final String Login = JSPPage.Login.getPage();
+    private User user;
+
     @Override
     public void init() throws ServletException {
         userDaoImp = new UserDaoImp();
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         String realPassword = userDaoImp.GetUserPassword(userName);
-
-        if (!userDaoImp.CheckUserExists(userName)) {
-            request.setAttribute("Error", UserNotExist);
+        if (realPassword == null ||!BCrypt.checkpw(password, realPassword ) ) {
+            request.setAttribute("Error", "Đăng nhập thất bại vui lòng kiểm tra tài khoản , mật khẩu !");
             request.getRequestDispatcher(Login).forward(request, response);
             return;
         }
-        if (  realPassword == null||!BCrypt.checkpw(password, realPassword)) {
-            request.setAttribute("Error", PasswordIncorect);
+        user = userDaoImp.Login(userName, realPassword);
+        if (user == null) {
+            System.out.println("Login fail");
+            request.setAttribute("Error", "Đăng nhập thất bại vui lòng kích hoạt tài khoản của bạn ");
             request.getRequestDispatcher(Login).forward(request, response);
-            return;
+            return ;
         }
-        if (!userDaoImp.CheckActiveAccount(userName)) {
-            request.setAttribute("Error", UserNotExist);
-            request.getRequestDispatcher(Login).forward(request, response);
-            return;
-        }
-        int userId = userDaoImp.Login(userName, realPassword);
-        if (userId == -1) {
-            request.setAttribute("Error", LoginFailed);
-            request.getRequestDispatcher(Login).forward(request, response);
-            return;
-        }
-        request.setAttribute("userId", userId);
+        String token = JwtUtil.generateToken(userName);
+        response.setHeader("Authorization", "Bearer " + token);
+        HttpSession session = request.getSession();
+        session.setAttribute("user", user);
         request.getRequestDispatcher(Home).forward(request, response);
     }
 }

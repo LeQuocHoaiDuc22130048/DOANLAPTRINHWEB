@@ -16,13 +16,13 @@
 
 <body>
 <!-- ***** Preloader Start ***** -->
-<%--<div id="preloader">--%>
-<%--    <div class="jumper">--%>
-<%--        <div></div>--%>
-<%--        <div></div>--%>
-<%--        <div></div>--%>
-<%--    </div>--%>
-<%--</div>--%>
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
 <!-- ***** Preloader End ***** -->
 
 <!-- ***** Header Area Start ***** -->
@@ -168,7 +168,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}" alt="${product.name}"/>
+                                    <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}"
+                                         alt="${product.name}"/>
                                 </div>
                                 <div class="down-content">
                                     <h4>${product.name}</h4>
@@ -188,11 +189,15 @@
                         </c:forEach>
 
                     </div>
-                    <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle" style="width: fit-content" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                    <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle"
+                            style="width: fit-content" type="button" data-bs-target="#productCarousel"
+                            data-bs-slide="prev">
                         <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next position-absolute top-50 start-100 translate-middle" style="width: fit-content" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                    <button class="carousel-control-next position-absolute top-50 start-100 translate-middle"
+                            style="width: fit-content" type="button" data-bs-target="#productCarousel"
+                            data-bs-slide="next">
                         <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -223,68 +228,73 @@
                 <div id="productCarousel2" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <c:forEach var="product" items="${requestScope.productListNu}" varStatus="status">
-                            <c:if test="${status.index % 3 == 0}">
-                                <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
-                                <div class="row">
-                            </c:if>
-                            <div class="item col-4">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li>
-                                                <a href="${context}/product-detail?id=${product.id}">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="rate-product">
-                                                    <i class="fa fa-star"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <form class="addCartForm">
-                                                    <input type="hidden" name="id" value="${product.id}">
-                                                    <button class="btn_gio_hang">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                </form>
-                                            </li>
+                        <c:if test="${status.index % 3 == 0}">
+                        <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
+                            <div class="row">
+                                </c:if>
+                                <div class="item col-4">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li>
+                                                    <a href="${context}/product-detail?id=${product.id}">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="rate-product">
+                                                        <i class="fa fa-star"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <form class="addCartForm">
+                                                        <input type="hidden" name="id" value="${product.id}">
+                                                        <button class="btn_gio_hang">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}"
+                                             alt="${product.name}"/>
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>${product.name}</h4>
+                                        <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
+                                        <ul class="stars">
+                                            <c:forEach begin="0" end="4">
+                                                <li><i class="fa fa-star"></i></li>
+                                            </c:forEach>
                                         </ul>
                                     </div>
-                                    <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}" alt="${product.name}"/>
                                 </div>
-                                <div class="down-content">
-                                    <h4>${product.name}</h4>
-                                    <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
-                                    <ul class="stars">
-                                        <c:forEach begin="0" end="4">
-                                            <li><i class="fa fa-star"></i></li>
-                                        </c:forEach>
-                                    </ul>
-                                </div>
+
+                                <c:if test="${status.index % 3 == 2 || status.last}">
+                                    </div>
                             </div>
-
-                            <c:if test="${status.index % 3 == 2 || status.last}">
-                                </div> <!-- Kết thúc row -->
-                                </div> <!-- Kết thúc carousel-item -->
                             </c:if>
-                        </c:forEach>
+                            </c:forEach>
 
+                        </div>
+                        <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle"
+                                style="width: fit-content" type="button" data-bs-target="#productCarousel2"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next position-absolute top-50 start-100 translate-middle"
+                                style="width: fit-content" type="button" data-bs-target="#productCarousel2"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle" style="width: fit-content" type="button" data-bs-target="#productCarousel2" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next position-absolute top-50 start-100 translate-middle" style="width: fit-content" type="button" data-bs-target="#productCarousel2" data-bs-slide="next">
-                        <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+
                 </div>
 
             </div>
-
         </div>
-    </div>
 </section>
 <!-- ***** kinh_mat nữ Ends ***** -->
 <!-- ***** gọng kính Area Starts ***** -->
@@ -303,8 +313,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div id="productCarousel3" class="carousel slide" data-bs-ride="carousel">
+                    <c:set var="listGK" value="${requestScope.productListGK}"/>
                     <div class="carousel-inner">
-                        <c:forEach var="product" items="${requestScope.productListGK}" varStatus="status">
+                        <c:forEach var="product" items="${listGK}" varStatus="status">
                             <c:if test="${status.index % 3 == 0}">
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
@@ -333,7 +344,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}" alt="${product.name}"/>
+                                    <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}"
+                                         alt="${product.name}"/>
                                 </div>
                                 <div class="down-content">
                                     <h4>${product.name}</h4>
@@ -353,14 +365,18 @@
                         </c:forEach>
 
                     </div>
-                    <button class="carousel-control-prev position-absolute" style="width: fit-content" type="button" data-bs-target="#productCarousel3" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next position-absolute" style="width: fit-content" type="button" data-bs-target="#productCarousel3" data-bs-slide="next">
-                        <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    <c:if test="${listGK != null  && listGK.size() > 3 }">
+                        <button class="carousel-control-prev position-absolute" style="width: fit-content" type="button"
+                                data-bs-target="#productCarousel3" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next position-absolute" style="width: fit-content" type="button"
+                                data-bs-target="#productCarousel3" data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </c:if>
                 </div>
             </div>
 

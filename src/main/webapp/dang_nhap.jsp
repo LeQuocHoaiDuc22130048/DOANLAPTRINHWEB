@@ -24,7 +24,7 @@
         <div class="col-6 ">
             <div class="flex-column absolute_center">
                 <h3 class="text-center mb-3 mt-5 ">Đăng nhập</h3>
-                <form action="${pageContext.request.contextPath}/login" class="w-75">
+                <form action="${pageContext.request.contextPath}/login" method="POST" class="w-75">
                     <!-- Email input -->
                     <div data-mdb-input-init class="form-outline mb-4 w-100">
                         <label class="form-label" for="form1Example1">Tên đăng nhập</label>
@@ -58,6 +58,7 @@
                     </button>
                 </form>
                 <p class="mt-3 fs-6">Bạn chưa có tài khoản <a href="dang_ki.jsp">Đăng ký ngay !</a></p>
+                <p class="text-danger"> ${requestScope.Error}</p>
             </div>
         </div>
     </div>

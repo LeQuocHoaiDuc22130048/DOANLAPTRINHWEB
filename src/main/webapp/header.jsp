@@ -40,7 +40,7 @@
                                     <a href="product-detail?id=1">Chi tiết sản phẩm</a>
                                 </li>
                                 <li class="scroll-to-section">
-                                    <a href="bai_viet.jsp">Bài viết</a>
+                                    <a href="${pageContext.request.contextPath}/allPost">Bài viết</a>
                                 </li>
                                 <li><a href="lien_he.jsp">Liên hệ</a></li>
                             </ul>
