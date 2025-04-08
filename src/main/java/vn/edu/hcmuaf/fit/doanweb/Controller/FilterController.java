@@ -18,7 +18,6 @@ import java.util.List;
 public class FilterController extends HttpServlet {
 
     private static final int PRODUCTS_PER_PAGE = 9;
-    private final AdminService service = new AdminService();
     private final ProductService proService = new ProductService();
 
     @Override

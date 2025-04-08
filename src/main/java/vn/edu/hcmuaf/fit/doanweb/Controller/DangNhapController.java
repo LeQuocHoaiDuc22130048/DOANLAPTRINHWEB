@@ -1,5 +1,7 @@
 package vn.edu.hcmuaf.fit.doanweb.Controller;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -7,19 +9,19 @@ import org.mindrot.jbcrypt.BCrypt;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.UsersTypes;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.Util.ErrorMessages;
 import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 import vn.edu.hcmuaf.fit.doanweb.Util.JwtUtil;
 
 
 import java.io.IOException;
+import java.sql.Date;
 
 @WebServlet(name = "DangNhapController", value = "/login")
 public class DangNhapController extends HttpServlet {
     private UserDaoImp userDaoImp;
     private final String Home = JSPPage.Index.getPage();
     private final String Login = JSPPage.Login.getPage();
-    private User user;
-
     @Override
     public void init() throws ServletException {
         userDaoImp = new UserDaoImp();
@@ -36,21 +38,21 @@ public class DangNhapController extends HttpServlet {
         String password = request.getParameter("password");
         String realPassword = userDaoImp.GetUserPassword(userName);
         if (realPassword == null ||!BCrypt.checkpw(password, realPassword ) ) {
-            request.setAttribute("Error", "Đăng nhập thất bại vui lòng kiểm tra tài khoản , mật khẩu !");
+            request.setAttribute("Error", ErrorMessages.LoginFail.getMessage());
             request.getRequestDispatcher(Login).forward(request, response);
             return;
         }
-        user = userDaoImp.Login(userName, realPassword);
+        User user = userDaoImp.Login(userName, realPassword);
         if (user == null) {
-            System.out.println("Login fail");
-            request.setAttribute("Error", "Đăng nhập thất bại vui lòng kích hoạt tài khoản của bạn ");
+            request.setAttribute("Error", ErrorMessages.ActiveMail.getMessage());
             request.getRequestDispatcher(Login).forward(request, response);
             return ;
         }
-        String token = JwtUtil.generateToken(userName);
+
+        String token = JwtUtil.generateToken(user.getId(), user.getRole(), user.getName());
+        response.setContentType("application/json");
         response.setHeader("Authorization", "Bearer " + token);
-        HttpSession session = request.getSession();
-        session.setAttribute("user", user);
-        request.getRequestDispatcher(Home).forward(request, response);
+
+        response.sendRedirect(Home);
     }
 }

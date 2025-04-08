@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set value="${pageContext.request.contextPath}" var="context"/>
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
@@ -40,18 +41,32 @@
                                     <a href="product-detail?id=1">Chi tiết sản phẩm</a>
                                 </li>
                                 <li class="scroll-to-section">
-                                    <a href="${pageContext.request.contextPath}/allPost">Bài viết</a>
+                                    <a href="${context}/allPost">Bài viết</a>
                                 </li>
                                 <li><a href="lien_he.jsp">Liên hệ</a></li>
                             </ul>
                         </li>
                         <li class="username">
-                            <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
-                            <div class=username_login id="username-info" style="display: none;"><span
-                                    id="username"></span></div>
+                        <c:choose>
+                            <c:when test="${sessionScope.user != null}">
+                                <div class="dropdown">
+                                    <img class="btn btn-secondary dropdown-toggle rounded-circle w-50" href="#" role="button" data-bs-toggle="dropdown"
+                                         aria-expanded="false" alt="avatar" src="${context}/assets/images/logo.png"/>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Cập nhật hồ sơ </a></li>
+                                        <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
+                                        <li><a class="dropdown-item" href="#">Sản phẩm đã thích </a></li>
+                                        <li><a class="dropdown-item" href="#"> Đăng xuất </a></li>
+                                    </ul>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                            </c:otherwise>
+                        </c:choose>
                         </li>
                         <li class="gio_hang_shop">
-                            <a href="${pageContext.request.contextPath}/gio_hang">
+                            <a href="${context}/gio_hang">
                                 <span>Giỏ hàng </span>
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>
