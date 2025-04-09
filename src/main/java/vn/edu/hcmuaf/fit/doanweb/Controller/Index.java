@@ -38,8 +38,6 @@ public class Index extends HttpServlet {
         request.setAttribute("productListKAT", productListKAT);
         request.setAttribute("productListGK", productListGK);
         request.setAttribute("brandList", brandList);
-
-        LogSystem.CreateLog("INFO" , name , 17 , "" , "" );
         request.getRequestDispatcher(JSPPage.Index.getPage()).forward(request, response);
 
     }

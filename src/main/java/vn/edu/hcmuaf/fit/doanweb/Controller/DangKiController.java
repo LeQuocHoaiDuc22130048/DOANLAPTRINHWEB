@@ -22,6 +22,7 @@ public class DangKiController extends HttpServlet {
     private static final String EmailExist = "Email đã được sử dụng bởi người dùng khác ";
     private static final String SignInFailed = "Sign in failed";
     private static final String CreatedFailed = "Created failed";
+    private static final String name = DangKiController.class.getName();
     private UserDaoImp userDaoImp;
     private LogSystem logSystem;
 
@@ -55,6 +56,7 @@ public class DangKiController extends HttpServlet {
             return;
         }
         // Check create user success
+
         if (!userDaoImp.CreateUserTemp(userName, email, EncryptedPassword)) {
             request.setAttribute("Error", SignInFailed);
             request.getRequestDispatcher(SignIn).forward(request, response);
@@ -67,6 +69,8 @@ public class DangKiController extends HttpServlet {
             request.getRequestDispatcher(SignIn).forward(request, response);
             return;
         }
+        LogSystem.CreateLog("warning " , name  , userId , "", "User đăng ký tài khoản với user name : " + userName );
+
         String encode = Base64.getEncoder().encodeToString(String.valueOf(userId).getBytes());
         try {
             SendEmailServices services = new SendEmailServices();
