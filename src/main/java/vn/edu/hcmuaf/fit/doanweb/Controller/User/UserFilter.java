@@ -12,7 +12,7 @@ import vn.edu.hcmuaf.fit.doanweb.Util.JwtUtil;
 
 import java.io.IOException;
 
-@WebFilter(filterName = "UserFilter")
+@WebFilter(filterName = "user")
 public class UserFilter implements Filter {
 
     public void init(FilterConfig config) throws ServletException {
@@ -33,16 +33,17 @@ public class UserFilter implements Filter {
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7); // Bỏ chữ "Bearer "
             try {
-                String role = JWT.require(Algorithm.HMAC256(String.valueOf(JwtUtil.SECRET_KEY)))
+                String role = JWT.require(Algorithm.HMAC256(JwtUtil.SECRET_KEY))
                         .build()
                         .verify(token)
                         .getClaim("role").asString();
 
                 req.setAttribute("role", role); // Lưu vào request
-                if (role.equals("admin") || role.equals("guest")) {
+                if (role.equals("admin") || role.equals("guest") || role.isEmpty()) {
                     res.sendRedirect(JSPPage.Index.getPage());
                     return ;
                 }
+                System.out.println(role);
                 chain.doFilter(request, response);
                 return;
             } catch (JWTVerificationException e) {

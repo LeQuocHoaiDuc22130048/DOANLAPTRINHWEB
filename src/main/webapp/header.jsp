@@ -37,7 +37,6 @@
                             <ul>
                                 <li><a href="product-category?categoryId=3">Sản phẩm</a></li>
                                 <li>
-                                    <!-- ***** Default when no product is selected ***** -->
                                     <a href="product-detail?id=1">Chi tiết sản phẩm</a>
                                 </li>
                                 <li class="scroll-to-section">
@@ -47,23 +46,25 @@
                             </ul>
                         </li>
                         <li class="username">
-                        <c:choose>
-                            <c:when test="${sessionScope.user != null}">
-                                <div class="dropdown">
-                                    <img class="btn btn-secondary dropdown-toggle rounded-circle w-50" href="#" role="button" data-bs-toggle="dropdown"
-                                         aria-expanded="false" alt="avatar" src="${context}/assets/images/logo.png"/>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Cập nhật hồ sơ </a></li>
-                                        <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
-                                        <li><a class="dropdown-item" href="#">Sản phẩm đã thích </a></li>
-                                        <li><a class="dropdown-item" href="#"> Đăng xuất </a></li>
-                                    </ul>
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
-                            </c:otherwise>
-                        </c:choose>
+                            <c:choose>
+                                <c:when test="${sessionScope.avatar != null}">
+                                    <div class="dropdown">
+                                        <img class=" dropdown-toggle rounded-circle user-avatar"
+                                             data-bs-toggle="dropdown"
+                                             aria-expanded="false" alt="avatar" style="width: 50px"
+                                             src="${context}/${sessionScope.avatar}"/>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="${context}//user/updateProfile">Cập nhật hồ sơ </a></li>
+                                            <li><a class="dropdown-item" href="${context}/user/historyOrder">Lịch sử mua hàng</a></li>
+                                            <li><a class="dropdown-item" href="${context}/user//wishList">Sản phẩm đã thích </a></li>
+                                            <li><a class="dropdown-item" href="${context}/user/logout"> Đăng xuất </a></li>
+                                        </ul>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                                </c:otherwise>
+                            </c:choose>
                         </li>
                         <li class="gio_hang_shop">
                             <a href="${context}/gio_hang">

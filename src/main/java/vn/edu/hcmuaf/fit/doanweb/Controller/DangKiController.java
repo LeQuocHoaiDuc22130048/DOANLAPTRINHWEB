@@ -40,7 +40,6 @@ public class DangKiController extends HttpServlet {
         String userName = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        System.out.println(password);
 
         if (email == null || userName == null || password == null) {
             request.setAttribute("Error", "Please fill all the fields");

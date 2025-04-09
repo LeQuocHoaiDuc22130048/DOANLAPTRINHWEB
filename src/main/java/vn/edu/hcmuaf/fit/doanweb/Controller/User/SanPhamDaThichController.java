@@ -1,13 +1,15 @@
 package vn.edu.hcmuaf.fit.doanweb.Controller.User;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "CapNhatHoSoController", value = "/user/updateProfile")
-public class CapNhatHoSoController extends HttpServlet {
+@WebServlet(name = "SanPhamDaThich" , value = "/user/wishList")
+public class SanPhamDaThichController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

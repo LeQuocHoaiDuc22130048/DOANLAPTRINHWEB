@@ -37,6 +37,7 @@ public class DangNhapController extends HttpServlet {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         String realPassword = userDaoImp.GetUserPassword(userName);
+        String BackToHome = request.getContextPath() + "/index";
         if (realPassword == null ||!BCrypt.checkpw(password, realPassword ) ) {
             request.setAttribute("Error", ErrorMessages.LoginFail.getMessage());
             request.getRequestDispatcher(Login).forward(request, response);
@@ -48,11 +49,19 @@ public class DangNhapController extends HttpServlet {
             request.getRequestDispatcher(Login).forward(request, response);
             return ;
         }
-
+        // tạo token và lưu vào header
         String token = JwtUtil.generateToken(user.getId(), user.getRole(), user.getName());
         response.setContentType("application/json");
         response.setHeader("Authorization", "Bearer " + token);
-
-        response.sendRedirect(Home);
+        // tạo session lưu thông tin cần thiết
+        HttpSession session = request.getSession();
+        session.setAttribute("avatar", user.getAvatar());
+        // tạo cookie lưu thông tin token
+        Cookie jwtCookie = new Cookie("Authorization", token);
+        jwtCookie.setHttpOnly(true);
+        jwtCookie.setSecure(true); // chỉ nên dùng khi dùng HTTPS
+        jwtCookie.setPath("/");
+        response.addCookie(jwtCookie);
+        response.sendRedirect(BackToHome);
     }
 }

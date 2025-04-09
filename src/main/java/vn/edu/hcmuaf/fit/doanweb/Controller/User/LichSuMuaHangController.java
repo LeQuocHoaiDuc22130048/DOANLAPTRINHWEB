@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "LichSuMuaHangController", value = "/user/LichSuMuaHangController")
+@WebServlet(name = "LichSuMuaHangController", value = "/user/historyOrder")
 public class LichSuMuaHangController extends HttpServlet {
 
     @Override

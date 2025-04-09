@@ -4,26 +4,22 @@ import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
+import vn.edu.hcmuaf.fit.doanweb.Util.Roles;
 
 import java.util.Optional;
 
 public class UserDaoImp implements UserDao {
     private final Jdbi jdbi = JDBIConnect.get();
 
-    @Override
-    public boolean UpdateAvatar(int userId, String avatar) {
-        return false;
-    }
 
-    private final static int AdminRole = 1;
-    private final static int UserRole = 2;
+    private final static String defaultUserAvatar = "/assets/images/Avatar/user.png";
     private final static int Active = 1;
     private final static int Inactive = 0;
     
     // Optimized queries with proper indexing hints and consistent parameter binding
     private final static String CheckEmail = "SELECT email FROM users WHERE email = :email LIMIT 1";
-    private final static String CreateUserTemp = "INSERT INTO users (name, email, password, phone, address, status, avatar ,  created_at, updated_at) " +
-            "VALUES (:name, :email, :password, NULL, NULL,0 , NULL , NOW(), NOW())";
+    private final static String CreateUserTemp = "INSERT INTO users (name, email, password, phone, address, status, role , avatar ,  created_at, updated_at) " +
+            "VALUES (:name, :email, :password, NULL, NULL,0 , :role  , :avatar  , NOW(), NOW())";
     private final static String ActiveAccount = "UPDATE users SET status = 1 WHERE id = :id";
     private final static String GetUserId = "SELECT id FROM users WHERE email = :email LIMIT 1";
     private final static String Login = "SELECT * FROM users WHERE name = :name AND password = :password AND status = 1  LIMIT 1";
@@ -36,7 +32,10 @@ public class UserDaoImp implements UserDao {
         // Initialize indexes if they don't exist
     }
 
-
+    @Override
+    public boolean UpdateAvatar(int userId, String avatar) {
+        return false;
+    }
     @Override
     public boolean checkEmailExists(String email) {
         return jdbi.withHandle(handle ->
@@ -55,6 +54,8 @@ public class UserDaoImp implements UserDao {
                         .bind("name", username)
                         .bind("email", email)
                         .bind("password", password)
+                        .bind("role" , Roles.USER.getRole())
+                        .bind("avatar" , defaultUserAvatar)
                         .execute() > 0
         );
     }
