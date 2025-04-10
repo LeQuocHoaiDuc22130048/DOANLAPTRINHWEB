@@ -7,17 +7,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <jsp:include page="DashboardLink.jsp"/>
-    <title>Đơn hàng</title>
+    <c:set var="titleName" value="Đơn hàng" scope="request"/>
+    <title>${titleName}</title>
 </head>
 <body>
 <div class="side-menu">
     <div class="brand-name">
-        <h1>Brand</h1>
+        <img src="asset/image/logo.png" alt="eyestyle" width="100px"/>
     </div>
     <ul style="padding: 0">
-        <li><a href="Dashboard" class="active"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
-        <li><a href="Order"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
-        <li><a href="./Product-list.html"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
+        <li><a href="Dashboard"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
+        <li><a href="Order" class="active"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
+        <li><a href="AdminProductList"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
         <li><a href="Product-category"><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
         <li><a href="Promotion"><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
         <li><a href="User"><i class="fa-solid fa-user"></i>Người dùng</a></li>
@@ -30,7 +31,7 @@
     <jsp:include page="Header.jsp"/>
     <div class="content">
 
-        <div class="data-table">
+        <div class="data-table mx-3" style="margin-top: 100px;">
             <table id="table_id" class="ui celled table" style="width: 100%">
                 <thead>
                 <tr>

@@ -44,7 +44,7 @@
 <body>
 <section class="admin">
     <div class="row-grid">
-        <jsp:include page="Sidebar.jsp"/>
+        <jsp:include page="SideMenu.jsp"/>
         <div class="admin-content">
             <jsp:include page="Header.jsp"/>
             <div class="admin-content main">

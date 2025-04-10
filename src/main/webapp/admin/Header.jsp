@@ -19,6 +19,16 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
+        <div class="add_btn">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Thêm
+            </a>
+            <ul class="dropdown-menu dropdown-menu w-auto" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item" href="ProductAdd">Thêm sản phẩm</a></li>
+                <li><a class="dropdown-item" href="ListCategories">Thêm danh mục</a></li>
+                <li><a class="dropdown-item" href="#">...</a></li>
+            </ul>
+        </div>
         <div class="user">
             <div class="dropstart notification ms-auto me-3">
                 <button class="btn position-relative" type="button" id="notificationDropdown"
@@ -27,85 +37,7 @@
                     <span class="notification-badge badge bg-danger rounded-pill">2</span>
                 </button>
 
-                <ul class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="notificationDropdown">
-                    <li class="dropdown-header bg-light py-2 px-3 d-flex justify-content-between">
-                        <span><strong>Thông báo mới</strong></span>
-                        <a href="#" class="text-primary" id="markAllRead">Đánh dấu đã đọc</a>
-                    </li>
 
-                    <!-- Danh sách thông báo -->
-                    <li>
-                        <div class="table-responsive">
-                            <table class="table table-hover mb-0">
-                                <tbody>
-                                <!-- Thông báo 1 -->
-                                <tr class="notification-item unread" data-notification-id="1">
-                                    <td style="width: 40px;">
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
-                                             style="width: 32px; height: 32px;">
-                                            <i class="fas fa-user"></i>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="fw-bold">Khách hàng: Nguyễn Văn A</div>
-                                        <div>Đã đặt lịch hẹn mới vào ngày 15/06/2023</div>
-                                        <div class="notification-time">10 phút trước</div>
-                                    </td>
-                                </tr>
-
-                                <!-- Thông báo 2 -->
-                                <tr class="notification-item unread" data-notification-id="2">
-                                    <td>
-                                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
-                                             style="width: 32px; height: 32px;">
-                                            <i class="fas fa-comment"></i>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="fw-bold">Khách hàng: Trần Thị B</div>
-                                        <div>Để lại đánh giá 5 sao cho dịch vụ</div>
-                                        <div class="notification-time">1 giờ trước</div>
-                                    </td>
-                                </tr>
-
-                                <!-- Thông báo 3 -->
-                                <tr class="notification-item" data-notification-id="3">
-                                    <td>
-                                        <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
-                                             style="width: 32px; height: 32px;">
-                                            <i class="fas fa-exclamation"></i>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="fw-bold">Khách hàng: Lê Văn C</div>
-                                        <div>Yêu cầu hỗ trợ kỹ thuật khẩn</div>
-                                        <div class="notification-time">2 ngày trước</div>
-                                    </td>
-                                </tr>
-
-                                <!-- Thông báo 4 -->
-                                <tr class="notification-item" data-notification-id="4">
-                                    <td>
-                                        <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center"
-                                             style="width: 32px; height: 32px;">
-                                            <i class="fas fa-calendar-check"></i>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="fw-bold">Khách hàng: Phạm Thị D</div>
-                                        <div>Xác nhận thanh toán dịch vụ</div>
-                                        <div class="notification-time">3 ngày trước</div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </li>
-
-                    <li class="dropdown-footer bg-light py-2 px-3 text-center">
-                        <a href="#" class="text-primary">Xem tất cả thông báo</a>
-                    </li>
-                </ul>
             </div>
 
             <%--Modal notify--%>
@@ -132,7 +64,7 @@
                     <img src="./asset/image/user.png" alt="" />
                     <span>admin</span>
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu w-25">
                     <li><a class="dropdown-item" href="#">Quản lý tài khoản</a></li>
                     <li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
                     <li><hr class="dropdown-divider"></li>

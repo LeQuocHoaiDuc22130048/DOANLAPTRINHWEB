@@ -220,8 +220,8 @@ public class Admin {
 
     }
 
-    public List<CategoriesVM> getCategoriesWithamoutProduct() {
-        String sql = "SELECT c.id, c.name, c.status, COUNT(p.id) AS product_count " +
+    public List<CategoriesVM> getCategoriesWithAmountProduct() {
+        String sql = "SELECT c.id, c.name, c.status, c.img, COUNT(p.id) AS product_count " +
                 "FROM categories c " +
                 "LEFT JOIN products p ON c.id = p.category_id " +
                 "GROUP BY c.id";
@@ -232,9 +232,31 @@ public class Admin {
                                 rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getInt("status"),
+                                rs.getString("img"),
                                 rs.getInt("product_count")
                         )).list());
     }
+
+    public CategoriesVM getCategoryById(int id) {
+        String sql = "SELECT c.id, c.name, c.status, c.img, COUNT(p.id) AS product_count  \n" +
+                "FROM categories c  \n" +
+                "LEFT JOIN products p ON c.id = p.category_id\n" +
+                "WHERE c.id = ?\n" +
+                "GROUP BY c.id";
+
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind(0, id)
+                        .map((rs, ctx) -> new CategoriesVM(
+                                rs.getInt("id"),
+                                rs.getString("name"),
+                                rs.getInt("status"),
+                                rs.getString("img"),
+                                rs.getInt("product_count")
+                        ))
+                        .findFirst().orElse(null));
+    }
+
 
     public List<BrandVM> getAllBrands() {
         return jdbi.withHandle(handle -> handle.createQuery("select id, name from brands")

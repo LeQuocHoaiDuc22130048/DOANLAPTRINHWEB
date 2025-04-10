@@ -16,6 +16,8 @@ public class ListCategoriesController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         List<CategoriesVM> categoriesVMS = adminService.getAllCategories();
         request.setAttribute("categories", categoriesVMS);
+
+        request.setAttribute("categoryVM", CategoriesVM.class);
         request.getRequestDispatcher("/admin/ListCategories.jsp").forward(request, response);
     }
 

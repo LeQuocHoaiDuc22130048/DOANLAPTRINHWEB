@@ -10,7 +10,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.OrdersVM;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
 
-@WebServlet(name = "OrderListController", value = "/admin/OrderList")
+@WebServlet(name = "OrderListController", value = "/admin/Order")
 public class OrderListController extends HttpServlet {
 
     @Override
@@ -18,7 +18,7 @@ public class OrderListController extends HttpServlet {
         AdminService adminService = new AdminService();
         List<OrdersVM> total = adminService.getAllOrders();
         request.setAttribute("orders", total);
-        request.getRequestDispatcher("/admin/OrderList.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/Order.jsp").forward(request, response);
     }
 
     @Override
