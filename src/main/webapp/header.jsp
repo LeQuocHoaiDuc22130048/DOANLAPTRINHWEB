@@ -1,9 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set value="${pageContext.request.contextPath}" var="context"/>
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <header class="header-area header-sticky fixed-top">
     <div class="container">
@@ -12,7 +12,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index" class="logo">
-                        <img src="assets/images/logo.png"/>
+                        <img alt="logo" src="assets/images/logo.png"/>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -33,26 +33,41 @@
                             <a href="product-category?categoryId=7">Kính áp tròng</a>
                         </li>
                         <li class="submenu">
-                            <a href="javascript:;">Trang phụ</a>
+                            <a href="javascript:">Trang phụ</a>
                             <ul>
                                 <li><a href="product-category?categoryId=3">Sản phẩm</a></li>
                                 <li>
-                                    <!-- ***** Default when no product is selected ***** -->
                                     <a href="product-detail?id=1">Chi tiết sản phẩm</a>
                                 </li>
                                 <li class="scroll-to-section">
-                                    <a href="bai_viet.jsp">Bài viết</a>
+                                    <a href="${context}/allPost">Bài viết</a>
                                 </li>
                                 <li><a href="lien_he.jsp">Liên hệ</a></li>
                             </ul>
                         </li>
                         <li class="username">
-                            <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
-                            <div class=username_login id="username-info" style="display: none;"><span
-                                    id="username"></span></div>
+                            <c:choose>
+                                <c:when test="${sessionScope.avatar != null}">
+                                    <div class="dropdown">
+                                        <img class=" dropdown-toggle rounded-circle user-avatar"
+                                             data-bs-toggle="dropdown"
+                                             aria-expanded="false" alt="avatar" style="width: 50px"
+                                             src="${context}/${sessionScope.avatar}"/>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="${context}//user/updateProfile">Cập nhật hồ sơ </a></li>
+                                            <li><a class="dropdown-item" href="${context}/user/historyOrder">Lịch sử mua hàng</a></li>
+                                            <li><a class="dropdown-item" href="${context}/user//wishList">Sản phẩm đã thích </a></li>
+                                            <li><a class="dropdown-item" href="${context}/user/logout"> Đăng xuất </a></li>
+                                        </ul>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="dang_nhap.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                                </c:otherwise>
+                            </c:choose>
                         </li>
                         <li class="gio_hang_shop">
-                            <a href="${pageContext.request.contextPath}/gio_hang">
+                            <a href="${context}/gio_hang">
                                 <span>Giỏ hàng </span>
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>

@@ -8,6 +8,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.ProductVM;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
 import vn.edu.hcmuaf.fit.doanweb.Services.ProductService;
+import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +18,6 @@ import java.util.List;
 public class FilterController extends HttpServlet {
 
     private static final int PRODUCTS_PER_PAGE = 9;
-    private final AdminService service = new AdminService();
     private final ProductService proService = new ProductService();
 
     @Override
@@ -27,7 +27,7 @@ public class FilterController extends HttpServlet {
         List<ProductByCondition> list = proService.getProduct(type, value);
         System.out.println(list.size());
         request.setAttribute("product_list", list);
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getRequestDispatcher(JSPPage.Category.getPage()).forward(request, response);
     }
 
 }

@@ -8,6 +8,8 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Base64;
 
 @WebServlet(name = "ActiveMail", value = "/ActiveMail")
 public class ActiveMail extends HttpServlet {
@@ -19,8 +21,9 @@ public class ActiveMail extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        userDao.ActiveAccountExists(userId);
+        String  param  = request.getParameter("userId");
+        String decode = new String(Base64.getDecoder().decode(param));
+        userDao.ActiveAccountExists(Integer.parseInt(decode));
         String activeSuccess = "active mail success";
         request.setAttribute("Success", activeSuccess);
         request.getRequestDispatcher(JSPPage.Index.getPage()).forward(request, response);

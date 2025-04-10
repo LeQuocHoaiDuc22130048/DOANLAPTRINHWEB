@@ -23,17 +23,17 @@ public class PostsController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = 17;
         try {
-            HttpSession session = request.getSession();
-            int id = (int) session.getAttribute("id");
-            LogSystem.CreateLog("INFO", name , id , "" , ""  );
             List<Posts> lists = postDao.getAllPost();
-            System.out.println(lists);
             request.setAttribute("posts", lists);
             request.getRequestDispatcher("bai_viet.jsp").forward(request, response);
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+        finally {
+            LogSystem.CreateLog("INFO" , name , id , ""  , "User access  post controller");
         }
     }
 

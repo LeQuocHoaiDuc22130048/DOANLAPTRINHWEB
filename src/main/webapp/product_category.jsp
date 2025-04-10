@@ -7,12 +7,13 @@
 <c:set var="shapes" value="${availableData.getShapes('SHAPES')}"/>
 <c:set var="materials" value="${availableData.getMaterials('MATERIALS')}"/>
 <c:set var="colors" value="${availableData.getColors('COLORS')}"/>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>${category.name}</title>
+    <title>${requestScope.category.name}</title>
     <c:import url="link.jsp"/>
 </head>
 <body>
@@ -39,7 +40,7 @@
                     <nav class="woocommerce-breadcrumb breadcrumbs">
                         <a href="index">Trang Chủ</a>
                         <span class="divider">/</span>
-                        ${selectedItem.name}
+                        ${requestScope.selectedItem.name}
                     </nav>
                 </div>
             </div>
@@ -51,7 +52,7 @@
         <div class="shop-container container">
             <div class="archive-product-wrap">
                 <div class="absolute_center flex-column">
-                    <h1  class="mt-100 mb-2 fs-3">${requestScope.selectedItem.title}</h1>
+                    <h1  class="mt-5 mb-2 fs-3 text-center">${requestScope.selectedItem.title}</h1>
                     <p>
                         <img class="img-fluid border-0"
                                 src="${requestScope.selectedItem.img}"
@@ -78,35 +79,19 @@
                         <table class="w-100 my-4">
                             <tbody>
                             <tr style="height: 95px">
-                                <c:forEach var="sub" items="${selectedItem.items}" varStatus="status">
+                                <c:forEach var="sub" items="${requestScope.selectedItem.items}" varStatus="status">
                                 <td style="width: 33.3%; height: 95px; text-align: center">
                                     <a title="${sub.name}" href="product-category?categoryId=${sub.id}">
                                         <img src="${sub.img}" alt="" width="340" height="210"/>
                                     </a>
                                 </td>
-
-                                <!-- Nếu đã hiển thị 3 phần tử, thì xuống dòng -->
-                                <c:if test="${status.index == 2 && selectedItem.items.size() > 3}">
-                            </tr>
-                            <tr style="height: 95px">
-                                <td colspan="3"
-                                    style="text-align: center">
-                                    <h3 class="section-title section-title-center">
-                                        <b></b>
-                                        <span class="section-title-main">Loại gọng</span>
-                                        <b></b>
-                                    </h3>
-                                </td>
-                            </tr>
-                            <tr style="height: 95px">
-                                </c:if>
                                 </c:forEach>
                             </tr>
                             </tbody>
                         </table>
                     </c:if>
 
-                    <p class="tag-in-category mb-3">
+                    <p class="tag-in-category mb-3 w-100">
                         <strong>Tìm kiếm nhiều:</strong>
                         <br/>
                         <a class="btn bg-transparent border-1 border mb-1" href="" title="Mắt kính chính hãng">Gọng kính chính hãng</a>
@@ -141,7 +126,7 @@
                     </p>
                    <div class="d-flex tag-in-category align-items-center gap-4 mt-5">
                        <h4 class="text-center">Lọc sản phẩm : </h4>
-                       <div class="dropup-center dropup">
+                       <div class="dropup-center dropup absolute_center">
                            <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
                                    type="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
@@ -159,7 +144,7 @@
                                </div>
                            </div>
                        </div>
-                       <div class="dropup-center dropup">
+                       <div class="dropup-center dropup absolute_center">
                            <label><input class="d-none" checked type="text" name="type" value="brand_id"/></label>
                            <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">Giới tính
@@ -190,7 +175,7 @@
                                </div>
                            </div>
                        </div>
-                       <div class="dropup-center dropup">
+                       <div class="dropup-center dropup absolute_center">
                            <label><input class="d-none" checked type="text" name="type"
                                          value="brand_id"/></label>
                            <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
@@ -211,7 +196,7 @@
                                </div>
                            </div>
                        </div>
-                       <div class="dropup-center dropup">
+                       <div class="dropup-center dropup absolute_center">
                            <label><input class="d-none" checked type="text" name="type"
                                          value="brand_id"/></label>
                            <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
@@ -232,7 +217,7 @@
                                </div>
                            </div>
                        </div>
-                       <div class="dropup-center dropup">
+                       <div class="dropup-center dropup absolute_center">
                            <label><input class="d-none" checked type="text" name="type"
                                          value="brand_id"/></label>
                            <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
@@ -253,7 +238,7 @@
                                </div>
                            </div>
                        </div>
-                       <div class="dropup-center dropup">
+                       <div class="dropup-center dropup absolute_center">
                            <label><input class="d-none" checked type="text" name="type"
                                          value="brand_id"/></label>
                            <button class="bg-transparent py-2 px-2 rounded m-2 dropdown-toggle dropdown_btn"
@@ -302,53 +287,71 @@
                            </div>
                        </div>
                    </div>
+                    <c:set value="${requestScope.product_list}" var="list"/>
                     <div class="product-list-container">
                         <div class="row page show-list" id="productContainer">
-                            <c:forEach var="product" items="${products}">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="product-item">
-                                        <!-- Phần hình ảnh sản phẩm -->
-                                        <div class="thumb">
-                                            <div class="hover-content">
-                                                <ul>
-                                                    <!-- Xem chi tiết -->
-                                                    <li>
-                                                        <a href="#"><i class="fa fa-eye"></i></a>
-                                                    </li>
-                                                    <!-- Đánh giá -->
-                                                    <li>
-                                                        <a href="#" class="rate-product"><i class="fa fa-star"></i></a>
-                                                    </li>
-                                                    <!-- Thêm vào giỏ hàng -->
-                                                    <li>
-                                                        <a href="#" class="btn_gio_hang"><i
-                                                                class="fa fa-shopping-cart"></i></a>
-                                                    </li>
+                            <div id="productCarousel3" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <c:forEach var="product" items="${list}" varStatus="status">
+                                        <c:if test="${status.index % 3 == 0}">
+                                            <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
+                                            <div class="row">
+                                        </c:if>
+                                        <div class="item col-4">
+                                            <div class="thumb">
+                                                <div class="hover-content">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="${context}/product-detail?id=${product.id}">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="rate-product">
+                                                                <i class="fa fa-star"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <form class="addCartForm">
+                                                                <input type="hidden" name="id" value="${product.id}">
+                                                                <button class="btn_gio_hang">
+                                                                    <i class="fa fa-shopping-cart"></i>
+                                                                </button>
+                                                            </form>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <img class="img-thumbnail border-0 rounded-4" src="${product.path}" alt="${product.name}"/>
+                                            </div>
+                                            <div class="down-content">
+                                                <h4>${product.name}</h4>
+                                                <span><f:formatNumber value="${product.cost_price}"/>đ</span>
+                                                <ul class="stars">
+                                                    <c:forEach begin="0" end="4">
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    </c:forEach>
                                                 </ul>
                                             </div>
-                                            <img src="${product.img}" alt="${product.productName}" class="product-image"
-                                                 style="width: 100%;">
                                         </div>
 
-                                        <!-- Thông tin sản phẩm -->
-                                        <div class="product-info">
-                                            <h4 class="product-name">${product.productName}</h4>
-                                            <span class="product-price">
-                                            <fmt:formatNumber value="${product.price}" type="currency"
-                                                              currencySymbol="VND" minFractionDigits="0"/>
-                                             </span>
-                                            <ul class="stars">
-                                                <!-- Hiển thị 5 ngôi sao mặc định -->
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                        <c:if test="${status.index % 3 == 2 || status.last}">
+                                            </div> <!-- Kết thúc row -->
+                                            </div> <!-- Kết thúc carousel-item -->
+                                        </c:if>
+                                    </c:forEach>
+
                                 </div>
-                            </c:forEach>
+                               <c:if test="${list != null && list.size() > 3}">
+                                   <button class="carousel-control-prev position-absolute" style="width: fit-content" type="button" data-bs-target="#productCarousel3" data-bs-slide="prev">
+                                       <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
+                                       <span class="visually-hidden">Previous</span>
+                                   </button>
+                                   <button class="carousel-control-next position-absolute" style="width: fit-content" type="button" data-bs-target="#productCarousel3" data-bs-slide="next">
+                                       <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
+                                       <span class="visually-hidden">Next</span>
+                                   </button>
+                               </c:if>
+                            </div>
                         </div>
                     </div>
                     <!-- Phân trang -->
