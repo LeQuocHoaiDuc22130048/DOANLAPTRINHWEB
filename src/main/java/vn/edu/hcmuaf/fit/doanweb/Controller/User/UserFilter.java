@@ -2,7 +2,6 @@ package vn.edu.hcmuaf.fit.doanweb.Controller.User;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,14 +38,14 @@ public class UserFilter implements Filter {
                         .getClaim("role").asString();
 
                 req.setAttribute("role", role); // Lưu vào request
-                if (role.equals("admin") || role.equals("guest") || role.isEmpty()) {
+                if (role.equals("ADMIN") || role.equals("GUEST") || role.isEmpty()) {
                     res.sendRedirect(JSPPage.Index.getPage());
                     return ;
                 }
                 System.out.println(role);
                 chain.doFilter(request, response);
                 return;
-            } catch (JWTVerificationException e) {
+            } catch (Error e) {
                 res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid token");
                 return;
             }

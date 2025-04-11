@@ -11,8 +11,6 @@ import java.io.IOException;
 public class DangXuatController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String BackToHome = request.getContextPath() + "/index";
-//        xóa session
         HttpSession session = request.getSession();
         session.invalidate();
 //        xóa cookie
@@ -21,7 +19,7 @@ public class DangXuatController extends HttpServlet {
         tokenCookie.setPath("/");
         response.addCookie(tokenCookie);
 //        response
-        response.sendRedirect(BackToHome);
+        response.sendRedirect(JSPPage.Index.getPage());
     }
 
     @Override

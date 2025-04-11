@@ -1,7 +1,5 @@
 package vn.edu.hcmuaf.fit.doanweb.Controller;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

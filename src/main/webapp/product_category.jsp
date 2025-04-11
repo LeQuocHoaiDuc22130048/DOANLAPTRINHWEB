@@ -38,7 +38,7 @@
             <div class="flex-col flex-center text-center">
                 <div class="is-large">
                     <nav class="woocommerce-breadcrumb breadcrumbs">
-                        <a href="index">Trang Chủ</a>
+                        <a href="/index">Trang Chủ</a>
                         <span class="divider">/</span>
                         ${requestScope.selectedItem.name}
                     </nav>
@@ -52,7 +52,7 @@
         <div class="shop-container container">
             <div class="archive-product-wrap">
                 <div class="absolute_center flex-column">
-                    <h1  class="mt-5 mb-2 fs-3 text-center">${requestScope.selectedItem.title}</h1>
+                    <h1  class="mt-4 mb-2 fs-3 text-center">${requestScope.selectedItem.title}</h1>
                     <p>
                         <img class="img-fluid border-0"
                                 src="${requestScope.selectedItem.img}"
@@ -76,19 +76,17 @@
                             </h3>
                         </div>
 
-                        <table class="w-100 my-4">
-                            <tbody>
-                            <tr style="height: 95px">
-                                <c:forEach var="sub" items="${requestScope.selectedItem.items}" varStatus="status">
-                                <td style="width: 33.3%; height: 95px; text-align: center">
-                                    <a title="${sub.name}" href="product-category?categoryId=${sub.id}">
-                                        <img src="${sub.img}" alt="" width="340" height="210"/>
-                                    </a>
-                                </td>
-                                </c:forEach>
-                            </tr>
-                            </tbody>
-                        </table>
+                      <div class="container">
+                          <div class="row row-cols-3">
+                              <c:forEach var="sub" items="${requestScope.selectedItem.items}" varStatus="status">
+                                  <div class="col mb-2">
+                                      <a title="${sub.name}" href="product-category?categoryId=${sub.id}">
+                                          <img alt="banner" class="img-thumbnail border-0" src="${sub.img}"/>
+                                      </a>
+                                  </div>
+                              </c:forEach>
+                          </div>
+                      </div>
                     </c:if>
 
                     <p class="tag-in-category mb-3 w-100">
