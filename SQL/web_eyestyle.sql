@@ -1175,13 +1175,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
+	`role` nvarchar(10) DEFAULT NULL , 
+	`avatar` nvarchar(255)  DEFAULT NULL , 
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.users: ~33 rows (approximately)
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`,  `created_at`, `updated_at`) VALUES
 	(1, 'Nguyễn Văn An', 'annguyen@gmail.com', 'password123', '0912345678', 'Số 12, Đường Nguyễn Trãi, Hà Nội', 1, '2024-12-01 08:30:56', '2024-12-01 09:30:08'),
 	(2, 'Trần Thị Hoa', 'hoatran@gmail.com', 'hoa2024', '0934567890', 'Số 25, Đường Lê Lợi, Hồ Chí Minh', 1, '2024-12-02 09:12:00', '2024-12-02 09:30:00'),
 	(3, 'Lê Minh Tâm', 'tamle@gmail.com', 'minhtam789', '0978123456', 'Số 30, Đường Trần Phú, Đà Nẵng', 1, '2024-12-03 10:15:34', '2024-12-03 10:15:34'),

@@ -2,7 +2,6 @@ package vn.edu.hcmuaf.fit.doanweb.Util;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-
 import java.util.Date;
 
 public class JwtUtil {
