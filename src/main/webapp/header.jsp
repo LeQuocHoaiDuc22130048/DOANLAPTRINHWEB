@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <header class="header-area header-sticky fixed-top">
     <div class="container">

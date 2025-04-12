@@ -2,6 +2,7 @@
 <script src="assets/js/popper.js"></script>
 <!-- Plugins -->
 <script src="assets/js/bootstrap@5.3.3_dist_js_bootstrap.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="assets/js/owl-carousel.js"></script>
 <script src="assets/js/accordions.js"></script>
 <script src="assets/js/datepicker.js"></script>

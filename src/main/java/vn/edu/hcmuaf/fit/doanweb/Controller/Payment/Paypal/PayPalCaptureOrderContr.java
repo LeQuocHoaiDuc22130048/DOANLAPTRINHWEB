@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Controller;
+package vn.edu.hcmuaf.fit.doanweb.Controller.Payment.Paypal;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -8,13 +8,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import vn.edu.hcmuaf.fit.doanweb.DAO.InventoryDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Customer;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
-import vn.edu.hcmuaf.fit.doanweb.DAO.OrderDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
+import vn.edu.hcmuaf.fit.doanweb.Services.OrderService;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,6 +25,7 @@ import java.util.List;
 @WebServlet("/capture-paypal-order")
 public class PayPalCaptureOrderContr extends HttpServlet {
     private static final String PAYPAL_API = "https://api-m.sandbox.paypal.com/v2/checkout/orders/";
+    private OrderService service = new OrderService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -61,7 +60,7 @@ public class PayPalCaptureOrderContr extends HttpServlet {
             return;
         }
 
-        saveOrderTODB(req,jsonResponse);
+        saveOrderTODB(req, jsonResponse);
         resp.getWriter().write("{\"status\":\"success\",\"message\":\"Đơn hàng đã được xác nhận!\"}");
     }
 
@@ -72,12 +71,12 @@ public class PayPalCaptureOrderContr extends HttpServlet {
         Cart cart = (Cart) session.getAttribute("cart");
         Discounts discount = (Discounts) session.getAttribute("discount");
 
-        // Lấy thông tin đơn hàng từ PayPal
-        String orderCode = jsonResponse.get("id").getAsString();  // order_id từ PayPal
-        String totalVND= (String) session.getAttribute("orderTotal");
-        totalVND=totalVND.replace(",", "");
-        totalVND=totalVND.replace("đ", "");
-        double totalPrice= Double.parseDouble(totalVND);
+        //thông tin đơn hàng
+        String orderCode = jsonResponse.get("id").getAsString();  // Mã đơn từ PayPal
+        String totalVND = (String) session.getAttribute("orderTotal");
+        totalVND = totalVND.replace(",", "");
+        totalVND = totalVND.replace("đ", "");
+        double totalPrice = Double.parseDouble(totalVND);
         String customerName = customer.getName();
         String phoneNumber = customer.getPhone();
         String email = customer.getEmail();
@@ -102,27 +101,8 @@ public class PayPalCaptureOrderContr extends HttpServlet {
         }
 
         // Lưu đơn hàng vào cơ sở dữ liệu
-        OrderDaoImp orderDao = new OrderDaoImp();
-        Orders order = new Orders();
-        order.setOrder_code(orderCode);
-        order.setCustome_name(customerName);
-        order.setPhone_number(phoneNumber);
-        order.setCustomer_email(email);
-        order.setShipping_address(fullAddress);
-        order.setSubtotal(subtotal);
-        order.setTotal_discount(totalDiscount);
-        order.setShipping_fee(shippingFee);
-        order.setTotal_price(totalPrice);
-        order.setTotal_quantity(totalQuantity);
-        order.setPayment_method(paymentMethod);
-        order.setPayment_status(true);
-        order.setStatus_order(true);
-        order.setOrder_notes(orderNotes);
-        order.setListProducts(listProducts);
-        orderDao.saveOrder(order);
-
-        InventoryDaoImp inventoryDao = new InventoryDaoImp();
-        inventoryDao.updateStockAfterOrder(listProducts);  //update kho hàng
+         service.createOrder(orderCode,customerName,phoneNumber,email,fullAddress,subtotal,totalDiscount,shippingFee,totalPrice,
+                 totalQuantity,paymentMethod,orderNotes,listProducts);
 
         session.removeAttribute("cart");
     }

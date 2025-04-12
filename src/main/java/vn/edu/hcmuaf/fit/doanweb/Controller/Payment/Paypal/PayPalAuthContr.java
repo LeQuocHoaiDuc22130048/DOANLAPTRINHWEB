@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Controller;
+package vn.edu.hcmuaf.fit.doanweb.Controller.Payment.Paypal;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
