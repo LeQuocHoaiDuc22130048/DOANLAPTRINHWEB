@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Controller;
+package vn.edu.hcmuaf.fit.doanweb.Controller.Payment.Paypal;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -30,7 +30,6 @@ public class PayPalCreateOrderContr extends HttpServlet {
         HttpSession session = req.getSession();
         //totalVND== tong so tien don hang sau khi tru khuyen mai
         String totalVND = req.getParameter("total");
-        System.out.println(totalVND);
         if (totalVND == null || totalVND.isEmpty()) {
             resp.getWriter().write("{\"status\":\"error\",\"message\":\"Tổng tiền không hợp lệ\"}");
             return;
