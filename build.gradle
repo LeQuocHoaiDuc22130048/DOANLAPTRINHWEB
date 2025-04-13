@@ -7,10 +7,7 @@ plugins {
 }
 // Đảm bảo phần này có
 war {
-    // include tất cả các implementation và runtimeOnly vào file WAR
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 group = 'vn.edu.hcmuaf.fit'
 version = '1.0-SNAPSHOT'
@@ -64,6 +61,10 @@ dependencies {
 
 tasks.withType(Test) {
     useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 remotes {

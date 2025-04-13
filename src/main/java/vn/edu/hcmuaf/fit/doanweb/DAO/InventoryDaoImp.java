@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO;
 
+import org.apache.poi.sl.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
@@ -76,7 +77,7 @@ public class InventoryDaoImp implements InventoryDao {
             InputStream is = InventoryDaoImp.class.getClassLoader().getResourceAsStream(filename);
             Workbook workbook = new XSSFWorkbook(is);
 
-            Sheet sheet = workbook.getSheetAt(0);
+            Sheet sheet = (Sheet) workbook.getSheetAt(0);
             Iterator<Row> rowIterator = sheet.iterator();
             rowIterator.next(); // bỏ qua header
 
