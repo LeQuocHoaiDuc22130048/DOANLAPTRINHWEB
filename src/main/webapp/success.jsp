@@ -20,7 +20,19 @@
         </div>
 
         <div class="order-details">
-            <p><strong>Mã đơn hàng:</strong> #${param.token}</p>
+            <p><strong>Mã đơn hàng:</strong>
+                <c:choose>
+                    <%-- Dành cho paypal--%>
+                    <c:when test="${not empty param.token}">
+                        #${param.token}
+                    </c:when>
+                    <%-- Dành cho COD/Ngân hàng--%>
+                    <c:otherwise>
+                        #${sessionScope.orderCode}
+                    </c:otherwise>
+                </c:choose>
+            </p>
+
             <p><strong>Người nhận:</strong> ${sessionScope.customer.name}</p>
             <p><strong>Số điện thoại:</strong> ${sessionScope.customer.phone}</p>
             <p><strong>Email:</strong> ${sessionScope.customer.email}</p>
@@ -44,7 +56,17 @@
         </div>
     </div>
 </div>
+
 <c:import url="script.jsp"/>
-<script src="assets/js/paypal_success.js"></script>
+
+<c:choose>
+    <c:when test="${not empty param.token}">
+        <script src="assets/js/paypal_success.js"></script>
+    </c:when>
+    <c:otherwise>
+        <script src="assets/js/cod_success.js"></script>
+    </c:otherwise>
+</c:choose>
+
 </body>
 </html>

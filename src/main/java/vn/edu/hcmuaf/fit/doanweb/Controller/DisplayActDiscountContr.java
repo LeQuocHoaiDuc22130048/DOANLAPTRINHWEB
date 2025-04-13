@@ -39,7 +39,6 @@ public class DisplayActDiscountContr extends HttpServlet {
         double totalAfterDiscount = cart.getTotalPrices() - discountAmount;
         request.setAttribute("totalAfterDiscount", totalAfterDiscount);
 
-
         // Chuyển tiếp đến trang gio_hang.jsp
         request.getRequestDispatcher(JSPPage.Cart.getPage()).forward(request, response);
     }

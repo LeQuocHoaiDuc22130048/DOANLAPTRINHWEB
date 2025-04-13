@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Controller;
+package vn.edu.hcmuaf.fit.doanweb.Controller.Payment;
 
 import java.io.*;
 import java.util.List;
@@ -11,7 +11,6 @@ import jakarta.servlet.annotation.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.InventoryDao;
 import vn.edu.hcmuaf.fit.doanweb.DAO.InventoryDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Customer;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
 
