@@ -1,0 +1,118 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'java-library'
+    id 'maven-publish'
+    id "org.hidetake.ssh" version "2.11.2"
+}
+// Đảm bảo phần này có
+war {
+    // include tất cả các implementation và runtimeOnly vào file WAR
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+group = 'vn.edu.hcmuaf.fit'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+ext {
+    junitVersion = '5.10.0' // hoặc version bạn đang dùng
+}
+apply plugin: 'org.hidetake.ssh'
+apply plugin: 'war'
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    implementation 'org.jdbi:jdbi3-core:3.41.3'
+    implementation 'com.zaxxer:HikariCP:6.2.1'
+
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.1.0'
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
+
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.2'
+    runtimeOnly 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
+
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'org.apache.commons:commons-text:1.9'
+    implementation 'org.jsoup:jsoup:1.14.3'
+    implementation 'commons-fileupload:commons-fileupload:1.4'
+    implementation 'commons-io:commons-io:2.8.0'
+    implementation 'com.paypal.sdk:rest-api-sdk:1.14.0'
+    implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
+    implementation 'org.apache.poi:poi-ooxml:5.4.0'
+    implementation 'com.auth0:java-jwt:4.5.0'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    runtimeOnly 'org.slf4j:slf4j-simple:2.0.9'
+//    lombok
+    compileOnly("org.projectlombok:lombok:1.18.38")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
+
+    testCompileOnly("org.projectlombok:lombok:1.18.38")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
+}
+
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+}
+
+remotes {
+    host {
+        host = '192.168.157.129'
+        user = 'root'
+        password = 'nhutanh09'
+    }
+}
+ssh.settings {
+    knownHosts = allowAnyHosts
+}
+task docker_app_start {
+    doLast {
+        println 'begin docker_app_start'
+        ssh.run {
+            session(remotes.host) {
+                execute 'docker stop tomcat9', ignoreError: true
+                execute 'docker run -it --rm -d ' +
+                        '--name tomcat9 ' +
+                        '-v /usr/deploy:/usr/local/tomcat/webapps ' +
+                        '-p 80:8080 ' +
+                        'tomcat:9.0&'
+            }
+        }
+    }
+}
+task docker_upload_file_to_server {
+    doLast {
+        println 'Uploading file to Linux server...'
+        ssh.run {
+            session(remotes.host) {
+                // Tạo thư mục nếu chưa có
+                execute 'mkdir -p /usr/deploy'
+
+                // Xóa file cũ nếu có
+                remove '/usr/deploy/test.war'
+                remove '/usr/deploy/test'
+                // Upload file
+                put from: "${project.projectDir}/build/libs/DOANLAPTRINHWEB-1.0-SNAPSHOT.war",
+                        into: "/usr/deploy/test.war"
+            }
+        }
+    }
+}
+
+task docker_deploy {
+    docker_deploy.dependsOn docker_app_start
+    docker_deploy.dependsOn docker_upload_file_to_server
+    docker_deploy.dependsOn build
+    tasks.getByName('docker_app_start').mustRunAfter docker_upload_file_to_server
+}

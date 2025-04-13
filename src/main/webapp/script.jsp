@@ -16,7 +16,6 @@
 <script src="assets/js/toggle.js"></script>
 <script src="assets/js/chat_box.js"></script>
 <script src="assets/js/doi_mau_sao.js"></script>
-<script src="assets/js/hien_thi_ten_dangnhap.js"></script>
 <script src="assets/js/custom.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/add_cart.js"></script>
