@@ -5,22 +5,17 @@ plugins {
     id 'maven-publish'
     id "org.hidetake.ssh" version "2.11.2"
 }
-// Đảm bảo phần này có
-war {
-    // include tất cả các implementation và runtimeOnly vào file WAR
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
+
+repositories {
+    mavenCentral()
 }
+
 group = 'vn.edu.hcmuaf.fit'
 version = '1.0-SNAPSHOT'
 
 sourceCompatibility = '17'
 targetCompatibility = '17'
 
-repositories {
-    mavenCentral()
-}
 ext {
     junitVersion = '5.10.0' // hoặc version bạn đang dùng
 }
@@ -61,8 +56,16 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
 }
 
+war {
+    archiveFileName = 'DoAnWeb.war'
+    webAppDirectory.set(file('src/main/webapp')) // cấu hình đúng thư mục webapp
+}
 
-tasks.withType(Test) {
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-Xlint:deprecation"
+}
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
 }
 
@@ -103,7 +106,7 @@ task docker_upload_file_to_server {
                 remove '/usr/deploy/test.war'
                 remove '/usr/deploy/test'
                 // Upload file
-                put from: "${project.projectDir}/build/libs/DOANLAPTRINHWEB-1.0-SNAPSHOT.war",
+                put from: "${project.projectDir}/build/libs/DoAnWeb.war",
                         into: "/usr/deploy/test.war"
             }
         }

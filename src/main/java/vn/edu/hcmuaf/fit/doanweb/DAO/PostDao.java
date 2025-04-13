@@ -22,27 +22,7 @@ public class PostDao {
     
     private final static String GET_POSTS_BY_ACCESS =
             "SELECT id, thumbnail, created_at, title, content, url, access FROM Posts WHERE access = :access ORDER BY created_at DESC";
-    
-    private final static String CREATE_POST_INDEXES =
-            "CREATE INDEX IF NOT EXISTS idx_posts_created_at ON Posts(created_at); " +
-            "CREATE INDEX IF NOT EXISTS idx_posts_access ON Posts(access); " +
-            "CREATE INDEX IF NOT EXISTS idx_posts_id ON Posts(id)";
-    
-    public PostDao() {
-        initializeIndexes();
-    }
-    
-    private void initializeIndexes() {
-        try {
-            jdbi.withHandle(handle -> {
-                handle.execute(CREATE_POST_INDEXES);
-                return null;
-            });
-        } catch (Exception e) {
-            // Log error but don't fail initialization
-            System.err.println("Failed to create indexes: " + e.getMessage());
-        }
-    }
+
 
     public List<Posts> getAllPost() {
         return jdbi.withHandle(handle ->

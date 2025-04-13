@@ -40,7 +40,7 @@ $(document).ready(function () {
                     if (payment_method === "paypal") {
                         createPayPalOrder();
                     } else {
-                        window.location.href = "checkout.jsp";
+                        window.location.href = "Checkout.jsp";
                     }
                 } else if (response.status === "error") {
                     Swal.fire({
