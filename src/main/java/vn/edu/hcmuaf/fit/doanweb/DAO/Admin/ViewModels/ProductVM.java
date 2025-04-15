@@ -21,20 +21,4 @@ public class ProductVM {
 
     }
 
-
-    public ProductVM(int id, String name, long price, String path) {
-        this.id = id;
-        this.productName = name;
-        this.img = path;
-        this.price = price;
-
-    }
-
-    public ProductVM(int id, String name, long price, String path, String color) {
-        this.id = id;
-        this.productName = name;
-        this.img = path;
-        this.price = price;
-        this.color = color;
-    }
 }

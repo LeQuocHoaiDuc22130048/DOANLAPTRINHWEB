@@ -25,7 +25,7 @@
         <li><a href="Dashboard" class="active"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
         <li><a href="Order"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
         <li><a href="AdminProductList"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
-        <li><a href="Product-category"><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
+        <li><a href="ListCategories"><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
         <li><a href="Promotion"><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
         <li><a href="User"><i class="fa-solid fa-user"></i>Người dùng</a></li>
         <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>

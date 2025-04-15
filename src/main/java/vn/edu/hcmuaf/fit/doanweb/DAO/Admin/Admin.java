@@ -32,24 +32,29 @@ public class Admin {
         )).list());
     }
 
+    //Order
     public List<OrdersVM> getAllOrders() {
-        String sql = "SELECT o.id AS order_id, u.name AS buyer_name, u.email AS buyer_email, u.phone AS buyer_phone, " +
-                "u.address AS buyer_address, o.created_at AS order_date, o.status_transport AS transport_status " +
-                "FROM orders o " +
-                "JOIN users u ON o.user_id = u.id";
-
-        return jdbi.withHandle(h -> h.createQuery(sql).map((rs, ctx) -> new OrdersVM(
-                rs.getInt("order_id"),
-                rs.getString("buyer_name"),
-                rs.getString("buyer_email"),
-                rs.getString("buyer_phone"),
-                rs.getString("buyer_address"),
-                rs.getTimestamp("order_date").toLocalDateTime(),
-                rs.getInt("transport_status")
+        String sql = "SELECT id, user_id, customer_name, phone_number, customer_email, \n" +
+                "shipping_address, total_price, \n" +
+                "payment_method, payment_status, status_order, order_notes, created_at \n" +
+                "FROM orders";
+        return jdbi.withHandle(handle -> handle.createQuery(sql).map((rs,ctx) -> new OrdersVM(
+                rs.getInt("id"),
+                rs.getInt("user_id"),
+                rs.getString("customer_name"),
+                rs.getString("phone_number"),
+                rs.getString("customer_email"),
+                rs.getString("shipping_address"),
+                rs.getDouble("total_price"),
+                rs.getString("payment_method"),
+                rs.getByte("payment_status"),
+                rs.getByte("status_order"),
+                rs.getString("order_notes"),
+                rs.getTimestamp("created_at").toLocalDateTime()
         )).list());
     }
 
-    public List<OrderDetailVM> getAllOrderDetails(int orderId) {
+    public List<OrderDetailVM> getOrderDetailsById(int orderId) {
         String sql = "SELECT p.id AS product_id, pi.path AS product_image, p.name AS product_code, " +
                 "p.selling_price, od.quantity, " +
                 "(p.selling_price * od.quantity) - o.total_discount AS total_price " +

@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 
 <!-- DataTables JS -->
 <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
@@ -55,5 +56,7 @@
         }
     }
 </script>
+
+
 <script type="module" src="asset/ckeditor5-builder-45.0.0/main.js"></script>
 <script src="${pageContext.request.contextPath}/admin/asset/js/App.js"></script>

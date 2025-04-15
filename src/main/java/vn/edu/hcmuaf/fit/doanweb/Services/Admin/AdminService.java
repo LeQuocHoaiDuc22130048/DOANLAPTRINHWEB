@@ -37,22 +37,7 @@ public class AdminService {
     }
 
 
-    public int addProduct(Product product, List<ProductImage> productImages) {
-        // Thêm sản phẩm và lấy ID
-        int productId = admin.addProduct(product);
-        if (productId <= 0) {
-            return 0;
-        }
-        // Gán ID cho từng hình ảnh và thêm hình ảnh vào CSDL
-        for (ProductImage productImage : productImages) {
-            productImage.setProductId(productId);
-            boolean imageAdded = admin.addProductImages(productImage);
-            if (!imageAdded) {
-                return 0;
-            }
-        }
-        return productId;
-    }
+
 
     public boolean deleteProduct(int id) {
         return admin.deleteProduct(id);
@@ -67,8 +52,8 @@ public class AdminService {
         return admin.getAllOrders();
     }
 
-    public List<OrderDetailVM> getAllOrderDetail(int orderId) {
-        return admin.getAllOrderDetails(orderId);
+    public List<OrderDetailVM> getOrderDetail(int orderId) {
+        return admin.getOrderDetailsById(orderId);
     }
 
     public boolean deleteOrder(int orderId) {
@@ -105,7 +90,9 @@ public class AdminService {
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
 
-        System.out.println( adminService.getCategoriesById(1));
+        for (OrdersVM ordersVM : adminService.getAllOrders()) {
+            System.out.println(ordersVM);
+        }
     }
 
 
