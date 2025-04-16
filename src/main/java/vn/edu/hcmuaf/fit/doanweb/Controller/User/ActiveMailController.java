@@ -8,9 +8,10 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-@WebServlet(name = "ActiveMailController", value = "/ActiveMailController")
+@WebServlet(name = "ActiveMailController", value = "/ActiveMail")
 public class ActiveMailController extends HttpServlet {
     private UserDao userDao;
 
@@ -21,11 +22,14 @@ public class ActiveMailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String  param  = request.getParameter("userId");
-        String decode = new String(Base64.getDecoder().decode(param));
-        userDao.ActiveAccountExists(Integer.parseInt(decode));
-        String activeSuccess = "active mail success";
-        request.setAttribute("Success", activeSuccess);
-        request.getRequestDispatcher(JSPPage.Index.getPage()).forward(request, response);
+        String decodedString = new String(Base64.getDecoder().decode(param), StandardCharsets.UTF_8);
+        System.out.println(decodedString);
+       if(userDao.ActiveAccountExists(Integer.parseInt(decodedString))){
+           response.sendRedirect("/DoAnWeb"+JSPPage.Index.getPage());
+           return;
+       }
+       response.sendRedirect(JSPPage.Login.getPage());
+
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

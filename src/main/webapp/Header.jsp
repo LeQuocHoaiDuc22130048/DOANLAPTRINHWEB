@@ -11,14 +11,14 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index" class="logo">
-                        <img alt="logo" src="assets/images/Website/logo.png"/>
+                    <a href="${context}/" class="logo">
+                        <img alt="logo" src="${context}/assets/images/Website/logo.png"/>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li class="scroll-to-section">
-                            <a href="index" class="active">Trang chủ</a>
+                            <a href="${context}/" class="active">Trang chủ</a>
                         </li>
                         <li class="scroll-to-section">
                             <a href="product-category?categoryId=3">Kính mát</a>
@@ -54,7 +54,7 @@
                                              aria-expanded="false" alt="avatar" style="width: 50px"
                                              src="${context}/${sessionScope.avatar}"/>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="${context}//user/updateProfile">Cập nhật hồ sơ </a></li>
+                                            <li><a class="dropdown-item" href="${context}/user/updateProfile">Cập nhật hồ sơ </a></li>
                                             <li><a class="dropdown-item" href="${context}/user/historyOrder">Lịch sử mua hàng</a></li>
                                             <li><a class="dropdown-item" href="${context}/user//wishList">Sản phẩm đã thích </a></li>
                                             <li><a class="dropdown-item" href="${context}/user/logout"> Đăng xuất </a></li>

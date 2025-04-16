@@ -12,11 +12,15 @@ import vn.edu.hcmuaf.fit.doanweb.Util.LogSystem;
 import javax.mail.MessagingException;
 import javax.mail.Transport;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+
+import static vn.edu.hcmuaf.fit.doanweb.Util.LogSystem.CreateLog;
 
 @WebServlet(name = "RegisterController", value = "/sign-in")
 public class RegisterController extends HttpServlet {
-    private static final String Link = "http://localhost:8080/DOANWEB/ActiveMail?userId=";
+    private static final String Link = "http://localhost:8080/DoAnWeb/ActiveMail?userId=";
     private static final String Home = JSPPage.Index.getPage();
     private static final String SignIn = JSPPage.Register.getPage();
     private static final String EmailExist = "Email đã được sử dụng bởi người dùng khác ";
@@ -69,14 +73,14 @@ public class RegisterController extends HttpServlet {
             request.getRequestDispatcher(SignIn).forward(request, response);
             return;
         }
-        LogSystem.CreateLog("WARNING " , name  , userId , "", "User đăng ký tài khoản với user name : " + userName );
+        CreateLog("WARNING" , name  , userId , "", "User đăng ký tài khoản với user name : " + userName );
+        String encoded = Base64.getEncoder().encodeToString(String.valueOf(userId).getBytes(StandardCharsets.UTF_8));
+        String urlSafe = URLEncoder.encode(encoded, StandardCharsets.UTF_8);
 
-        String encode = Base64.getEncoder().encodeToString(String.valueOf(userId).getBytes());
         try {
             SendEmailServices services = new SendEmailServices();
-            Transport.send(services.sendEmail(email, "Link kích hoạt tai khoản của bạn !", Link + encode));
-            request.getRequestDispatcher(Home).forward(request, response);
-
+            Transport.send(services.sendEmail(email, "Link kích hoạt tai khoản của bạn !", Link + urlSafe));
+            response.sendRedirect("/DoAnWeb"+JSPPage.Index.getPage());
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }

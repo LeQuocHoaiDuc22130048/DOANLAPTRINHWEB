@@ -9,44 +9,62 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>EyeStyle</title>
-    <jsp:include page="../Link.jsp"/>
+    <c:import url="/Link.jsp"/>
+    <link href="<c:url value="/assets/css/Upload.css"/>">
 </head>
 <body>
-<c:import url="../Header.jsp"/>
+<c:import url="/Header.jsp"/>
+<c:set var="user" value="${requestScope.user}"/>
 <section class="section-content container-fluid mt-100">
     <div class="card mx-auto " style="max-width: 520px">
         <article class="card-body">
             <header class="mb-4"><h4 class="card-title text-center">Edit profile</h4></header>
-            <form action="" method="POST" enctype="multipart/form-data">
-                <div class="form-group mb-3">
-                    <label for="fullname">Full name </label>
-                    <input id="fullname"
-                           name="FirstName"
+            <form action="" class="absolute_center flex-column" method="POST" enctype="multipart/form-data">
+                <div class="rounded-circle">
+                    <img class="rounded-circle shadow-4" id="avatar"
+                         style="width: 150px;" alt="user avatar " src="${context}/${user.getAvatar()}"/>
+                </div>
+                <div class="form-group mb-3 d-none">
+                    <input
+                            id="fileInput"
+                            name="avatar"
+                            class="form-control"
+                            type="file"
+                            accept="image/*"
+                            required
+                    />
+
+                </div>
+                <div class="form-group mb-3 w-100">
+                    <label for="username">User name </label>
+                    <input id="username"
+                           name="name"
                            type="text"
                            class="form-control"
-                           value=""
                            maxlength="255"
                            autofocus
                            required
+                           value="${user.getName()}"
                     />
                 </div>
-                <div class="form-group mb-3">
+                <div class="form-group mb-3 w-100">
                     <label>Email</label>
                     <label for="email"></label><input
                         id="email"
                         name="Email"
                         type="email"
                         class="form-control"
-                        value=""
                         required
+                        value="${user.getEmail()}"
                 />
                     <p id="error-email" style="color: red; display: none">
                         Email invalid
                     </p>
                 </div>
-                <div class="form-group mb-3">
+                <div class="form-group mb-3 w-100">
                     <label for="phone">Phone </label>
-                    <input type="text" id="phone" name="Phone" value="" required
+                    <input type="text" id="phone" name="Phone"  required
+                           value="${user.getPhone()}"
                            class="form-control"/>
                     <span id="error-phone" style="color: red; display: none;"></span>
 
@@ -76,17 +94,26 @@
                     </div>
 
                 </div>
-                <div class="form-group mb-3">
-                    <label>Avatar</label>
-                    <input
-                            id="avatar"
-                            name="avatar"
-                            class="form-control"
-                            type="file"
-                            accept="image/*"
-                            required
-                    />
 
+                <div class="mb-3 w-100">
+                    <label for="province" class="form-label">Tỉnh / Thành phố:</label>
+                    <select id="province" name="Province" class="form-select" required>
+                        <option value="">-- Province --</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 w-100">
+                    <label for="district" class="form-label">Quận / Huyện:</label>
+                    <select id="district" name="District" class="form-select" required disabled>
+                        <option value="">-- District --</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 w-100">
+                    <label for="ward" class="form-label">Phường / Xã:</label>
+                    <select id="ward" name="Ward" class="form-select" required disabled>
+                        <option value="">-- Ward--</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block float-end">
@@ -100,6 +127,7 @@
     <!-- card .// -->
     <br/><br/>
 </section>
-<c:import url="../Script.jsp"/>
+<c:import url="/Script.jsp"/>
+<script src="<c:url value="/assets/js/InputList.js"/>"></script>
 </body>
 </html>

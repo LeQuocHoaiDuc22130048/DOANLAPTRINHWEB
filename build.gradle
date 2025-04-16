@@ -107,13 +107,13 @@ task docker_upload_file_to_server {
                 remove '/usr/deploy/test'
                 // Upload file
                 put from: "${project.projectDir}/build/libs/DoAnWeb.war",
-                        into: "/usr/deploy/test.war"
+                        into: "/usr/deploy/DoAnWeb_war.war"
             }
         }
     }
 }
 
-task docker_deploy {
+tasks.register('docker_deploy') {
     docker_deploy.dependsOn docker_app_start
     docker_deploy.dependsOn docker_upload_file_to_server
     docker_deploy.dependsOn build

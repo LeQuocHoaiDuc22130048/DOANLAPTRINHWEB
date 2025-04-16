@@ -62,8 +62,8 @@ public class PayPalCreateOrderContr extends HttpServlet {
                 + "\"value\":\"" + totalUSD + "\""
                 + "}}],"
                 + "\"application_context\":{"
-                + "\"return_url\":\"http://localhost:8080/DoAnWeb_war/success.jsp\","
-                + "\"cancel_url\":\"http://localhost:8080/DoAnWeb_war/cancel.jsp\""
+                + "\"return_url\":\"http://localhost:8080/DoAnWeb_war/Success.jsp\","
+                + "\"cancel_url\":\"http://localhost:8080/DoAnWeb_war/Cancel.jsp\""
                 + "}"
                 + "}";
 
