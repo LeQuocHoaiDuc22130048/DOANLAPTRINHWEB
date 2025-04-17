@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt hàng thành công</title>
-    <c:import url="Link.jsp"/>
+    <c:import url="link.jsp"/>
     <link rel="stylesheet" href="assets/css/success.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -20,7 +20,19 @@
         </div>
 
         <div class="order-details">
-            <p><strong>Mã đơn hàng:</strong> #${param.token}</p>
+            <p><strong>Mã đơn hàng:</strong>
+                <c:choose>
+                    <%-- Dành cho paypal--%>
+                    <c:when test="${not empty param.token}">
+                        #${param.token}
+                    </c:when>
+                    <%-- Dành cho COD/Ngân hàng--%>
+                    <c:otherwise>
+                        #${sessionScope.orderCode}
+                    </c:otherwise>
+                </c:choose>
+            </p>
+
             <p><strong>Người nhận:</strong> ${sessionScope.customer.name}</p>
             <p><strong>Số điện thoại:</strong> ${sessionScope.customer.phone}</p>
             <p><strong>Email:</strong> ${sessionScope.customer.email}</p>
@@ -40,11 +52,21 @@
         </div>
         <div class="actions">
             <a href="index" class="btn btn-primary">Quay lại trang chủ</a>
-            <p>Để theo dõi đơn hàng của bạn, vui lòng <a href="Register.jsp">đăng ký</a> tài khoản.</p>
+            <p>Để theo dõi đơn hàng của bạn, vui lòng <a href="dang_ki.jsp">đăng ký</a> tài khoản.</p>
         </div>
     </div>
 </div>
-<c:import url="Script.jsp"/>
-<script src="assets/js/paypal_success.js"></script>
+
+<c:import url="script.jsp"/>
+
+<c:choose>
+    <c:when test="${not empty param.token}">
+        <script src="assets/js/paypal_success.js"></script>
+    </c:when>
+    <c:otherwise>
+        <script src="assets/js/cod_success.js"></script>
+    </c:otherwise>
+</c:choose>
+
 </body>
 </html>

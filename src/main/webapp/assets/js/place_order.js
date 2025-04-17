@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $(".button_order").click(function () {
+    $(".button_order").click(function (e) {
+        e.preventDefault();
 
         let payment_method = $("input[name='payment_method']:checked").val();
 
@@ -40,7 +41,7 @@ $(document).ready(function () {
                     if (payment_method === "paypal") {
                         createPayPalOrder();
                     } else {
-                        window.location.href = "Checkout.jsp";
+                        createCodAndBankConfirmOrder(payment_method);
                     }
                 } else if (response.status === "error") {
                     Swal.fire({
@@ -72,7 +73,7 @@ function createPayPalOrder() {
     $.ajax({
         url: "create-paypal-order",
         type: "POST",
-        data: { total: totalAfterDiscount },
+        data: {total: totalAfterDiscount},
         dataType: "json",
         success: function (response) {
             if (response.status === "success") {
@@ -93,4 +94,59 @@ function createPayPalOrder() {
             });
         }
     });
+}
+
+function createCodAndBankConfirmOrder(payment_method) {
+    $.ajax({
+        url: "cod_bank_confirm_order",
+        type: "POST",
+        dataType: "json",
+        success: function (response) {
+            if (response.status === "success") {
+                if (payment_method === 'cod') {
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'Đặt hàng thành công! Đơn hàng của bạn đang chờ xử lý.',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        window.location.href = "success.jsp";
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Đặt hàng thành công!',
+                        html: `
+        <p>Vui lòng <b>chuyển khoản theo thông tin được cung cấp</b> để chúng tôi xử lý đơn hàng của bạn.</p>
+        <hr>
+        <p>
+            <b>Thông tin tài khoản:</b><br>
+            Ngân hàng: BIDV<br>
+            Số tài khoản: <b>0123456789</b><br>
+            Chủ tài khoản: <b>EyeStyle</b><br>
+            Nội dung: <b>DH + SĐT</b>
+        </p>
+    `,
+                        confirmButtonText: 'Tôi đã hiểu'
+                    }).then(() => {
+                        window.location.href = "success.jsp";
+                    });
+                }
+
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Có lỗi xảy ra khi xác nhận đơn hàng.',
+                    confirmButtonText: 'OK'
+                });
+            }
+        },
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                text: 'Lỗi kết nối với server.',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+
 }

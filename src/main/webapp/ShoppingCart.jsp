@@ -1,3 +1,4 @@
+<%@ page import="vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -32,11 +33,12 @@
 <!-- ***** Header Area End ***** -->
 
 <!-- ***** Giỏ hàng Start ***** -->
+
 <main id="main" class="gio_hang">
 
     <c:choose>
         <%--                Khi giỏ hàng trống--%>
-        <c:when test="${sessionScope.cart.totalQuantity == 0}">
+        <c:when test="${empty sessionScope.cart || sessionScope.cart.totalQuantity == 0}">
             <div class="container no-list">
                 <div class="non_product">
                     <p>Chưa có sản phẩm nào trong giỏ hàng.</p>
@@ -250,20 +252,13 @@
                                                 class="form-check-input"
                                         />
                                         <label for="bankPayment">Chuyển khoản ngân hàng</label>
-                                        <div class="payment_box payment_box_bank">
+                                        <div class="payment_box payment_box_bank" style="display: none">
                                             <p>
-                                                Bước 1: Chọn sản phẩm và gọi tới số 0123 456 789 để đặt
-                                                hàng
-                                                <br/>
-                                                Bước 2: Trong vòng 2 phút, chúng tôi sẽ gọi điện xác
-                                                nhận đơn hàng để chắc chắn mẫu mắt kính bạn chọn vẫn còn
-                                                trong kho.
-                                                <br/>
-                                                Bước 3: Chuyển khoản tới 1 trong những TK bên dưới kèm
-                                                theo nội dung chuyển khoản: Tên Người Mua + Số Điện
-                                                Thoại Mua Hàng
-                                                <br/>
-                                                Bước 4: Nhắn người thân chuẩn bị có bất ngờ tới …
+                                                <b>Thông tin tài khoản:</b><br>
+                                                Ngân hàng: BIDV<br>
+                                                Số tài khoản: 0123456789<br>
+                                                Chủ tài khoản: EyeStyle<br>
+                                                Nội dung: DH + SĐT
                                             </p>
                                         </div>
                                     </li>
@@ -290,7 +285,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <button type="submit" value="Đặt hàng" class="button_order">
+                            <button type="button" value="Đặt hàng" class="button_order">
                                 Đặt hàng
                             </button>
                         </div>
@@ -322,6 +317,7 @@
 <c:import url="Script.jsp"/>
 <script src="assets/js/confirmRemove.js"></script>
 <script src="assets/js/copy_code.js"></script>
+<script src="assets/js/displayInfBank.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/update_cart.js"></script>
 <script src="assets/js/place_order.js"></script>

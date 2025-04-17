@@ -1,7 +1,6 @@
 $(document).ready(function () {
     let urlParams = new URLSearchParams(window.location.search);
     let orderId = urlParams.get('token'); // Lấy orderId từ PayPal
-   // console.log("OrderId: "+orderId);
     if (orderId) {
         $.ajax({
             url: "capture-paypal-order",
