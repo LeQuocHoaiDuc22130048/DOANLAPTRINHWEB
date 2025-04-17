@@ -8,7 +8,7 @@ fetch('https://provinces.open-api.vn/api/p/')
     .then(data => {
         data.forEach(province => {
             const option = document.createElement('option');
-            option.value = province.code;
+            option.value = province.name;
             option.text = province.name;
             provinceSelect.add(option);
         });
@@ -28,7 +28,7 @@ provinceSelect.addEventListener('change', () => {
             .then(data => {
                 data.districts.forEach(district => {
                     const option = document.createElement('option');
-                    option.value = district.code;
+                    option.value = district.name;
                     option.text = district.name;
                     districtSelect.add(option);
                 });

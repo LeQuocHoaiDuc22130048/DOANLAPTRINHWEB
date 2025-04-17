@@ -373,16 +373,6 @@ CREATE TABLE IF NOT EXISTS `log` (
   CONSTRAINT `fk_log_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=377 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.log: ~2 rows (approximately)
-INSERT INTO `log` (`id`, `Level`, `Log_Time`, `Locate`, `user_id`, `BeforeText`, `AfterText`) VALUES
-	(142, 'INFO', '2025-03-28 13:21:59', 'Index', 17, '', ''),
-	(146, 'INFO', '2025-03-28 14:08:36', 'Index', 17, '', ''),
-	(371, 'INFO', '2025-04-05 14:20:17', 'Index', 17, '', ''),
-	(372, 'INFO', '2025-04-05 14:26:43', 'Index', 17, '', ''),
-	(373, 'INFO', '2025-04-05 14:27:38', 'Index', 17, '', ''),
-	(374, 'INFO', '2025-04-05 14:33:49', 'Index', 17, '', ''),
-	(375, 'INFO', '2025-04-05 14:34:21', 'Index', 17, '', ''),
-	(376, 'INFO', '2025-04-05 14:36:00', 'Index', 17, '', '');
 
 -- Dumping structure for table web_eyestyle.newsletter_subscribers
 CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (
@@ -515,6 +505,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `url` varchar(255) DEFAULT NULL,
   `access` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
+
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.posts: ~27 rows (approximately)

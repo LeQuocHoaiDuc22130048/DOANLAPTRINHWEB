@@ -76,7 +76,7 @@
                         <input
                                 required
                                 type="password"
-                                name="password"
+                                name="Password"
                                 id="password"
                                 class="form-control"
                         />

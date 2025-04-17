@@ -52,7 +52,7 @@
                                         <img class=" dropdown-toggle rounded-circle user-avatar"
                                              data-bs-toggle="dropdown"
                                              aria-expanded="false" alt="avatar" style="width: 50px"
-                                             src="${context}/${sessionScope.avatar}"/>
+                                             src="${context}${sessionScope.avatar}"/>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="${context}/user/updateProfile">Cập nhật hồ sơ </a></li>
                                             <li><a class="dropdown-item" href="${context}/user/historyOrder">Lịch sử mua hàng</a></li>

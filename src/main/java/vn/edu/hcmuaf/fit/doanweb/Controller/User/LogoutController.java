@@ -19,7 +19,7 @@ public class LogoutController extends HttpServlet {
         tokenCookie.setPath("/");
         response.addCookie(tokenCookie);
 //        response
-        response.sendRedirect(JSPPage.Index.getPage());
+        response.sendRedirect("/DoAnWeb"+JSPPage.Index.getPage());
     }
 
     @Override
