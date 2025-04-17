@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Util;
+ package vn.edu.hcmuaf.fit.doanweb.Util;
 
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
@@ -23,7 +23,7 @@ public class LogSystem {
     public static void CreateLog(String Level, String locate, int userId, String beforeText, String afterText) {
         jdbi.withHandle(handle ->
                 handle.createUpdate(InsertLog)
-                        .bind(0, LEVEL.valueOf(Level))
+                        .bind(0, LEVEL.valueOf(Level).name())
                         .bind(1, locate)
                         .bind(2, userId)
                         .bind(3, beforeText)

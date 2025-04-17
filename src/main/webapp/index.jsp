@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
-<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>EyeStyle</title>
-    <c:import url="link.jsp"/>
+    <c:import url="Link.jsp"/>
 </head>
 
 <body>
@@ -26,7 +25,7 @@
 <!-- ***** Preloader End ***** -->
 
 <!-- ***** Header Area Start ***** -->
-<jsp:include page="header.jsp"/>
+<jsp:include page="Header.jsp"/>
 <!-- ***** Header Area End ***** -->
 
 <!-- ***** Main Banner Area Start ***** -->
@@ -35,7 +34,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="left-content">
-                    <a href="index"><img class="img-thumbnail border-0" src="assets/images/left_banner_img.png" alt=""/></a>
+                    <a href="index"><img class="img-thumbnail border-0" src="assets/images/Website/left_banner_img.png" alt=""/></a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -44,7 +43,7 @@
                         <div class="col-lg-6">
                             <div class="right-first-image">
                                 <div class="thumb border-0  ">
-                                    <img alt="thumb" src="assets/images/img_type2.jpg"/>
+                                    <img alt="thumb" src="assets/images/Website/img_type2.jpg"/>
                                     <div class="inner-content">
                                         <p>KÍNH MÁT</p>
                                         <button onclick="window.location.href='product-category?categoryId=3'">
@@ -57,7 +56,7 @@
                         <div class="col-lg-6">
                             <div class="right-first-image">
                                 <div class="thumb">
-                                    <img src="assets/images/img_type3.jpg"/>
+                                    <img src="assets/images/Website/img_type3.jpg"/>
                                     <div class="inner-content">
                                         <p>GỌNG KÍNH</p>
                                         <button onclick="window.location.href='product-category?categoryId=9'">
@@ -70,7 +69,7 @@
                         <div class="col-lg-6">
                             <div class="right-first-image bottom_img">
                                 <div class="thumb">
-                                    <img src="assets/images/img_type4.jpg" alt=""/>
+                                    <img src="assets/images/Website/img_type4.jpg" alt=""/>
                                     <div class="inner-content">
                                         <p>TRÒNG KÍNH</p>
                                         <button onclick="window.location.href='product-category?categoryId=5'">
@@ -83,7 +82,7 @@
                         <div class="col-lg-6">
                             <div class="right-first-image bottom_img">
                                 <div class="thumb">
-                                    <img src="assets/images/img_type5.jpg" alt="img-type5"/>
+                                    <img src="assets/images/Website/img_type5.jpg" alt="img-type5"/>
                                     <div class="inner-content">
                                         <p>KÍNH ÁP TRÒNG</p>
                                         <button onclick="window.location.href='product-category?categoryId=7'">
@@ -409,13 +408,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 img_trong">
-                <a href="product-category?categoryId=6"> <img src="assets/images/trong_kinh_type_1.jpg" alt=""/></a>
+                <a href="product-category?categoryId=6"> <img src="assets/images/TrongKinh/trong_kinh_type_1.jpg" alt=""/></a>
             </div>
             <div class="col-lg-4 img_trong">
-                <a href="product-category?categoryId=16"> <img src="assets/images/trong_kinh_type_2.jpg" alt=""/></a>
+                <a href="product-category?categoryId=16"> <img src="assets/images/TrongKinh/trong_kinh_type_2.jpg" alt=""/></a>
             </div>
             <div class="col-lg-4 img_trong">
-                <a href="product-category?categoryId=8"> <img src="assets/images/trong_kinh_type_3.jpg" alt=""/></a>
+                <a href="product-category?categoryId=8"> <img src="assets/images/TrongKinh/trong_kinh_type_3.jpg" alt=""/></a>
             </div>
         </div>
     </div>
@@ -508,32 +507,32 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="product-category?brandId=19"><img src="assets/images/bst_1.jpg" alt=""/></a>
+                                <a href="product-category?brandId=19"><img src="assets/images/BST/bst_1.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="product-category?brandId=23"><img src="assets/images/bst_2.jpg" alt=""/></a>
+                                <a href="product-category?brandId=23"><img src="assets/images/BST/bst_2.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="product-category?brandId=21"> <img src="assets/images/bst_3.jpg" alt=""/></a>
+                                <a href="product-category?brandId=21"> <img src="assets/images/BST/bst_3.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="product-category?brandId=20"><img src="assets/images/bst_4.jpg" alt=""/></a>
+                                <a href="product-category?brandId=20"><img src="assets/images/BST/bst_4.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="product-category?brandId=22"><img src="assets/images/bst_5.jpg" alt=""/></a>
+                                <a href="product-category?brandId=22"><img src="assets/images/BST/bst_5.jpg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="first-image">
-                                <a href="product-category?brandId=24"> <img src="assets/images/bst_6.jpg" alt=""/></a>
+                                <a href="product-category?brandId=24"> <img src="assets/images/BST/bst_6.jpg" alt=""/></a>
                             </div>
                         </div>
                     </div>
@@ -642,10 +641,10 @@
 </div>
 <!-- ***** Subscribe Area Ends ***** -->
 <!-- ***** Footer Start ***** -->
-<jsp:include page="footer.jsp"/>
+<jsp:include page="Footer.jsp"/>
 <!-- ***** Footer End ***** -->
 
-<c:import url="script.jsp"/>
+<c:import url="Script.jsp"/>
 <script src="assets/js/newsletter_subscribe.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>${requestScope.category.name}</title>
-    <c:import url="link.jsp"/>
+    <c:import url="Link.jsp"/>
 </head>
 <body>
 <div class="wrapper">
@@ -30,7 +30,7 @@
     <!-- preloader end -->
 
     <!-- ***** Header Area Start ***** -->
-    <jsp:include page="header.jsp"/>
+    <jsp:include page="Header.jsp"/>
     <!-- ***** Header Area End ***** -->
 
     <div class="shop-page-title category-page-title featured-title page-title">
@@ -151,23 +151,23 @@
                                <div class="row row-cols-4 w-auto ms-2">
                                    <div class="col">
                                        <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=1">
-                                           <img class="img-thumbnail" src="assets/images/icon-nam .jpg" alt=""/>
+                                           <img class="img-thumbnail" src="assets/images/icon_gender/icon-nam .jpg" alt=""/>
                                        </a>
                                    </div>
                                    <div class="col">
                                        <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=2">
-                                           <img class="img-thumbnail" src="assets/images/icon-nu .jpg" alt=""/>
+                                           <img class="img-thumbnail" src="assets/images/icon_gender/icon-nu .jpg" alt=""/>
                                        </a>
                                    </div>
                                    <div class="col">
                                        <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=3">
-                                           <img class="img-thumbnail" src="assets/images/icon-tre-em.jpg" alt=""/>
+                                           <img class="img-thumbnail" src="assets/images/icon_gender/icon-tre-em.jpg" alt=""/>
                                        </a>
                                    </div>
                                    <div class="col">
                                        <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
                                           href="filter?type=gender&value=4"><img class="img-thumbnail"
-                                                                                 src="assets/images/icon-unisex .jpg"
+                                                                                 src="assets/images/icon_gender/icon-unisex .jpg"
                                                                                  alt=""/> </a>
                                    </div>
                                </div>
@@ -390,10 +390,10 @@
     <!-- ***** Product Area Ends ***** -->
 
     <!-- ***** Footer Start ***** -->
-    <jsp:include page="footer.jsp"/>
+    <jsp:include page="Footer.jsp"/>
     <!-- ***** Footer End ***** -->
 </div>
-<c:import url="script.jsp"/>
+<c:import url="Script.jsp"/>
 
 </body>
 </html>

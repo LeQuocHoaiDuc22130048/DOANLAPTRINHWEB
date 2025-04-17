@@ -37,6 +37,7 @@ public class Index extends HttpServlet {
         request.setAttribute("productListKAT", productListKAT);
         request.setAttribute("productListGK", productListGK);
         request.setAttribute("brandList", brandList);
+
         request.getRequestDispatcher("/index.jsp").forward(request, response);
 
     }

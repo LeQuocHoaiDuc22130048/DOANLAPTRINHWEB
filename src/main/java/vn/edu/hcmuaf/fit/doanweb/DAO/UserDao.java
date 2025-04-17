@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO;
 
+import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.UserProfile;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 
 public interface UserDao {
@@ -11,5 +12,7 @@ public interface UserDao {
     public String GetUserPassword(String name);
     public boolean CheckUserExists(String userName);
     public boolean CheckActiveAccount(String userName);
-    public boolean UpdateAvatar(int userId, String avatar);
+    public boolean UpdateProfile(User user);
+    public UserProfile GetUser(int userId);
+
 }

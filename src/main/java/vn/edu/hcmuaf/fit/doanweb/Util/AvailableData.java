@@ -14,10 +14,10 @@ public class AvailableData {
             "Burberry", "Prada", "Police", "Chopard", "Daniel Wellington", "Parim", "Okley", "Molsion", "Exfash",
             "Furla", "Bolon", "Eyescloud", "Acuvue", "TOG", "Essilor", "RodenStock", "Zeiss", "Levanlens"};
     public static String[] ShapeName = {"Vuông", "Tròn", "Bầu dục", "Mắt Mèo", "Phi công", "Cánh bướm", "Chữ nhật", "Đa giác", "Hình thang", "Không quy tắc"};
-    public static String[] SHAPES = {"assets/images/icon-kieu-gong-vuong.jpg", "assets/images/icon-kieu-gong-tron.jpg",
-            "assets/images/icon-kieu-gong-bau-duc.jpg", "assets/images/icon-kieu-gong-mat-meo.jpg", "assets/images/icon-kieu-gong-phi-cong.jpg",
-            "assets/images/icon-kieu-gong-canh-buom.jpg", "assets/images/icon-kieu-gong-chu-nhat.jpg", "assets/images/icon-kieu-gong-da-giac.jpg",
-            "assets/images/icon-kieu-gong-hinh-thang.jpg", "assets/images/icon-kieu-gong-khong-quy-tac.jpg"};
+    public static String[] SHAPES = {"assets/images/icon_gong/icon-kieu-gong-vuong.jpg", "assets/images/icon_gong/icon-kieu-gong-tron.jpg",
+            "assets/images/icon_gong/icon-kieu-gong-bau-duc.jpg", "assets/images/icon_gong/icon-kieu-gong-mat-meo.jpg", "assets/images/icon_gong/icon-kieu-gong-phi-cong.jpg",
+            "assets/images/icon_gong/icon-kieu-gong-canh-buom.jpg", "assets/images/icon_gong/icon-kieu-gong-chu-nhat.jpg", "assets/images/icon_gong/icon-kieu-gong-da-giac.jpg",
+            "assets/images/icon_gong/icon-kieu-gong-hinh-thang.jpg", "assets/images/icon_gong/icon-kieu-gong-khong-quy-tac.jpg"};
     public  static String [] MaterialName ={ "Nhựa", "Kim loại", "Titanium", "Xi/Mạ vàng", "Nhựa dẻo TR90",
             "Nhựa Acetate", "Nhựa Optyl", "Kim loại-Nhựa Ultem"};
     public static String [] MaterialPath ={
@@ -39,23 +39,23 @@ public class AvailableData {
 
     // Mảng chứa đường dẫn hình ảnh của màu sắc
     private static final String[] ColorPath = {
-            "assets/images/icon-mau-gong-den.jpg",
-            "assets/images/icon-mau-gong-vang.jpg",
-            "assets/images/icon-mau-gong-bac.jpg",
-            "assets/images/icon-mau-gong-vang-hong.jpg",
-            "assets/images/icon-mau-gong-trong-suot.jpg",
-            "assets/images/icon-mau-gong-xam.jpg",
-            "assets/images/icon-mau-gong-doi-moi.jpg",
-            "assets/images/icon-mau-gong-trang.jpg",
-            "assets/images/icon-mau-gong-ho-phach.jpg",
-            "assets/images/icon-mat-kinh-mau-xanh-duong.jpg",
-            "assets/images/icon-mau-gong-do.jpg",
-            "assets/images/icon-mau-gong-nau.jpg",
-            "assets/images/icon-mau-gong-tim.jpg",
-            "assets/images/icon-mau-gong-hong.jpg",
-            "assets/images/icon-mau-gong-cam.jpg",
-            "assets/images/icon-mau-gong-xanh-la.jpg",
-            "assets/images/icon-mau-gong-mau-khac.jpg"
+            "assets/images/icon_color/icon-mau-gong-den.jpg",
+            "assets/images/icon_color/icon-mau-gong-vang.jpg",
+            "assets/images/icon_color/icon-mau-gong-bac.jpg",
+            "assets/images/icon_color/icon-mau-gong-vang-hong.jpg",
+            "assets/images/icon_color/icon-mau-gong-trong-suot.jpg",
+            "assets/images/icon_color/icon-mau-gong-xam.jpg",
+            "assets/images/icon_color/icon-mau-gong-doi-moi.jpg",
+            "assets/images/icon_color/icon-mau-gong-trang.jpg",
+            "assets/images/icon_color/icon-mau-gong-ho-phach.jpg",
+            "assets/images/icon_color/icon-mat-kinh-mau-xanh-duong.jpg",
+            "assets/images/icon_color/icon-mau-gong-do.jpg",
+            "assets/images/icon_color/icon-mau-gong-nau.jpg",
+            "assets/images/icon_color/icon-mau-gong-tim.jpg",
+            "assets/images/icon_color/icon-mau-gong-hong.jpg",
+            "assets/images/icon_color/icon-mau-gong-cam.jpg",
+            "assets/images/icon_color/icon-mau-gong-xanh-la.jpg",
+            "assets/images/icon_color/icon-mau-gong-mau-khac.jpg"
     };
 
     public static Map<String, String[]> Data;

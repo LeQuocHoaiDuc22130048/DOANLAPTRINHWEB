@@ -11,7 +11,7 @@ public class Show extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        req.getRequestDispatcher("gio_hang.jsp").forward(req, resp);
+        req.getRequestDispatcher("ShoppingCart.jsp").forward(req, resp);
     }
 
     @Override
