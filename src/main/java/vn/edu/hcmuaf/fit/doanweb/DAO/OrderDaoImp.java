@@ -2,9 +2,11 @@ package vn.edu.hcmuaf.fit.doanweb.DAO;
 
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.OrderDetails;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
 
+import java.util.List;
 import java.util.Map;
 
 public class OrderDaoImp implements OrderDao {
@@ -61,6 +63,40 @@ public class OrderDaoImp implements OrderDao {
             }
             return orderId; // Trả về ID của đơn hàng vừa tạo
         });
+    }
+
+    @Override
+    public List<Orders> getOrdersByUserId(int userId) {
+        String sql = "SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind(0, userId)
+                        .mapToBean(Orders.class)
+                        .list()
+        );
+    }
+
+    @Override
+    public List<OrderDetails> getOrderDetailsByCode(String code) {
+        String sql = "SELECT order_details.order_id, " +
+                "order_details.product_id, " +
+                "order_details.product_name, " +
+                "order_details.quantity, " +
+                "order_details.price_per_item, " +
+                "order_details.total_total AS totalPrice, " +
+                "products_images.path AS imagePath " +  // Lấy thêm đường dẫn ảnh
+                "FROM orders " +
+                "JOIN order_details ON orders.id = order_details.order_id " +
+                "JOIN products ON products.id = order_details.product_id " +
+                "LEFT JOIN products_images ON products_images.product_id = products.id AND products_images.is_main = 1 " +  // Chỉ join ảnh chính
+                "WHERE orders.order_code = ?";
+
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind(0, code)
+                        .mapToBean(OrderDetails.class)
+                        .list()
+        );
     }
 
 }

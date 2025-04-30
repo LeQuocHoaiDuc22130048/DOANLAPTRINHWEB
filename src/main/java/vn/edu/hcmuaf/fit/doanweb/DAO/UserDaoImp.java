@@ -145,4 +145,14 @@ public class UserDaoImp implements UserDao {
                         .orElse(Inactive) == Active
         );
     }
+
+    @Override
+    public void updateOrderUserId(String orderCode, int userId) {
+        jdbi.useHandle(handle ->
+                handle.createUpdate("UPDATE orders SET user_id = :userId WHERE order_code = :orderCode")
+                        .bind("userId", userId)
+                        .bind("orderCode", orderCode)
+                        .execute()
+        );
+    }
 }

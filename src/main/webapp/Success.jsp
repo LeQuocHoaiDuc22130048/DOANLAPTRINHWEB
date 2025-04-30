@@ -7,9 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt hàng thành công</title>
-    <c:import url="link.jsp"/>
+    <c:import url="Link.jsp"/>
     <link rel="stylesheet" href="assets/css/success.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -52,12 +51,12 @@
         </div>
         <div class="actions">
             <a href="index" class="btn btn-primary">Quay lại trang chủ</a>
-            <p>Để theo dõi đơn hàng của bạn, vui lòng <a href="dang_ki.jsp">đăng ký</a> tài khoản.</p>
+            <p>Để theo dõi đơn hàng của bạn, vui lòng <a href="Register.jsp">đăng ký</a> tài khoản.</p>
         </div>
     </div>
 </div>
 
-<c:import url="script.jsp"/>
+<c:import url="Script.jsp"/>
 
 <c:choose>
     <c:when test="${not empty param.token}">

@@ -10,7 +10,6 @@
     <meta name="author" content=""/>
     <title>EyeStyle</title>
     <c:import url="/Link.jsp"/>
-    <link href="<c:url value="/assets/css/Upload.css"/>">
 </head>
 <body>
 <c:import url="/Header.jsp"/>
