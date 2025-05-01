@@ -8,6 +8,9 @@ plugins {
 
 repositories {
     mavenCentral()
+    google() // Cho Android/Google libraries
+    maven { url "https://maven.google.com" } // Cũ
+    maven { url "https://repo1.maven.org/maven2" } // Maven Central (dự phòng)
 }
 
 group = 'vn.edu.hcmuaf.fit'
@@ -54,6 +57,12 @@ dependencies {
 
     testCompileOnly("org.projectlombok:lombok:1.18.38")
     testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
+
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.34.1'
+    implementation 'com.google.http-client:google-http-client-gson:1.43.0'
+    implementation 'com.google.apis:google-api-services-oauth2:v2-rev157-1.25.0'
+    implementation 'org.json:json:20240303' // hoặc version mới nhất
+
 }
 
 war {
@@ -71,7 +80,7 @@ tasks.withType(Test).configureEach {
 
 remotes {
     host {
-        host = '192.168.157.129'
+        host = '192.168.121.128'
         user = 'root'
         password = 'nhutanh09'
     }
@@ -84,12 +93,12 @@ task docker_app_start {
         println 'begin docker_app_start'
         ssh.run {
             session(remotes.host) {
-                execute 'docker stop tomcat9', ignoreError: true
+                execute 'docker stop tomcat10', ignoreError: true
                 execute 'docker run -it --rm -d ' +
-                        '--name tomcat9 ' +
+                        '--name tomcat10 ' +
                         '-v /usr/deploy:/usr/local/tomcat/webapps ' +
                         '-p 80:8080 ' +
-                        'tomcat:9.0&'
+                        'tomcat:10.0'
             }
         }
     }
@@ -99,23 +108,23 @@ task docker_upload_file_to_server {
         println 'Uploading file to Linux server...'
         ssh.run {
             session(remotes.host) {
-                // Tạo thư mục nếu chưa có
                 execute 'mkdir -p /usr/deploy'
-
                 // Xóa file cũ nếu có
-                remove '/usr/deploy/test.war'
-                remove '/usr/deploy/test'
+                remove '/usr/deploy/DoAnWeb.war'
+                remove '/usr/deploy/DoAnWeb'
                 // Upload file
                 put from: "${project.projectDir}/build/libs/DoAnWeb.war",
-                        into: "/usr/deploy/DoAnWeb_war.war"
+                        into: "/usr/deploy/DoAnWeb.war"
             }
         }
     }
 }
 
 tasks.register('docker_deploy') {
-    docker_deploy.dependsOn docker_app_start
-    docker_deploy.dependsOn docker_upload_file_to_server
-    docker_deploy.dependsOn build
-    tasks.getByName('docker_app_start').mustRunAfter docker_upload_file_to_server
+    dependsOn build
+    dependsOn docker_upload_file_to_server
+    dependsOn docker_app_start
+
+    // Đảm bảo upload xong mới chạy docker
+    tasks.docker_app_start.mustRunAfter docker_upload_file_to_server
 }
