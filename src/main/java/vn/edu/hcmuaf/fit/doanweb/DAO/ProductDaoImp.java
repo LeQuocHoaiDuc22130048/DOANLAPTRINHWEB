@@ -6,7 +6,9 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 import vn.edu.hcmuaf.fit.doanweb.Util.GenerateQuery;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ProductDaoImp implements ProductDaoInterface {
     public Jdbi jdbi = JDBIConnect.get();
@@ -61,7 +63,7 @@ public class ProductDaoImp implements ProductDaoInterface {
     public List<ProductByCondition> getProductByCondition(String type, String value) {
         List<ProductByCondition> list;
         list = jdbi.withHandle((handle -> handle.createQuery(GenerateQuery.GetProductBy(type))
-                .bind("value",value)
+                .bind("value", value)
                 .mapToBean(ProductByCondition.class).list()));
         return list;
     }
@@ -320,6 +322,71 @@ public class ProductDaoImp implements ProductDaoInterface {
 
         );
     }
+
+    @Override
+    public void addFavoriteProduct(int userId, int productId) {
+        jdbi.useHandle(handle ->
+                handle.createUpdate("INSERT IGNORE INTO favorites(user_id, product_id) VALUES (:userId, :productId)")
+                        .bind("userId", userId)
+                        .bind("productId", productId)
+                        .execute()
+        );
+    }
+
+    @Override
+    public Set<Integer> getFavoriteProductIds(int userId) {
+        Set<Integer> favoriteIds = new HashSet<>();
+        jdbi.useHandle(handle -> {
+            List<Integer> productIds = handle.createQuery("SELECT product_id FROM favorites WHERE user_id = :userId")
+                    .bind("userId", userId)
+                    .mapTo(Integer.class)
+                    .list();
+            favoriteIds.addAll(productIds);
+        });
+        return favoriteIds;
+    }
+
+    @Override
+    public boolean isFavorite(int userId, int productId) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT COUNT(*) FROM favorites WHERE user_id = :userId AND product_id = :productId")
+                        .bind("userId", userId)
+                        .bind("productId", productId)
+                        .mapTo(Integer.class)
+                        .one() > 0
+        );
+    }
+
+    @Override
+    public void removeFavoriteProduct(int userId, int productId) {
+        jdbi.useHandle(handle ->
+                handle.createUpdate("DELETE FROM favorites WHERE user_id = :userId AND product_id = :productId")
+                        .bind("userId", userId)
+                        .bind("productId", productId)
+                        .execute()
+        );
+    }
+
+    @Override
+    public List<ProductIndex> getFavoriteByUserId(int userId) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("""
+                                    SELECT p.id, p.category_id, p.brand_id, p.shape_id, p.material, 
+                                           p.name, p.description, p.status, p.hot, 
+                                           p.cost_price, p.selling_price, p.quantity, p.gender, 
+                                           p.color, p.created_at, p.updated_at,
+                                           pi.path AS path_image
+                                    FROM products p
+                                    JOIN favorites f ON p.id = f.product_id
+                                    LEFT JOIN products_images pi ON pi.product_id = p.id AND pi.is_main = 1
+                                    WHERE f.user_id = :userId
+                                """)
+                        .bind("userId", userId)
+                        .mapToBean(ProductIndex.class)
+                        .list()
+        );
+    }
+
 
     public static void main(String[] args) {
     }

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,7 +144,7 @@
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
                             </c:if>
-                            <div class="item col-4">
+                            <div class="item col-4" data-product-id="${product.id}">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -175,7 +176,11 @@
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
                                         <c:forEach begin="0" end="5" step="1">
-                                            <li><i class="fa fa-star"></i></li>
+                                            <li>
+                                                <i class="fa fa-star
+                                                    <c:if test="${sessionScope.favoriteIds != null && sessionScope.favoriteIds.contains(product.id)}"> active</c:if>
+                                                "></i>
+                                            </li>
                                         </c:forEach>
                                     </ul>
                                 </div>
@@ -207,8 +212,8 @@
         </div>
     </div>
 </section>
-<!-- ***** kinh_mat nam Ends ***** -->
-<!-- ***** kinh_mat nữ Starts ***** -->
+<!--  kinh_mat nam Ends -->
+<!--  kinh_mat nữ Starts  -->
 <section class="section kinh container" id="kinh_mat_nu">
     <div class="container">
         <div class="row content_head">
@@ -227,99 +232,11 @@
                 <div id="productCarousel2" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <c:forEach var="product" items="${requestScope.productListNu}" varStatus="status">
-                        <c:if test="${status.index % 3 == 0}">
-                        <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
-                            <div class="row">
-                                </c:if>
-                                <div class="item col-4">
-                                    <div class="thumb">
-                                        <div class="hover-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="${context}/product-detail?id=${product.id}">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="rate-product">
-                                                        <i class="fa fa-star"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <form class="addCartForm">
-                                                        <input type="hidden" name="id" value="${product.id}">
-                                                        <button class="btn_gio_hang">
-                                                            <i class="fa fa-shopping-cart"></i>
-                                                        </button>
-                                                    </form>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}"
-                                             alt="${product.name}"/>
-                                    </div>
-                                    <div class="down-content">
-                                        <h4>${product.name}</h4>
-                                        <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
-                                        <ul class="stars">
-                                            <c:forEach begin="0" end="4">
-                                                <li><i class="fa fa-star"></i></li>
-                                            </c:forEach>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <c:if test="${status.index % 3 == 2 || status.last}">
-                                    </div>
-                            </div>
-                            </c:if>
-                            </c:forEach>
-
-                        </div>
-                        <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle"
-                                style="width: fit-content" type="button" data-bs-target="#productCarousel2"
-                                data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next position-absolute top-50 start-100 translate-middle"
-                                style="width: fit-content" type="button" data-bs-target="#productCarousel2"
-                                data-bs-slide="next">
-                            <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-</section>
-<!-- ***** kinh_mat nữ Ends ***** -->
-<!-- ***** gọng kính Area Starts ***** -->
-<section class="section kinh" id="gong_kinh">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="section-heading">
-                    <h2>Gọng kính</h2>
-                    <span>Gọng Kính Thời Thượng – Phong Cách Đa Dạng, Phù Hợp Mọi GươngMặt</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container san_pham_" style="visibility: visible">
-        <div class="row">
-            <div class="col-lg-12">
-                <div id="productCarousel3" class="carousel slide" data-bs-ride="carousel">
-                    <c:set var="listGK" value="${requestScope.productListGK}"/>
-                    <div class="carousel-inner">
-                        <c:forEach var="product" items="${listGK}" varStatus="status">
                             <c:if test="${status.index % 3 == 0}">
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
                             </c:if>
-                            <div class="item col-4">
+                            <div class="item col-4" data-product-id="${product.id}">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -351,7 +268,103 @@
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
                                         <c:forEach begin="0" end="4">
-                                            <li><i class="fa fa-star"></i></li>
+                                            <li>
+                                                <i class="fa fa-star
+                                                    <c:if test="${sessionScope.favoriteIds != null && sessionScope.favoriteIds.contains(product.id)}"> active</c:if>
+                                                "></i>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <c:if test="${status.index % 3 == 2 || status.last}">
+                                </div>
+                                </div>
+                            </c:if>
+                        </c:forEach>
+
+                    </div>
+                    <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle"
+                            style="width: fit-content" type="button" data-bs-target="#productCarousel2"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next position-absolute top-50 start-100 translate-middle"
+                            style="width: fit-content" type="button" data-bs-target="#productCarousel2"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--  kinh_mat nữ Ends  -->
+<!--  gọng kính Area Starts -->
+<section class="section kinh" id="gong_kinh">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h2>Gọng kính</h2>
+                    <span>Gọng Kính Thời Thượng – Phong Cách Đa Dạng, Phù Hợp Mọi GươngMặt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container san_pham_" style="visibility: visible">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="productCarousel3" class="carousel slide" data-bs-ride="carousel">
+                    <c:set var="listGK" value="${requestScope.productListGK}"/>
+                    <div class="carousel-inner">
+                        <c:forEach var="product" items="${listGK}" varStatus="status">
+                            <c:if test="${status.index % 3 == 0}">
+                                <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
+                                <div class="row">
+                            </c:if>
+                            <div class="item col-4" data-product-id="${product.id}">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li>
+                                                <a href="${context}/product-detail?id=${product.id}">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rate-product">
+                                                    <i class="fa fa-star"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <form class="addCartForm">
+                                                    <input type="hidden" name="id" value="${product.id}">
+                                                    <button class="btn_gio_hang">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <img class="img-thumbnail border-0 rounded-4" src="${product.path_image}"
+                                         alt="${product.name}"/>
+                                </div>
+                                <div class="down-content">
+                                    <h4>${product.name}</h4>
+                                    <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
+                                    <ul class="stars">
+                                        <c:forEach begin="0" end="4">
+                                            <li>
+                                                <i class="fa fa-star
+                                                    <c:if test="${sessionScope.favoriteIds != null && sessionScope.favoriteIds.contains(product.id)}"> active</c:if>
+                                                "></i>
+                                            </li>
                                         </c:forEach>
                                     </ul>
                                 </div>
@@ -382,17 +395,15 @@
         </div>
     </div>
 </section>
-<!-- ***** gong-kinh Area Ends ***** -->
-<!-- ***** trong_kinh Area Starts ***** -->
+<!--  gong-kinh Area Ends  -->
+<!--  trong_kinh Area Starts -->
 <section class="section" id="trong_kinh">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="section-heading">
                     <h2>Tròng kính</h2>
-                    <span
-                    >Tròng Kính Cao Cấp – Bảo Vệ Đôi Mắt, Nâng Tầm Thị Giác</span
-                    >
+                    <span>Tròng Kính Cao Cấp – Bảo Vệ Đôi Mắt, Nâng Tầm Thị Giác</span>
                     <br></br>
                     <div class="type_trong">
                         <div></div>
@@ -419,8 +430,8 @@
         </div>
     </div>
 </section>
-<!-- ***** trong_kinh Ends ***** -->
-<!-- ***** Kinh_ap_trong Starts ***** -->
+<!--  trong_kinh Ends  -->
+<!--  Kinh_ap_trong Starts -->
 <section class="section" id="kinh_ap_trong">
     <div class="container">
         <div class="row">
@@ -470,8 +481,8 @@
         </div>
     </div>
 </section>
-<!-- ***** kinh_ap_trong Ends ***** -->
-<!-- ***** bo_suu_tap Starts ***** -->
+<!-- kinh_ap_trong Ends -->
+<!-- bo_suu_tap Starts -->
 <section class="section" id="bo_suu_tap">
     <div class="container">
         <div class="row">
@@ -541,8 +552,8 @@
         </div>
     </div>
 </section>
-<!-- ***** bo_suu_tap Ends ***** -->
-<!-- ***** thuong_hieu Starts ***** -->
+<!--  bo_suu_tap Ends  -->
+<!--  thuong_hieu Starts  -->
 <section class="section" id="thuong_hieu">
     <div class="container">
         <div class="row">
@@ -564,7 +575,7 @@
         </div>
     </div>
 </section>
-<!-- ***** thuong_hieu Ends ***** -->
+<!--  thuong_hieu Ends  -->
 <!-- đăng kí nhận thông báo và ưu đãi -->
 <div class="subscribe">
     <div class="container">
@@ -639,10 +650,10 @@
         </div>
     </div>
 </div>
-<!-- ***** Subscribe Area Ends ***** -->
-<!-- ***** Footer Start ***** -->
+<!--  Subscribe Area Ends  -->
+<!--  Footer Start  -->
 <jsp:include page="Footer.jsp"/>
-<!-- ***** Footer End ***** -->
+<!--  Footer End  -->
 
 <c:import url="Script.jsp"/>
 <script src="assets/js/newsletter_subscribe.js"></script>

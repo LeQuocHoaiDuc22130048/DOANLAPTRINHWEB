@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.brands: ~24 rows (approximately)
+DELETE FROM `brands`;
 INSERT INTO `brands` (`id`, `name`, `created_at`, `updated_at`, `title`, `img`, `description`, `icon`) VALUES
 	(1, 'Dior', '2024-12-17 17:41:13', '2024-12-17 17:42:55', 'Mắt kính Dior chính hãng: Mẫu mới, giá bán, tư vấn mua', 'assets/images/banner_brand/banner_dior_brand.jpg', 'Dior thương hiệu cao cấp đến từ Pháp, đã ghi dấu ấn mạnh mẽ trong lòng giới mộ điệu nhờ vào kỹ thuật chế tác chuyên biệt của mình. \r\nBước chân vào lĩnh vực thời trang năm 1946, cho đến nay hãng đã trở thành một trong TOP 10 biểu tượng thời trang xa xỉ. \r\nLĩnh vực mắt kính Dior luôn thu hút tín đồ phụ kiện xuống tay chi mạnh ngay từ mẫu "demo". \r\nBởi tuyệt tác của nhà mốt Pháp luôn có một chất riêng khó tả, mang đến đẳng cấp cao quý nêu bật lên phong thái người sở hữu.', 'assets/images/icon_brand/dior1.jpg'),
 	(2, 'Cartier', '2024-12-17 17:43:15', '2024-12-17 17:43:16', 'Mắt kính Cartier chính hãng: Giá, Tư vấn, Góp linh hoạt', 'assets/images/banner_brand/banner_cartier_brand.jpg', 'Kính Cartier là biểu tượng của sự sang trọng, tinh tế và đẳng cấp. Thương hiệu Cartier nổi tiếng với thiết kế tinh xảo, chất liệu cao cấp và sự tỉ mỉ trong từng chi tiết. Mỗi chiếc kính Cartier đều là một tác phẩm nghệ thuật, thể hiện sự kết hợp hoàn hảo giữa phong cách cổ điển và hiện đại. Từ những mẫu kính gọng đồi mồi sang trọng đến những thiết kế kim loại hiện đại, kính Cartier luôn toát lên vẻ đẹp vượt thời gian. Logo “C” hai chữ cái lồng vào nhau đặc trưng của Cartier không chỉ là dấu hiệu nhận biết thương hiệu mà còn là biểu tượng của chất lượng và uy tín.', 'assets/images/icon_brand/cartier1.jpg'),
@@ -43,7 +44,7 @@ INSERT INTO `brands` (`id`, `name`, `created_at`, `updated_at`, `title`, `img`, 
 	(7, 'Burberry', '2024-12-17 17:45:22', '2024-12-17 17:45:23', 'Mắt kính Burberry chính hãng, hàng hiệu, mẫu mới nhất', 'assets/images/banner_brand/banner_burberry_brand.jpg', 'Burberry – biểu tượng của Anh Quốc, là hãng thời trang tôn thờ sự cổ điển, phong cách này cũng là nền tảng cho mọi sản phẩm mà hãng chế tác. Mắt kính cũng không ngoại lệ, khoác lên mình những họa tiết quen thuộc, kính Burberry không chỉ giúp nâng tầm phong cách mà còn mang đến sự sang trọng khó cưỡng của nét đẹp đương đại. Khám phá bộ sưu tập kính bất bại của nhà Burberry.', 'assets/images/icon_brand/burberry1.jpg'),
 	(8, 'Prada', '2024-12-17 17:45:44', '2024-12-17 17:45:45', 'Mắt kính Prada nam, nữ chính hãng, mẫu mới thời trang', 'assets/images/banner_brand/banner_prada_brand.jpg', 'Nếu bạn đang tìm kiếm sự kết hợp tuyệt vời giữa tay nghề thủ công đến từ Ý và thiết kế mang tính tiên phong, kính Prada là sự lựa chọn hoàn hảo. Không chỉ nổi tiếng về các bộ sưu tập táo bạo về thời trang, bộ sưu tập kính mắt Prada cũng không ngoại lệ. Tinh tế, thanh lịch và cổ điển, mọi gọng kính Prada đều trung thành với tinh thần di sản ấy.', 'assets/images/icon_brand/prada1.jpg'),
 	(9, 'Police', '2024-12-17 17:46:13', '2024-12-17 17:46:14', 'Mắt kính Police chính hãng: Mẫu mới, giá bán, tư vấn mua', 'assets/images/banner_brand/banner_police_brand.jpg', 'Kính Police là sự lựa chọn hoàn hảo cho những ai yêu thích phong cách mạnh mẽ, cá tính và hiện đại. Ra mắt vào năm 1983 đến từ Ý, kính mắt Police nổi tiếng với thiết kế đậm chất thể thao, với những đường nét góc cạnh, mạnh mẽ. Không chỉ chú trọng đến kiểu dáng, kính Police còn đặc biệt quan tâm đến chất liệu nhằm đảm bảo trải nghiệm sử dụng tối ưu cho người dùng. Từ kính mát đến kính thuốc, Police đều mang đến những sản phẩm chất lượng, thời trang và phù hợp với nhiều phong cách khác nhau.', 'assets/images/icon_brand/police1.jpg'),
-	(10, 'Chopard', '2024-12-17 17:46:37', '2024-12-17 17:46:38', 'Mắt kính Chopard chính hãng: Mẫu mới, giá bán, tư vấn mua', 'assets/images/banner_brand/banner_chopard_brand.jpg', 'Kính Chopard đến từ Thụy Sỹ, ra mắt vào năm 1960, là biểu tượng của sự xa xỉ, lộng lẫy, quyến rũ. Thương hiệu Chopard nổi tiếng với những thiết kế tinh xảo, đính đá quý lấp lánh và chất liệu cao cấp. Mỗi chiếc kính Chopard đều là một tác phẩm nghệ thuật thực sự, thể hiện sự kết hợp hoàn hảo giữa kỹ thuật chế tác đỉnh cao và gu thẩm mỹ tinh tế. Kính Chopard thường được thiết kế với những chi tiết cầu kỳ, sang trọng. Từ những mẫu kính mát đính kim cương lấp lánh đến những chiếc kính gọng vàng sang trọng, Chopard luôn mang đến vẻ đẹp kiêu sa và quyến rũ cho người sử dụng.', 'assets/images/chopard.webp'),
+	(10, 'Chopard', '2024-12-17 17:46:37', '2024-12-17 17:46:38', 'Mắt kính Chopard chính hãng: Mẫu mới, giá bán, tư vấn mua', 'assets/images/banner_brand/banner_chopard_brand.jpg', 'Kính Chopard đến từ Thụy Sỹ, ra mắt vào năm 1960, là biểu tượng của sự xa xỉ, lộng lẫy, quyến rũ. Thương hiệu Chopard nổi tiếng với những thiết kế tinh xảo, đính đá quý lấp lánh và chất liệu cao cấp. Mỗi chiếc kính Chopard đều là một tác phẩm nghệ thuật thực sự, thể hiện sự kết hợp hoàn hảo giữa kỹ thuật chế tác đỉnh cao và gu thẩm mỹ tinh tế. Kính Chopard thường được thiết kế với những chi tiết cầu kỳ, sang trọng. Từ những mẫu kính mát đính kim cương lấp lánh đến những chiếc kính gọng vàng sang trọng, Chopard luôn mang đến vẻ đẹp kiêu sa và quyến rũ cho người sử dụng.', 'assets/images/icon_brand/chopard1.jpg'),
 	(11, 'Daniel Wellington', '2024-12-17 17:47:23', '2024-12-17 17:47:24', 'Mắt kính Daniel Wellington nam, nữ thời trang, chính hãng', 'assets/images/banner_brand/banner_daniel_wellington_brand.jpg', 'Kính Daniel Wellington mang đến vẻ đẹp tối giản, thanh lịch và hiện đại. Với thiết kế tinh tế, tập trung vào sự đơn giản và tinh tế, kính mắt DW dễ dàng phối hợp với nhiều phong cách thời trang khác nhau. Thương hiệu này được ưa chuộng bởi giới trẻ nhờ vào sự trẻ trung, năng động và không kém phần sang trọng. Từ những mẫu kính mát kim loại mảnh mai đến những thiết kế acetate cổ điển, kính Daniel Wellington luôn toát lên vẻ đẹp thanh lịch và hiện đại. Đây là lựa chọn hoàn hảo cho những ai tìm kiếm một chiếc kính đơn giản, tinh tế nhưng vẫn thể hiện được phong cách riêng.', 'assets/images/icon_brand/daniel-wellington1.jpg'),
 	(12, 'Parim', '2024-12-17 17:49:58', '2024-12-17 17:50:00', 'Kính mát, gọng kính Parim chính hãng: Giá bán, mẫu mới', 'assets/images/banner_brand/banner_parim_brand.jpg', 'Kính Parim đến từ Đài Loan là sự lựa chọn tuyệt vời cho những ai tìm kiếm sự kết hợp giữa chất lượng, thiết kế và giá cả hợp lý. Parim mang đến đa dạng các mẫu mã, từ kính mát thời trang đến kính cận đáp ứng nhu cầu đa dạng của người dùng. Thương hiệu này chú trọng đến chất lượng tròng kính, đảm bảo bảo vệ mắt tối ưu khỏi tác hại của tia UV và ánh sáng xanh. Thiết kế kính Parim thường theo xu hướng hiện đại, trẻ trung, phù hợp với nhiều phong cách và khuôn mặt. Đây là một thương hiệu đáng tin cậy cho những ai muốn sở hữu một chiếc kính chất lượng mà không cần phải chi trả quá nhiều.', 'assets/images/icon_brand/parim1.jpg'),
 	(13, 'Okley', '2024-12-17 17:50:29', '2024-12-17 17:50:31', 'Mắt kính Oakley thể thao chính hãng: Mẫu mới, giá, BH 1 năm', 'assets/images/banner_brand/banner_okaley_brand.jpg', 'Nổi danh ngay từ những năm đầu ra mắt, thương hiệu đến từ Mỹ – Kính Oakley, chưa bao giờ làm người hâm mộ thất vọng bởi khả năng thiết kế và kỹ thuật độc quyền. Mỗi bộ sưu tập có rất nhiều dòng kính khiến giới mộ điệu trầm trồ bởi sự thời trang và tinh thần thể thao trong nó. Sở hữu kính Oakley là sở hữu giải pháp bảo vệ thị lực toàn diện dù trong môi trường khắc nghiệt nhất.', 'assets/images/icon_brand/bakley1.jpg'),
@@ -74,23 +75,24 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.categories: ~16 rows (approximately)
+DELETE FROM `categories`;
 INSERT INTO `categories` (`id`, `name`, `status`, `hot`, `created_at`, `updated_at`, `title`, `img`, `description`) VALUES
-	(1, 'Kính mát nam', 1, 1, '2024-06-17 08:00:00', '2024-06-17 08:00:00', '100+ Kính mát nam, kính râm thời trang, đẹp, hàng hiệu', 'assets/images/KinhMat/kinh-mat-nam-chinh-hang-thoi-trang.jpg', 'Hơn 30 thương hiệu kính mát nam thời trang từ RayBan, Gucci, Dior, Montblanc, Prada, Versace. Từ kiểu dáng phi công cổ điển, thể thao năng động đến gọng vuông lịch lãm, kính râm nam đáp ứng mọi phong cách và cá tính. Chất liệu gọng kính đa dạng từ kim loại sang trọng, nhựa dẻo trẻ trung đến titan cao cấp, kết hợp cùng tròng kính phân cực, chống chói, mang đến tầm nhìn rõ nét và thoải mái. Mắt kính nam, không chỉ là phụ kiện thời trang sành điệu, mà còn là “vệ sĩ” đắc lực bảo vệ đôi mắt khỏi tác hại của tia UV.'),
-	(2, 'Kính mát nữ', 1, 1, '2024-06-17 08:05:00', '2024-06-17 08:05:00', '300+ Kính mát nữ, kính râm thời trang, hàng hiệu, chính hãng', 'assets/images/KinhMat/kinh-mat-nu-thoi-trang-chinh-hang.jpg', 'Với bản sắc kiêu sa bóng bẩy cùng gam màu thời thượng, kính mát nữ ngày nay không đơn thuần là vật dụng bảo vệ mắt mà còn là phụ kiện không thể thiếu khi nói về thời trang. Dù bạn đang sở hữu gương mặt ra sao thì sự đa dạng của các bộ sưu tập mắt kính nữ cũng mang đến đến bạn sản phẩm ưng ý giúp tôn mọi đường nét. Hãy chọn một chiếc kính mát phù hợp, chúng sẽ trở thành “vũ khí” nâng tầm phong cách và sự lôi cuốn cho chị em.'),
-	(3, 'Kính mát', 1, 0, '2024-06-17 08:10:00', '2024-06-17 08:10:00', 'Kính mát hiệu thời trang, chính hãng 100%, mẫu mới 2024', 'assets/images/KinhMat/kinh-mat-thoi-trang-chinh-hang-100.jpg', 'Qua nhiều thập kỷ, kính mát vẫn là phụ kiện thời trang được ưa chuộng. Sự chung sức của các thương hiệu xa xỉ hàng đầu như RayBan, Gucci, Dior,…đã góp phần làm đầy thị trường kính râm bằng vô vàn kiểu dáng hot trend, xịn, ngầu và có nhiều tính năng vượt trội, chinh phục thành công không ít các tín đồ. Tất cả đã mở ra thế giới sắc màu cho kính mắt hàng hiệu, không chỉ nâng tầm phong cách mà còn mang đến khả năng bảo vệ mắt tối ưu.'),
-	(4, 'Kính mát trẻ em', 1, 1, '2024-06-17 08:15:00', '2024-06-17 08:15:00', 'Kính mát trẻ em thời trang, chống tia UV, bảo vệ mắt tối ưu', 'assets/images/KinhMat/kinh-mat-tre-em-thoi-trang.jpg', 'Kính mát trẻ em là vật dụng thiết yếu để bảo vệ đôi mắt non nớt của bé khỏi tác hại của tia UV. Chọn kính râm trẻ em cần ưu tiên chất liệu an toàn, gọng nhẹ, dẻo dai, không kích ứng và có khả năng chống trầy xước cao. Thiết kế kính cần ôm sát khuôn mặt, vừa vặn và thoải mái để bé dễ dàng vận động. Ngoài ra, kiểu dáng và màu sắc bắt mắt cũng sẽ giúp bé thích thú hơn khi đeo kính. Hãy lựa chọn kính mát cao cấp đến từ các thương hiệu nổi tiếngđể đảm bảo an toàn và sức khỏe cho đôi mắt của trẻ.'),
-	(5, 'Tròng kính', 1, 0, '2024-06-17 08:20:00', '2024-06-17 08:20:00', 'Tròng kính chính hãng: Giá, Tư vấn cắt tròng theo nhu cầu', 'assets/images/TrongKinh/trong-kinh-chinh-hang-banner.jpg', 'Ngày nay, thị trường đang cung cấp đa dạng các loại tròng kính cận, loạn, viễn tốt trong việc điều chỉnh tật khúc xạ. Không chỉ là giải pháp hỗ trợ thị lực hiệu quả, sản phẩm còn đi kèm những tính năng ưu việt như chống tia UV, ánh sáng xanh, đổi màu, chống chói… Dù vấn đề tật khúc xạ của bạn là gì và có nhu cầu cao trong việc bảo vệ thị lực như thế nào thì tròng kính cao cấp, chính hãng đều có thể đáp ứng.'),
-	(6, 'Tròng kính đơn tròng', 1, 1, '2024-06-17 08:25:00', '2024-06-17 08:25:00', 'Tròng kính chính hãng: Giá, Tư vấn cắt tròng theo nhu cầu', 'assets/images/KinhTrong/kinh-don-trong-chinh-hang-banner.jpg', 'Kính đơn tròng (Single Vision) là thấu kính một vùng nhìn quen thuộc được sử dụng cho người mắc tật khúc xạ cận, viễn, loạn thị. Đơn tròng mang đến tầm nhìn sắc nét ở khoảng cách gần hoặc xa. Ngày nay, sản phẩm còn sở hữu công nghệ tiên tiến đem đến tính năng vượt trội gồm chống chói, chống tia UV và đặc biệt là lọc ánh sáng xanh thông minh. Điều này giúp người dùng cải thiện khả năng nhận biết độ rõ nét của vật thể, đồng thời bảo vệ thị lực do hạn chế được nguồn ánh sáng độc hại.'),
-	(7, 'Kính áp tròng', 1, 0, '2024-06-17 08:30:00', '2024-06-17 08:30:00', 'Kính áp tròng (Contact Lens) cận, loạn đẹp, chính hãng 100%', 'assets/images/KinhTrong/kinh-ap-trong-chinh-hang-banner.jpg', 'Kính áp tròng – giải pháp điều chỉnh vấn đề tật khúc xạ phổ biến. Chúng có thể thay thế kính thông thường bởi khả năng cung cấp tầm nhìn như một đơn kính thuốc nhưng mang tính thẩm mỹ vượt trội hơn. Sản phẩm như một lớp nhựa mỏng, trong suốt nên khi tiếp xúc với mắt không có cảm như mình đang đeo một chiếc kính quá nặng nề. Vì vậy, kính áp tròng là sự lựa chọn hoàn hảo cho mọi hoạt động, mọi kiểu mặt và mọi phong cách người dùng.'),
-	(8, 'Tròng kính đa tròng', 1, 1, '2024-06-17 08:35:00', '2024-06-17 08:35:00', 'Bảng giá kính đa tròng thế hệ mới dễ đeo, hợp mọi nhu cầu', 'assets/images/TrongKinh/trong-kinh-da-trong-chinh-hang.jpg', 'Kính đa tròng là giải pháp hoàn hảo cho người suy giảm tầm nhìn do lão hóa thị lực. Để khắc phục tình trạng khó chịu cho đôi mắt ở tuổi trung niên, đa tròng ra đời, sở hữu 3 vùng nhìn (xa, gần, trung gian) cải thiện hình ảnh sắc nét, rõ ràng như đôi mắt tinh tường lúc trẻ.'),
-	(9, 'Gọng kính', 1, 0, '2024-06-17 08:40:00', '2024-06-17 08:40:00', 'Gọng kính cận đẹp: Giá, Mẫu mới, Tư vấn kiểu hợp mặt', 'assets/images/GongKinh/gong-kinh-can-chinh-hang-banner .jpg', 'ọng kính hợp mặt không chỉ đóng vai trò quan trọng trong việc gia tăng thẩm mỹ mà còn ảnh hưởng trực tiếp đến trải nghiệm thị giác của mỗi cá nhân. Ngày nay, gọng kính cận đẹp rất đa dạng. Từ những thiết kế cơ bản như tròn, vuông, oval đến kiểu dáng phức tạp hơn như phi công, cánh bướm, mắt mèo,… đều xuất hiện vô vàn trên thị trường, giúp khách hàng dễ dàng chọn lựa.'),
-	(10, 'Gọng kính nam', 1, 1, '2024-06-17 22:43:18', '2024-06-17 22:43:23', 'Gọng kính cận nam đẹp: Mẫu mới, Giá, Tư vấn kiểu hợp mặt', 'assets/images/banner_brand/banner-gong-kinh-can-nam.jpg', 'Thời trang thịnh hành, gọng kính cận nam ngày nay cũng sở hữu đa dạng mẫu mã và kiểu dáng hơn. Bởi là phụ kiện gắn liền trên gương mặt nên yếu tố đẹp, xịn phải được đi đầu khi lựa chọn. Hiểu rõ điều đó, các thương hiệu thời trang nổi tiếng như Gucci, Dior, RayBan,…dần trình làng nhiều loại mắt kính cận nam phù hợp với từng độ tuổi và phong cách, giúp phái mạnh tự tin và lịch lãm hơn khi diện. Chất liệu chế tác gọng kính cũng được đầu tư nhằm đem lại trải nghiệm sử dụng tốt hơn, như kính nam titan, nhựa acetate, nhựa dẻo, vàng, gỗ,…'),
-	(11, 'Gọng kính nữ', 1, 1, '2024-12-18 12:30:36', '2024-12-18 12:30:37', '300+ Gọng kính cận nữ đẹp, hàng hiệu hợp mọi khuôn mặt', 'assets/images/banner_brand/banner-gong-kinh-can-nu.jpg', 'Gọng kính cận nữ không chỉ là phụ kiện hỗ trợ thị lực mà còn là món đồ tôn lên đường nét của gương mặt. Một chiếc kính phù hợp giúp phái nữ che đi những khuyết điểm và nâng tầm phong cách mang đến sự tự tin đáng kể cho các quý cô. Để thêm năng động và cá tính có thể thử qua kính gọng mắt mèo, nửa viền hay oversized. Đối với những cô gái văn phòng thì khung chữ nhật không viền là tương xứng nhất, mang đến diện mạo thanh lịch khó cưỡng.'),
-	(12, 'Gọng kính trẻ em', 1, 0, '2024-12-18 12:30:54', '2024-12-18 12:30:55', '100+ Gọng kính trẻ em hàng hiệu, bền nhẹ, không kích ứng', 'assets/images/blog_images/banner-gong-kinh-can-tre-em-dep-chinh-hang.jpg', 'Với các bé mắc tật khúc xạ, việc lựa chọn gọng kính trẻ em phù hợp là vô cùng cần thiết. Chọn mắt kính cận cho bé cần ưu tiên chất liệu an toàn, không gây kích ứng, đặc biệt là nhẹ và dẻo dai như nhựa TR90, Acetate, Optyl. Hãy lựa chọn các loại gọng kính cận trẻ em có kiểu dáng và màu màu sắc bắt mắt cũng giúp bé thích thú và thoải mái hơn khi học tập và vận động.'),
-	(13, 'Gọng kính nhựa', 1, 0, '2024-12-18 12:31:08', '2024-12-18 12:31:08', '00+ Gọng kính nhựa thời trang, cao cấp, chính hãng 100%', 'assets/images/banner_brand/banner-gong-kinh-nhua.jpg', 'Gọng kính nhựa là lựa chọn hàng đầu cho phong cách năng động và trẻ trung. Chất liệu nhựa cao cấp từ Acetate đến TR90 mang đến cảm giác nhẹ nhàng, thoải mái khi đeo, đồng thời dễ dàng điều chỉnh để phù hợp với mọi khuôn mặt. Từ gam màu trung tính, thanh lịch đến những sắc màu rực rỡ, bắt mắt, gọng kính cận nhựa cho phép bạn tự do thể hiện cá tính và gu thẩm mỹ riêng. Bên cạnh đó, trọng lượng nhẹ và độ bền cao khiến gọng kính nhựa trở thành lựa chọn lý tưởng cho hoạt động hàng ngày.'),
-	(14, 'Gọng kính kim loại', 1, 0, '2025-03-20 10:19:55', '2025-03-20 10:19:56', '300+ Gọng kính kim loại nam, nữ bền đẹp, thời trang', 'assets/images/banner_brand/banner-gong-kinh-kim-loai.jpg', 'Gọng kính kim loại được yêu thích nhờ vẻ đẹp sang trọng và tinh tế. Chất liệu kim loại cao cấp mang đến độ bền vượt trội, khả năng chống va đập tốt và dễ dàng điều chỉnh để phù hợp với mọi khuôn mặt. Từ vẻ đẹp cổ điển, quý phái của vàng đến titanium sáng bóng mang đến sự hiện đại, trẻ trung. Gọng kính kim loại đáp ứng mọi phong cách thời trang, từ tối giản, thanh lịch đến cá tính, nổi bật. Dù là bất kỳ ai, bạn đều có thể tìm thấy kính cận kim loại hoàn hảo để tôn lên vẻ đẹp riêng của mình.'),
-	(15, 'Gọng kính vàng', 1, 0, '2025-03-20 10:20:09', '2025-03-20 10:20:10', 'Kính gọng vàng nguyên khối 18k, 24k cao cấp, chính hãng 100%', 'assets/images/GongKinh/gong-kinh-vang-nguyen-khoi-chinh-hang.jpg', 'Gọng kính vàng – Tuyệt tác vượt thời gian, biểu tượng của sự sang trọng, đẳng cấp và quyền lực. Từ xa xưa, vàng đã được xem là kim loại quý hiếm, đại diện cho sự giàu có và thịnh vượng. Ngày nay, gọng kính vàng tiếp tục là lựa chọn hàng đầu của giới thượng lưu, doanh nhân thành đạt và những người yêu thích phong cách cổ điển, sang trọng. Vẻ đẹp lấp lánh, ấm áp của vàng kết hợp với thiết kế tinh xảo, tỉ mỉ tạo nên một tổng thể hoàn mỹ giúp bạn sẽ luôn tự tin tỏa sáng và khẳng định đẳng cấp khác biệt.'),
-	(16, 'Tròng kính hai tròng', 1, 0, '2025-03-20 10:24:07', '2025-03-20 10:24:07', 'Tròng kính hai tròng cao cấp, chính hãng 100%, BH 1 năm', 'assets/images/KinhTrong/kinh-hai-trong-chinh-hang-banner.jpg', 'Kính hai tròng là loại tròng phổ biến dành cho người trung niên hoặc lão thị. Sở hữu vùng nhìn ưu việt, tròng kính giúp người đeo cải thiện khả năng quan sát hình ảnh ở xa và gần sắc nét hơn. Việc sử dụng cặp kính lưỡng tiêu giúp chúng ta tiết kiệm nhiều chi phí, bởi không cần phải cắt hai cặp kính để nhìn xa và gần. Bên cạnh đó, thấu kính 2 tầm nhìn còn được trang bị những lớp phủ tính năng đặc biệt giúp người sử dụng giảm mỏi, chống lóa và hạn chế bụi bẩn hiệu quả');
+	(1, 'Kính mát nam', 1, 1, '2024-06-17 08:00:00', '2024-06-17 08:00:00', '100+ Kính mát nam, kính râm thời trang, đẹp, hàng hiệu', 'https://kinhhaitrieu.com/wp-content/uploads/2024/10/bst-kinh-mat-nam-thoi-trang.jpg', 'Hơn 30 thương hiệu kính mát nam thời trang từ RayBan, Gucci, Dior, Montblanc, Prada, Versace. Từ kiểu dáng phi công cổ điển, thể thao năng động đến gọng vuông lịch lãm, kính râm nam đáp ứng mọi phong cách và cá tính. Chất liệu gọng kính đa dạng từ kim loại sang trọng, nhựa dẻo trẻ trung đến titan cao cấp, kết hợp cùng tròng kính phân cực, chống chói, mang đến tầm nhìn rõ nét và thoải mái. Mắt kính nam, không chỉ là phụ kiện thời trang sành điệu, mà còn là “vệ sĩ” đắc lực bảo vệ đôi mắt khỏi tác hại của tia UV.'),
+	(2, 'Kính mát nữ', 1, 1, '2024-06-17 08:05:00', '2024-06-17 08:05:00', '300+ Kính mát nữ, kính râm thời trang, hàng hiệu, chính hãng', 'https://kinhhaitrieu.com/wp-content/uploads/2024/10/bst-kinh-mat-nu-thoi-trang.jpg', 'Với bản sắc kiêu sa bóng bẩy cùng gam màu thời thượng, kính mát nữ ngày nay không đơn thuần là vật dụng bảo vệ mắt mà còn là phụ kiện không thể thiếu khi nói về thời trang. Dù bạn đang sở hữu gương mặt ra sao thì sự đa dạng của các bộ sưu tập mắt kính nữ cũng mang đến đến bạn sản phẩm ưng ý giúp tôn mọi đường nét. Hãy chọn một chiếc kính mát phù hợp, chúng sẽ trở thành “vũ khí” nâng tầm phong cách và sự lôi cuốn cho chị em.'),
+	(3, 'Kính mát', 1, 0, '2024-06-17 08:10:00', '2024-06-17 08:10:00', 'Kính mát hiệu thời trang, chính hãng 100%, mẫu mới 2024', 'https://kinhhaitrieu.com/wp-content/uploads/2024/09/kinh-mat-thoi-trang-chinh-hang-100.jpg', 'Qua nhiều thập kỷ, kính mát vẫn là phụ kiện thời trang được ưa chuộng. Sự chung sức của các thương hiệu xa xỉ hàng đầu như RayBan, Gucci, Dior,…đã góp phần làm đầy thị trường kính râm bằng vô vàn kiểu dáng hot trend, xịn, ngầu và có nhiều tính năng vượt trội, chinh phục thành công không ít các tín đồ. Tất cả đã mở ra thế giới sắc màu cho kính mắt hàng hiệu, không chỉ nâng tầm phong cách mà còn mang đến khả năng bảo vệ mắt tối ưu.'),
+	(4, 'Kính mát trẻ em', 1, 1, '2024-06-17 08:15:00', '2024-06-17 08:15:00', 'Kính mát trẻ em thời trang, chống tia UV, bảo vệ mắt tối ưu', 'https://kinhhaitrieu.com/wp-content/uploads/2024/10/bst-kinh-mat-tre-em-thoi-trang.jpg', 'Kính mát trẻ em là vật dụng thiết yếu để bảo vệ đôi mắt non nớt của bé khỏi tác hại của tia UV. Chọn kính râm trẻ em cần ưu tiên chất liệu an toàn, gọng nhẹ, dẻo dai, không kích ứng và có khả năng chống trầy xước cao. Thiết kế kính cần ôm sát khuôn mặt, vừa vặn và thoải mái để bé dễ dàng vận động. Ngoài ra, kiểu dáng và màu sắc bắt mắt cũng sẽ giúp bé thích thú hơn khi đeo kính. Hãy lựa chọn kính mát cao cấp đến từ các thương hiệu nổi tiếngđể đảm bảo an toàn và sức khỏe cho đôi mắt của trẻ.'),
+	(5, 'Tròng kính', 1, 0, '2024-06-17 08:20:00', '2024-06-17 08:20:00', 'Tròng kính chính hãng: Giá, Tư vấn cắt tròng theo nhu cầu', 'https://kinhhaitrieu.com/wp-content/uploads/2024/04/trong-kinh-chinh-hang-banner.jpg', 'Ngày nay, thị trường đang cung cấp đa dạng các loại tròng kính cận, loạn, viễn tốt trong việc điều chỉnh tật khúc xạ. Không chỉ là giải pháp hỗ trợ thị lực hiệu quả, sản phẩm còn đi kèm những tính năng ưu việt như chống tia UV, ánh sáng xanh, đổi màu, chống chói… Dù vấn đề tật khúc xạ của bạn là gì và có nhu cầu cao trong việc bảo vệ thị lực như thế nào thì tròng kính cao cấp, chính hãng đều có thể đáp ứng.'),
+	(6, 'Tròng kính đơn tròng', 1, 1, '2024-06-17 08:25:00', '2024-06-17 08:25:00', 'Tròng kính chính hãng: Giá, Tư vấn cắt tròng theo nhu cầu', 'https://kinhhaitrieu.com/wp-content/uploads/2024/04/bst-kinh-don-trong-banner.jpg', 'Kính đơn tròng (Single Vision) là thấu kính một vùng nhìn quen thuộc được sử dụng cho người mắc tật khúc xạ cận, viễn, loạn thị. Đơn tròng mang đến tầm nhìn sắc nét ở khoảng cách gần hoặc xa. Ngày nay, sản phẩm còn sở hữu công nghệ tiên tiến đem đến tính năng vượt trội gồm chống chói, chống tia UV và đặc biệt là lọc ánh sáng xanh thông minh. Điều này giúp người dùng cải thiện khả năng nhận biết độ rõ nét của vật thể, đồng thời bảo vệ thị lực do hạn chế được nguồn ánh sáng độc hại.'),
+	(7, 'Kính áp tròng', 1, 0, '2024-06-17 08:30:00', '2024-06-17 08:30:00', 'Kính áp tròng (Contact Lens) cận, loạn đẹp, chính hãng 100%', 'https://kinhhaitrieu.com/wp-content/uploads/2024/04/kinh-ap-trong-chinh-hang-banner.jpg', 'Kính áp tròng – giải pháp điều chỉnh vấn đề tật khúc xạ phổ biến. Chúng có thể thay thế kính thông thường bởi khả năng cung cấp tầm nhìn như một đơn kính thuốc nhưng mang tính thẩm mỹ vượt trội hơn. Sản phẩm như một lớp nhựa mỏng, trong suốt nên khi tiếp xúc với mắt không có cảm như mình đang đeo một chiếc kính quá nặng nề. Vì vậy, kính áp tròng là sự lựa chọn hoàn hảo cho mọi hoạt động, mọi kiểu mặt và mọi phong cách người dùng.'),
+	(8, 'Tròng kính đa tròng', 1, 1, '2024-06-17 08:35:00', '2024-06-17 08:35:00', 'Bảng giá kính đa tròng thế hệ mới dễ đeo, hợp mọi nhu cầu', 'https://kinhhaitrieu.com/wp-content/uploads/2024/04/bst-kinh-da-trong-banner.jpg', 'Kính đa tròng là giải pháp hoàn hảo cho người suy giảm tầm nhìn do lão hóa thị lực. Để khắc phục tình trạng khó chịu cho đôi mắt ở tuổi trung niên, đa tròng ra đời, sở hữu 3 vùng nhìn (xa, gần, trung gian) cải thiện hình ảnh sắc nét, rõ ràng như đôi mắt tinh tường lúc trẻ.'),
+	(9, 'Gọng kính', 1, 0, '2024-06-17 08:40:00', '2024-06-17 08:40:00', 'Gọng kính cận đẹp: Giá, Mẫu mới, Tư vấn kiểu hợp mặt', 'https://kinhhaitrieu.com/wp-content/uploads/2024/04/gong-kinh-can-chinh-hang-banner.jpg', 'ọng kính hợp mặt không chỉ đóng vai trò quan trọng trong việc gia tăng thẩm mỹ mà còn ảnh hưởng trực tiếp đến trải nghiệm thị giác của mỗi cá nhân. Ngày nay, gọng kính cận đẹp rất đa dạng. Từ những thiết kế cơ bản như tròn, vuông, oval đến kiểu dáng phức tạp hơn như phi công, cánh bướm, mắt mèo,… đều xuất hiện vô vàn trên thị trường, giúp khách hàng dễ dàng chọn lựa.'),
+	(10, 'Gọng kính nam', 1, 1, '2024-06-17 22:43:18', '2024-06-17 22:43:23', 'Gọng kính cận nam đẹp: Mẫu mới, Giá, Tư vấn kiểu hợp mặt', 'https://kinhhaitrieu.com/wp-content/uploads/2024/05/bst-gong-kinh-nam.jpg', 'Thời trang thịnh hành, gọng kính cận nam ngày nay cũng sở hữu đa dạng mẫu mã và kiểu dáng hơn. Bởi là phụ kiện gắn liền trên gương mặt nên yếu tố đẹp, xịn phải được đi đầu khi lựa chọn. Hiểu rõ điều đó, các thương hiệu thời trang nổi tiếng như Gucci, Dior, RayBan,…dần trình làng nhiều loại mắt kính cận nam phù hợp với từng độ tuổi và phong cách, giúp phái mạnh tự tin và lịch lãm hơn khi diện. Chất liệu chế tác gọng kính cũng được đầu tư nhằm đem lại trải nghiệm sử dụng tốt hơn, như kính nam titan, nhựa acetate, nhựa dẻo, vàng, gỗ,…'),
+	(11, 'Gọng kính nữ', 1, 1, '2024-12-18 12:30:36', '2024-12-18 12:30:37', '300+ Gọng kính cận nữ đẹp, hàng hiệu hợp mọi khuôn mặt', 'https://kinhhaitrieu.com/wp-content/uploads/2024/05/bst-gong-kinh-nu.jpg', 'Gọng kính cận nữ không chỉ là phụ kiện hỗ trợ thị lực mà còn là món đồ tôn lên đường nét của gương mặt. Một chiếc kính phù hợp giúp phái nữ che đi những khuyết điểm và nâng tầm phong cách mang đến sự tự tin đáng kể cho các quý cô. Để thêm năng động và cá tính có thể thử qua kính gọng mắt mèo, nửa viền hay oversized. Đối với những cô gái văn phòng thì khung chữ nhật không viền là tương xứng nhất, mang đến diện mạo thanh lịch khó cưỡng.'),
+	(12, 'Gọng kính trẻ em', 1, 0, '2024-12-18 12:30:54', '2024-12-18 12:30:55', '100+ Gọng kính trẻ em hàng hiệu, bền nhẹ, không kích ứng', 'https://kinhhaitrieu.com/wp-content/uploads/2024/05/bst-gong-kinh-tre-em.jpg', 'Với các bé mắc tật khúc xạ, việc lựa chọn gọng kính trẻ em phù hợp là vô cùng cần thiết. Chọn mắt kính cận cho bé cần ưu tiên chất liệu an toàn, không gây kích ứng, đặc biệt là nhẹ và dẻo dai như nhựa TR90, Acetate, Optyl. Hãy lựa chọn các loại gọng kính cận trẻ em có kiểu dáng và màu màu sắc bắt mắt cũng giúp bé thích thú và thoải mái hơn khi học tập và vận động.'),
+	(13, 'Gọng kính nhựa', 1, 0, '2024-12-18 12:31:08', '2024-12-18 12:31:08', '00+ Gọng kính nhựa thời trang, cao cấp, chính hãng 100%', 'https://kinhhaitrieu.com/wp-content/uploads/2024/05/bst-gong-kinh-nhua.jpg', 'Gọng kính nhựa là lựa chọn hàng đầu cho phong cách năng động và trẻ trung. Chất liệu nhựa cao cấp từ Acetate đến TR90 mang đến cảm giác nhẹ nhàng, thoải mái khi đeo, đồng thời dễ dàng điều chỉnh để phù hợp với mọi khuôn mặt. Từ gam màu trung tính, thanh lịch đến những sắc màu rực rỡ, bắt mắt, gọng kính cận nhựa cho phép bạn tự do thể hiện cá tính và gu thẩm mỹ riêng. Bên cạnh đó, trọng lượng nhẹ và độ bền cao khiến gọng kính nhựa trở thành lựa chọn lý tưởng cho hoạt động hàng ngày.'),
+	(14, 'Gọng kính kim loại', 1, 0, '2025-03-20 10:19:55', '2025-03-20 10:19:56', '300+ Gọng kính kim loại nam, nữ bền đẹp, thời trang', 'https://kinhhaitrieu.com/wp-content/uploads/2024/05/bst-gong-kinh-kim-loai.jpg', 'Gọng kính kim loại được yêu thích nhờ vẻ đẹp sang trọng và tinh tế. Chất liệu kim loại cao cấp mang đến độ bền vượt trội, khả năng chống va đập tốt và dễ dàng điều chỉnh để phù hợp với mọi khuôn mặt. Từ vẻ đẹp cổ điển, quý phái của vàng đến titanium sáng bóng mang đến sự hiện đại, trẻ trung. Gọng kính kim loại đáp ứng mọi phong cách thời trang, từ tối giản, thanh lịch đến cá tính, nổi bật. Dù là bất kỳ ai, bạn đều có thể tìm thấy kính cận kim loại hoàn hảo để tôn lên vẻ đẹp riêng của mình.'),
+	(15, 'Gọng kính vàng', 1, 0, '2025-03-20 10:20:09', '2025-03-20 10:20:10', 'Kính gọng vàng nguyên khối 18k, 24k cao cấp, chính hãng 100%', 'https://kinhhaitrieu.com/wp-content/uploads/2024/05/bst-gong-kinh-vang.jpg', 'Gọng kính vàng – Tuyệt tác vượt thời gian, biểu tượng của sự sang trọng, đẳng cấp và quyền lực. Từ xa xưa, vàng đã được xem là kim loại quý hiếm, đại diện cho sự giàu có và thịnh vượng. Ngày nay, gọng kính vàng tiếp tục là lựa chọn hàng đầu của giới thượng lưu, doanh nhân thành đạt và những người yêu thích phong cách cổ điển, sang trọng. Vẻ đẹp lấp lánh, ấm áp của vàng kết hợp với thiết kế tinh xảo, tỉ mỉ tạo nên một tổng thể hoàn mỹ giúp bạn sẽ luôn tự tin tỏa sáng và khẳng định đẳng cấp khác biệt.'),
+	(16, 'Tròng kính hai tròng', 1, 0, '2025-03-20 10:24:07', '2025-03-20 10:24:07', 'Tròng kính hai tròng cao cấp, chính hãng 100%, BH 1 năm', 'https://kinhhaitrieu.com/wp-content/uploads/2024/04/bst-kinh-hai-trong-banner.jpg', 'Kính hai tròng là loại tròng phổ biến dành cho người trung niên hoặc lão thị. Sở hữu vùng nhìn ưu việt, tròng kính giúp người đeo cải thiện khả năng quan sát hình ảnh ở xa và gần sắc nét hơn. Việc sử dụng cặp kính lưỡng tiêu giúp chúng ta tiết kiệm nhiều chi phí, bởi không cần phải cắt hai cặp kính để nhìn xa và gần. Bên cạnh đó, thấu kính 2 tầm nhìn còn được trang bị những lớp phủ tính năng đặc biệt giúp người sử dụng giảm mỏi, chống lóa và hạn chế bụi bẩn hiệu quả');
 
 -- Dumping structure for table web_eyestyle.discounts
 CREATE TABLE IF NOT EXISTS `discounts` (
@@ -103,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `discounts` (
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.discounts: ~25 rows (approximately)
+DELETE FROM `discounts`;
 INSERT INTO `discounts` (`id`, `code`, `description`, `discount_percentage`, `status`) VALUES
 	(1, 'DISCOUNT10', 'Giảm giá 10% cho đơn hàng đầu tiên', 10, 1),
 	(2, 'SUMMER20', 'Khuyến mãi mùa hè, giảm 20%', 20, 1),
@@ -130,6 +133,28 @@ INSERT INTO `discounts` (`id`, `code`, `description`, `discount_percentage`, `st
 	(24, 'EIDSALE25', 'Khuyến mãi đặc biệt Eid, giảm 25%', 25, 0),
 	(25, 'TEACHERDAY10', 'Tri ân ngày Nhà giáo, giảm 10% cho tất cả đơn', 10, 0);
 
+-- Dumping structure for table web_eyestyle.favorites
+CREATE TABLE IF NOT EXISTS `favorites` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`,`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table web_eyestyle.favorites: ~9 rows (approximately)
+DELETE FROM `favorites`;
+INSERT INTO `favorites` (`id`, `user_id`, `product_id`) VALUES
+	(7, 34, 3),
+	(16, 34, 19),
+	(2, 34, 46),
+	(3, 34, 48),
+	(5, 34, 53),
+	(6, 34, 81),
+	(12, 34, 105),
+	(11, 34, 108),
+	(10, 34, 110);
+
 -- Dumping structure for table web_eyestyle.feedbacks
 CREATE TABLE IF NOT EXISTS `feedbacks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -144,6 +169,7 @@ CREATE TABLE IF NOT EXISTS `feedbacks` (
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.feedbacks: ~30 rows (approximately)
+DELETE FROM `feedbacks`;
 INSERT INTO `feedbacks` (`id`, `name`, `email`, `message`, `response`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Phan Thị Lệ', 'phanthile@gmail.com', 'Shop còn tuyển nhân viên không?', NULL, 0, '2024-12-17 08:58:18', '2024-12-17 08:58:18'),
 	(2, 'Nguyễn Minh Tuấn', 'nguyenminhtuan@gmail.com', 'Chất liệu của sản phẩm là gì vậy?', NULL, 0, '2024-12-17 08:58:18', '2024-12-17 08:58:18'),
@@ -184,6 +210,7 @@ CREATE TABLE IF NOT EXISTS `frame_shapes` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.frame_shapes: ~9 rows (approximately)
+DELETE FROM `frame_shapes`;
 INSERT INTO `frame_shapes` (`id`, `name`) VALUES
 	(1, 'Vuông'),
 	(2, 'Tròn'),
@@ -206,26 +233,27 @@ CREATE TABLE IF NOT EXISTS `inventory` (
 ) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.inventory: ~151 rows (approximately)
+DELETE FROM `inventory`;
 INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) VALUES
 	(4, 1, 30, '2025-04-05 12:11:05'),
 	(5, 2, 30, '2025-04-05 12:11:05'),
-	(6, 3, 29, '2025-04-05 13:51:25'),
-	(7, 4, 26, '2025-04-05 14:35:24'),
+	(6, 3, 28, '2025-04-30 10:27:36'),
+	(7, 4, 25, '2025-04-30 16:20:53'),
 	(8, 5, 30, '2025-04-05 12:11:05'),
-	(9, 6, 30, '2025-04-05 12:11:06'),
+	(9, 6, 29, '2025-05-01 00:13:26'),
 	(10, 7, 29, '2025-04-05 14:28:25'),
 	(11, 8, 30, '2025-04-05 12:11:06'),
-	(12, 9, 29, '2025-04-05 14:35:24'),
+	(12, 9, 26, '2025-04-30 10:25:54'),
 	(13, 10, 30, '2025-04-05 12:11:06'),
 	(14, 11, 29, '2025-04-05 14:35:24'),
 	(15, 12, 29, '2025-04-05 14:22:00'),
 	(16, 13, 28, '2025-04-05 14:35:24'),
 	(17, 14, 29, '2025-04-05 14:28:25'),
-	(18, 15, 29, '2025-04-05 14:28:25'),
+	(18, 15, 27, '2025-04-30 15:33:49'),
 	(19, 16, 30, '2025-04-05 12:11:06'),
-	(20, 17, 30, '2025-04-05 12:11:06'),
+	(20, 17, 29, '2025-05-01 00:06:52'),
 	(21, 18, 30, '2025-04-05 12:11:06'),
-	(22, 19, 30, '2025-04-05 12:11:06'),
+	(22, 19, 28, '2025-05-01 00:06:52'),
 	(23, 20, 30, '2025-04-05 12:11:06'),
 	(24, 21, 30, '2025-04-05 12:11:06'),
 	(25, 22, 30, '2025-04-05 12:11:06'),
@@ -235,7 +263,7 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(29, 26, 30, '2025-04-05 12:11:06'),
 	(30, 27, 30, '2025-04-05 12:11:06'),
 	(31, 28, 30, '2025-04-05 12:11:06'),
-	(32, 29, 30, '2025-04-05 12:11:06'),
+	(32, 29, 28, '2025-04-30 10:31:01'),
 	(33, 30, 30, '2025-04-05 12:11:06'),
 	(34, 31, 30, '2025-04-05 12:11:06'),
 	(35, 32, 30, '2025-04-05 12:11:06'),
@@ -248,12 +276,12 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(42, 39, 30, '2025-04-05 12:11:06'),
 	(43, 40, 30, '2025-04-05 12:11:06'),
 	(44, 41, 30, '2025-04-05 12:11:06'),
-	(45, 42, 29, '2025-04-05 14:22:00'),
+	(45, 42, 26, '2025-05-01 00:53:05'),
 	(46, 43, 28, '2025-04-05 14:28:25'),
-	(47, 44, 29, '2025-04-05 13:33:05'),
-	(48, 45, 30, '2025-04-05 12:11:06'),
-	(49, 46, 30, '2025-04-05 12:11:06'),
-	(50, 47, 30, '2025-04-05 12:11:06'),
+	(47, 44, 28, '2025-04-30 10:13:18'),
+	(48, 45, 28, '2025-04-30 10:13:18'),
+	(49, 46, 29, '2025-05-01 00:51:39'),
+	(50, 47, 28, '2025-05-01 00:51:39'),
 	(51, 48, 30, '2025-04-05 12:11:06'),
 	(52, 49, 30, '2025-04-05 12:11:06'),
 	(53, 50, 30, '2025-04-05 12:11:06'),
@@ -266,7 +294,7 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(60, 57, 30, '2025-04-05 12:11:06'),
 	(61, 58, 30, '2025-04-05 12:11:06'),
 	(62, 59, 30, '2025-04-05 12:11:06'),
-	(63, 60, 30, '2025-04-05 12:11:06'),
+	(63, 60, 27, '2025-04-30 16:47:09'),
 	(64, 61, 30, '2025-04-05 12:11:06'),
 	(65, 62, 30, '2025-04-05 12:11:06'),
 	(66, 63, 30, '2025-04-05 12:11:06'),
@@ -287,7 +315,7 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(81, 78, 30, '2025-04-05 12:11:06'),
 	(82, 79, 30, '2025-04-05 12:11:06'),
 	(83, 80, 30, '2025-04-05 12:11:06'),
-	(84, 81, 30, '2025-04-05 12:11:06'),
+	(84, 81, 28, '2025-05-01 10:46:24'),
 	(85, 82, 30, '2025-04-05 12:11:06'),
 	(86, 83, 30, '2025-04-05 12:11:06'),
 	(87, 84, 30, '2025-04-05 12:11:06'),
@@ -298,7 +326,7 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(92, 89, 30, '2025-04-05 12:11:06'),
 	(93, 90, 30, '2025-04-05 12:11:06'),
 	(94, 91, 30, '2025-04-05 12:11:06'),
-	(95, 92, 30, '2025-04-05 12:11:06'),
+	(95, 92, 29, '2025-04-30 10:56:19'),
 	(96, 93, 30, '2025-04-05 12:11:06'),
 	(97, 94, 30, '2025-04-05 12:11:06'),
 	(98, 95, 30, '2025-04-05 12:11:06'),
@@ -307,7 +335,7 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(101, 98, 30, '2025-04-05 12:11:06'),
 	(102, 99, 30, '2025-04-05 12:11:06'),
 	(103, 100, 30, '2025-04-05 12:11:06'),
-	(104, 101, 30, '2025-04-05 12:11:06'),
+	(104, 101, 28, '2025-05-01 00:06:52'),
 	(105, 102, 30, '2025-04-05 12:11:06'),
 	(106, 103, 29, '2025-04-05 14:22:00'),
 	(107, 104, 30, '2025-04-05 12:11:06'),
@@ -371,8 +399,14 @@ CREATE TABLE IF NOT EXISTS `log` (
   PRIMARY KEY (`id`),
   KEY `fk_log_user` (`user_id`),
   CONSTRAINT `fk_log_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=377 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=380 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Dumping data for table web_eyestyle.log: ~2 rows (approximately)
+DELETE FROM `log`;
+INSERT INTO `log` (`id`, `Level`, `Log_Time`, `Locate`, `user_id`, `BeforeText`, `AfterText`) VALUES
+	(377, 'INFO', '2025-04-30 09:57:21', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
+	(378, 'WARNING', '2025-04-30 10:49:45', 'vn.edu.hcmuaf.fit.doanweb.Controller.User.RegisterController', 34, '', 'User đăng ký tài khoản với user name : thuykieu'),
+	(379, 'INFO', '2025-04-30 10:52:04', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller');
 
 -- Dumping structure for table web_eyestyle.newsletter_subscribers
 CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (
@@ -385,6 +419,7 @@ CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.newsletter_subscribers: ~9 rows (approximately)
+DELETE FROM `newsletter_subscribers`;
 INSERT INTO `newsletter_subscribers` (`id`, `name`, `email`, `created_at`) VALUES
 	(1, 'Lê Văn Yên', 'ada@jjf.com', '2025-03-27 10:04:51'),
 	(2, 'An An', 'tch@gmail.com', '2025-03-27 10:05:08'),
@@ -420,9 +455,10 @@ CREATE TABLE IF NOT EXISTS `orders` (
   UNIQUE KEY `order_code` (`order_code`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.orders: ~18 rows (approximately)
+-- Dumping data for table web_eyestyle.orders: ~33 rows (approximately)
+DELETE FROM `orders`;
 INSERT INTO `orders` (`id`, `order_code`, `user_id`, `customer_name`, `phone_number`, `customer_email`, `shipping_address`, `subtotal`, `total_discount`, `shipping_fee`, `total_price`, `total_quantity`, `payment_method`, `payment_status`, `status_order`, `order_notes`, `created_at`, `updated_at`) VALUES
 	(6, '97K80254B7278492L', NULL, 'Thuý Kiều', '03373254', 'tch@gmail.com', 'Phước Thiện 1, Xã Ẳng Nưa, Huyện Mường Ảng, Điện Biên', 24000000, 2400000, 20500, 843.35, 1, 'paypal', 1, 1, 'Không nhoa', '2025-04-02 18:15:02', '2025-04-02 18:15:02'),
 	(7, '6NV12435KT093442H', NULL, 'Thuý Kiều', '03373254', 'as@gmail.com', 'Phước Thiện 1, Xã Bắc Sơn, Huyện Thuận Bắc, Ninh Thuận', 24500000, 2450000, 20500, 860.91, 1, 'paypal', 1, 1, 'Không nhoa', '2025-04-02 18:26:18', '2025-04-02 18:26:18'),
@@ -441,7 +477,25 @@ INSERT INTO `orders` (`id`, `order_code`, `user_id`, `customer_name`, `phone_num
 	(21, '2KX6308623587535L', NULL, 'An An', '0345678922', 'tch@gmail.com', 'Số 14, Xã Púng Tra, Huyện Thuận Châu, Sơn La', 26000000, 2600000, 20500, 23420500, 3, 'paypal', 1, 1, '', '2025-04-05 13:51:25', '2025-04-05 13:51:25'),
 	(22, '30E5764025105605B', NULL, 'Lê Văn A', '0345678904', 'tch@gmail.com', 'Số 14, Xã Bản Hon, Huyện Tam Đường, Lai Châu', 37000000, 3700000, 20500, 33320500, 4, 'paypal', 1, 1, '', '2025-04-05 14:22:00', '2025-04-05 14:22:00'),
 	(23, '5KR86087JS2114926', NULL, 'Thuý Kiều', '0345678922', 'as@gmail.com', 'ghfghg, Xã Đông Thọ, Huyện Yên Phong, Bắc Ninh', 49400000, 4940000, 20500, 44480500, 4, 'paypal', 1, 1, '', '2025-04-05 14:28:25', '2025-04-05 14:28:25'),
-	(24, '788347112U2011725', NULL, 'Trần Hằng', '0345678904', 'ada@jjf.com', 'Số 14, Xã Hòa Thành, Thị xã Đông Hòa, Phú Yên', 66300000, 6630000, 20500, 59690500, 5, 'paypal', 1, 1, '', '2025-04-05 14:35:24', '2025-04-05 14:35:24');
+	(24, '788347112U2011725', NULL, 'Trần Hằng', '0345678904', 'ada@jjf.com', 'Số 14, Xã Hòa Thành, Thị xã Đông Hòa, Phú Yên', 66300000, 6630000, 20500, 59690500, 5, 'paypal', 1, 1, '', '2025-04-05 14:35:24', '2025-04-05 14:35:24'),
+	(25, 'ORD1745982798023', NULL, 'An An', '0345678922', 'thuykieu20040@gmail.com', 'Phước Thiện 1, Chọn Xã/Phường, Huyện Lục Yên, Yên Bái', 31500000, 3150000, 0, 28350000, 3, 'bank', 0, 0, '', '2025-04-30 10:13:18', '2025-04-30 10:13:18'),
+	(26, 'ORD1745983071487', NULL, 'Thuý Kiều', '0345678904', 'tch@gmail.com', 'Nha Hố, Xã Hua Nhàn, Huyện Bắc Yên, Sơn La', 12000000, 1200000, 20500, 10820500, 1, 'bank', 0, 0, '', '2025-04-30 10:17:51', '2025-04-30 10:17:51'),
+	(27, 'ORD1745983541113', NULL, 'Lê An', '0345678904', 'as@gmail.com', 'Phước Thiện 1, Xã Hòa An, Huyện Phú Hòa, Phú Yên', 12000000, 1200000, 20500, 10820500, 1, 'bank', 0, 0, '', '2025-04-30 10:25:41', '2025-04-30 10:25:41'),
+	(28, 'ORD1745983554344', NULL, 'Lê An', '0345678904', 'as@gmail.com', 'Phước Thiện 1, Xã Hòa An, Huyện Phú Hòa, Phú Yên', 12000000, 1200000, 20500, 10820500, 1, 'bank', 0, 0, '', '2025-04-30 10:25:54', '2025-04-30 10:25:54'),
+	(29, 'ORD1745983656919', NULL, 'Trần Hằng', '0345678904', 'thuykieu20040@gmail.com', 'Phước Thiện 1, Xã Hòa An, Huyện Phú Hòa, Phú Yên', 24000000, 2400000, 20500, 21620500, 1, 'bank', 0, 0, '', '2025-04-30 10:27:36', '2025-04-30 10:27:36'),
+	(30, 'ORD1745983805126', NULL, 'Thuý lan', '0345678904', 'thuykieu20040@gmail.com', 'Nha Hố, Xã Cát Hiệp, Huyện Phù Cát, Bình Định', 6500000, 650000, 20500, 5870500, 1, 'bank', 0, 0, '', '2025-04-30 10:30:05', '2025-04-30 10:30:05'),
+	(31, 'ORD1745983861320', NULL, 'Trần Hằng', '0987654325', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Xã Cát Hiệp, Huyện Phù Cát, Bình Định', 6500000, 650000, 20500, 5870500, 1, 'bank', 0, 0, '', '2025-04-30 10:31:01', '2025-04-30 10:31:01'),
+	(32, 'ORD1745985379974', NULL, 'Lê An', '0345678904', 'as@gmail.com', 'Phước Thiện 1, Xã Bản Phiệt, Huyện Bảo Thắng, Lào Cai', 5000000, 500000, 20500, 4520500, 1, 'cod', 0, 0, '', '2025-04-30 10:56:19', '2025-04-30 10:56:19'),
+	(33, '0RW331873W021141M', NULL, 'Thuý lan', '0345678922', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Xã Dế Su Phình, Huyện Mù Cang Chải, Yên Bái', 5800000, 580000, 20500, 5240500, 2, 'paypal', 1, 1, '', '2025-04-30 15:33:49', '2025-04-30 15:33:49'),
+	(34, 'ORD1746004749308', 34, 'Phạm Phượng', '0345678904', 'thuykieu20040@gmail.com', 'Phước Thiện 1, Xã Kiên Thành, Huyện Trấn Yên, Yên Bái', 10000000, 1000000, 20500, 9020500, 2, 'cod', 0, 0, '', '2025-04-30 16:19:09', '2025-04-30 16:19:39'),
+	(35, 'ORD1746004853688', NULL, 'Thuý Kiều', '0345678904', 'thuykieu20040@gmail.com', 'Phước Thiện 1, Phường Hoài Hương, Thị xã Hoài Nhơn, Bình Định', 24500000, 2450000, 20500, 22070500, 1, 'bank', 0, 0, '', '2025-04-30 16:20:53', '2025-04-30 16:20:53'),
+	(36, 'ORD1746006429503', 34, 'Trần Hằng', '0987654325', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Xã Lao Xả Phình, Huyện Tủa Chùa, Điện Biên', 6300000, 630000, 0, 5670000, 3, 'cod', 0, 0, '', '2025-04-30 16:47:09', '2025-04-30 16:47:09'),
+	(37, '0KH21888DY266300D', 34, 'An An', '0345678904', 'tch@gmail.com', 'Phước Thiện 1, Xã Long Sơn, Huyện Lương Sơn, Hòa Bình', 6000000, 600000, 20500, 5420500, 1, 'paypal', 1, 1, '', '2025-04-30 16:48:16', '2025-04-30 16:48:16'),
+	(38, '9V065106L6310721L', 34, 'Trần Hằng', '0345678904', 'tch@gmail.com', 'Phước Thiện 1, Xã Hàm Cường, Huyện Hàm Thuận Nam, Bình Thuận', 21500000, 2150000, 20500, 19370500, 5, 'paypal', 1, 1, '', '2025-05-01 00:06:52', '2025-05-01 00:06:52'),
+	(39, 'ORD1746033206347', 34, 'Thuý Kiều', '0345678922', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Xã Đắk Hà, Huyện Tu Mơ Rông, Kon Tum', 26000000, 2600000, 20500, 23420500, 1, 'cod', 0, 0, '', '2025-05-01 00:13:26', '2025-05-01 00:13:39'),
+	(40, 'ORD1746035499888', 34, 'An An', '0345678904', 'as@gmail.com', 'Phước Thiện 1, Xã Hàm Cường, Huyện Hàm Thuận Nam, Bình Thuận', 13500000, 1350000, 20500, 12170500, 2, 'bank', 0, 0, '', '2025-05-01 00:51:39', '2025-05-01 00:52:05'),
+	(41, 'ORD1746035585178', 34, 'Thuý lan', '0345678922', '22130137@st.hcmuaf.edu.vn', 'Nha Hố, Xã Hoài Châu Bắc, Thị xã Hoài Nhơn, Bình Định', 5000000, 500000, 20500, 4520500, 1, 'cod', 0, 0, '', '2025-05-01 00:53:05', '2025-05-01 00:53:05'),
+	(42, 'ORD1746071184605', 34, 'Trần Hằng', '0345678904', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Xã Lâm Sơn, Huyện Ninh Sơn, Ninh Thuận', 7800000, 780000, 20500, 7040500, 2, 'cod', 0, 0, '', '2025-05-01 10:46:24', '2025-05-01 10:46:52');
 
 -- Dumping structure for table web_eyestyle.order_details
 CREATE TABLE IF NOT EXISTS `order_details` (
@@ -459,9 +513,10 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   KEY `product_id` (`product_id`),
   CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.order_details: ~31 rows (approximately)
+-- Dumping data for table web_eyestyle.order_details: ~51 rows (approximately)
+DELETE FROM `order_details`;
 INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `product_name`, `quantity`, `price_per_item`, `total_total`, `created_at`, `updated_at`) VALUES
 	(1, 6, 3, 'VCHG58_0400', 1, 24000000, 24000000, '2025-04-02 18:15:02', '2025-04-02 18:15:02'),
 	(2, 7, 4, 'VCHG39_0400', 1, 24500000, 24500000, '2025-04-02 18:26:18', '2025-04-02 18:26:18'),
@@ -493,7 +548,29 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `product_name`, `qu
 	(28, 24, 4, 'VCHG39_0400', 1, 24500000, 24500000, '2025-04-05 14:35:24', '2025-04-05 14:35:24'),
 	(29, 24, 9, 'MB0236SK_60_003', 1, 12000000, 12000000, '2025-04-05 14:35:24', '2025-04-05 14:35:24'),
 	(30, 24, 11, '0PR01ZVD_01G1O1_56', 1, 7800000, 7800000, '2025-04-05 14:35:24', '2025-04-05 14:35:24'),
-	(31, 24, 13, '0PRA51V_1AB1O1_53', 2, 11000000, 22000000, '2025-04-05 14:35:24', '2025-04-05 14:35:24');
+	(31, 24, 13, '0PRA51V_1AB1O1_53', 2, 11000000, 22000000, '2025-04-05 14:35:24', '2025-04-05 14:35:24'),
+	(32, 25, 44, '0PR21ZVF_16K1O1_55', 1, 9500000, 9500000, '2025-04-30 10:13:18', '2025-04-30 10:13:18'),
+	(33, 25, 45, '0PR52ZV_SVF1O1_55', 2, 11000000, 22000000, '2025-04-30 10:13:18', '2025-04-30 10:13:18'),
+	(34, 26, 9, 'MB0236SK_60_003', 1, 12000000, 12000000, '2025-04-30 10:17:51', '2025-04-30 10:17:51'),
+	(35, 27, 9, 'MB0236SK_60_003', 1, 12000000, 12000000, '2025-04-30 10:25:41', '2025-04-30 10:25:41'),
+	(36, 28, 9, 'MB0236SK_60_003', 1, 12000000, 12000000, '2025-04-30 10:25:54', '2025-04-30 10:25:54'),
+	(37, 29, 3, 'VCHG58_0400', 1, 24000000, 24000000, '2025-04-30 10:27:36', '2025-04-30 10:27:36'),
+	(38, 30, 29, '0RX5121F_8381_50', 1, 6500000, 6500000, '2025-04-30 10:30:05', '2025-04-30 10:30:05'),
+	(39, 31, 29, '0RX5121F_8381_50', 1, 6500000, 6500000, '2025-04-30 10:31:01', '2025-04-30 10:31:01'),
+	(40, 32, 92, '0RB3825_001_GG_58', 1, 5000000, 5000000, '2025-04-30 10:56:19', '2025-04-30 10:56:19'),
+	(41, 33, 15, '0OY8029F_80290148', 2, 2900000, 5800000, '2025-04-30 15:33:49', '2025-04-30 15:33:49'),
+	(42, 34, 42, '0RX5154_8375_53', 2, 5000000, 10000000, '2025-04-30 16:19:09', '2025-04-30 16:19:09'),
+	(43, 35, 4, 'VCHG39_0400', 1, 24500000, 24500000, '2025-04-30 16:20:53', '2025-04-30 16:20:53'),
+	(44, 36, 60, 'PG83611_K1', 3, 2100000, 6300000, '2025-04-30 16:47:09', '2025-04-30 16:47:09'),
+	(45, 37, 47, 'MOD.3316-F_108', 1, 6000000, 6000000, '2025-04-30 16:48:16', '2025-04-30 16:48:16'),
+	(46, 38, 17, 'PR82415_B2', 1, 1700000, 1700000, '2025-05-01 00:06:52', '2025-05-01 00:06:52'),
+	(47, 38, 19, 'EF71564_582', 2, 900000, 1800000, '2025-05-01 00:06:52', '2025-05-01 00:06:52'),
+	(48, 38, 101, 'GG1140SK_54_002', 2, 9000000, 18000000, '2025-05-01 00:06:52', '2025-05-01 00:06:52'),
+	(49, 39, 6, 'VCHG86_0300', 1, 26000000, 26000000, '2025-05-01 00:13:26', '2025-05-01 00:13:26'),
+	(50, 40, 46, 'MOD.3335-F_GB1', 1, 7500000, 7500000, '2025-05-01 00:51:39', '2025-05-01 00:51:39'),
+	(51, 40, 47, 'MOD.3316-F_108', 1, 6000000, 6000000, '2025-05-01 00:51:39', '2025-05-01 00:51:39'),
+	(52, 41, 42, '0RX5154_8375_53', 1, 5000000, 5000000, '2025-05-01 00:53:05', '2025-05-01 00:53:05'),
+	(53, 42, 81, 'VFU411J_0514', 2, 3900000, 7800000, '2025-05-01 10:46:24', '2025-05-01 10:46:24');
 
 -- Dumping structure for table web_eyestyle.posts
 CREATE TABLE IF NOT EXISTS `posts` (
@@ -505,10 +582,10 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `url` varchar(255) DEFAULT NULL,
   `access` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.posts: ~27 rows (approximately)
+DELETE FROM `posts`;
 INSERT INTO `posts` (`id`, `thumbnail`, `created_at`, `title`, `content`, `url`, `access`) VALUES
 	(1, 'assets/images/blog_images/blog1.png', '2024-08-22 00:00:00', 'Cách chọn kính phù hợp với dáng mặt', 'Khi tìm kiếm gọng kính lý tưởng, có ba tiêu chí quan trọng bạn cần xem xét: độ tương phản, tỷ lệ, và màu sắc của gọng.', 'https://matviet.vn/blogs/tu-van-chon-kinh/bi-quyet-chon-kinh-phu-hop-voi-khuon-mat', 0),
 	(2, 'assets/images/blog_images/blog3.png', '2024-08-15 00:00:00', 'Cách bảo vệ mắt trước ánh sáng xanh. Bạn đã biết?', 'Thời đại công nghệ phát triển, mọi người tiếp xúc rất nhiều với các thiết bị điện tử dẫn đến tình trạng suy giảm thị lực.', 'https://matviet.vn/blogs/kien-thuc/anh-sang-xanh-la-gi-cach-bao-ve-mat-tranh-khoi-anh-sang-xanh', 0),
@@ -566,6 +643,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB AUTO_INCREMENT=303 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.products: ~151 rows (approximately)
+DELETE FROM `products`;
 INSERT INTO `products` (`id`, `category_id`, `brand_id`, `shape_id`, `material`, `name`, `description`, `status`, `hot`, `cost_price`, `selling_price`, `quantity`, `gender`, `color`, `created_at`, `updated_at`) VALUES
 	(1, 10, 1, 1, 'Kim loại', 'GG1144O_54_002', 'Gọng kính Thép không gỉ', 1, 1, 11900000, 12000000, 20, 4, 'Bạc-Xanh', '2024-12-15 22:16:05', '2024-12-17 22:16:04'),
 	(2, 1, 2, 7, 'Nhựa', 'CT0291OA_005', 'Gọng kính nhựa', 1, 1, 15500000, 16000000, 15, 1, 'Đen', '2024-12-15 22:20:41', '2024-12-17 22:21:08'),
@@ -733,8 +811,9 @@ CREATE TABLE IF NOT EXISTS `products_images` (
 ) ENGINE=InnoDB AUTO_INCREMENT=443 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.products_images: ~221 rows (approximately)
+DELETE FROM `products_images`;
 INSERT INTO `products_images` (`id`, `product_id`, `is_main`, `path`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'assets/images/Product/product2.jpg', '2024-12-18 10:20:34', '2024-12-18 10:20:34'),
+	(1, 1, 1, 'assets/images/Product/product2.jpg', '2024-12-18 10:20:34', '2024-12-18 10:20:34'),
 	(2, 1, 0, 'assets/images/Product/product2b.jpg', '2024-12-18 10:25:00', '2024-12-01 10:25:00'),
 	(3, 1, 0, 'assets/images/Product/product2c.jpg', '2024-12-18 11:00:00', '2024-12-18 11:00:00'),
 	(4, 1, 0, 'assets/images/Product/product2d.jpg', '2024-12-18 11:10:00', '2024-12-18 11:10:00'),
@@ -955,6 +1034,7 @@ INSERT INTO `products_images` (`id`, `product_id`, `is_main`, `path`, `created_a
 	(219, 149, 1, 'assets/images/Product/product177.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(220, 150, 1, 'assets/images/Product/product178.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(221, 151, 1, 'assets/images/Product/product179.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56');
+
 -- Dumping structure for table web_eyestyle.stock_in
 CREATE TABLE IF NOT EXISTS `stock_in` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -967,6 +1047,7 @@ CREATE TABLE IF NOT EXISTS `stock_in` (
 ) ENGINE=InnoDB AUTO_INCREMENT=156 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.stock_in: ~151 rows (approximately)
+DELETE FROM `stock_in`;
 INSERT INTO `stock_in` (`id`, `product_id`, `quantity_added`, `import_date`) VALUES
 	(5, 1, 30, '2025-04-05 12:11:05'),
 	(6, 2, 30, '2025-04-05 12:11:05'),
@@ -1132,7 +1213,8 @@ CREATE TABLE IF NOT EXISTS `table_item` (
   CONSTRAINT `FK_table_item_categories_2` FOREIGN KEY (`sub_category`) REFERENCES `categories` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.table_item: ~24 rows (approximately)
+-- Dumping data for table web_eyestyle.table_item: ~21 rows (approximately)
+DELETE FROM `table_item`;
 INSERT INTO `table_item` (`id`, `category_id`, `sub_category`) VALUES
 	(22, 3, 1),
 	(44, 3, 2),
@@ -1165,48 +1247,50 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
-	`role` nvarchar(10) DEFAULT NULL , 
-	`avatar` nvarchar(255)  DEFAULT NULL , 
+  `role` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.users: ~33 rows (approximately)
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`,  `created_at`, `updated_at`) VALUES
-	(1, 'Nguyễn Văn An', 'annguyen@gmail.com', 'password123', '0912345678', 'Số 12, Đường Nguyễn Trãi, Hà Nội', 1, '2024-12-01 08:30:56', '2024-12-01 09:30:08'),
-	(2, 'Trần Thị Hoa', 'hoatran@gmail.com', 'hoa2024', '0934567890', 'Số 25, Đường Lê Lợi, Hồ Chí Minh', 1, '2024-12-02 09:12:00', '2024-12-02 09:30:00'),
-	(3, 'Lê Minh Tâm', 'tamle@gmail.com', 'minhtam789', '0978123456', 'Số 30, Đường Trần Phú, Đà Nẵng', 1, '2024-12-03 10:15:34', '2024-12-03 10:15:34'),
-	(4, 'Phạm Thị Cúc', 'cucpham@gmail.com', 'cuc12345', '0965432187', 'Số 15, Đường Nguyễn Văn Linh, Cần Thơ', 0, NULL, NULL),
-	(5, 'Hoàng Văn Hải', 'haihoang@gmail.com', 'hoanghai456', '0945678901', 'Số 45, Đường Hùng Vương, Nha Trang', 1, '2024-12-05 12:45:00', '2024-12-05 12:45:00'),
-	(6, 'Đặng Hồng Nhung', 'nhungdang@gmail.com', 'nhung2024', '0983214567', 'Số 8, Đường Nguyễn Huệ, Huế', 1, '2024-12-06 13:20:30', '2024-12-06 13:20:30'),
-	(7, 'Võ Quang Huy', 'huyvo@gmail.com', 'quanghuy321', '0905671234', 'Số 12, Đường Lạch Tray, Hải Phòng', 1, '2024-12-07 14:30:16', '2024-12-07 14:30:16'),
-	(8, 'Ngô Thị Mai', 'maingo@gmail.com', 'ngomai654', '0932145678', 'Số 50, Đường Trần Hưng Đạo, Quảng Nam', 0, NULL, NULL),
-	(9, 'Bùi Thanh Sơn', 'sonbui@gmail.com', 'thanhson123', '0912348765', 'Số 65, Đường Cách Mạng Tháng Tám, Bình Dương', 1, '2024-12-09 16:19:56', '2024-12-09 16:19:56'),
-	(10, 'Phan Nhật Ánh', 'anhphan@gmail.com', 'nhatanh789', '0945678123', 'Số 20, Đường Phạm Văn Đồng, Vũng Tàu', 1, '2024-12-10 17:30:10', '2024-12-10 17:30:10'),
-	(11, 'Lý Thị Hồng', 'hongly@gmail.com', 'hongly456', '0921345678', 'Số 5, Đường Hà Huy Tập, Hà Tĩnh', 1, '2024-12-11 18:20:00', '2024-12-11 18:20:00'),
-	(12, 'Trịnh Văn Lâm', 'lamtrinh@gmail.com', 'lamvan123', '0908765432', 'Số 17, Đường Bà Triệu, Thanh Hóa', 1, '2024-12-12 19:40:47', '2024-12-12 19:40:47'),
-	(13, 'Đỗ Ngọc Bảo', 'baodo@gmail.com', 'ngocbao987', '0932146789', 'Số 34, Đường Lý Thường Kiệt, Nam Định', 0, NULL, NULL),
-	(14, 'Phạm Thanh Hà', 'hapham@gmail.com', 'phamha456', '0943215678', 'Số 7, Đường Nguyễn Thị Minh Khai, Thái Nguyên', 1, '2024-12-14 21:50:39', '2024-12-14 21:50:39'),
-	(15, 'Nguyễn Hoàng Minh', 'minhnguyen@gmail.com', 'hoangminh123', '0987654321', 'Số 90, Đường Bắc Ninh, Bắc Ninh', 1, '2024-12-15 22:30:18', '2024-12-15 22:30:18'),
-	(16, 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, '2024-12-16 23:00:56', '2024-12-16 23:00:56'),
-	(17, 'Nguyễn Văn An', 'annguyen@gmail.com', 'password123', '0912345678', 'Số 12, Đường Nguyễn Trãi, Hà Nội', 1, '2024-12-01 08:30:56', '2024-12-01 09:30:08'),
-	(18, 'Trần Thị Hoa', 'hoatran@gmail.com', 'hoa2024', '0934567890', 'Số 25, Đường Lê Lợi, Hồ Chí Minh', 1, '2024-12-02 09:12:00', '2024-12-02 09:30:00'),
-	(19, 'Lê Minh Tâm', 'tamle@gmail.com', 'minhtam789', '0978123456', 'Số 30, Đường Trần Phú, Đà Nẵng', 1, '2024-12-03 10:15:34', '2024-12-03 10:15:34'),
-	(20, 'Phạm Thị Cúc', 'cucpham@gmail.com', 'cuc12345', '0965432187', 'Số 15, Đường Nguyễn Văn Linh, Cần Thơ', 0, NULL, NULL),
-	(21, 'Hoàng Văn Hải', 'haihoang@gmail.com', 'hoanghai456', '0945678901', 'Số 45, Đường Hùng Vương, Nha Trang', 1, '2024-12-05 12:45:00', '2024-12-05 12:45:00'),
-	(22, 'Đặng Hồng Nhung', 'nhungdang@gmail.com', 'nhung2024', '0983214567', 'Số 8, Đường Nguyễn Huệ, Huế', 1, '2024-12-06 13:20:30', '2024-12-06 13:20:30'),
-	(23, 'Võ Quang Huy', 'huyvo@gmail.com', 'quanghuy321', '0905671234', 'Số 12, Đường Lạch Tray, Hải Phòng', 1, '2024-12-07 14:30:16', '2024-12-07 14:30:16'),
-	(24, 'Ngô Thị Mai', 'maingo@gmail.com', 'ngomai654', '0932145678', 'Số 50, Đường Trần Hưng Đạo, Quảng Nam', 0, NULL, NULL),
-	(25, 'Bùi Thanh Sơn', 'sonbui@gmail.com', 'thanhson123', '0912348765', 'Số 65, Đường Cách Mạng Tháng Tám, Bình Dương', 1, '2024-12-09 16:19:56', '2024-12-09 16:19:56'),
-	(26, 'Phan Nhật Ánh', 'anhphan@gmail.com', 'nhatanh789', '0945678123', 'Số 20, Đường Phạm Văn Đồng, Vũng Tàu', 1, '2024-12-10 17:30:10', '2024-12-10 17:30:10'),
-	(27, 'Lý Thị Hồng', 'hongly@gmail.com', 'hongly456', '0921345678', 'Số 5, Đường Hà Huy Tập, Hà Tĩnh', 1, '2024-12-11 18:20:00', '2024-12-11 18:20:00'),
-	(28, 'Trịnh Văn Lâm', 'lamtrinh@gmail.com', 'lamvan123', '0908765432', 'Số 17, Đường Bà Triệu, Thanh Hóa', 1, '2024-12-12 19:40:47', '2024-12-12 19:40:47'),
-	(29, 'Đỗ Ngọc Bảo', 'baodo@gmail.com', 'ngocbao987', '0932146789', 'Số 34, Đường Lý Thường Kiệt, Nam Định', 0, NULL, NULL),
-	(30, 'Phạm Thanh Hà', 'hapham@gmail.com', 'phamha456', '0943215678', 'Số 7, Đường Nguyễn Thị Minh Khai, Thái Nguyên', 1, '2024-12-14 21:50:39', '2024-12-14 21:50:39'),
-	(31, 'Nguyễn Hoàng Minh', 'minhnguyen@gmail.com', 'hoangminh123', '0987654321', 'Số 90, Đường Bắc Ninh, Bắc Ninh', 1, '2024-12-15 22:30:18', '2024-12-15 22:30:18'),
-	(32, 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, '2024-12-16 23:00:56', '2024-12-16 23:00:56'),
-	(33, 'GUEST', NULL, NULL, NULL, NULL, NULL, '2025-03-28 11:49:48', '2025-03-28 11:49:48');
+DELETE FROM `users`;
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`, `role`, `avatar`, `created_at`, `updated_at`) VALUES
+	(1, 'Nguyễn Văn An', 'annguyen@gmail.com', 'password123', '0912345678', 'Số 12, Đường Nguyễn Trãi, Hà Nội', 1, NULL, NULL, '2024-12-01 08:30:56', '2024-12-01 09:30:08'),
+	(2, 'Trần Thị Hoa', 'hoatran@gmail.com', 'hoa2024', '0934567890', 'Số 25, Đường Lê Lợi, Hồ Chí Minh', 1, NULL, NULL, '2024-12-02 09:12:00', '2024-12-02 09:30:00'),
+	(3, 'Lê Minh Tâm', 'tamle@gmail.com', 'minhtam789', '0978123456', 'Số 30, Đường Trần Phú, Đà Nẵng', 1, NULL, NULL, '2024-12-03 10:15:34', '2024-12-03 10:15:34'),
+	(4, 'Phạm Thị Cúc', 'cucpham@gmail.com', 'cuc12345', '0965432187', 'Số 15, Đường Nguyễn Văn Linh, Cần Thơ', 0, NULL, NULL, NULL, NULL),
+	(5, 'Hoàng Văn Hải', 'haihoang@gmail.com', 'hoanghai456', '0945678901', 'Số 45, Đường Hùng Vương, Nha Trang', 1, NULL, NULL, '2024-12-05 12:45:00', '2024-12-05 12:45:00'),
+	(6, 'Đặng Hồng Nhung', 'nhungdang@gmail.com', 'nhung2024', '0983214567', 'Số 8, Đường Nguyễn Huệ, Huế', 1, NULL, NULL, '2024-12-06 13:20:30', '2024-12-06 13:20:30'),
+	(7, 'Võ Quang Huy', 'huyvo@gmail.com', 'quanghuy321', '0905671234', 'Số 12, Đường Lạch Tray, Hải Phòng', 1, NULL, NULL, '2024-12-07 14:30:16', '2024-12-07 14:30:16'),
+	(8, 'Ngô Thị Mai', 'maingo@gmail.com', 'ngomai654', '0932145678', 'Số 50, Đường Trần Hưng Đạo, Quảng Nam', 0, NULL, NULL, NULL, NULL),
+	(9, 'Bùi Thanh Sơn', 'sonbui@gmail.com', 'thanhson123', '0912348765', 'Số 65, Đường Cách Mạng Tháng Tám, Bình Dương', 1, NULL, NULL, '2024-12-09 16:19:56', '2024-12-09 16:19:56'),
+	(10, 'Phan Nhật Ánh', 'anhphan@gmail.com', 'nhatanh789', '0945678123', 'Số 20, Đường Phạm Văn Đồng, Vũng Tàu', 1, NULL, NULL, '2024-12-10 17:30:10', '2024-12-10 17:30:10'),
+	(11, 'Lý Thị Hồng', 'hongly@gmail.com', 'hongly456', '0921345678', 'Số 5, Đường Hà Huy Tập, Hà Tĩnh', 1, NULL, NULL, '2024-12-11 18:20:00', '2024-12-11 18:20:00'),
+	(12, 'Trịnh Văn Lâm', 'lamtrinh@gmail.com', 'lamvan123', '0908765432', 'Số 17, Đường Bà Triệu, Thanh Hóa', 1, NULL, NULL, '2024-12-12 19:40:47', '2024-12-12 19:40:47'),
+	(13, 'Đỗ Ngọc Bảo', 'baodo@gmail.com', 'ngocbao987', '0932146789', 'Số 34, Đường Lý Thường Kiệt, Nam Định', 0, NULL, NULL, NULL, NULL),
+	(14, 'Phạm Thanh Hà', 'hapham@gmail.com', 'phamha456', '0943215678', 'Số 7, Đường Nguyễn Thị Minh Khai, Thái Nguyên', 1, NULL, NULL, '2024-12-14 21:50:39', '2024-12-14 21:50:39'),
+	(15, 'Nguyễn Hoàng Minh', 'minhnguyen@gmail.com', 'hoangminh123', '0987654321', 'Số 90, Đường Bắc Ninh, Bắc Ninh', 1, NULL, NULL, '2024-12-15 22:30:18', '2024-12-15 22:30:18'),
+	(16, 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, NULL, NULL, '2024-12-16 23:00:56', '2024-12-16 23:00:56'),
+	(17, 'Nguyễn Văn An', 'annguyen@gmail.com', 'password123', '0912345678', 'Số 12, Đường Nguyễn Trãi, Hà Nội', 1, NULL, NULL, '2024-12-01 08:30:56', '2024-12-01 09:30:08'),
+	(18, 'Trần Thị Hoa', 'hoatran@gmail.com', 'hoa2024', '0934567890', 'Số 25, Đường Lê Lợi, Hồ Chí Minh', 1, NULL, NULL, '2024-12-02 09:12:00', '2024-12-02 09:30:00'),
+	(19, 'Lê Minh Tâm', 'tamle@gmail.com', 'minhtam789', '0978123456', 'Số 30, Đường Trần Phú, Đà Nẵng', 1, NULL, NULL, '2024-12-03 10:15:34', '2024-12-03 10:15:34'),
+	(20, 'Phạm Thị Cúc', 'cucpham@gmail.com', 'cuc12345', '0965432187', 'Số 15, Đường Nguyễn Văn Linh, Cần Thơ', 0, NULL, NULL, NULL, NULL),
+	(21, 'Hoàng Văn Hải', 'haihoang@gmail.com', 'hoanghai456', '0945678901', 'Số 45, Đường Hùng Vương, Nha Trang', 1, NULL, NULL, '2024-12-05 12:45:00', '2024-12-05 12:45:00'),
+	(22, 'Đặng Hồng Nhung', 'nhungdang@gmail.com', 'nhung2024', '0983214567', 'Số 8, Đường Nguyễn Huệ, Huế', 1, NULL, NULL, '2024-12-06 13:20:30', '2024-12-06 13:20:30'),
+	(23, 'Võ Quang Huy', 'huyvo@gmail.com', 'quanghuy321', '0905671234', 'Số 12, Đường Lạch Tray, Hải Phòng', 1, NULL, NULL, '2024-12-07 14:30:16', '2024-12-07 14:30:16'),
+	(24, 'Ngô Thị Mai', 'maingo@gmail.com', 'ngomai654', '0932145678', 'Số 50, Đường Trần Hưng Đạo, Quảng Nam', 0, NULL, NULL, NULL, NULL),
+	(25, 'Bùi Thanh Sơn', 'sonbui@gmail.com', 'thanhson123', '0912348765', 'Số 65, Đường Cách Mạng Tháng Tám, Bình Dương', 1, NULL, NULL, '2024-12-09 16:19:56', '2024-12-09 16:19:56'),
+	(26, 'Phan Nhật Ánh', 'anhphan@gmail.com', 'nhatanh789', '0945678123', 'Số 20, Đường Phạm Văn Đồng, Vũng Tàu', 1, NULL, NULL, '2024-12-10 17:30:10', '2024-12-10 17:30:10'),
+	(27, 'Lý Thị Hồng', 'hongly@gmail.com', 'hongly456', '0921345678', 'Số 5, Đường Hà Huy Tập, Hà Tĩnh', 1, NULL, NULL, '2024-12-11 18:20:00', '2024-12-11 18:20:00'),
+	(28, 'Trịnh Văn Lâm', 'lamtrinh@gmail.com', 'lamvan123', '0908765432', 'Số 17, Đường Bà Triệu, Thanh Hóa', 1, NULL, NULL, '2024-12-12 19:40:47', '2024-12-12 19:40:47'),
+	(29, 'Đỗ Ngọc Bảo', 'baodo@gmail.com', 'ngocbao987', '0932146789', 'Số 34, Đường Lý Thường Kiệt, Nam Định', 0, NULL, NULL, NULL, NULL),
+	(30, 'Phạm Thanh Hà', 'hapham@gmail.com', 'phamha456', '0943215678', 'Số 7, Đường Nguyễn Thị Minh Khai, Thái Nguyên', 1, NULL, NULL, '2024-12-14 21:50:39', '2024-12-14 21:50:39'),
+	(31, 'Nguyễn Hoàng Minh', 'minhnguyen@gmail.com', 'hoangminh123', '0987654321', 'Số 90, Đường Bắc Ninh, Bắc Ninh', 1, NULL, NULL, '2024-12-15 22:30:18', '2024-12-15 22:30:18'),
+	(32, 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, NULL, NULL, '2024-12-16 23:00:56', '2024-12-16 23:00:56'),
+	(33, 'GUEST', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-03-28 11:49:48', '2025-03-28 11:49:48'),
+	(34, 'thuykieu', 'thuykieu20040@gmail.com', '$2a$12$IL9f0WGUBLjYBA2ORXMVN.B8s3ZItN2BdDnjtIjZ6mwHb3wrSVD8e', NULL, NULL, 1, 'USER', '/assets/images/Avatar/user.png', '2025-04-30 10:49:45', '2025-04-30 10:49:45');
 
 -- Dumping structure for table web_eyestyle.users_types
 CREATE TABLE IF NOT EXISTS `users_types` (
@@ -1221,6 +1305,7 @@ CREATE TABLE IF NOT EXISTS `users_types` (
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.users_types: ~16 rows (approximately)
+DELETE FROM `users_types`;
 INSERT INTO `users_types` (`id`, `user_id`, `user_type_id`) VALUES
 	(1, 1, 1),
 	(2, 2, 2),
@@ -1248,6 +1333,7 @@ CREATE TABLE IF NOT EXISTS `user_type` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.user_type: ~2 rows (approximately)
+DELETE FROM `user_type`;
 INSERT INTO `user_type` (`id`, `name`, `description`) VALUES
 	(1, 'Admin', 'Quản trị viên có quyền quản lý toàn bộ hệ thống, bao gồm quản lý đơn hàng, sản phẩm và thông tin khách hàng.'),
 	(2, 'User', 'Người dùng bình thường có quyền mua hàng và xem các sản phẩm, không có quyền quản lý hệ thống hay dữ liệu khách hàng.');

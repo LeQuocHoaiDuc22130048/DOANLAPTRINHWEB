@@ -52,6 +52,14 @@ public class LoginController extends HttpServlet {
         // tạo session lưu thông tin cần thiết
         HttpSession session = request.getSession();
         session.setAttribute("avatar", user.getAvatar());
+        session.setAttribute("user", user);
+
+        String tempOrderCode = (String) session.getAttribute("temp_order_code");
+        if (tempOrderCode != null) {
+            userDaoImp.updateOrderUserId(tempOrderCode, user.getId());
+            session.removeAttribute("temp_order_code");
+        }
+
         // tạo cookie lưu thông tin token
         Cookie jwtCookie = new Cookie("Authorization", token);
         jwtCookie.setHttpOnly(true);

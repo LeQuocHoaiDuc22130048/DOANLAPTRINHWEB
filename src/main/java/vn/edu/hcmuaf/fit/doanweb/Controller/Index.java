@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Brands;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoInterface;
 import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
@@ -16,9 +17,11 @@ import vn.edu.hcmuaf.fit.doanweb.Util.Roles;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
+
 @WebServlet(name = "index", value = "/")
 public class Index extends HttpServlet {
-    ProductDaoImp dao = new ProductDaoImp();
+    private ProductDaoInterface dao = new ProductDaoImp();
     private String name = Index.class.getSimpleName();
 
     @Override
@@ -37,6 +40,13 @@ public class Index extends HttpServlet {
         request.setAttribute("productListKAT", productListKAT);
         request.setAttribute("productListGK", productListGK);
         request.setAttribute("brandList", brandList);
+
+        //Lưu lại danh sách cac san pham da thich sau khi load trang
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
+            Set<Integer> favoriteIds = dao.getFavoriteProductIds(user.getId());
+            session.setAttribute("favoriteIds", favoriteIds);
+        }
 
         request.getRequestDispatcher("/index.jsp").forward(request, response);
 

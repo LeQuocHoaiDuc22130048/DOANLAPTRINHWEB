@@ -8,6 +8,9 @@ plugins {
 
 repositories {
     mavenCentral()
+    google() // Cho Android/Google libraries
+    maven { url "https://maven.google.com" } // Cũ
+    maven { url "https://repo1.maven.org/maven2" } // Maven Central (dự phòng)
 }
 
 group = 'vn.edu.hcmuaf.fit'
@@ -54,6 +57,12 @@ dependencies {
 
     testCompileOnly("org.projectlombok:lombok:1.18.38")
     testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
+
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.34.1'
+    implementation 'com.google.http-client:google-http-client-gson:1.43.0'
+    implementation 'com.google.apis:google-api-services-oauth2:v2-rev157-1.25.0'
+    implementation 'org.json:json:20240303' // hoặc version mới nhất
+
 }
 
 war {
@@ -71,9 +80,15 @@ tasks.withType(Test).configureEach {
 
 remotes {
     host {
-        host = '192.168.157.129'
+<<<<<<< HEAD
+        host = '192.168.121.128'
         user = 'root'
         password = 'nhutanh09'
+=======
+        host = '192.168.40.128'
+        user = 'thuykieu'
+        password = '098kieu'
+>>>>>>> e0603a3 (chuc nang lich su don hang)
     }
 }
 ssh.settings {
@@ -84,38 +99,92 @@ task docker_app_start {
         println 'begin docker_app_start'
         ssh.run {
             session(remotes.host) {
-                execute 'docker stop tomcat9', ignoreError: true
+<<<<<<< HEAD
+                execute 'docker stop tomcat10', ignoreError: true
                 execute 'docker run -it --rm -d ' +
-                        '--name tomcat9 ' +
+                        '--name tomcat10 ' +
                         '-v /usr/deploy:/usr/local/tomcat/webapps ' +
                         '-p 80:8080 ' +
-                        'tomcat:9.0&'
+                        'tomcat:10.0'
+=======
+                // --- Xử lý Tomcat ---
+                execute 'docker stop tomcat10 || true'
+                execute 'docker rm -f tomcat10 || true'
+                execute 'docker run -it --rm -d ' +
+                        '--name tomcat10 ' +
+                        '-v /home/thuykieu/deploy:/usr/local/tomcat/webapps ' +
+                        '-p 80:8080 ' +
+                        'tomcat:10.0'
+
+                // --- Xử lý MySQL ---
+                execute 'docker stop mysql || true'
+                execute 'docker rm -f mysql || true'
+                execute 'docker run -it -d ' +
+                        '--name mysql ' +
+                        '-p 3306:3306 ' +
+                        '-e MYSQL_ROOT_PASSWORD=123 ' +
+                        'mysql:latest'
+
+                // --- Chờ MySQL khởi động xong ---
+                println 'Waiting for MySQL to be ready...'
+                sleep(40000) // chờ 10s để MySQL khởi động
+
+                // --- Import dữ liệu ---
+                execute "cat /home/thuykieu/deploy/DoAnWeb/SQL/web_eyestyle.sql | docker exec -i mysql mysql -u root -p123"
+
+>>>>>>> e0603a3 (chuc nang lich su don hang)
             }
         }
     }
 }
+
 task docker_upload_file_to_server {
     doLast {
         println 'Uploading file to Linux server...'
         ssh.run {
             session(remotes.host) {
-                // Tạo thư mục nếu chưa có
+<<<<<<< HEAD
                 execute 'mkdir -p /usr/deploy'
-
                 // Xóa file cũ nếu có
-                remove '/usr/deploy/test.war'
-                remove '/usr/deploy/test'
+                remove '/usr/deploy/DoAnWeb.war'
+                remove '/usr/deploy/DoAnWeb'
                 // Upload file
                 put from: "${project.projectDir}/build/libs/DoAnWeb.war",
-                        into: "/usr/deploy/DoAnWeb_war.war"
+                        into: "/usr/deploy/DoAnWeb.war"
+=======
+                // Tạo thư mục deploy
+                execute 'mkdir -p /home/thuykieu/deploy'
+
+                // Xóa file cũ nếu có
+                remove '/home/thuykieu/deploy/DoAnWeb.war'
+                remove '/home/thuykieu/deploy/DoAnWeb'
+
+                // Upload file WAR
+                put from: "${project.projectDir}/build/libs/DoAnWeb.war",
+                        into: "/home/thuykieu/deploy/DoAnWeb.war"
+                execute 'chmod 755 /home/thuykieu/deploy/DoAnWeb.war'
+
+                // Giải nén file WAR nếu cần
+//                execute 'cd /home/thuykieu/deploy && mkdir DoAnWeb && cd DoAnWeb && jar -xvf ../DoAnWeb.war'
+
+                // Tạo thư mục SQL trong DoAnWeb nếu chưa có
+                execute 'mkdir -p /home/thuykieu/deploy/DoAnWeb/SQL'
+
+                // Upload file SQL
+                put from: "${project.projectDir}/SQL/web_eyestyle.sql",
+                        into: "/home/thuykieu/deploy/DoAnWeb/SQL/web_eyestyle.sql"
+>>>>>>> e0603a3 (chuc nang lich su don hang)
             }
         }
     }
 }
 
+
 tasks.register('docker_deploy') {
-    docker_deploy.dependsOn docker_app_start
-    docker_deploy.dependsOn docker_upload_file_to_server
-    docker_deploy.dependsOn build
-    tasks.getByName('docker_app_start').mustRunAfter docker_upload_file_to_server
+    dependsOn build
+    dependsOn docker_upload_file_to_server
+    dependsOn docker_app_start
+
+    // Đảm bảo upload xong mới chạy docker
+    tasks.docker_app_start.mustRunAfter docker_upload_file_to_server
 }

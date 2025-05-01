@@ -9,8 +9,7 @@ import java.util.List;
 
 public class OrderService {
 
-    //Lưu đơn hang vao database
-    public Orders createOrder(String orderCode, String customerName, String phoneNumber, String email,
+    public Orders createOrder(String orderCode, Integer userId, String customerName, String phoneNumber, String email,
                               String fullAddress, double subtotal, double totalDiscount,
                               double shippingFee, double totalPrice, int totalQuantity,
                               String paymentMethod, String orderNotes, List<CartProduct> listProducts) {
@@ -28,8 +27,6 @@ public class OrderService {
         order.setTotal_quantity(totalQuantity);
         order.setPayment_method(paymentMethod);
 
-        order.setPayment_method(paymentMethod);
-
         if (paymentMethod.equals("paypal")) {
             order.setPayment_status(true);
             order.setStatus_order(true);
@@ -41,6 +38,11 @@ public class OrderService {
         order.setOrder_notes(orderNotes);
         order.setListProducts(listProducts);
 
+        if (userId != null) {
+            order.setUser_id(userId);
+        }
+
+        // Lưu đơn hàng và cập nhật tồn kho
         OrderDaoImp orderDao = new OrderDaoImp();
         orderDao.saveOrder(order);
 
@@ -49,4 +51,5 @@ public class OrderService {
 
         return order;
     }
+
 }
