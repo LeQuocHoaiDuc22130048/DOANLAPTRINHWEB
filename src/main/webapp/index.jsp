@@ -144,7 +144,7 @@
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
                             </c:if>
-                            <div class="item col-4">
+                            <div class="item col-4" data-product-id="${product.id}">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -176,7 +176,11 @@
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
                                         <c:forEach begin="0" end="5" step="1">
-                                            <li><i class="fa fa-star"></i></li>
+                                            <li>
+                                                <i class="fa fa-star
+                                                    <c:if test="${sessionScope.favoriteIds != null && sessionScope.favoriteIds.contains(product.id)}"> active</c:if>
+                                                "></i>
+                                            </li>
                                         </c:forEach>
                                     </ul>
                                 </div>
@@ -208,8 +212,8 @@
         </div>
     </div>
 </section>
-<!-- ***** kinh_mat nam Ends ***** -->
-<!-- ***** kinh_mat nữ Starts ***** -->
+<!--  kinh_mat nam Ends -->
+<!--  kinh_mat nữ Starts  -->
 <section class="section kinh container" id="kinh_mat_nu">
     <div class="container">
         <div class="row content_head">
@@ -232,7 +236,7 @@
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
                             </c:if>
-                            <div class="item col-4">
+                            <div class="item col-4" data-product-id="${product.id}">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -264,7 +268,11 @@
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
                                         <c:forEach begin="0" end="4">
-                                            <li><i class="fa fa-star"></i></li>
+                                            <li>
+                                                <i class="fa fa-star
+                                                    <c:if test="${sessionScope.favoriteIds != null && sessionScope.favoriteIds.contains(product.id)}"> active</c:if>
+                                                "></i>
+                                            </li>
                                         </c:forEach>
                                     </ul>
                                 </div>
@@ -296,8 +304,8 @@
         </div>
     </div>
 </section>
-<!-- ***** kinh_mat nữ Ends ***** -->
-<!-- ***** gọng kính Area Starts ***** -->
+<!--  kinh_mat nữ Ends  -->
+<!--  gọng kính Area Starts -->
 <section class="section kinh" id="gong_kinh">
     <div class="container">
         <div class="row">
@@ -320,7 +328,7 @@
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
                             </c:if>
-                            <div class="item col-4">
+                            <div class="item col-4" data-product-id="${product.id}">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
@@ -352,7 +360,11 @@
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
                                         <c:forEach begin="0" end="4">
-                                            <li><i class="fa fa-star"></i></li>
+                                            <li>
+                                                <i class="fa fa-star
+                                                    <c:if test="${sessionScope.favoriteIds != null && sessionScope.favoriteIds.contains(product.id)}"> active</c:if>
+                                                "></i>
+                                            </li>
                                         </c:forEach>
                                     </ul>
                                 </div>
@@ -383,17 +395,15 @@
         </div>
     </div>
 </section>
-<!-- ***** gong-kinh Area Ends ***** -->
-<!-- ***** trong_kinh Area Starts ***** -->
+<!--  gong-kinh Area Ends  -->
+<!--  trong_kinh Area Starts -->
 <section class="section" id="trong_kinh">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="section-heading">
                     <h2>Tròng kính</h2>
-                    <span
-                    >Tròng Kính Cao Cấp – Bảo Vệ Đôi Mắt, Nâng Tầm Thị Giác</span
-                    >
+                    <span>Tròng Kính Cao Cấp – Bảo Vệ Đôi Mắt, Nâng Tầm Thị Giác</span>
                     <br></br>
                     <div class="type_trong">
                         <div></div>
@@ -420,8 +430,8 @@
         </div>
     </div>
 </section>
-<!-- ***** trong_kinh Ends ***** -->
-<!-- ***** Kinh_ap_trong Starts ***** -->
+<!--  trong_kinh Ends  -->
+<!--  Kinh_ap_trong Starts -->
 <section class="section" id="kinh_ap_trong">
     <div class="container">
         <div class="row">
@@ -471,8 +481,8 @@
         </div>
     </div>
 </section>
-<!-- ***** kinh_ap_trong Ends ***** -->
-<!-- ***** bo_suu_tap Starts ***** -->
+<!-- kinh_ap_trong Ends -->
+<!-- bo_suu_tap Starts -->
 <section class="section" id="bo_suu_tap">
     <div class="container">
         <div class="row">
@@ -542,8 +552,8 @@
         </div>
     </div>
 </section>
-<!-- ***** bo_suu_tap Ends ***** -->
-<!-- ***** thuong_hieu Starts ***** -->
+<!--  bo_suu_tap Ends  -->
+<!--  thuong_hieu Starts  -->
 <section class="section" id="thuong_hieu">
     <div class="container">
         <div class="row">
@@ -565,7 +575,7 @@
         </div>
     </div>
 </section>
-<!-- ***** thuong_hieu Ends ***** -->
+<!--  thuong_hieu Ends  -->
 <!-- đăng kí nhận thông báo và ưu đãi -->
 <div class="subscribe">
     <div class="container">
@@ -640,10 +650,10 @@
         </div>
     </div>
 </div>
-<!-- ***** Subscribe Area Ends ***** -->
-<!-- ***** Footer Start ***** -->
+<!--  Subscribe Area Ends  -->
+<!--  Footer Start  -->
 <jsp:include page="Footer.jsp"/>
-<!-- ***** Footer End ***** -->
+<!--  Footer End  -->
 
 <c:import url="Script.jsp"/>
 <script src="assets/js/newsletter_subscribe.js"></script>
