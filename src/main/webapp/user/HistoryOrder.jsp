@@ -33,7 +33,7 @@
     <div id="orderListDiv">
         <h2>Lịch sử mua hàng</h2>
 
-        <c:if test="${empty orderList}">
+        <c:if test="${empty requestScope.orderList}">
             <p>Bạn chưa có đơn hàng nào.</p>
         </c:if>
 
@@ -48,7 +48,7 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="order" items="${orderList}">
+            <c:forEach var="order" items="${requestScope.orderList}">
                 <tr>
                     <td>${order.order_code}</td>
                     <td>${order.created_at}</td>
