@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function addCart(product_id, quantity) {
-    fetch(window.location.origin + "/DoAnWeb_war/add-cart", {
+    fetch(window.location.origin + "/DoAnWeb/add-cart", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"

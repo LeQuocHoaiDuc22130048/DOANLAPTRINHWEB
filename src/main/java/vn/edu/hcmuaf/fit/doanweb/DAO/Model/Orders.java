@@ -23,6 +23,8 @@ public class Orders {
         private boolean payment_status; // 0: chưa thanh toán, 1: đã thanh toán
         private boolean status_order;   // 0: Cancel, 1: Done
         private String order_notes;
+        private LocalDateTime created_at;
+        private LocalDateTime updated_at;
         private List<CartProduct> listProducts;
 
 }
