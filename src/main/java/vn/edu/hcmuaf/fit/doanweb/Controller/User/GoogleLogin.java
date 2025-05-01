@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.json.JSONObject;
 import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.UserProfile;
+import vn.edu.hcmuaf.fit.doanweb.DAO.DB.DBProperties;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 
 import java.io.BufferedReader;
@@ -20,19 +21,27 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @WebServlet("/login-Google")
 public class GoogleLogin extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(GoogleLogin.class.getName());
-    private static final String CLIENT_ID = "800453562529-p49ttds41a496glp8j484ohuljgmcfsi.apps.googleusercontent.com"; // **[QUAN TRỌNG]** Thay thế bằng Client ID thực tế của bạn
-    private static final String CLIENT_SECRET = "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"; // **[QUAN TRỌNG]** Thay thế bằng Client Secret thực tế của bạn
-    private static final String REDIRECT_URI = "http://localhost:8080/DoAnWeb/login-Google"; // **[QUAN TRỌNG]** Kiểm tra xem có khớp với cấu hình trên Google Cloud Console không
+    private static Properties properties = new Properties();
+
+    static {
+        try {
+            properties.load(DBProperties.class.getClassLoader().getResourceAsStream("MiddleConfig.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
     private static final JacksonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     UserDaoImp userDaoImp = new UserDaoImp();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String code = request.getParameter("code");
@@ -55,10 +64,10 @@ public class GoogleLogin extends HttpServlet {
             TokenResponse tokenResponse = new GoogleAuthorizationCodeTokenRequest(
                     HTTP_TRANSPORT,
                     JSON_FACTORY,
-                    CLIENT_ID,
-                    CLIENT_SECRET,
+                    properties.getProperty("CLIENT_ID"),
+                    properties.getProperty("CLIENT_SECRET"),
                     code,
-                    REDIRECT_URI
+                    properties.getProperty("REDIRECT_URI")
             ).execute();
 
             String accessToken = tokenResponse.getAccessToken();
@@ -98,16 +107,15 @@ public class GoogleLogin extends HttpServlet {
             String email = jsonObject.optString("email");
             String picture = jsonObject.optString("picture");
             System.out.println(jsonObject.toString());
-            if(!userDaoImp.checkEmailExists(email)){
-                userDaoImp.CreateUserTemp(username , email , picture);
+            if (!userDaoImp.checkEmailExists(email)) {
+                userDaoImp.CreateUserTemp(username, email, picture);
                 System.out.println("Create User Temp");
-            }
-            else {
+            } else {
                 int userId = userDaoImp.GetUserIdByEmail(email);
-              UserProfile profile =  userDaoImp.GetUser(userId);
-              picture = profile.getAvatar();
-              email = profile.getEmail();
-              username = profile.getName();
+                UserProfile profile = userDaoImp.GetUser(userId);
+                picture = profile.getAvatar();
+                email = profile.getEmail();
+                username = profile.getName();
             }
             HttpSession session = request.getSession();
             session.setAttribute("name", username);
