@@ -51,12 +51,12 @@
                                     <div class="dropdown">
                                         <img class=" dropdown-toggle rounded-circle user-avatar"
                                              data-bs-toggle="dropdown"
-                                             aria-expanded="false" alt="avatar" style="width: 50px"
+                                             aria-expanded="false" alt="avatar"
                                              src="${context}${sessionScope.avatar}"/>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="${context}/user/updateProfile">Cập nhật hồ sơ </a></li>
                                             <li><a class="dropdown-item" href="${context}/user/historyOrder">Lịch sử mua hàng</a></li>
-                                            <li><a class="dropdown-item" href="${context}/user//wishList">Sản phẩm đã thích </a></li>
+                                            <li><a class="dropdown-item" href="${context}/user/wishList">Sản phẩm đã thích </a></li>
                                             <li><a class="dropdown-item" href="${context}/user/logout"> Đăng xuất </a></li>
                                         </ul>
                                     </div>

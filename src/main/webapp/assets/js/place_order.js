@@ -109,7 +109,7 @@ function createCodAndBankConfirmOrder(payment_method) {
                         text: 'Đặt hàng thành công! Đơn hàng của bạn đang chờ xử lý.',
                         confirmButtonText: 'OK'
                     }).then(() => {
-                        window.location.href = "success.jsp";
+                        window.location.href = "Success.jsp";
                     });
                 } else {
                     Swal.fire({
@@ -128,7 +128,7 @@ function createCodAndBankConfirmOrder(payment_method) {
     `,
                         confirmButtonText: 'Tôi đã hiểu'
                     }).then(() => {
-                        window.location.href = "success.jsp";
+                        window.location.href = "Success.jsp";
                     });
                 }
 

@@ -10,4 +10,5 @@ public class OrderDetails {
     private int quantity;
     private double price_per_item;
     private double totalPrice;
+    private String imagePath;
 }

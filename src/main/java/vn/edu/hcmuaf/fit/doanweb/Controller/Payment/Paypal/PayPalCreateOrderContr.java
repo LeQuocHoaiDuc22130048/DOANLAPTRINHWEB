@@ -63,8 +63,8 @@ public class PayPalCreateOrderContr extends HttpServlet {
                 + "\"value\":\"" + totalUSD + "\""
                 + "}}],"
                 + "\"application_context\":{"
-                + "\"return_url\":\"http://localhost:8080/DoAnWeb_war/Success.jsp\","
-                + "\"cancel_url\":\"http://localhost:8080/DoAnWeb_war/Cancel.jsp\""
+                + "\"return_url\":\"http://localhost:8080/DoAnWeb/Success.jsp\","
+                + "\"cancel_url\":\"http://localhost:8080/DoAnWeb/Cancel.jsp\""
                 + "}"
                 + "}";
 
@@ -84,7 +84,7 @@ public class PayPalCreateOrderContr extends HttpServlet {
         InputStream is = conn.getInputStream();
         String responseText = new String(is.readAllBytes(), StandardCharsets.UTF_8);
 
-       // Chuyển JSON phản hồi thành đối tượng JSON
+        // Chuyển JSON phản hồi thành đối tượng JSON
         JsonObject jsonResponse = JsonParser.parseString(responseText).getAsJsonObject();
         String orderId = jsonResponse.get("id").getAsString();
 
