@@ -81,10 +81,10 @@
         <h2>Chuyên viên tư vấn</h2>
         <div class="status">Online</div>
         <p>Hỏi chúng tôi bất cứ điều gì. Chúng tôi sẽ trả lời ngay lập tức</p>
-        <form>
-            <input type="text" placeholder="Tên của bạn" required>
-            <input type="tel" placeholder="Phone" required>
-            <textarea placeholder="Tin nhắn của bạn" rows="3" required style="resize: none;"></textarea>
+        <form id="chatForm">
+            <input id="name" name="name" placeholder="Tên của bạn" required>
+            <input id="email" name="email" placeholder="Email" required>
+            <textarea id="message" name="message" placeholder="Tin nhắn của bạn" rows="3" required style="resize: none;"></textarea>
             <div class="submit_container">
                 <button type="submit" class="submit-btn">
                     <i class="fa-solid fa-paper-plane"></i>

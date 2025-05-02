@@ -51,7 +51,7 @@ public class LoginController extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("avatar", user.getAvatar());
         session.setAttribute("userId", user.getId() );
-
+        session.setAttribute("user", user);
 
         String tempOrderCode = (String) session.getAttribute("temp_order_code");
         if (tempOrderCode != null) {

@@ -15,4 +15,5 @@ public interface UserDao {
     public boolean UpdateProfile(User user);
     public UserProfile GetUser(int userId);
     public void updateOrderUserId(String orderCode, int userId);
+    public void insertFeedback(String name, String email, String message);
 }
