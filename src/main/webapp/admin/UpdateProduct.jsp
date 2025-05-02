@@ -29,7 +29,7 @@
 <body>
 <section class="admin">
     <div class="row-grid">
-        <jsp:include page="SideMenu.jsp"/>
+        <jsp:include page="Sidebar.jsp"/>
         <div class="admin-content">
             <jsp:include page="Header.jsp"/>
             <div class="admin-content main">

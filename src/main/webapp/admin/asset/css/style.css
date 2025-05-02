@@ -45,6 +45,7 @@ th,td{
   padding: 8px;
   border-bottom: 1px solid gray;
 }
+
 .notification i{
   font-size: 20px;
 }
@@ -108,7 +109,7 @@ th,td{
   position: fixed;
   background-color: var(--primary-color);
   min-height: 100vh;
-  width: 15vw;
+  width: 14vw;
   display: flex;
   flex-direction: column;
   z-index: 2;
@@ -184,7 +185,7 @@ th,td{
   background: var(--primary-color);
 }
 .container .header .nav .search{
-  flex: 2;
+  flex: 3;
   display: flex;
   justify-content: center;
 }
@@ -283,13 +284,53 @@ th,td{
 .container .content .content-2 .list-customer table tr td a i{
   color: var(--primary-color);
 }
-body.modal-open {
-  overflow: auto !important;
-  padding-right: 0 !important;
-}
+
 .container .data-table{
+  margin: 100px 0;
   background: white;
   box-shadow: var(--primary-box-shadow);
   border-radius: 5px;
 }
+.content .btn_add_item{
+  padding: 10px 0 10px 0;
+}
+.content .btn_add_item a{
+  float: right;
+}
+body.modal-open {
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
 
+/* Thêm scroll cho modal nếu cần */
+.modal-body {
+  overflow-y: auto;
+  min-height: 20vh;
+  max-height: 70vh;
+  position: relative;
+}
+
+.modal-body .loader{
+  width: 48px;
+  height: 48px;
+  border: 5px solid #0d0d0d;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

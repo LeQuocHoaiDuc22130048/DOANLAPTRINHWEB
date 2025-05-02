@@ -8,15 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <c:import url="DashboardLink.jsp"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <c:import url="/admin/DashboardLink.jsp"/>
     <c:set var="titleName" value="Danh mục sản phẩm" scope="request"/>
     <title>${titleName}</title>
+
 </head>
 <body>
 <div class="side-menu">
@@ -26,8 +28,8 @@
     <ul style="padding: 0">
         <li><a href="Dashboard" ><i class="fa-solid fa-house"></i>Trang chủ</a></li>
         <li><a href="Order"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
-        <li><a href="AdminProductList" ><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
-        <li><a href="Product-category" class="active"><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
+        <li><a href="ProductList"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
+        <li><a href="Category" class="active"><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
         <li><a href="Promotion"><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
         <li><a href="User"><i class="fa-solid fa-user"></i>Người dùng</a></li>
         <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
@@ -36,47 +38,61 @@
 </div>
 
 <div class="container">
-    <jsp:include page="Header.jsp"/>
-
+    <jsp:include page="/admin/Header.jsp"/>
     <div class="content">
-        <div class="data-table mx-3" style="margin-top: 100px;">
+        <div class="btn_add_item">
+            <a href="">
+                <button class="btn btn-secondary">Thêm danh mục</button>
+            </a>
+        </div>
+        <div class="data-table" style="margin: 30px 0">
             <table id="table_id" class="ui celled table" style="width: 100%">
                 <thead>
                 <tr>
-                    <th>STT</th>
-                    <th>Tên</th>
+                    <th>ID</th>
+                    <th>Tên danh mục</th>
+                    <th>Ảnh</th>
                     <th>Số lượng sản phẩm</th>
-                    <th>Ảnh danh mục</th>
-                    <th>Trạng thái</th>
+                    <th>Trạng thái hiển thị</th>
+                    <th>Truy cập nhiều</th>
+                    <th>Ngày tạo</th>
                     <th>Tùy chỉnh</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${categories}" var="category">
+                <c:forEach var="category" items="${categories}">
                     <tr>
                         <td>${category.id}</td>
                         <td>${category.name}</td>
+                        <td><img src="../${category.img} width=100px"></td>
                         <td>${category.productCount}</td>
                         <td>
-                            <img width="100px" src="../${category.img}" alt="">
+                            <c:if test="${category.status == 1}">
+                                <button class="btn btn-info">Hiển thị</button>
+                            </c:if>
+                            <c:if test="${category.status == 0}">
+                                <button class="btn btn-secondary">Ẩn</button>
+                            </c:if>
                         </td>
                         <td>
-                            <c:if test="${category.status == 1}">Hiện</c:if>
-                            <c:if test="${category.status != 1}">Ẩn</c:if>
+                            <c:if test="${category.hot == 1}">
+                                <button class="btn btn-danger">hot</button>
+                            </c:if>
+                            <c:if test="${category.hot == 0}">
+                                <button class="btn btn-secondary">bình thường</button>
+                            </c:if>
                         </td>
                         <td>
-                                <button type="submit" class="btn btn-danger">Xóa</button>
-                                <button
-                                        class="btn btn-warning"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#updateCategory"
-                                >
-                                   <a href="CategoryDetail?categoryId=${category.id}">
-                                       <i class="fa-solid fa-pen"></i>
-                                   </a>
+                            <c:set var = "cateTime" value="${fn:replace(category.createAt,'T' ,' ' )}"/>
+                                ${cateTime}
+                        </td>
+                        <td>
+                            <a>
+                                <button class="btn btn-warning btn-sm">
+                                    <i class="fa-solid fa-pen"></i>
                                 </button>
+                            </a>
                         </td>
-
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -85,30 +101,8 @@
     </div>
 </div>
 
-<!-- Modal Update status category-->
-<div class="modal fade" id="updateCategory" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Cập nhật danh mục</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <c:choose>
-                    <input type="text" value="${requestScope.}" class="form-control" name = "name"  required>
-                </c:choose>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Lưu</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="./asset/js/Chart.js"></script>
 
-<c:import url="DashboardScript.jsp"/>
-<script src="./asset/js/Chart.js"></script>
-<script src = ./asset/js/Notification.js></script>
 </body>
+<c:import url="/admin/DashboardScript.jsp"/>
 </html>

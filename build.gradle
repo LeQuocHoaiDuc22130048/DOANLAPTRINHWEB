@@ -1,0 +1,121 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'java-library'
+    id 'maven-publish'
+    id "org.hidetake.ssh" version "2.11.2"
+}
+
+repositories {
+    mavenCentral()
+}
+
+group = 'vn.edu.hcmuaf.fit'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+ext {
+    junitVersion = '5.10.0' // hoặc version bạn đang dùng
+}
+apply plugin: 'org.hidetake.ssh'
+apply plugin: 'war'
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    implementation 'org.jdbi:jdbi3-core:3.41.3'
+    implementation 'com.zaxxer:HikariCP:6.2.1'
+
+    providedCompile 'jakarta.servlet:jakarta.servlet-api:6.1.0'
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
+
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.2'
+    runtimeOnly 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
+
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'org.apache.commons:commons-text:1.10.0'
+    implementation 'org.jsoup:jsoup:1.15.3'
+    implementation 'commons-fileupload:commons-fileupload:1.5'
+    implementation 'commons-io:commons-io:2.14.0'
+    implementation 'com.paypal.sdk:rest-api-sdk:1.14.0'
+    implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
+    implementation 'org.apache.poi:poi-ooxml:5.4.0'
+    implementation 'com.auth0:java-jwt:4.5.0'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    runtimeOnly 'org.slf4j:slf4j-simple:2.0.9'
+//    lombok
+    compileOnly("org.projectlombok:lombok:1.18.38")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
+
+    testCompileOnly("org.projectlombok:lombok:1.18.38")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
+}
+
+war {
+    archiveFileName = 'DoAnWeb.war'
+    webAppDirectory.set(file('src/main/webapp')) // cấu hình đúng thư mục webapp
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-Xlint:deprecation"
+}
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
+
+remotes {
+    host {
+        host = '192.168.157.134'
+        user = 'root'
+        password = 'nhutanh09'
+    }
+}
+ssh.settings {
+    knownHosts = allowAnyHosts
+}
+task docker_app_start {
+    doLast {
+        println 'begin docker_app_start'
+        ssh.run {
+            session(remotes.host) {
+                execute 'docker stop tomcat10', ignoreError: true
+                execute 'docker run -it --rm -d ' +
+                        '--name tomcat10 ' +
+                        '-v /usr/deploy:/usr/local/tomcat/webapps ' +
+                        '-p 80:8080 ' +
+                        'tomcat:10.0'
+            }
+        }
+    }
+}
+task docker_upload_file_to_server {
+    doLast {
+        println 'Uploading file to Linux server...'
+        ssh.run {
+            session(remotes.host) {
+                execute 'mkdir -p /usr/deploy'
+                // Xóa file cũ nếu có
+                remove '/usr/deploy/DoAnWeb.war'
+                remove '/usr/deploy/DoAnWeb'
+                // Upload file
+                put from: "${project.projectDir}/build/libs/DoAnWeb.war",
+                        into: "/usr/deploy/DoAnWeb.war"
+            }
+        }
+    }
+}
+
+tasks.register('docker_deploy') {
+    dependsOn build
+    dependsOn docker_upload_file_to_server
+    dependsOn docker_app_start
+
+    // Đảm bảo upload xong mới chạy docker
+    tasks.docker_app_start.mustRunAfter docker_upload_file_to_server
+}

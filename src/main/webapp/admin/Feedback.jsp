@@ -2,100 +2,100 @@
   Created by IntelliJ IDEA.
   User: lequo
   Date: 1/15/2025
-  Time: 6:06 AM
+  Time: 4:58 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix = "f" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-          href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-          rel="stylesheet"
-  />
+  <c:import url="/admin/DashboardLink.jsp"/>
+  <c:set var="titleName" value="Phản hồi" scope="request"/>
+  <title>${titleName}</title>
 
-  <title>Trang quản lý</title>
-  <style>
-    div#productTable_filter {
-      position: absolute;
-      top: -40px;
-      right: 0;
-    }
-
-    div#productTable_filter label input {
-      padding: 10px;
-      width: 40vh;
-      border: none;
-      outline: #2e404f;
-    }
-  </style>
 </head>
 <body>
-<section class="admin">
-  <div class="row-grid">
-    <jsp:include page="SideMenu.jsp"/>
-    <div class="admin-content">
-      <jsp:include page="Header.jsp"/>
-      <div class="admin-content main">
-        <div class="admin-content-main-title">
-          <h1>Danh sách phản hồi</h1>
-        </div>
-        <div class="admin-content-main-content">
-          <div class="admin-content-main-content-manager-list">
-            <table id="productTable">
-              <thead>
-              <tr>
-                <th>STT</th>
-                <th>Tên người dùng</th>
-                <th>Email</th>
-                <th>Nội dung câu hỏi</th>
-                <th>Ngày gửi</th>
-              </tr>
-              </thead>
-              <tbody>
-              <c:forEach var="feedback" items="${feedBacks}">
-                <tr>
-                  <td>${feedback.id}</td>
-                  <td>${feedback.name}</td>
-                  <td>${feedback.email}</td>
-                  <td>${feedback.message}</td>
-                  <td>${feedback.createdAt}</td>
-                </tr>
-              </c:forEach>
-
-
-
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
+<div class="side-menu">
+  <div class="brand-name">
+    <img src="asset/image/logo.png" alt="eyestyle" width="100px"/>
   </div>
-</section>
+  <ul style="padding: 0">
+    <li><a href="Dashboard" ><i class="fa-solid fa-house"></i>Trang chủ</a></li>
+    <li><a href="Order"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
+    <li><a href="ProductList"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
+    <li><a href="Category" ><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
+    <li><a href="Promotion" ><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
+    <li><a href="User" ><i class="fa-solid fa-user"></i>Người dùng</a></li>
+    <li><a href="Feedback" class="active"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
 
-<script src="asset/js/app.js"></script>
+  </ul>
+</div>
+
+<div class="container">
+  <jsp:include page="/admin/Header.jsp"/>
+  <div class="content">
+
+    <div class="data-table">
+      <table id="table_id" class="ui celled table" style="width: 100%">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tên</th>
+          <th>Email</th>
+          <th>Nội dung</th>
+          <th>Trạng thái</th>
+          <th>Phản hồi</th>
+          <th>Ngày gửi</th>
+          <th>Ngày phản hồi</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="feedback" items="${feedBacks}">
+          <tr>
+            <td>${feedback.id}</td>
+            <td>${feedback.name}</td>
+            <td>${feedback.email}</td>
+            <td>${feedback.message}</td>
+            <td>
+              <c:if test="${feedback.status == 0}">
+                <button class="btn btn-warning btn-sm">Chưa trả lời</button>
+              </c:if>
+            </td>
+            <td>
+                ${feedback.response}
+            </td>
+            <td>
+              <c:set var="feTime" value="${fn:replace(feedback.createdAt,'T' ,'  ' )}"/>
+                ${feTime}
+            </td>
+            <td>
+              <c:set var="fe2Time" value="${fn:replace(feedback.updatedAt,'T' ,'  ' )}"/>
+                ${fe2Time}
+            </td>
+            <td>
+              <a>
+                <button class="btn btn-primary btn-sm">
+                  <i class="fa-solid fa-reply"></i>
+                </button>
+              </a>
+            </td>
+          </tr>
+        </c:forEach>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
 </body>
-<script>
-  $(document).ready(function () {
-    $('#productTable').DataTable({
-      "language": {
-        "sSearch": "Tìm kiếm",
-        "sProcessing": "Đang xử lý",
-        "oPaginate": {
-          "sFirst": "Đầu",
-          "sPrevious": "Trước",
-          "sNext": "Tiếp",
-          "sLast": "Cuối"
-        }
-      }
-    });
-  });
-</script>
+<c:import url="/admin/DashboardScript.jsp"/>
 </html>

@@ -16,9 +16,6 @@ public class AdminService {
         return admin.getAllProducts();
     }
 
-    public List<CategoryVM> getAllCategory() {
-        return admin.getAllCategories();
-    }
 
     public List<BrandVM> getAllBrand() {
         return admin.getAllBrands();
@@ -37,7 +34,22 @@ public class AdminService {
     }
 
 
-
+    public int addProduct(Product product, List<ProductImage> productImages) {
+        // Thêm sản phẩm và lấy ID
+        int productId = admin.addProduct(product);
+        if (productId <= 0) {
+            return 0;
+        }
+        // Gán ID cho từng hình ảnh và thêm hình ảnh vào CSDL
+        for (ProductImage productImage : productImages) {
+            productImage.setProductId(productId);
+            boolean imageAdded = admin.addProductImages(productImage);
+            if (!imageAdded) {
+                return 0;
+            }
+        }
+        return productId;
+    }
 
     public boolean deleteProduct(int id) {
         return admin.deleteProduct(id);
@@ -52,8 +64,8 @@ public class AdminService {
         return admin.getAllOrders();
     }
 
-    public List<OrderDetailVM> getOrderDetail(int orderId) {
-        return admin.getOrderDetailsById(orderId);
+    public List<OrderDetailVM> getAllOrderDetail(int orderId) {
+        return admin.getAllOrderDetails(orderId);
     }
 
     public boolean deleteOrder(int orderId) {
@@ -69,30 +81,32 @@ public class AdminService {
     }
 
     public List<CategoriesVM> getAllCategories() {
-        return admin.getCategoriesWithAmountProduct();
+        return admin.getCategories();
     }
-    public CategoriesVM getCategoriesById(int id) {return admin.getCategoryById(id);}
+
     public boolean addCategory(CategoriesVM categories) {
         return admin.addCategory(categories);
     }
+
     public boolean deleteCategory(int id) {
         return admin.deleteCategory(id);
     }
+
     public List<User> getAllUsers() {
         return admin.getAllUsers();
     }
+
     public List<FeedBacks> getAllFeedbacks() {
         return admin.getAllFeedbacks();
     }
-    public List<DashboardVM> getProductHot(){
+
+    public List<DashboardVM> getProductHot() {
         return admin.getProductHot();
     }
+
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
-
-        for (OrdersVM ordersVM : adminService.getAllOrders()) {
-            System.out.println(ordersVM);
-        }
+        System.out.println(adminService.getAllOrderDetail(6));
     }
 
 

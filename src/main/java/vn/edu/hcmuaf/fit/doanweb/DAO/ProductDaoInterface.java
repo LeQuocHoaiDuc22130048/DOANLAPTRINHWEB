@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO;
 
+import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.ProductByCondition;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.List;
 public interface ProductDaoInterface {
 
     public ProductIndex getProductById(int id);
+
+    List<ProductByCondition> getProductByCondition(String type, String value);
 
     public List<ProductIndex> getProductsByGender(int gender);
 

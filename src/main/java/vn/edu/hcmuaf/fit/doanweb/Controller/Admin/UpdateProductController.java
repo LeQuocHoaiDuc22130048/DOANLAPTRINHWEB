@@ -26,7 +26,7 @@ public class UpdateProductController extends HttpServlet {
 
         request.setAttribute("product", product);
         request.setAttribute("image", productImage);
-        request.setAttribute("categories", adminService.getAllCategory());
+//        request.setAttribute("categories", adminService.getAllCategory());
         request.setAttribute("brands", adminService.getAllBrand());
         request.setAttribute("frameShapes", adminService.getAllFrameShape());
         request.getRequestDispatcher("/admin/UpdateProduct.jsp").forward(request, response);

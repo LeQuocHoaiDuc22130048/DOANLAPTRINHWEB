@@ -19,14 +19,6 @@ public class AddCategoryController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-//        String name = request.getParameter("name");
-//        int status = Integer.parseInt(request.getParameter("status"));
-//        AdminService adminService = new AdminService();
-//        CategoriesVM categoriesVM = new CategoriesVM(0,name,status,0);
-//        if(adminService.addCategory(categoriesVM)){
-//            response.sendRedirect(request.getContextPath()+"/admin/ListCategories");
-//        }else {
-//            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error adding category");
-//        }
+
     }
 }
