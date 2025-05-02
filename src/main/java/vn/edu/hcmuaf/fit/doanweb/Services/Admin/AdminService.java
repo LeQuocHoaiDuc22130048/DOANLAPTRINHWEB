@@ -107,6 +107,10 @@ public class AdminService {
         return admin.replyFeedback(id,replyContent);
     }
 
+    public List<NewsletterSubscriber> getAllNewsletterSubscribers() {
+        return admin.getAllNewsletterSubscribers();
+    }
+
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
         System.out.println(adminService.getAllOrderDetail(6));
