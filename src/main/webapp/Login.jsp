@@ -58,14 +58,15 @@
                     </button>
                 </form>
                 <p class="mt-3 fs-6">Bạn chưa có tài khoản <a href="Register.jsp">Đăng ký ngay !</a></p>
-                <p class="mt-3 fs-6 text-center">Hoặc đăng nhập với <a  href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile&
+                <p class="mt-3 fs-6 text-center">Hoặc đăng nhập với <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile&
 redirect_uri=http://localhost:8080/DoAnWeb/login-Google&
 response_type=code&
 client_id=800453562529-p49ttds41a496glp8j484ohuljgmcfsi.apps.googleusercontent.com&
-access_type=online"> <img style="width: 150px" class=" border-1 rounded px-1 py-2git " alt="Google" src="assets/images/Website/Google_2015_logo.svg"/></a>
+access_type=online"> <img style="width: 150px" class=" border-1 rounded px-1 py-2git " alt="Google"
+                          src="assets/images/Website/Google_2015_logo.svg"/></a>
                 </p>
                 <p class="text-danger"> ${requestScope.Error}</p>
-                  </div>
+            </div>
         </div>
     </div>
 </div>
