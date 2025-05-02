@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Controller.Admin;
+package vn.edu.hcmuaf.fit.doanweb.Controller.Admin.Feedback;
 
 import java.io.*;
 import java.util.List;

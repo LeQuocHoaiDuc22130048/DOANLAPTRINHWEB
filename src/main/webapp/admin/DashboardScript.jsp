@@ -21,6 +21,9 @@
 <!-- Reply Feedback -->
 <script src="${pageContext.request.contextPath}/admin/asset/js/reply_feedback.js"></script>
 
+<!-- Newsletter Subscriber -->
+<script src="${pageContext.request.contextPath}/admin/asset/js/newsletter_subscriber.js"></script>
+
 <!--Sweet alert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

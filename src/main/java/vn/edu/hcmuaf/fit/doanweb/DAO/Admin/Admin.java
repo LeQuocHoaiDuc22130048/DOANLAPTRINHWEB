@@ -329,4 +329,13 @@ public class Admin {
         return rowsAffected > 0;
     }
 
+    public List<NewsletterSubscriber> getAllNewsletterSubscribers() {
+        String sql = "SELECT * FROM newsletter_subscribers ORDER BY created_at DESC";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .mapToBean(NewsletterSubscriber.class)
+                        .list());
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Controller.Admin;
+package vn.edu.hcmuaf.fit.doanweb.Controller.Admin.Feedback;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
