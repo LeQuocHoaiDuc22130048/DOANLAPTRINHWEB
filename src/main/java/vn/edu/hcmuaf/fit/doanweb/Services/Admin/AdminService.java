@@ -16,9 +16,6 @@ public class AdminService {
         return admin.getAllProducts();
     }
 
-    public List<CategoryVM> getAllCategory() {
-        return admin.getAllCategories();
-    }
 
     public List<BrandVM> getAllBrand() {
         return admin.getAllBrands();
@@ -84,91 +81,32 @@ public class AdminService {
     }
 
     public List<CategoriesVM> getAllCategories() {
-        return admin.getCategoriesWithamoutProduct();
+        return admin.getCategories();
     }
+
     public boolean addCategory(CategoriesVM categories) {
         return admin.addCategory(categories);
     }
+
     public boolean deleteCategory(int id) {
         return admin.deleteCategory(id);
     }
+
     public List<User> getAllUsers() {
         return admin.getAllUsers();
     }
+
     public List<FeedBacks> getAllFeedbacks() {
         return admin.getAllFeedbacks();
     }
-    public List<DashboardVM> getProductHot(){
+
+    public List<DashboardVM> getProductHot() {
         return admin.getProductHot();
     }
+
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
-
-//        for (DashboardVM d : adminService.getProductHot()) {
-//            System.out.println(d);
-//        }
-//        String path = "new_image_path.jpg";
-//        int isMain = 1;
-//        String updatedAt = String.valueOf(LocalDateTime.now());
-//        String productId = "180";
-//        String imageId = "310";
-//        adminService.updateProductImage(path, isMain, updatedAt, productId, imageId);
-//        System.out.println("done");
-//        List<ProductVM> products = adminService.getAllProduct();
-//        for (ProductVM product : products) {
-//            System.out.println(product.toString());
-//        }
-
-//        List<CategoryVM> allCategory = adminService.getAllCategory();
-//        for (CategoryVM category : allCategory) {
-//            System.out.println(category);
-//        }
-//        List<BrandVM> allBrand = adminService.getAllBrand();
-//        for (BrandVM brand : allBrand) {
-//            System.out.println(brand);
-//        }
-//        List<FrameShapes> frameShapes = adminService.getAllFrameShape();
-//        for (FrameShapes frameShape : frameShapes) {
-//            System.out.println(frameShape);
-//        }
-
-
-//        for (ProductImage image : admin.getImagesByProductId("1")){
-//            System.out.println(image);
-//        }
-
-//        Product product = new Product();
-//        product.setName("Sản phẩm mẫu");
-//        product.setDescription("Mô tả sản phẩm mẫu");
-//        product.setCostPrice(100000);
-//        product.setSellingPrice(120000);
-//        product.setQuantity(10);
-//        product.setCategoryId(1);
-//        product.setBrandId(1);
-//        product.setShapeId(1);
-//        product.setMaterial("Nhựa");
-//        product.setGender(1);
-//        product.setColor("Tím");
-//
-//        List<ProductImage> productImages = new ArrayList<>();
-//        ProductImage productImage1 = new ProductImage();
-//        productImage1.setPath("/assets/images/products/image1.jpg");
-//
-//        ProductImage productImage2 = new ProductImage();
-//        productImage2.setPath("/assets/images/products/image2.jpg");
-//
-//        productImages.add(productImage1);
-//        productImages.add(productImage2);
-//
-//        int result = adminService.addProduct(product, productImages);
-//
-//        if(result > 0) System.out.println("Them thanh cong voi id" + result);
-//        else{
-//            System.out.println("Thêm thất bại");
-//        }
-
-//        int id = 166;
-//        System.out.println(adminService.deleteProduct(id));
+        System.out.println(adminService.getAllOrderDetail(6));
     }
 
 

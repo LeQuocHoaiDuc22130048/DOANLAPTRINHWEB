@@ -17,3 +17,24 @@
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#table_id').DataTable({
+            "language": {
+                lengthMenu: "Số lượng hàng trên mỗi trang  _MENU_ ",
+                "sSearch": "Tìm kiếm",
+                "sProcessing": "Đang xử lý",
+                info: "Hiển thị _START_ đến _END_ của _TOTAL_ mục",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext": "Tiếp",
+                    "sLast": "Cuối"
+                }
+            }
+        });
+    });
+</script>
+

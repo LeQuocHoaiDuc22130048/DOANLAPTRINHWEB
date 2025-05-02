@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.FeedBacks;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
 
-@WebServlet(name = "ListFeedbackController", value = "/admin/ListFeedback")
+@WebServlet(name = "ListFeedbackController", value = "/admin/Feedback")
 public class ListFeedbackController extends HttpServlet {
 
     @Override
