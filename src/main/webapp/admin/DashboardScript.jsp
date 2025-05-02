@@ -18,6 +18,11 @@
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<!-- Reply Feedback -->
+<script src="${pageContext.request.contextPath}/admin/asset/js/reply_feedback.js"></script>
+
+<!--Sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     $(document).ready(function () {

@@ -35,6 +35,5 @@ public class AdminFilter implements Filter {
         req.setAttribute("role", role);
         chain.doFilter(request, response);
 
-
     }
 }
