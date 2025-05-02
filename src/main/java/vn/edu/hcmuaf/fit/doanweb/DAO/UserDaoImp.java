@@ -30,7 +30,7 @@ public class UserDaoImp implements UserDao {
     private final static String UpdateUser = "UPDATE users SET name = :name , email = " +
             ":email , password = :password  ," +
             "phone = :phone  , address = :address , avatar = :avatar  WHERE id = :id";
-    private final static String GetUserById = "SELECT name , email , phone , address , avatar FROM users WHERE id = :id";
+    private final static String GetUserById = "SELECT name , email , phone , address , avatar , role FROM users WHERE id = :id";
 
     public UserDaoImp() {
         // Initialize indexes if they don't exist

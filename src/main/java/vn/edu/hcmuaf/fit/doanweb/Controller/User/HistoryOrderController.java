@@ -15,22 +15,14 @@ import java.util.List;
 @WebServlet(name = "HistoryProductController", value = "/user/historyOrder")
 public class HistoryOrderController extends HttpServlet {
     OrderDao dao= new OrderDaoImp();
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        if (user == null) {
-            response.sendRedirect("/DoAnWeb/Login.jsp");
-            return;
-        }
-
-        List<Orders> orderList = dao.getOrdersByUserId(user.getId());
+        int userId = (int) session.getAttribute("userId");
+        List<Orders> orderList = dao.getOrdersByUserId(userId);
         request.setAttribute("orderList", orderList);
         request.getRequestDispatcher(JSPPage.HistoryOrder.getPage()).forward(request, response);
     }
-
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
