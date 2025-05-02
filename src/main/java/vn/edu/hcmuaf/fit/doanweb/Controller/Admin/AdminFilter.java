@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Controller.User;
+package vn.edu.hcmuaf.fit.doanweb.Controller.Admin;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -14,8 +14,8 @@ import vn.edu.hcmuaf.fit.doanweb.Util.JwtUtil;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/user/*")
-public class UserFilter implements Filter {
+@WebFilter(filterName = "AdminFilter", urlPatterns = "/admin/*")
+public class AdminFilter implements Filter {
 
     @Override
 
@@ -23,12 +23,19 @@ public class UserFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         String role = GetRole.GetRoleFromToken(request, response);
+        // Debug role
+        System.out.println("Role: " + role);
+
         // Kiểm tra quyền hợp lệ
-        if (role.equals("ADMIN") || role.equals("GUEST")) {
+        if (role.equals("USER") || role.equals("GUEST")) {
             res.sendRedirect(JSPPage.Login.getPage());
             return;
         }
+
+        // Cho phép đi tiếp
         req.setAttribute("role", role);
         chain.doFilter(request, response);
+
+
     }
 }

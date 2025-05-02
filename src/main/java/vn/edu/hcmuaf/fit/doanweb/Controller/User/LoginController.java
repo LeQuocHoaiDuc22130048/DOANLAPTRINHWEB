@@ -16,7 +16,6 @@ import java.io.IOException;
 @WebServlet(name = "LoginController", value = "/login")
 public class LoginController extends HttpServlet {
     private UserDaoImp userDaoImp;
-    private final String Home = JSPPage.Index.getPage();
     private final String Login = JSPPage.Login.getPage();
     @Override
     public void init() throws ServletException {
@@ -33,7 +32,6 @@ public class LoginController extends HttpServlet {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         String realPassword = userDaoImp.GetUserPassword(userName);
-        String BackToHome = request.getContextPath() + "/index";
         if (realPassword == null ||!BCrypt.checkpw(password, realPassword ) ) {
             request.setAttribute("Error", ErrorMessages.LoginFail.getMessage());
             request.getRequestDispatcher(Login).forward(request, response);
@@ -52,7 +50,8 @@ public class LoginController extends HttpServlet {
         // tạo session lưu thông tin cần thiết
         HttpSession session = request.getSession();
         session.setAttribute("avatar", user.getAvatar());
-        session.setAttribute("user", user);
+        session.setAttribute("userId", user.getId() );
+
 
         String tempOrderCode = (String) session.getAttribute("temp_order_code");
         if (tempOrderCode != null) {
@@ -66,6 +65,13 @@ public class LoginController extends HttpServlet {
         jwtCookie.setSecure(true); // chỉ nên dùng khi dùng HTTPS
         jwtCookie.setPath("/");
         response.addCookie(jwtCookie);
-        response.sendRedirect(BackToHome);
+
+        if (user.getRole().equals("ADMIN")) {
+            response.sendRedirect(JSPPage.AdminDashBoard.getPage());
+        }
+        else {
+            response.sendRedirect("/DoAnWeb"+JSPPage.Index.getPage());
+
+        }
     }
 }
