@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.semanticui.css"/>
 
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="${context}/assets/css/bootstrap@5.3.3_dist_css_bootstrap.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextgitPath}/assets/css/bootstrap@5.3.3_dist_css_bootstrap.css"/>
 
 <!-- Admin Custom CSS -->
-<link rel="stylesheet" href="${context}/admin/asset/css/style.css?v=1.1"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/asset/css/style.css?v=1.1"/>

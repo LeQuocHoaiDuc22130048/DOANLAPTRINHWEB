@@ -3,23 +3,29 @@ package vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Data
 public class OrdersVM {
     private int orderId;
     private String buyerName;
-    private String buyerEmail;
     private String buyerPhone;
+    private String buyerEmail;
     private String buyerAddress;
-    private LocalDateTime orderDate;
-    private int transportStatus;
+    private byte paymentStatus;
+    private byte orderStatus;
+    private LocalDateTime orderTime;
 
-    public OrdersVM(int orderId, String buyerName, String buyerEmail, String buyerPhone, String buyerAddress, LocalDateTime orderDate, int transportStatus) {
+    public OrdersVM(int orderId, String buyerName, String buyerPhone, String buyerEmail, String buyerAddress, byte paymentStatus, byte orderStatus, LocalDateTime orderTime) {
         this.orderId = orderId;
         this.buyerName = buyerName;
-        this.buyerEmail = buyerEmail;
         this.buyerPhone = buyerPhone;
+        this.buyerEmail = buyerEmail;
         this.buyerAddress = buyerAddress;
-        this.orderDate = orderDate;
-        this.transportStatus = transportStatus;
+        this.paymentStatus = paymentStatus;
+        this.orderStatus = orderStatus;
+        this.orderTime = orderTime;
     }
+
+
 }

@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
 
-@WebServlet(name = "ListUserController", value = "/admin/ListUser")
+@WebServlet(name = "ListUserController", value = "/admin/User")
 public class ListUserController extends HttpServlet {
 
     @Override

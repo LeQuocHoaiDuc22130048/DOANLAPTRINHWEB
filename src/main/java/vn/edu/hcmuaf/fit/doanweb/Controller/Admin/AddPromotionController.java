@@ -19,21 +19,6 @@ public class AddPromotionController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String code = request.getParameter("code");
-        double percent = Double.parseDouble(request.getParameter("percent"));
-        int status = Integer.parseInt(request.getParameter("status"));
-        String description = request.getParameter("description");
 
-        Discounts discounts = new Discounts();
-        discounts.setCode(code);
-        discounts.setDiscountPercentage(percent);
-        discounts.setStatus(status);
-        discounts.setDescription(description);
-
-        if (adminService.addDiscount(discounts)) {
-            response.sendRedirect(request.getContextPath() + "/admin/PromotionList");
-        }else{
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error adding discount");
-        }
     }
 }

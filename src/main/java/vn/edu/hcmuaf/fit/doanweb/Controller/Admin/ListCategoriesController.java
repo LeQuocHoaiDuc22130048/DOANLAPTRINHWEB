@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.CategoriesVM;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
 
-@WebServlet(name = "ListCategoriesController", value = "/admin/ListCategories")
+@WebServlet(name = "ListCategoriesController", value = "/admin/Category")
 public class ListCategoriesController extends HttpServlet {
     AdminService adminService = new AdminService();
     @Override
@@ -17,10 +17,5 @@ public class ListCategoriesController extends HttpServlet {
         List<CategoriesVM> categoriesVMS = adminService.getAllCategories();
         request.setAttribute("categories", categoriesVMS);
         request.getRequestDispatcher("/admin/ListCategories.jsp").forward(request, response);
-    }
-
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
     }
 }

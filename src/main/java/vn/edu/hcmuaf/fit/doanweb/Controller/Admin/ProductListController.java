@@ -6,18 +6,18 @@ import java.util.List;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.ProductVM;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
 
-@WebServlet(name = "PromotionList", value = "/admin/PromotionList")
-public class PromotionListController extends HttpServlet {
+@WebServlet(name = "AdminController", value = "/admin/ProductList")
+public class ProductListController extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        AdminService adminService = new AdminService();
-        List<Discounts> rs = adminService.getAllDiscounts();
-        request.setAttribute("discounts", rs);
-        request.getRequestDispatcher("/admin/Promotion.jsp").forward(request, response);
+        AdminService service = new AdminService();
+        List<ProductVM> products = service.getAllProduct();
+        request.setAttribute("products", products);
+        request.getRequestDispatcher("/admin/ProductList.jsp").forward(request, response);
     }
 
     @Override

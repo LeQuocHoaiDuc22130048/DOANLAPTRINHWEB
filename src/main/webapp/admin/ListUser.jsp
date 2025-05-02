@@ -1,123 +1,100 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lequo
   Date: 1/15/2025
-  Time: 5:50 AM
+  Time: 4:58 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-            href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-            rel="stylesheet"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet"
-          type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-    <script type="text/javascript"
-            charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js">
-    </script>
+    <c:import url="/admin/DashboardLink.jsp"/>
+    <c:set var="titleName" value="Danh sách người dùng" scope="request"/>
+    <title>${titleName}</title>
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.semanticui.css">
-    <link rel="stylesheet" href="asset/css/style.css">
-    <style>
-        div#productTable_filter {
-            position: absolute;
-            top: -40px;
-            right: 0;
-        }
-
-        div#productTable_filter label input {
-            padding: 10px;
-            width: 40vh;
-            border: none;
-            outline: #2e404f;
-        }
-    </style>
-    <title>Trang quản lý</title>
 </head>
 <body>
-<section class="admin">
-    <div class="row-grid">
-        <jsp:include page="Sidebar.jsp"/>
-        <div class="admin-content">
-            <jsp:include page="Header.jsp"/>
-            <div class="admin-content main">
-                <div class="admin-content-main-title">
-                    <h1>Quản lý người dùng</h1>
-                </div>
-                <div class="admin-content-main-content">
-                    <div class="admin-content-main-content-manager-list">
-                        <table id="productTable">
-                            <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên người dùng</th>
-                                <th>Email</th>
-                                <th>Mật khẩu</th>
-                                <th>Số điện thoại</th>
-                                <th>Địa chỉ</th>
-                                <th>Trạng thái</th>
-                                <th>Ngày tạo</th>
-                                <th>Ngày chỉnh sửa</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="user" items="${users}">
-                                <tr>
-                                    <td>${user.id}</td>
-                                    <td>${user.name}</td>
-                                    <td>${user.email}</td>
-                                    <td>${user.password}</td>
-                                    <td>${user.phone}</td>
-                                    <td>${user.address}</td>
-                                    <td>
-                                        <c:if test="${user.status == 1}"><a class="edit-class">Online</a></c:if>
-                                        <c:if test="${user.status != 1}"><a class="delete-class">Offline</a></c:if>
-                                    </td>
-                                    <td>
-                                        ${user.created_at}
-                                    </td>
-                                    <td>
-                                        ${user.updated_at}
-                                    </td>
-                                </tr>
-                            </c:forEach>
-
-
-
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+<div class="side-menu">
+    <div class="brand-name">
+        <img src="asset/image/logo.png" alt="eyestyle" width="100px"/>
     </div>
-</section>
+    <ul style="padding: 0">
+        <li><a href="Dashboard" ><i class="fa-solid fa-house"></i>Trang chủ</a></li>
+        <li><a href="Order"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
+        <li><a href="ProductList"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
+        <li><a href="Category" ><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
+        <li><a href="Promotion" ><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
+        <li><a href="User" class="active"><i class="fa-solid fa-user"></i>Người dùng</a></li>
+        <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
 
-<script src="asset/js/app.js"></script>
+    </ul>
+</div>
+
+<div class="container">
+    <jsp:include page="/admin/Header.jsp"/>
+    <div class="content">
+        <div class="btn_add_item">
+            <a href="">
+                <button class="btn btn-secondary">Thêm người dùng</button>
+            </a>
+        </div>
+        <div class="data-table" style="margin: 30px 0">
+            <table id="table_id" class="ui celled table" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Trạng thái</th>
+                    <th>Ngày tạo</th>
+                    <th>Chỉnh sửa</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="user" items="${users}">
+                    <tr>
+                        <td>${user.id}</td>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.phone}</td>
+                        <td>
+                            ${user.address}
+                        </td>
+                        <td>
+                            <c:if test="${user.status == 1}">
+                                <button class="btn btn-success">Hoạt động</button>
+                            </c:if>
+                        </td>
+                        <td>
+                            <c:set var="usTime" value="${fn:replace(user.created_at,'T' ,'  ' )}"/>
+                            ${usTime}
+                        </td>
+                        <td>
+                            <a>
+                                <button class="btn btn-warning btn-sm">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
-<script>
-    $(document).ready(function () {
-        $('#productTable').DataTable({
-            "language": {
-                "sSearch": "Tìm kiếm ",
-                "sProcessing": "Đang xử lý",
-                "oPaginate": {
-                    "sFirst": "Đầu",
-                    "sPrevious": "Trước",
-                    "sNext": "Tiếp",
-                    "sLast": "Cuối"
-                }
-            }
-        });
-    });
-</script>
+<c:import url="/admin/DashboardScript.jsp"/>
 </html>
