@@ -36,7 +36,7 @@ public class UpdateProfileController extends HttpServlet {
         int userId = GetDataFromCookie.getUserId(request);
         UserProfile UP = userDao.GetUser(userId);
         request.setAttribute("user", UP);
-        request.getRequestDispatcher("/user/UpdateProfile.jsp").forward(request, response);
+        request.getRequestDispatcher(JSPPage.UpdateProfile.getPage()).forward(request, response);
 
     }
 

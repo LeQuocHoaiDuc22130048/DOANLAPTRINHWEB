@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Customer;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
 import vn.edu.hcmuaf.fit.doanweb.Services.OrderService;
@@ -43,6 +44,16 @@ public class CodBankConfirmOrder extends HttpServlet {
         String orderCode = "ORD" + System.currentTimeMillis();
         session.setAttribute("orderCode", orderCode);
         session.getAttribute("orderCode");
+
+        User user = (User) session.getAttribute("user");
+        Integer userId = null;
+
+        if (user != null) {
+            userId = user.getId();
+        } else {
+            session.setAttribute("temp_order_code", orderCode);
+        }
+
         String customerName = customer.getName();
         String phoneNumber = customer.getPhone();
         String email = customer.getEmail();
@@ -72,7 +83,7 @@ public class CodBankConfirmOrder extends HttpServlet {
         }
 
         // Lưu đơn hàng vào cơ sở dữ liệu
-        service.createOrder(orderCode, customerName, phoneNumber, email, fullAddress, subtotal, totalDiscount, shippingFee, totalPrice,
+        service.createOrder(orderCode,userId, customerName, phoneNumber, email, fullAddress, subtotal, totalDiscount, shippingFee, totalPrice,
                 totalQuantity, paymentMethod, orderNotes, listProducts);
 
     }

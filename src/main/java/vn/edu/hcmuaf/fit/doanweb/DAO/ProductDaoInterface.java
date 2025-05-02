@@ -4,6 +4,7 @@ import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.ProductByCondition;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ProductDaoInterface {
 
@@ -30,4 +31,14 @@ public interface ProductDaoInterface {
     public List<Brands> getTop18Brands();
 
     public FrameShapes getFrameShapeById(int shapeId);
+
+    public void addFavoriteProduct(int userId, int productId);
+
+    public Set<Integer> getFavoriteProductIds(int id);
+
+    public boolean isFavorite(int userId, int productId);
+
+    public void removeFavoriteProduct(int userId, int productId);
+
+    public List<ProductIndex> getFavoriteByUserId(int id);
 }

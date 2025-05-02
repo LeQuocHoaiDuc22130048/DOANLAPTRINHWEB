@@ -30,7 +30,7 @@ public class UserDaoImp implements UserDao {
     private final static String UpdateUser = "UPDATE users SET name = :name , email = " +
             ":email , password = :password  ," +
             "phone = :phone  , address = :address , avatar = :avatar  WHERE id = :id";
-    private final static String GetUserById = "SELECT name , email , phone , address , avatar FROM users WHERE id = :id";
+    private final static String GetUserById = "SELECT name , email , phone , address , avatar , role FROM users WHERE id = :id";
 
     public UserDaoImp() {
         // Initialize indexes if they don't exist
@@ -143,6 +143,16 @@ public class UserDaoImp implements UserDao {
                         .mapTo(Integer.class)
                         .findOne()
                         .orElse(Inactive) == Active
+        );
+    }
+
+    @Override
+    public void updateOrderUserId(String orderCode, int userId) {
+        jdbi.useHandle(handle ->
+                handle.createUpdate("UPDATE orders SET user_id = :userId WHERE order_code = :orderCode")
+                        .bind("userId", userId)
+                        .bind("orderCode", orderCode)
+                        .execute()
         );
     }
 }

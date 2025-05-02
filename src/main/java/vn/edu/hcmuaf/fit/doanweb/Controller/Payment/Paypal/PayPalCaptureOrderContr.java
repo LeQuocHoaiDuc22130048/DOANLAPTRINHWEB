@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Customer;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
 import vn.edu.hcmuaf.fit.doanweb.Services.OrderService;
@@ -73,6 +74,16 @@ public class PayPalCaptureOrderContr extends HttpServlet {
 
         //thông tin đơn hàng
         String orderCode = jsonResponse.get("id").getAsString();  // Mã đơn từ PayPal
+
+        User user = (User) session.getAttribute("user");
+        Integer userId = null;
+
+        if (user != null) {
+            userId = user.getId();
+        } else {
+            session.setAttribute("temp_order_code", orderCode);
+        }
+
         String totalVND = (String) session.getAttribute("orderTotal");
         totalVND = totalVND.replace(",", "");
         totalVND = totalVND.replace("đ", "");
@@ -101,8 +112,8 @@ public class PayPalCaptureOrderContr extends HttpServlet {
         }
 
         // Lưu đơn hàng vào cơ sở dữ liệu
-         service.createOrder(orderCode,customerName,phoneNumber,email,fullAddress,subtotal,totalDiscount,shippingFee,totalPrice,
-                 totalQuantity,paymentMethod,orderNotes,listProducts);
+        service.createOrder(orderCode,userId, customerName,phoneNumber,email,fullAddress,subtotal,totalDiscount,shippingFee,totalPrice,
+                totalQuantity,paymentMethod,orderNotes,listProducts);
 
         session.removeAttribute("cart");
     }

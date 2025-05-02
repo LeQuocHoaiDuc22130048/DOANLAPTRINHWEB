@@ -897,6 +897,11 @@ button:active {
   font-size: 13px;
 }
 
+.fa-star.active {
+  color: gold;
+}
+
+
 /*
 ---------------------------------------------
 kinh_mat_nam, kinh_mat_nu, gong_kinh
