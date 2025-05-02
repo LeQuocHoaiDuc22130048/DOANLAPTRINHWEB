@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lequo
-  Date: 1/15/2025
-  Time: 4:58 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -81,7 +74,7 @@
             </td>
             <td>
               <a>
-                <button class="btn btn-primary btn-sm">
+                <button class="btn btn-primary btn-sm" data-id="${feedback.id}" data-email="${feedback.email}" data-name="${feedback.name}" onclick="showReplyModal(this)">
                   <i class="fa-solid fa-reply"></i>
                 </button>
               </a>
@@ -94,6 +87,27 @@
   </div>
 </div>
 
+<div class="modal" id="replyModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Phản hồi người dùng</h5>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="feedbackId">
+        <input type="hidden" id="feedbackEmail">
+        <div class="mb-3">
+          <label for="replyContent">Nội dung phản hồi</label>
+          <textarea id="replyContent" class="form-control" rows="5"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button onclick="sendReply()" class="btn btn-success">Gửi</button>
+        <button data-bs-dismiss="modal" class="btn btn-secondary">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </body>

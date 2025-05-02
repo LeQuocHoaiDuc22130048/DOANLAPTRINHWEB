@@ -33,7 +33,6 @@ public class AdminService {
         return admin.getImageById(id);
     }
 
-
     public int addProduct(Product product, List<ProductImage> productImages) {
         // Thêm sản phẩm và lấy ID
         int productId = admin.addProduct(product);
@@ -102,6 +101,10 @@ public class AdminService {
 
     public List<DashboardVM> getProductHot() {
         return admin.getProductHot();
+    }
+
+    public boolean replyFeedback(int id, String replyContent) {
+        return admin.replyFeedback(id,replyContent);
     }
 
     public static void main(String[] args) {

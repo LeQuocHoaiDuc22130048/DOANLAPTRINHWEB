@@ -155,4 +155,16 @@ public class UserDaoImp implements UserDao {
                         .execute()
         );
     }
+
+    @Override
+    public void insertFeedback(String name, String email, String message) {
+        jdbi.useHandle(handle ->
+                handle.createUpdate("INSERT INTO feedbacks (name, email, message, status, created_at, updated_at) " +
+                                "VALUES (:name, :email, :message, 0, NOW(), NOW())")
+                        .bind("name", name)
+                        .bind("email", email)
+                        .bind("message", message)
+                        .execute()
+        );
+    }
 }

@@ -219,9 +219,6 @@ public class Admin {
         return true;
     }
 
-
-
-
     public List<CategoriesVM> getCategories() {
         String sql = """
                   SELECT c.id, c.`name`, c.img, COUNT(p.id) AS product_count,c.`status`, c.hot, c.created_at
@@ -320,4 +317,16 @@ public class Admin {
                                 rs.getInt("total_sold"))).list());
 
     }
+
+    public boolean replyFeedback(int id, String replyContent) {
+        String sql = "UPDATE feedbacks SET response = ?, updated_at = NOW(), status = 1 WHERE id = ?";
+        int rowsAffected = jdbi.withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, replyContent)
+                        .bind(1, id)
+                        .execute()
+        );
+        return rowsAffected > 0;
+    }
+
 }

@@ -22,7 +22,7 @@ public class FavoriteProductListContr extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-      int userId = (int) session.getAttribute("userId");
+        int userId = (int) session.getAttribute("userId");
         List<ProductIndex> favoriteProductList = dao.getFavoriteByUserId(userId);
         request.setAttribute("favoriteProductList", favoriteProductList);
         request.getRequestDispatcher(JSPPage.WishList.getPage()).forward(request, response);
