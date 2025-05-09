@@ -1,30 +1,18 @@
 package vn.edu.hcmuaf.fit.doanweb.Controller.User;
 
-import com.google.api.client.auth.oauth2.TokenResponse;
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeTokenRequest;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.json.jackson2.JacksonFactory;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import org.json.JSONObject;
 import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.UserProfile;
-import vn.edu.hcmuaf.fit.doanweb.DAO.DB.DBProperties;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.Util.HandleGoogleToken;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 import vn.edu.hcmuaf.fit.doanweb.Util.JwtUtil;
 import vn.edu.hcmuaf.fit.doanweb.Util.LogSystem;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Properties;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @WebServlet("/login-Google")
 public class GoogleLogin extends HttpServlet {

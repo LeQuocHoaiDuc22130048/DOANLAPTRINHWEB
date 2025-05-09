@@ -7,10 +7,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoInterface;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 
 import java.io.IOException;
 import java.util.List;

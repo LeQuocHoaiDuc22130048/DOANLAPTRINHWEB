@@ -1,13 +1,10 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO;
 
-import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.UserProfile;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
-import vn.edu.hcmuaf.fit.doanweb.Util.Roles;
-
-import java.util.Optional;
+import vn.edu.hcmuaf.fit.doanweb.Enum.Roles;
 
 public class UserDaoImp implements UserDao {
     private final Jdbi jdbi = JDBIConnect.get();

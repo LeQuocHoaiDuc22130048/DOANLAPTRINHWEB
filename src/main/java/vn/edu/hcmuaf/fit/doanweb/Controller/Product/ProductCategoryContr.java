@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Categories;
 //import vn.edu.hcmuaf.fit.doanweb.DAO.ProductBrandDao;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 //import vn.edu.hcmuaf.fit.doanweb.DAO.ProductCategoryDao;
 
 import java.io.IOException;

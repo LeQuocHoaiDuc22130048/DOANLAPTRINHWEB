@@ -6,13 +6,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Brands;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoInterface;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
-import vn.edu.hcmuaf.fit.doanweb.Util.LogSystem;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 
 import java.io.IOException;
 import java.util.List;
