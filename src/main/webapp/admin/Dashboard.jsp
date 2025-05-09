@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <c:set var="titleName" value="Trang quản lý" scope="request"/>
-    <c:import url="DashboardLink.jsp"/>
+    <c:import url="/admin/DashboardLink.jsp"/>
     <title>${titleName}</title>
 </head>
 <body>
@@ -24,11 +24,12 @@
     <ul style="padding: 0">
         <li><a href="Dashboard" class="active"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
         <li><a href="Order"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
-        <li><a href="./Product-list.html"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
-        <li><a href="Product-category"><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
+        <li><a href="ProductList"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
+        <li><a href="Category"><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
         <li><a href="Promotion"><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
         <li><a href="User"><i class="fa-solid fa-user"></i>Người dùng</a></li>
         <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
+        <li><a href="Newsletter-subscriber"><i class="fa-solid fa-bell"></i>Đăng ký nhận tin</a></li>
 
     </ul>
 </div>
@@ -112,7 +113,7 @@
         </div>
     </div>
 </div>
-<c:import url="DashboardScript.jsp"/>
+<c:import url="/admin/DashboardScript.jsp"/>
 <script src="./asset/js/Chart.js"></script>
 <script src = ./asset/js/Notification.js></script>
 </body>

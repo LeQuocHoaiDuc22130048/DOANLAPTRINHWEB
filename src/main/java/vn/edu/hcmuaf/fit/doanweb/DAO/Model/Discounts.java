@@ -12,4 +12,12 @@ public class Discounts {
     private double discountPercentage;
     private int status;
 
+    public Discounts(int id, String code, String description, double discountPercentage, int status) {
+        this.id = id;
+        this.code = code;
+        this.description = description;
+        this.discountPercentage = discountPercentage;
+        this.status = status;
+    }
+    public Discounts(){}
 }

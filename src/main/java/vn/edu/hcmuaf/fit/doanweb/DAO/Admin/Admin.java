@@ -17,47 +17,51 @@ public class Admin {
     }
 
     public List<ProductVM> getAllProducts() {
-        String sql = "SELECT p.id, p.name,pi.path,p.selling_price ,p.quantity " +
-                "From products p " +
-                "LEFT JOIN products_images pi ON p.id = pi.product_id " +
-                "WHERE pi.is_main = 1";
-
-
+        String sql = "SELECT p.id, p.name, pimg.`path`,b.img as brandImg, p.selling_price, p.quantity\n" +
+                "FROM products p\n" +
+                "LEFT JOIN products_images pimg ON p.id = pimg.product_id\n" +
+                "LEFT JOIN brands b ON p.brand_id = b.id\n" +
+                "WHERE pimg.is_main = 1";
         return jdbi.withHandle(h -> h.createQuery(sql).map((rs, ctx) -> new ProductVM(
                 rs.getInt("id"),
                 rs.getString("name"),
                 rs.getString("path"),
+                rs.getString("brandImg"),
                 rs.getLong("selling_price"),
                 rs.getInt("quantity")
         )).list());
     }
 
     public List<OrdersVM> getAllOrders() {
-        String sql = "SELECT o.id AS order_id, u.name AS buyer_name, u.email AS buyer_email, u.phone AS buyer_phone, " +
-                "u.address AS buyer_address, o.created_at AS order_date, o.status_transport AS transport_status " +
-                "FROM orders o " +
-                "JOIN users u ON o.user_id = u.id";
+        String sql = """
+                SELECT o.id,o.customer_name,o.phone_number,o.customer_email,o.shipping_address,
+                o.payment_status,o.status_order, o.created_at
+                FROM orders o
+                """;
 
         return jdbi.withHandle(h -> h.createQuery(sql).map((rs, ctx) -> new OrdersVM(
-                rs.getInt("order_id"),
-                rs.getString("buyer_name"),
-                rs.getString("buyer_email"),
-                rs.getString("buyer_phone"),
-                rs.getString("buyer_address"),
-                rs.getTimestamp("order_date").toLocalDateTime(),
-                rs.getInt("transport_status")
+                rs.getInt("id"),
+                rs.getString("customer_name"),
+                rs.getString("phone_number"),
+                rs.getString("customer_email"),
+                rs.getString("shipping_address"),
+                rs.getByte("payment_status"),
+                rs.getByte("status_order"),
+                rs.getTimestamp("created_at").toLocalDateTime()
         )).list());
     }
 
     public List<OrderDetailVM> getAllOrderDetails(int orderId) {
-        String sql = "SELECT p.id AS product_id, pi.path AS product_image, p.name AS product_code, " +
-                "p.selling_price, od.quantity, " +
-                "(p.selling_price * od.quantity) - o.total_discount AS total_price " +
-                "FROM order_details od " +
-                "JOIN orders o ON o.id = od.order_id " +
-                "JOIN products p ON od.product_id = p.id " +
-                "JOIN products_images pi ON p.id = pi.product_id " +
-                "WHERE od.order_id = :orderId AND pi.is_main = 1";
+        String sql = """
+                SELECT p.id AS product_id, pi.path AS product_image, p.name AS product_code,\s
+                     p.selling_price, od.quantity,\s
+                     (p.selling_price * od.quantity) - o.total_discount AS total_price\s
+                     FROM order_details od\s
+                     JOIN orders o ON o.id = od.order_id\s
+                     JOIN products p ON od.product_id = p.id\s
+                     JOIN products_images pi ON p.id = pi.product_id\s
+                     WHERE od.order_id = :orderId AND pi.is_main = 1
+                """;
 
         return jdbi.withHandle(h -> h.createQuery(sql)
                 .bind("orderId", orderId)
@@ -83,10 +87,13 @@ public class Admin {
 
     public List<Discounts> getDiscounts() {
         String sql = "select id, code, description, discount_percentage, status from discounts";
-        return jdbi.withHandle(handle ->
-                handle.createQuery(sql)
-                        .mapToBean(Discounts.class)
-                        .list());
+        return jdbi.withHandle(handle -> handle.createQuery(sql).map((rs,ctx) -> new Discounts(
+                    rs.getInt("id"),
+                    rs.getString("code"),
+                    rs.getString("description"),
+                    rs.getDouble("discount_percentage"),
+                    rs.getInt("status")
+        )).list());
     }
 
     public int addProduct(Product product) {
@@ -99,7 +106,7 @@ public class Admin {
         int productId = jdbi.withHandle(handle ->
                 handle.createUpdate(productSql)
                         .bind(0, product.getCategoryId())
-                        .bind(1, product.getBrandId())
+                        .bind(1, product.getBrandId()) 
                         .bind(2, product.getShapeId())
                         .bind(3, product.getMaterial())
                         .bind(4, product.getName())
@@ -212,27 +219,24 @@ public class Admin {
         return true;
     }
 
-
-    public List<CategoryVM> getAllCategories() {
-        return jdbi.withHandle(handle -> handle.createQuery("select id, name from categories")
-                .mapToBean(CategoryVM.class)
-                .list());
-
-    }
-
-    public List<CategoriesVM> getCategoriesWithamoutProduct() {
-        String sql = "SELECT c.id, c.name, c.status, COUNT(p.id) AS product_count " +
-                "FROM categories c " +
-                "LEFT JOIN products p ON c.id = p.category_id " +
-                "GROUP BY c.id";
+    public List<CategoriesVM> getCategories() {
+        String sql = """
+                  SELECT c.id, c.`name`, c.img, COUNT(p.id) AS product_count,c.`status`, c.hot, c.created_at
+                  FROM categories c
+                  LEFT JOIN products p ON c.id = p.category_id
+                  GROUP BY c.id
+                """;
 
         return jdbi.withHandle(handle ->
                 handle.createQuery(sql)
                         .map((rs, ctx) -> new CategoriesVM(
                                 rs.getInt("id"),
                                 rs.getString("name"),
-                                rs.getInt("status"),
-                                rs.getInt("product_count")
+                                rs.getString("img"),
+                                rs.getInt("product_count"),
+                                rs.getByte("status"),
+                                rs.getByte("hot"),
+                                rs.getTimestamp("created_at").toLocalDateTime()
                         )).list());
     }
 
@@ -313,4 +317,25 @@ public class Admin {
                                 rs.getInt("total_sold"))).list());
 
     }
+
+    public boolean replyFeedback(int id, String replyContent) {
+        String sql = "UPDATE feedbacks SET response = ?, updated_at = NOW(), status = 1 WHERE id = ?";
+        int rowsAffected = jdbi.withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, replyContent)
+                        .bind(1, id)
+                        .execute()
+        );
+        return rowsAffected > 0;
+    }
+
+    public List<NewsletterSubscriber> getAllNewsletterSubscribers() {
+        String sql = "SELECT * FROM newsletter_subscribers ORDER BY created_at DESC";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .mapToBean(NewsletterSubscriber.class)
+                        .list());
+    }
+
+
 }
