@@ -45,7 +45,7 @@ public class Index extends HttpServlet {
         User user = (User) session.getAttribute("user");
         if (user != null) {
             Set<Integer> favoriteIds = dao.getFavoriteProductIds(user.getId());
-            session.setAttribute("favoriteIds", favoriteIds);
+            request.setAttribute("favoriteIds", favoriteIds);
         }
 
         request.getRequestDispatcher("/index.jsp").forward(request, response);
