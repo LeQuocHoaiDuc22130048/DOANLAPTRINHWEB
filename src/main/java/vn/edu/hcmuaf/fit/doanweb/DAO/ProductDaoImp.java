@@ -387,6 +387,67 @@ public class ProductDaoImp implements ProductDaoInterface {
         );
     }
 
+    @Override
+    public List<ProductIndex> getProducsBestSeller(int limit, int offset) {
+        List<ProductIndex> productList = jdbi.withHandle(handle ->
+                handle.createQuery(
+                                "SELECT p.*, SUM(od.quantity) AS total_sold " +
+                                        "FROM products p " +
+                                        "JOIN order_details od ON p.id = od.product_id " +
+                                        "GROUP BY p.id " +
+                                        "ORDER BY total_sold DESC " +
+                                        "LIMIT :limit OFFSET :offset"
+                        )
+                        .bind("limit", limit)
+                        .bind("offset", offset)
+                        .map((rs, ctx) -> {
+                            ProductIndex p = new ProductIndex();
+                            p.setId(rs.getInt("id"));
+                            p.setCategoryId(rs.getInt("category_id"));
+                            p.setBrandId(rs.getInt("brand_id"));
+                            p.setShapeId(rs.getInt("shape_id"));
+                            p.setMaterial(rs.getString("material"));
+                            p.setName(rs.getString("name"));
+                            p.setDescription(rs.getString("description"));
+                            p.setStatus(rs.getInt("status"));
+                            p.setHot(rs.getByte("hot"));
+                            p.setCostPrice((float) rs.getDouble("cost_price"));
+                            p.setSellingPrice((float) rs.getDouble("selling_price"));
+                            p.setQuantity(rs.getInt("quantity"));
+                            p.setGender(rs.getInt("gender"));
+                            p.setColor(rs.getString("color"));
+//                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
+//                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
+                            return p;
+                        })
+                        .list()
+        );
+
+        // Lấy ảnh đại diện
+        productList.forEach(product -> {
+            String mainImage = jdbi.withHandle(handle ->
+                    handle.createQuery("SELECT path FROM products_images WHERE product_id = :id AND is_main = 1")
+                            .bind("id", product.getId())
+                            .mapTo(String.class)
+                            .findOne()
+                            .orElse(null)
+            );
+            product.setPath_image(mainImage);
+        });
+
+        return productList;
+    }
+
+    @Override
+    public int getTotalBestSellerProducts() {
+        return jdbi.withHandle(handle ->
+                handle.createQuery(
+                        "SELECT COUNT(DISTINCT p.id) " +
+                                "FROM products p JOIN order_details od ON p.id = od.product_id"
+                ).mapTo(Integer.class).findOne().orElse(0)
+        );
+    }
+
 
     public static void main(String[] args) {
     }
