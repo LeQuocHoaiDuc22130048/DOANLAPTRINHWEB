@@ -225,7 +225,7 @@ th,td{
 }
 .container .content{
   position: relative;
-  margin-top: 10vh;
+  margin-top: 12vh;
   min-height: 90vh;
 }
 .container .content .cards{
@@ -286,13 +286,12 @@ th,td{
 }
 
 .container .data-table{
-  margin: 100px 0;
   background: white;
   box-shadow: var(--primary-box-shadow);
   border-radius: 5px;
 }
 .content .btn_add_item{
-  padding: 10px 0 10px 0;
+  padding: 0 0 10px 0;
 }
 .content .btn_add_item a{
   float: right;
@@ -310,27 +309,34 @@ body.modal-open {
   position: relative;
 }
 
-.modal-body .loader{
-  width: 48px;
-  height: 48px;
-  border: 5px solid #0d0d0d;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
 
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.input-form h3{
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.line{
+  margin-top: 10px;
+  height: 1px;
+  width: 100%;
+  background: rgba(128, 128, 128, 0.22);
 }
 
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.input-group input[type="file"]{
+  display: none;
+}
+
+#images{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+figure{
+  width: 45%;
+}
+#images img{
+  width: 100%;
+}
+figcaption{
+  text-align: center;
+  margin-top: 0.5vmin;
 }

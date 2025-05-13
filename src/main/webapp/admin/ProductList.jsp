@@ -39,7 +39,7 @@
     <jsp:include page="/admin/Header.jsp"/>
     <div class="content">
         <div class="btn_add_item">
-            <a href="">
+            <a href="ProductAdd">
                 <button class="btn btn-secondary">Thêm sản phẩm</button>
             </a>
         </div>
@@ -84,9 +84,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 </body>
 <c:import url="/admin/DashboardScript.jsp"/>

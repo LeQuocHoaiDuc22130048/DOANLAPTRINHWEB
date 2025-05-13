@@ -5,8 +5,10 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class AdminService {
@@ -16,6 +18,22 @@ public class AdminService {
         return admin.getAllProducts();
     }
 
+    public Product getProductById(String id) {
+        return admin.getProductById(id);
+    }
+
+    public int insertProduct(Product product) {
+        // Thêm sản phẩm và lấy ID
+        int productId = admin.insertProduct(product);
+        if (productId <= 0) {
+            return 0;
+        }
+        return productId;
+    }
+
+    public void insertProductImage(int productId, String imagePath, boolean isMain){
+        admin.insertProductImage(productId, imagePath, isMain);
+    }
 
     public List<BrandVM> getAllBrand() {
         return admin.getAllBrands();
@@ -25,31 +43,14 @@ public class AdminService {
         return admin.getAllFrameShapes();
     }
 
-    public Product getProductById(String id) {
-        return admin.getProductById(id);
-    }
+
 
     public ProductImage getProductImageById(String id) {
         return admin.getImageById(id);
     }
 
 
-    public int addProduct(Product product, List<ProductImage> productImages) {
-        // Thêm sản phẩm và lấy ID
-        int productId = admin.addProduct(product);
-        if (productId <= 0) {
-            return 0;
-        }
-        // Gán ID cho từng hình ảnh và thêm hình ảnh vào CSDL
-        for (ProductImage productImage : productImages) {
-            productImage.setProductId(productId);
-            boolean imageAdded = admin.addProductImages(productImage);
-            if (!imageAdded) {
-                return 0;
-            }
-        }
-        return productId;
-    }
+
 
     public boolean deleteProduct(int id) {
         return admin.deleteProduct(id);
@@ -67,6 +68,8 @@ public class AdminService {
     public List<OrderDetailVM> getAllOrderDetail(int orderId) {
         return admin.getAllOrderDetails(orderId);
     }
+
+
 
     public boolean deleteOrder(int orderId) {
         return admin.deleteOrder(orderId);
@@ -106,7 +109,7 @@ public class AdminService {
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
-        System.out.println(adminService.getAllOrderDetail(6));
+        System.out.println(File.separator);
     }
 
 

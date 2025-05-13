@@ -18,6 +18,17 @@
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<%--sweet alert--%>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<%--CKEDITOR--%>
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+
+
+<%--js--%>
+<script src="${pageContext.request.contextPath}/admin/asset/js/Notification.js"></script>
+<script src="${pageContext.request.contextPath}/admin/asset/js/DisplayImage.js"></script>
+<script src="${pageContext.request.contextPath}/admin/asset/js/appForAdmin.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -37,4 +48,6 @@
         });
     });
 </script>
+
+
 

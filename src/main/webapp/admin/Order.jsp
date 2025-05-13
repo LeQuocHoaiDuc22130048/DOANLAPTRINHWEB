@@ -77,14 +77,14 @@
                         </td>
                         <td>
 
-                                <button
-                                        class="btn btn-primary btn-sm view-details-btn"
-                                        type="button" data-bs-toggle="modal"
-                                        data-bs-target="#orderDetail"
-                                        data-order-id="${od.orderId}"
-                                >
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
+                                    <button
+                                            class="btn btn-primary btn-sm view-details-btn"
+                                            type="button" data-bs-toggle="modal"
+                                            data-bs-target="#orderDetail"
+                                            data-order-id="${od.orderId}"
+                                    >
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
 
                                 <a href="">
                                     <button class="btn btn-warning btn-sm">
@@ -106,12 +106,11 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Chi tiết đơn hàng</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <%--Hiển thị bằng ajax--%>
-                <span class="loader"></span>
+            <div class="modal-body text-center " id="orderDetailBody">
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -127,9 +126,16 @@
         const buttons = document.querySelectorAll(".view-details-btn");
         buttons.forEach(btn => {
             btn.addEventListener("click", function () {
-                const orderId = this.getAttribute("data-id");
+                const orderId = this.getAttribute("data-order-id");
                 const detailBody = document.getElementById("orderDetailBody");
-                detailBody.innerHTML = "Đang tải...";
+                detailBody.innerHTML = `
+                    <div class="text-center my-4">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p>Đang tải chi tiết đơn hàng...</p>
+                        </div>
+                `;
 
                 fetch("OrderDetail?id=" + orderId)
                     .then(res => res.text())
@@ -137,7 +143,13 @@
                         detailBody.innerHTML = html;
                     })
                     .catch(err => {
-                        detailBody.innerHTML = "<p class='text-danger'>Lỗi tải dữ liệu</p>";
+                        detailBody.innerHTML = `
+                            <div class="alert alert-danger">
+                                    <i class="bi bi-exclamation-triangle-fill"></i>
+                                    Lỗi khi tải chi tiết đơn hàng. Vui lòng thử lại.
+                            </div>
+                        `;
+                        console.error("Error fetching order details:", err);
                     });
             });
         });
