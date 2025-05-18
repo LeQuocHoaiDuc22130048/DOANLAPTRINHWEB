@@ -41,4 +41,9 @@ public interface ProductDaoInterface {
     public void removeFavoriteProduct(int userId, int productId);
 
     public List<ProductIndex> getFavoriteByUserId(int id);
+
+    List<ProductIndex> getProducsBestSeller(int limit, int offset);
+
+    public int getTotalBestSellerProducts();
+
 }
