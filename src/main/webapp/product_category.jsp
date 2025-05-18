@@ -152,23 +152,23 @@
                            <div class="dropdown-menu container-fluid shadow " style="width: 500px">
                                <div class="row row-cols-4 w-auto ms-2">
                                    <div class="col">
-                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=1">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" onclick="fetchData(1, 'gender',1)">
                                            <img class="img-thumbnail" src="assets/images/icon_gender/icon-nam .jpg" alt=""/>
                                        </a>
                                    </div>
                                    <div class="col">
-                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=2">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" onclick="fetchData(1, 'gender',2)">
                                            <img class="img-thumbnail" src="assets/images/icon_gender/icon-nu .jpg" alt=""/>
                                        </a>
                                    </div>
                                    <div class="col">
-                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" href="filter?type=gender&value=3">
+                                       <a class="dropdown_item_link px-2 py-2 text-center text-nowrap" onclick="fetchData(1, 'gender',3)">
                                            <img class="img-thumbnail" src="assets/images/icon_gender/icon-tre-em.jpg" alt=""/>
                                        </a>
                                    </div>
                                    <div class="col">
                                        <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                          href="filter?type=gender&value=4"><img class="img-thumbnail"
+                                          onclick="fetchData(1, 'gender',4)"><img class="img-thumbnail"
                                                                                  src="assets/images/icon_gender/icon-unisex .jpg"
                                                                                  alt=""/> </a>
                                    </div>
@@ -187,9 +187,9 @@
                                <div class="row row-cols-4 w-auto ms-2">
                                    <c:forEach var="shape" items="${shapes}">
                                        <div class="col">
-                                           <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                              href="filter?type=shape_id&value=${shape.id}">
-                                               <img class="img-thumbnail" src="${shape.imgPath}" alt=""/>
+                                           <a class="dropdown_item_link px-2 py-2 m-2 text-center text-nowrap"
+                                              onclick="fetchData(1, 'shape_id', ${shape.id})">
+                                                       <img class="img-thumbnail" src="${shape.imgPath}" alt=""/>
                                            </a>
                                        </div>
                                    </c:forEach>
@@ -208,10 +208,11 @@
                                <div class="row row-cols-4 w-auto ms-2">
                                    <c:forEach var="material" items="${materials}">
                                        <div class="col">
-                                           <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                              href="filter?type=material&value=${material.name}">
+                                           <a class="dropdown_item_link px-2 py-2 m-2 text-center text-nowrap"
+                                              onclick="fetchData(1, 'material', `${material.name}`)">
                                                <img class="img-thumbnail" src="${material.path}" alt=""/>
                                            </a>
+
                                        </div>
                                    </c:forEach>
                                </div>
@@ -229,9 +230,9 @@
                                <div class="row row-cols-5 w-auto ms-2">
                                    <c:forEach var="color" items="${colors}">
                                        <div class="col">
-                                           <a class="dropdown_item_link px-2 py-2 text-center text-nowrap"
-                                              href="filter?type=color&value=${color.name}"><img class="img-thumbnail"
-                                                                                                src="${color.path}" alt=""/>
+                                           <a class="dropdown_item_link px-2 py-2 m-2 text-center text-nowrap"
+                                              onclick="fetchData(1, 'color', `${color.name}`)">
+                                               <img class="img-thumbnail" src="${color.path}" alt=""/>
                                            </a>
                                        </div>
                                    </c:forEach>

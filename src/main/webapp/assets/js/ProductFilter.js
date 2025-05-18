@@ -30,16 +30,24 @@ function displayProducts(products) {
     let html = '';
     $.each(products, function (index, product) {
         html += `
-        <div class="product-item border border-1 w-50" data-product-id="${product.id}">
-            <img class="img-thumbnail border-0 rounded-4" src="${product.path}" alt="${product.name}"/>
-            <div class="down-content">
-                <h6>${product.name}</h6>
-                <span>${product.cost_price}đ</span>
-                <ul class="stars">
-                    ${generateStars(product.id)}
-                </ul>
-            </div>
-        </div>
+       <div class="product-item shadow w-100  rounded-2" data-product-id="${product.id}">
+    <img class="img-thumbnail border-0" src="${product.path}" alt="${product.name}" />
+   <div class="d-flex justify-content-between align-items-center">
+    <div class="down-content p-2">
+        <h6>${product.name}</h6>
+        <span>${product.cost_price}đ</span>
+        <ul class="stars">
+            ${generateStars(product.id)}
+        </ul>
+    </div>
+    <form class="addCartForm">
+        <input type="hidden" name="id" value="${product.id}">
+        <button class="btn_gio_hang border-0 text-light bg-primary me-2 rounded-1">
+            <i class="fa fa-shopping-cart"></i>
+        </button>
+    </form>
+</div>
+</div>
                     `;
     });
     productGrid.html(html);
@@ -51,7 +59,7 @@ function updatePagination(currentPage, totalPages, currentType, currentValue) {
 
     if (currentPage > 1) {
         $('<button>', {
-            class: 'pagination-button m-2 btn-primary',
+            class: 'pagination-button m-2 bg-primary text-light',
             text: 'Trang trước',
             click: function () {
                 fetchData(currentPage - 1, currentType, currentValue);
