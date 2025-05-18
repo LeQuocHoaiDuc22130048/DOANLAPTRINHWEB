@@ -3,16 +3,14 @@ package vn.edu.hcmuaf.fit.doanweb.Controller.User;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import org.mindrot.jbcrypt.BCrypt;
 import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.UserProfile;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDao;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 import vn.edu.hcmuaf.fit.doanweb.Util.*;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 
 @WebServlet(name = "UpdateProfileController", value = "/user/updateProfile")
 

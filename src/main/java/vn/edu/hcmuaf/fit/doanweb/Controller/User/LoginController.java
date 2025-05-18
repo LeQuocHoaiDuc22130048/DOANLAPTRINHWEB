@@ -6,8 +6,8 @@ import jakarta.servlet.annotation.*;
 import org.mindrot.jbcrypt.BCrypt;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
-import vn.edu.hcmuaf.fit.doanweb.Util.ErrorMessages;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
+import vn.edu.hcmuaf.fit.doanweb.Enum.ErrorMessages;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 import vn.edu.hcmuaf.fit.doanweb.Util.JwtUtil;
 
 
