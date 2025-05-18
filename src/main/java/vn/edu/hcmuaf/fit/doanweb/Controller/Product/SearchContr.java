@@ -10,7 +10,6 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoInterface;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
 
 import java.io.IOException;
 import java.util.*;
@@ -43,7 +42,7 @@ public class SearchContr extends HttpServlet {
         
         // Trường hợp không có keyword, chuyển hướng đến trang search trống
         if (keyword == null || keyword.trim().isEmpty()) {
-            RequestDispatcher dispatcher = req.getRequestDispatcher(JSPPage.Search.getPage());
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/Search.jsp");
             dispatcher.forward(req, resp);
             return;
         }
@@ -79,11 +78,11 @@ public class SearchContr extends HttpServlet {
             req.setAttribute("previousPage", page - 1);
             req.setAttribute("nextPage", page + 1);
             
-            RequestDispatcher dispatcher = req.getRequestDispatcher(JSPPage.Search.getPage());
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/Search.jsp");
             dispatcher.forward(req, resp);
         } catch (Exception e) {
             req.setAttribute("error", "Đã xảy ra lỗi khi tìm kiếm. Vui lòng thử lại sau.");
-            RequestDispatcher dispatcher = req.getRequestDispatcher(JSPPage.Search.getPage());
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/Search.jsp");
             dispatcher.forward(req, resp);
         }
     }
