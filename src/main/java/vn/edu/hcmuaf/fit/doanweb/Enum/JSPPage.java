@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Util;
+package vn.edu.hcmuaf.fit.doanweb.Enum;
 
 public enum JSPPage {
     Index("/index") , Login("Login.jsp") ,

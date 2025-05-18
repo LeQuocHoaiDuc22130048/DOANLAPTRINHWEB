@@ -11,9 +11,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoInterface;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
-import vn.edu.hcmuaf.fit.doanweb.Util.LogSystem;
-import vn.edu.hcmuaf.fit.doanweb.Util.Roles;
+import vn.edu.hcmuaf.fit.doanweb.Enum.Roles;
 
 import java.io.IOException;
 import java.util.List;

@@ -175,7 +175,7 @@
                                     <h4>${product.name}</h4>
                                     <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                     <ul class="stars">
-                                        <c:forEach begin="0" end="5" step="1">
+                                        <c:forEach begin="0" end="4">
                                             <li>
                                                 <i class="fa fa-star
                                                     <c:if test="${requestScope.favoriteIds != null && requestScope.favoriteIds.contains(product.id)}"> active</c:if>
@@ -187,8 +187,8 @@
                             </div>
 
                             <c:if test="${status.index % 3 == 2 || status.last}">
-                                </div> <!-- Kết thúc row -->
-                                </div> <!-- Kết thúc carousel-item -->
+                                </div>
+                                </div>
                             </c:if>
                         </c:forEach>
 

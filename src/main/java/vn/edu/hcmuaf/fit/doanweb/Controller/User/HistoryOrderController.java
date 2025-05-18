@@ -4,10 +4,9 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.OrderDao;
 import vn.edu.hcmuaf.fit.doanweb.DAO.OrderDaoImp;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 
 import java.io.IOException;
 import java.util.List;

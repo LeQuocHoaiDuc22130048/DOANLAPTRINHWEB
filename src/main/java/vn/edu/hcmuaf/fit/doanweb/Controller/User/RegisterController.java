@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.*;
 import org.mindrot.jbcrypt.BCrypt;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.Services.SendEmailServices;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 import vn.edu.hcmuaf.fit.doanweb.Util.LogSystem;
 
 import javax.mail.MessagingException;

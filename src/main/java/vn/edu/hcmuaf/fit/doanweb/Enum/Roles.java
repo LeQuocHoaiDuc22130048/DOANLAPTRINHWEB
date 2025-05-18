@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Util;
+package vn.edu.hcmuaf.fit.doanweb.Enum;
 
 import lombok.Getter;
 
