@@ -88,7 +88,7 @@
                                             <h4>${product.name}</h4>
                                             <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                                             <ul class="stars">
-                                                <c:forEach begin="0" end="5" step="1">
+                                                <c:forEach begin="0" end="4" step="1">
                                                     <li>
                                                         <i class="fa fa-star active"></i>
                                                     </li>

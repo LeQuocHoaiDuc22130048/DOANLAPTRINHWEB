@@ -83,8 +83,9 @@ public class CodBankConfirmOrder extends HttpServlet {
         }
 
         // Lưu đơn hàng vào cơ sở dữ liệu
-        service.createOrder(orderCode,userId, customerName, phoneNumber, email, fullAddress, subtotal, totalDiscount, shippingFee, totalPrice,
-                totalQuantity, paymentMethod, orderNotes, listProducts);
+        service.createOrder(orderCode,userId, customerName, phoneNumber, email, fullAddress,
+                subtotal, totalDiscount, shippingFee, totalPrice, totalQuantity, paymentMethod,
+                orderNotes, listProducts);
 
     }
 

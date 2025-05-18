@@ -112,7 +112,8 @@ public class PayPalCaptureOrderContr extends HttpServlet {
         }
 
         // Lưu đơn hàng vào cơ sở dữ liệu
-        service.createOrder(orderCode,userId, customerName,phoneNumber,email,fullAddress,subtotal,totalDiscount,shippingFee,totalPrice,
+        service.createOrder(orderCode,userId, customerName,phoneNumber,email,fullAddress,
+                subtotal,totalDiscount,shippingFee,totalPrice,
                 totalQuantity,paymentMethod,orderNotes,listProducts);
 
         session.removeAttribute("cart");

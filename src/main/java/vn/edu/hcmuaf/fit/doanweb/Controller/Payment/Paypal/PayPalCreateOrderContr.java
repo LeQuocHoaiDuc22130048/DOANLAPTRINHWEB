@@ -44,8 +44,6 @@ public class PayPalCreateOrderContr extends HttpServlet {
         // Lấy tỷ giá USD/VND theo thời gian thực
         double exchangeRate = ExchangeRate.getUSDRate();
         double totalUSD = Double.parseDouble(totalVND) / exchangeRate;
-
-        // Làm tròn đến 2 chữ số thập phân
         totalUSD = Math.round(totalUSD * 100.0) / 100.0;
 
         String accessToken = PayPalAuthContr.getAccessToken();

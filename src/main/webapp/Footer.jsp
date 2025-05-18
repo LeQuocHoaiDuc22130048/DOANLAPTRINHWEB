@@ -93,5 +93,7 @@
         </form>
     </div>
     <!-- chat box ở phần footer End-->
-
+    <script>
+        window.appContext = '${pageContext.request.contextPath}';
+    </script>
 </footer>
