@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@WebServlet(name = "ForgotPasswordController", value = "/forget")
+@WebServlet(name = "ForgotPasswordController", value = "/forgot")
 public class ForgotPasswordController extends HttpServlet {
 
     private static final String EMAIL_PATTERN = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
@@ -32,12 +32,6 @@ public class ForgotPasswordController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
-
-        logger.info("Received POST request at /forget with username: " + username + " and email: " + email);
-
 
 
     }

@@ -144,7 +144,7 @@
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                 <div class="row">
                             </c:if>
-                            <div class="item col-4" data-product-id="${product.id}">
+                            <div class="col" data-product-id="${product.id}">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>

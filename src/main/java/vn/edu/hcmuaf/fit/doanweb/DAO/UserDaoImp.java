@@ -28,9 +28,17 @@ public class UserDaoImp implements UserDao {
             ":email , password = :password  ," +
             "phone = :phone  , address = :address , avatar = :avatar  WHERE id = :id";
     private final static String GetUserById = "SELECT name , email , phone , address , avatar , role FROM users WHERE id = :id";
+    private final static String UpdatePassword = "UPDATE users SET password = :password WHERE email = :email";
 
     public UserDaoImp() {
         // Initialize indexes if they don't exist
+    }
+
+    @Override
+    public boolean isUpdatePassword(String email, String password) {
+
+        return jdbi.withHandle(handle -> handle.createUpdate(UpdatePassword)
+                .bind("email", email).bind("password", password).execute() > 0);
     }
 
     @Override

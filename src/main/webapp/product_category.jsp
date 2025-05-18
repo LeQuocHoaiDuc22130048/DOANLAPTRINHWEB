@@ -135,10 +135,12 @@
                                    <c:forEach var="brand" items="${brands}">
                                        <div class="col">
                                            <a class="dropdown_item_link px-2 py-2 m-2 text-center text-nowrap"
-                                              href="filter?type=brand_id&value=${brand.id}"> ${brand.name}
+                                              onclick="fetchData(1, 'brand_id', ${brand.id})">
+                                                   ${brand.name}
                                            </a>
                                        </div>
                                    </c:forEach>
+
                                </div>
                            </div>
                        </div>
@@ -285,100 +287,15 @@
                            </div>
                        </div>
                    </div>
-                    <c:set value="${requestScope.product_list}" var="list"/>
-                    <div class="product-list-container">
-                        <div class="row page show-list" id="productContainer">
-                            <div id="productCarousel3" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <c:forEach var="product" items="${list}" varStatus="status">
-                                        <c:if test="${status.index % 3 == 0}">
-                                            <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
-                                            <div class="row">
-                                        </c:if>
-                                        <div class="item col-4">
-                                            <div class="thumb">
-                                                <div class="hover-content">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="${context}/product-detail?id=${product.id}">
-                                                                <i class="fa fa-eye"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" class="rate-product">
-                                                                <i class="fa fa-star"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <form class="addCartForm">
-                                                                <input type="hidden" name="id" value="${product.id}">
-                                                                <button class="btn_gio_hang">
-                                                                    <i class="fa fa-shopping-cart"></i>
-                                                                </button>
-                                                            </form>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <img class="img-thumbnail border-0 rounded-4" src="${product.path}" alt="${product.name}"/>
-                                            </div>
-                                            <div class="down-content">
-                                                <h4>${product.name}</h4>
-                                                <span><f:formatNumber value="${product.cost_price}"/>đ</span>
-                                                <ul class="stars">
-                                                    <c:forEach begin="0" end="4">
-                                                        <li><i class="fa fa-star"></i></li>
-                                                    </c:forEach>
-                                                </ul>
-                                            </div>
-                                        </div>
+                    <h1>Danh sách sản phẩm</h1>
+                        <div id="data-container ">
+                            <div id="product-list" class="parent">
 
-                                        <c:if test="${status.index % 3 == 2 || status.last}">
-                                            </div> <!-- Kết thúc row -->
-                                            </div> <!-- Kết thúc carousel-item -->
-                                        </c:if>
-                                    </c:forEach>
-
-                                </div>
-                               <c:if test="${list != null && list.size() > 3}">
-                                   <button class="carousel-control-prev position-absolute" style="width: fit-content" type="button" data-bs-target="#productCarousel3" data-bs-slide="prev">
-                                       <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
-                                       <span class="visually-hidden">Previous</span>
-                                   </button>
-                                   <button class="carousel-control-next position-absolute" style="width: fit-content" type="button" data-bs-target="#productCarousel3" data-bs-slide="next">
-                                       <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
-                                       <span class="visually-hidden">Next</span>
-                                   </button>
-                               </c:if>
                             </div>
                         </div>
+                        <div id="pagination-container" class="text-center">
                     </div>
                     <!-- Phân trang -->
-                    <div class="pagination">
-                        <c:if test="${currentPage > 1}">
-                            <div class="page-number">
-                                <a href="?page=${currentPage - 1}
-                &material=${param.material}
-                &gender=${param.gender}
-                &color=${param.color}
-                &shape=${param.shape}
-                &brand=${param.brand}
-                &category=${param.category}
-                &price=${param.price}">&lt;</a> <!-- Nút quay lại -->
-                            </div>
-                        </c:if>
-                        <c:if test="${currentPage < totalPages}">
-                            <div class="page-number">
-                                <a href="?page=${currentPage + 1}
-                &material=${param.material}
-                &gender=${param.gender}
-                &color=${param.color}
-                &shape=${param.shape}
-                &brand=${param.brand}
-                &category=${param.category}
-                &price=${param.price}">&gt;</a> <!-- Nút tiếp theo -->
-                            </div>
-                        </c:if>
-                    </div>
                 </div>
             </div>
         </div>
@@ -394,6 +311,6 @@
     <!-- ***** Footer End ***** -->
 </div>
 <c:import url="Script.jsp"/>
-
+<script src="${context}/assets/js/ProductFilter.js"></script>
 </body>
 </html>
