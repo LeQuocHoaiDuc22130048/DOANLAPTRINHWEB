@@ -31,20 +31,17 @@ public class InventoryDaoImp implements InventoryDao {
                     LEFT JOIN orders o ON od.order_id = o.id
                     GROUP BY s.product_id
                 """;
-
         List<Map<String, Object>> rows = jdbi.withHandle(handle ->
                 handle.createQuery(sql)
                         .mapToMap()
                         .list()
         );
-
         Map<Integer, Integer> stockMap = new HashMap<>();
         for (Map<String, Object> row : rows) {
             Integer productId = ((Number) row.get("product_id")).intValue();
             Integer quantity = ((Number) row.get("real_stock_quantity")).intValue();
             stockMap.put(productId, quantity);
         }
-
         return stockMap;
     }
 
