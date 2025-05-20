@@ -29,6 +29,9 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'org.jdbi:jdbi3-core:3.41.3'
     implementation 'com.zaxxer:HikariCP:6.2.1'
+    implementation 'org.xhtmlrenderer:flying-saucer-pdf-openpdf:9.1.22'
+
+    implementation 'com.openhtmltopdf:openhtmltopdf-pdfbox:1.0.10'
 
     providedCompile 'jakarta.servlet:jakarta.servlet-api:6.1.0'
 

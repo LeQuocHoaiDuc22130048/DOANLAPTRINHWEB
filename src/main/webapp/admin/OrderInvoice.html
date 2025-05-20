@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Hóa Đơn </title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .invoice {
+            width: 75%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .header_left {
+            text-align: left;
+        }
+        .header_right {
+            text-align: right;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        .date_of_invoice{
+            display: flex;
+            justify-content: right;
+            margin-top: 20px;
+        }
+        .date_of_invoice span{
+            margin: 0 10px;
+        }
+        .signature{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="invoice">
+    <div class="content">
+        <div class="header">
+            <div class="header_left">
+                <h1>HÓA ĐƠN BÁN HÀNG</h1>
+                <p>Địa chỉ: Đại học Nông Lâm</p>
+                <p>Điện thoại: 0702500551</p>
+            </div>
+
+        </div>
+        <div class="customer_info">
+            <p>Tên khách hàng: {{customerName}}</p>
+            <p>Địa chỉ: {{customerAddress}}</p>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Thành tiền</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{orderItems}}
+            <tr>
+                <td></td>
+                <td>CỘNG</td>
+                <td>{{sumQuantity}}</td>
+                <td>{{sumPrice}}</td>
+                <td>{{totalPrice}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="date_of_invoice">
+            <span>Ngày {{orderDay}}</span>
+            <span>Tháng {{orderMonth}}</span>
+            <span>Năm {{orderYear}}</span>
+        </div>
+
+        <div class="signature">
+            <span>KHÁCH HÀNG</span>
+            <p>(chữ ký khách hàng)</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -6,13 +6,11 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 
 
 import java.io.File;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class AdminService {
     static Admin admin = new Admin();
+
 
     public List<ProductVM> getAllProduct() {
         return admin.getAllProducts();
@@ -65,8 +63,12 @@ public class AdminService {
         return admin.getAllOrders();
     }
 
-    public List<OrderDetailVM> getAllOrderDetail(int orderId) {
-        return admin.getAllOrderDetails(orderId);
+    public List<OrderItemVM> getOrderItems(int orderId) {
+        return admin.getOrderItems(orderId);
+    }
+
+    public Orders getOrderById(int orderId) {
+        return admin.getOrderById(orderId);
     }
 
 
@@ -109,7 +111,6 @@ public class AdminService {
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
-        System.out.println(File.separator);
     }
 
 

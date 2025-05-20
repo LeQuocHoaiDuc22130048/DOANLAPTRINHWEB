@@ -43,7 +43,7 @@ table{
 th,td{
   text-align: center;
   padding: 8px;
-  border-bottom: 1px solid gray;
+  /*border-bottom: 1px solid gray;*/
 }
 
 .notification i{
@@ -340,3 +340,5 @@ figcaption{
   text-align: center;
   margin-top: 0.5vmin;
 }
+
+

@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO.Admin;
 
+import com.paypal.api.payments.Order;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
@@ -31,6 +32,15 @@ public class Admin {
                 rs.getLong("selling_price"),
                 rs.getInt("quantity")
         )).list());
+    }
+
+    public Product getProductById(String id) {
+        String sql = "SELECT id, category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, created_at, updated_at FROM products WHERE id = ?";
+        return jdbi.withHandle(handle -> handle
+                .createQuery(sql)
+                .bind(0, id)
+                .mapToBean(Product.class)
+                .findFirst().orElse(null));
     }
 
     public int insertProduct(Product product) {
@@ -103,39 +113,52 @@ public class Admin {
         )).list());
     }
 
-    public List<OrderDetailVM> getAllOrderDetails(int orderId) {
+    public Orders getOrderById(int orderId) {
         String sql = """
-                SELECT p.id AS product_id, pi.path AS product_image, p.name AS product_code,\s
-                     p.selling_price, od.quantity,\s
-                     (p.selling_price * od.quantity) - o.total_discount AS total_price\s
-                     FROM order_details od\s
-                     JOIN orders o ON o.id = od.order_id\s
-                     JOIN products p ON od.product_id = p.id\s
-                     JOIN products_images pi ON p.id = pi.product_id\s
+                SELECT *
+                FROM orders
+                WHERE id = ?
+                """;
+        return jdbi.withHandle(handle -> handle.createQuery(sql)
+                .bind(0, orderId)
+                .mapToBean(Orders.class)
+                .findFirst().orElse(null));
+    }
+
+
+
+
+    public List<OrderItemVM> getOrderItems(int orderId) {
+        String sql = """
+                SELECT o.id AS order_id,p.id AS product_id, pi.path AS product_image, p.name AS product_code,
+                     b.img AS brand_product,
+                     p.selling_price, od.quantity,
+                     o.total_discount,
+                     (p.selling_price * od.quantity) - o.total_discount AS total_price
+                     FROM order_details od
+                     JOIN orders o ON o.id = od.order_id
+                     JOIN products p ON od.product_id = p.id
+                     JOIN brands b ON b.id = p.brand_id
+                     JOIN products_images pi ON p.id = pi.product_id
                      WHERE od.order_id = :orderId AND pi.is_main = 1
                 """;
 
         return jdbi.withHandle(h -> h.createQuery(sql)
                 .bind("orderId", orderId)
-                .map((rs, ctx) -> new OrderDetailVM(
-
+                .map((rs, ctx) -> new OrderItemVM(
+                        rs.getInt("order_id"),
                         rs.getInt("product_id"),
                         rs.getString("product_image"),
                         rs.getString("product_code"),
+                        rs.getString("brand_product"),
                         rs.getLong("selling_price"),
                         rs.getInt("quantity"),
+                        rs.getLong("total_discount"),
                         rs.getLong("total_price")
                 )).list());
     }
 
-    public Product getProductById(String id) {
-        String sql = "SELECT id, category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, created_at, updated_at FROM products WHERE id = ?";
-        return jdbi.withHandle(handle -> handle
-                .createQuery(sql)
-                .bind(0, id)
-                .mapToBean(Product.class)
-                .findFirst().orElse(null));
-    }
+
 
     public List<Discounts> getDiscounts() {
         String sql = "select id, code, description, discount_percentage, status from discounts";

@@ -81,7 +81,7 @@
                                             class="btn btn-primary btn-sm view-details-btn"
                                             type="button" data-bs-toggle="modal"
                                             data-bs-target="#orderDetail"
-                                            data-order-id="${od.orderId}"
+                                            onclick="loadOrderDetail(${od.orderId})"
                                     >
                                         <i class="fa-solid fa-eye"></i>
                                     </button>
@@ -103,17 +103,17 @@
 
 <!-- Chi tiết đơn hàng -->
 <div class="modal fade" id="orderDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content" style="height: 80vh">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Chi tiết đơn hàng</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body text-center " id="orderDetailBody">
-
+            <div class="modal-body text-center " id="orderDetailContent">
+                <%--render by Ajax--%>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Đóng</button>
             </div>
         </div>
     </div>
@@ -122,38 +122,19 @@
 <c:import url="/admin/DashboardScript.jsp"/>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const buttons = document.querySelectorAll(".view-details-btn");
-        buttons.forEach(btn => {
-            btn.addEventListener("click", function () {
-                const orderId = this.getAttribute("data-order-id");
-                const detailBody = document.getElementById("orderDetailBody");
-                detailBody.innerHTML = `
-                    <div class="text-center my-4">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                            <p>Đang tải chi tiết đơn hàng...</p>
-                        </div>
-                `;
+    function loadOrderDetail(orderId) {
+        const content = document.getElementById('orderDetailContent');
+        content.innerHTML = '<div class="text-center"><span class="spinner-border text-primary"></span></div>';
 
-                fetch("OrderDetail?id=" + orderId)
-                    .then(res => res.text())
-                    .then(html => {
-                        detailBody.innerHTML = html;
-                    })
-                    .catch(err => {
-                        detailBody.innerHTML = `
-                            <div class="alert alert-danger">
-                                    <i class="bi bi-exclamation-triangle-fill"></i>
-                                    Lỗi khi tải chi tiết đơn hàng. Vui lòng thử lại.
-                            </div>
-                        `;
-                        console.error("Error fetching order details:", err);
-                    });
-            });
-        });
-    });
+        fetch('OrderDetail?orderId=' + orderId)
+            .then(res => res.text())
+            .then(html =>{
+            content.innerHTML = html;
+            })
+            .catch(err => {
+                content.innerHTML = '<div class="text-danger">Không thể tải chi tiết đơn hàng.</div>';
+            })
+    }
 </script>
 
 </body>
