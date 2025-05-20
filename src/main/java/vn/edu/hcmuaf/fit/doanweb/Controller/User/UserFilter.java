@@ -1,16 +1,11 @@
 package vn.edu.hcmuaf.fit.doanweb.Controller.User;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.hcmuaf.fit.doanweb.Util.GetRole;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
-import vn.edu.hcmuaf.fit.doanweb.Util.JwtUtil;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 
 import java.io.IOException;
 

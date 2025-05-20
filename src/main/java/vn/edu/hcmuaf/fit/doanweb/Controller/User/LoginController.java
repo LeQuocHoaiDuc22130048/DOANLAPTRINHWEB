@@ -6,8 +6,8 @@ import jakarta.servlet.annotation.*;
 import org.mindrot.jbcrypt.BCrypt;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
 import vn.edu.hcmuaf.fit.doanweb.DAO.UserDaoImp;
-import vn.edu.hcmuaf.fit.doanweb.Util.ErrorMessages;
-import vn.edu.hcmuaf.fit.doanweb.Util.JSPPage;
+import vn.edu.hcmuaf.fit.doanweb.Enum.ErrorMessages;
+import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 import vn.edu.hcmuaf.fit.doanweb.Util.JwtUtil;
 
 
@@ -51,7 +51,7 @@ public class LoginController extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("avatar", user.getAvatar());
         session.setAttribute("userId", user.getId() );
-
+        session.setAttribute("user", user);
 
         String tempOrderCode = (String) session.getAttribute("temp_order_code");
         if (tempOrderCode != null) {

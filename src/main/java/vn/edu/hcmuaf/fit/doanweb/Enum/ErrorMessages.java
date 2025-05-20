@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.doanweb.Util;
+package vn.edu.hcmuaf.fit.doanweb.Enum;
 
 public enum ErrorMessages {
     ActiveMail ("Đăng nhập thất bại vui lòng kích hoạt tài khoản của bạn"),

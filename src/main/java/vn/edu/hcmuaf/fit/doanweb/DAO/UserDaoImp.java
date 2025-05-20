@@ -1,13 +1,10 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO;
 
-import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.Controller.DTO.UserProfile;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.User;
-import vn.edu.hcmuaf.fit.doanweb.Util.Roles;
-
-import java.util.Optional;
+import vn.edu.hcmuaf.fit.doanweb.Enum.Roles;
 
 public class UserDaoImp implements UserDao {
     private final Jdbi jdbi = JDBIConnect.get();
@@ -31,9 +28,17 @@ public class UserDaoImp implements UserDao {
             ":email , password = :password  ," +
             "phone = :phone  , address = :address , avatar = :avatar  WHERE id = :id";
     private final static String GetUserById = "SELECT name , email , phone , address , avatar , role FROM users WHERE id = :id";
+    private final static String UpdatePassword = "UPDATE users SET password = :password WHERE email = :email";
 
     public UserDaoImp() {
         // Initialize indexes if they don't exist
+    }
+
+    @Override
+    public boolean isUpdatePassword(String email, String password) {
+
+        return jdbi.withHandle(handle -> handle.createUpdate(UpdatePassword)
+                .bind("email", email).bind("password", password).execute() > 0);
     }
 
     @Override
@@ -152,6 +157,18 @@ public class UserDaoImp implements UserDao {
                 handle.createUpdate("UPDATE orders SET user_id = :userId WHERE order_code = :orderCode")
                         .bind("userId", userId)
                         .bind("orderCode", orderCode)
+                        .execute()
+        );
+    }
+
+    @Override
+    public void insertFeedback(String name, String email, String message) {
+        jdbi.useHandle(handle ->
+                handle.createUpdate("INSERT INTO feedbacks (name, email, message, status, created_at, updated_at) " +
+                                "VALUES (:name, :email, :message, 0, NOW(), NOW())")
+                        .bind("name", name)
+                        .bind("email", email)
+                        .bind("message", message)
                         .execute()
         );
     }

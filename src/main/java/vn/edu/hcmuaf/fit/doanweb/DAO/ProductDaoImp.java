@@ -387,6 +387,121 @@ public class ProductDaoImp implements ProductDaoInterface {
         );
     }
 
+    @Override
+    public List<ProductIndex> getProducsBestSeller(int limit, int offset) {
+        List<ProductIndex> productList = jdbi.withHandle(handle ->
+                handle.createQuery(
+                                "SELECT p.*, SUM(od.quantity) AS total_sold " +
+                                        "FROM products p " +
+                                        "JOIN order_details od ON p.id = od.product_id " +
+                                        "GROUP BY p.id " +
+                                        "ORDER BY total_sold DESC " +
+                                        "LIMIT :limit OFFSET :offset"
+                        )
+                        .bind("limit", limit)
+                        .bind("offset", offset)
+                        .map((rs, ctx) -> {
+                            ProductIndex p = new ProductIndex();
+                            p.setId(rs.getInt("id"));
+                            p.setCategoryId(rs.getInt("category_id"));
+                            p.setBrandId(rs.getInt("brand_id"));
+                            p.setShapeId(rs.getInt("shape_id"));
+                            p.setMaterial(rs.getString("material"));
+                            p.setName(rs.getString("name"));
+                            p.setDescription(rs.getString("description"));
+                            p.setStatus(rs.getInt("status"));
+                            p.setHot(rs.getByte("hot"));
+                            p.setCostPrice((float) rs.getDouble("cost_price"));
+                            p.setSellingPrice((float) rs.getDouble("selling_price"));
+                            p.setQuantity(rs.getInt("quantity"));
+                            p.setGender(rs.getInt("gender"));
+                            p.setColor(rs.getString("color"));
+//                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
+//                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
+                            return p;
+                        })
+                        .list()
+        );
+
+        // Lấy ảnh đại diện
+        productList.forEach(product -> {
+            String mainImage = jdbi.withHandle(handle ->
+                    handle.createQuery("SELECT path FROM products_images WHERE product_id = :id AND is_main = 1")
+                            .bind("id", product.getId())
+                            .mapTo(String.class)
+                            .findOne()
+                            .orElse(null)
+            );
+            product.setPath_image(mainImage);
+        });
+
+        return productList;
+    }
+
+    @Override
+    public int getTotalBestSellerProducts() {
+        return jdbi.withHandle(handle ->
+                handle.createQuery(
+                        "SELECT COUNT(DISTINCT p.id) " +
+                                "FROM products p JOIN order_details od ON p.id = od.product_id"
+                ).mapTo(Integer.class).findOne().orElse(0)
+        );
+    }
+
+    @Override
+    public List<ProductIndex> searchProducts(String keyword, int offset, int limit) {
+        String searchKeyword = "%" + keyword.toLowerCase() + "%";
+        return jdbi.withHandle(handle ->
+                handle.createQuery("""
+                    SELECT p.id, p.category_id, p.brand_id, p.shape_id, p.material, 
+                           p.name, p.description, p.status, p.hot, 
+                           p.cost_price, p.selling_price, p.quantity, p.gender, 
+                           p.color, p.created_at, p.updated_at,
+                           pi.path AS path_image
+                    FROM products p
+                    LEFT JOIN brands b ON p.brand_id = b.id
+                    LEFT JOIN categories c ON p.category_id = c.id
+                    LEFT JOIN products_images pi ON pi.product_id = p.id AND pi.is_main = 1
+                    WHERE LOWER(p.name) LIKE :keyword
+                       OR LOWER(p.description) LIKE :keyword
+                       OR LOWER(p.material) LIKE :keyword
+                       OR LOWER(p.color) LIKE :keyword
+                       OR LOWER(b.name) LIKE :keyword
+                       OR LOWER(c.name) LIKE :keyword
+                    ORDER BY p.id DESC
+                    LIMIT :limit OFFSET :offset
+                """)
+                        .bind("keyword", searchKeyword)
+                        .bind("limit", limit)
+                        .bind("offset", offset)
+                        .mapToBean(ProductIndex.class)
+                        .list()
+        );
+    }
+
+
+    @Override
+    public int countSearchResults(String keyword) {
+        String searchKeyword = "%" + keyword.toLowerCase() + "%";
+        Integer count = jdbi.withHandle(handle ->
+                handle.createQuery(
+                        "SELECT COUNT(DISTINCT p.id) " +
+                        "FROM products p " +
+                        "LEFT JOIN brands b ON p.brand_id = b.id " +
+                        "LEFT JOIN categories c ON p.category_id = c.id " +
+                        "WHERE LOWER(p.name) LIKE :keyword " +
+                        "OR LOWER(p.description) LIKE :keyword " +
+                        "OR LOWER(p.material) LIKE :keyword " +
+                        "OR LOWER(p.color) LIKE :keyword " +
+                        "OR LOWER(b.name) LIKE :keyword " +
+                        "OR LOWER(c.name) LIKE :keyword"
+                )
+                .bind("keyword", searchKeyword)
+                .mapTo(Integer.class)
+                .one()
+        );
+        return count;
+    }
 
     public static void main(String[] args) {
     }

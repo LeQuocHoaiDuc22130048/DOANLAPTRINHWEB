@@ -18,8 +18,11 @@
 <script src="<c:url value='/assets/js/doi_mau_sao.js' />"></script>
 <script src="<c:url value='/assets/js/custom.js' />"></script>
 <script src="<c:url value='/assets/js/main.js' />"></script>
+<script src="<c:url value="/assets/js/search.js"/>"></script>
+<script src="<c:url value='/assets/js/best_seller.js' />"></script>
 <script src="<c:url value='/assets/js/add_cart.js' />"></script>
 <script src="<c:url value='/assets/js/Upload.js' />"></script>
+<script src="<c:url value='/assets/js/chatbox.js' />"></script>
 
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
