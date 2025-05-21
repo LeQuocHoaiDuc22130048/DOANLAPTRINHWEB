@@ -29,7 +29,7 @@ public class OrderDaoImp implements OrderDao {
             int orderId = handle.createUpdate(insertOrderSql)
                     .bind("orderCode", order.getOrder_code())
                     .bind("userId", order.getUser_id() != null ? order.getUser_id() : null)
-                    .bind("customerName", order.getCustome_name())
+                    .bind("customerName", order.getCustomer_name())
                     .bind("phoneNumber", order.getPhone_number())
                     .bind("customerEmail", order.getCustomer_email())
                     .bind("shippingAddress", order.getShipping_address())

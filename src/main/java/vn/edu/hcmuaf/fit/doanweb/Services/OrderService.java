@@ -16,7 +16,7 @@ public class OrderService {
 
         Orders order = new Orders();
         order.setOrder_code(orderCode);
-        order.setCustome_name(customerName);
+        order.setCustomer_name(customerName);
         order.setPhone_number(phoneNumber);
         order.setCustomer_email(email);
         order.setShipping_address(fullAddress);

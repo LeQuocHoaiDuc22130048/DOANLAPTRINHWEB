@@ -29,6 +29,9 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'org.jdbi:jdbi3-core:3.41.3'
     implementation 'com.zaxxer:HikariCP:6.2.1'
+    implementation 'org.xhtmlrenderer:flying-saucer-pdf-openpdf:9.1.22'
+
+    implementation 'com.openhtmltopdf:openhtmltopdf-pdfbox:1.0.10'
 
     providedCompile 'jakarta.servlet:jakarta.servlet-api:6.1.0'
 
@@ -50,6 +53,7 @@ dependencies {
     implementation 'org.apache.poi:poi-ooxml:5.4.0'
     implementation 'com.auth0:java-jwt:4.5.0'
     implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'com.google.code.gson:gson:2.10.1'
     runtimeOnly 'org.slf4j:slf4j-simple:2.0.9'
 //    lombok
     compileOnly("org.projectlombok:lombok:1.18.38")

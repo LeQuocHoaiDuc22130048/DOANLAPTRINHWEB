@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO.Admin;
 
+import com.paypal.api.payments.Order;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
@@ -16,6 +17,7 @@ public class Admin {
         this.jdbi = JDBIConnect.get();
     }
 
+    //    Product query
     public List<ProductVM> getAllProducts() {
         String sql = "SELECT p.id, p.name, pimg.`path`,b.img as brandImg, p.selling_price, p.quantity\n" +
                 "FROM products p\n" +
@@ -31,6 +33,66 @@ public class Admin {
                 rs.getInt("quantity")
         )).list());
     }
+
+    public Product getProductById(String id) {
+        String sql = "SELECT id, category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, created_at, updated_at FROM products WHERE id = ?";
+        return jdbi.withHandle(handle -> handle
+                .createQuery(sql)
+                .bind(0, id)
+                .mapToBean(Product.class)
+                .findFirst().orElse(null));
+    }
+
+    public int insertProduct(Product product) {
+        String sql = """
+                INSERT INTO products (category_id, brand_id, shape_id, material, name, description, status, hot,
+                cost_price, selling_price, quantity, gender, color, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """;
+
+        LocalDateTime now = LocalDateTime.now();
+        product.setCreateAt(now);
+        product.setUpdateAt(now); // Nếu chưa cập nhật
+
+        return jdbi.withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, product.getCategoryId())
+                        .bind(1, product.getBrandId())
+                        .bind(2, product.getShapeId())
+                        .bind(3, product.getMaterial())
+                        .bind(4, product.getName())
+                        .bind(5, product.getDescription())
+                        .bind(6, product.getStatus())
+                        .bind(7, product.getHot())
+                        .bind(8, product.getCostPrice())
+                        .bind(9, product.getSellingPrice())
+                        .bind(10, product.getQuantity())
+                        .bind(11, product.getGender())
+                        .bind(12, product.getColor())
+                        .bind(13, product.getCreateAt())
+                        .bind(14, product.getUpdateAt())
+                        .executeAndReturnGeneratedKeys("id")
+                        .mapTo(Integer.class)
+                        .one()
+        );
+    }
+
+    public void insertProductImage(int productId, String imagePath, boolean isMain){
+        String sql = """
+                INSERT INTO products_images (product_id, is_main, path, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?)
+                """;
+        jdbi.useHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, productId)
+                        .bind(1, isMain ? 1 : 0)
+                        .bind(2, imagePath)
+                        .bind(3, LocalDateTime.now())
+                        .bind(4, LocalDateTime.now())
+                        .execute()
+        );
+    }
+
 
     public List<OrdersVM> getAllOrders() {
         String sql = """
@@ -51,95 +113,64 @@ public class Admin {
         )).list());
     }
 
-    public List<OrderDetailVM> getAllOrderDetails(int orderId) {
+    public Orders getOrderById(int orderId) {
         String sql = """
-                SELECT p.id AS product_id, pi.path AS product_image, p.name AS product_code,\s
-                     p.selling_price, od.quantity,\s
-                     (p.selling_price * od.quantity) - o.total_discount AS total_price\s
-                     FROM order_details od\s
-                     JOIN orders o ON o.id = od.order_id\s
-                     JOIN products p ON od.product_id = p.id\s
-                     JOIN products_images pi ON p.id = pi.product_id\s
+                SELECT *
+                FROM orders
+                WHERE id = ?
+                """;
+        return jdbi.withHandle(handle -> handle.createQuery(sql)
+                .bind(0, orderId)
+                .mapToBean(Orders.class)
+                .findFirst().orElse(null));
+    }
+
+
+
+
+    public List<OrderItemVM> getOrderItems(int orderId) {
+        String sql = """
+                SELECT o.id AS order_id,p.id AS product_id, pi.path AS product_image, p.name AS product_code,
+                     b.img AS brand_product,
+                     p.selling_price, od.quantity,
+                     o.total_discount,
+                     (p.selling_price * od.quantity) - o.total_discount AS total_price
+                     FROM order_details od
+                     JOIN orders o ON o.id = od.order_id
+                     JOIN products p ON od.product_id = p.id
+                     JOIN brands b ON b.id = p.brand_id
+                     JOIN products_images pi ON p.id = pi.product_id
                      WHERE od.order_id = :orderId AND pi.is_main = 1
                 """;
 
         return jdbi.withHandle(h -> h.createQuery(sql)
                 .bind("orderId", orderId)
-                .map((rs, ctx) -> new OrderDetailVM(
-
+                .map((rs, ctx) -> new OrderItemVM(
+                        rs.getInt("order_id"),
                         rs.getInt("product_id"),
                         rs.getString("product_image"),
                         rs.getString("product_code"),
+                        rs.getString("brand_product"),
                         rs.getLong("selling_price"),
                         rs.getInt("quantity"),
+                        rs.getLong("total_discount"),
                         rs.getLong("total_price")
                 )).list());
     }
 
-    public Product getProductById(String id) {
-        String sql = "SELECT id, category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, created_at, updated_at FROM products WHERE id = ?";
-        return jdbi.withHandle(handle -> handle
-                .createQuery(sql)
-                .bind(0, id)
-                .mapToBean(Product.class)
-                .findFirst().orElse(null));
-    }
+
 
     public List<Discounts> getDiscounts() {
         String sql = "select id, code, description, discount_percentage, status from discounts";
-        return jdbi.withHandle(handle -> handle.createQuery(sql).map((rs,ctx) -> new Discounts(
-                    rs.getInt("id"),
-                    rs.getString("code"),
-                    rs.getString("description"),
-                    rs.getDouble("discount_percentage"),
-                    rs.getInt("status")
+        return jdbi.withHandle(handle -> handle.createQuery(sql).map((rs, ctx) -> new Discounts(
+                rs.getInt("id"),
+                rs.getString("code"),
+                rs.getString("description"),
+                rs.getDouble("discount_percentage"),
+                rs.getInt("status")
         )).list());
     }
 
-    public int addProduct(Product product) {
-        String productSql = "INSERT INTO products (category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender,color, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        LocalDateTime currentTime = LocalDateTime.now();
-        product.setCreateAt(currentTime);
-        product.setUpdateAt(null);
-
-        int productId = jdbi.withHandle(handle ->
-                handle.createUpdate(productSql)
-                        .bind(0, product.getCategoryId())
-                        .bind(1, product.getBrandId()) 
-                        .bind(2, product.getShapeId())
-                        .bind(3, product.getMaterial())
-                        .bind(4, product.getName())
-                        .bind(5, product.getDescription())
-                        .bind(6, product.getStatus())
-                        .bind(7, product.getHot())
-                        .bind(8, product.getCostPrice())
-                        .bind(9, product.getSellingPrice())
-                        .bind(10, product.getQuantity())
-                        .bind(11, product.getGender())
-                        .bind(12, product.getColor())
-                        .bind(13, product.getCreateAt())
-                        .bind(14, product.getUpdateAt())
-                        .executeAndReturnGeneratedKeys("id")  // Lấy ID đã được tạo
-                        .mapTo(Integer.class)
-                        .one());
-
-        product.setId(productId);
-        return productId;
-    }
-
-
-    public boolean addProductImages(ProductImage productImage) {
-        String imageSql = "INSERT INTO products_images (product_id, is_main, path) VALUES (?,?,?)";
-
-        int rowAffected = jdbi.withHandle(handle ->
-                handle.createUpdate(imageSql)
-                        .bind(0, productImage.getProductId())
-                        .bind(1, productImage.getIsMain())
-                        .bind(2, productImage.getPath())
-                        .execute());
-        return rowAffected > 0;
-    }
 
     public boolean addDiscount(Discounts discounts) {
         String sql = "INSERT INTO discounts (code, description, discount_percentage, status) VALUES (?,?,?,?)";
@@ -218,6 +249,7 @@ public class Admin {
 
         return true;
     }
+
 
     public List<CategoriesVM> getCategories() {
         String sql = """
@@ -317,25 +349,4 @@ public class Admin {
                                 rs.getInt("total_sold"))).list());
 
     }
-
-    public boolean replyFeedback(int id, String replyContent) {
-        String sql = "UPDATE feedbacks SET response = ?, updated_at = NOW(), status = 1 WHERE id = ?";
-        int rowsAffected = jdbi.withHandle(handle ->
-                handle.createUpdate(sql)
-                        .bind(0, replyContent)
-                        .bind(1, id)
-                        .execute()
-        );
-        return rowsAffected > 0;
-    }
-
-    public List<NewsletterSubscriber> getAllNewsletterSubscribers() {
-        String sql = "SELECT * FROM newsletter_subscribers ORDER BY created_at DESC";
-        return jdbi.withHandle(handle ->
-                handle.createQuery(sql)
-                        .mapToBean(NewsletterSubscriber.class)
-                        .list());
-    }
-
-
 }

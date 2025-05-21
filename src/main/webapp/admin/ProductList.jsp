@@ -41,7 +41,7 @@
     <jsp:include page="/admin/Header.jsp"/>
     <div class="content">
         <div class="btn_add_item">
-            <a href="">
+            <a href="ProductAdd">
                 <button class="btn btn-secondary">Thêm sản phẩm</button>
             </a>
         </div>
@@ -64,7 +64,7 @@
                         <td>${product.id}</td>
                         <td>${product.productName}</td>
                         <td><img src="../${product.img}" width="100px"></td>
-                        <td><img src="${product.brand}" width="100px"></td>
+                        <td><img src="../${product.brand}" width="100px"></td>
                         <td><fmt:formatNumber value="${product.price}" type="currency" currencyCode="VND"/></td>
                         <td>${product.quantity}</td>
                         <td>
@@ -86,9 +86,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 </body>
 <c:import url="/admin/DashboardScript.jsp"/>
