@@ -6,7 +6,8 @@ import java.util.List;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.OrderDetailVM;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.OrderItemVM;
+import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Orders;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
 
 @WebServlet(name = "OrderDetailController", value = "/admin/OrderDetail")
@@ -16,9 +17,12 @@ public class OrderDetailController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int orderId = Integer.parseInt(request.getParameter("orderId"));
         AdminService adminService = new AdminService();
-        List<OrderDetailVM> rs = adminService.getAllOrderDetail(orderId);
+
+        Orders orders = adminService.getOrderById(orderId);
+        List<OrderItemVM> rs = adminService.getOrderItems(orderId);
+        request.setAttribute("order", orders);
         request.setAttribute("orderDetail", rs);
-        request.getRequestDispatcher("/admin/Order.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/OrderDetail.jsp").forward(request, response);
     }
 
     @Override

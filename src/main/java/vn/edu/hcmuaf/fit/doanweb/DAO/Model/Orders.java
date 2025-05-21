@@ -8,9 +8,10 @@ import java.util.List;
 
 @Data
 public class Orders {
+        private int id;
         private String order_code;
         private Integer user_id;  // Có thể để null nếu không có user liên kết
-        private String custome_name;
+        private String customer_name;
         private String phone_number;
         private String customer_email;
         private String shipping_address;

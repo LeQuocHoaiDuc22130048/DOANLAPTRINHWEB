@@ -13,106 +13,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-            href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-            rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="asset/css/style.css">
-    <link rel="stylesheet" href="asset/styles.css">
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.css">
-    <title>Trang quản lý</title>
+    <c:set var="titleName" value="Thêm sản phẩm" scope="request"/>
+    <c:import url="/admin/DashboardLink.jsp"/>
+    <title>${titleName}</title>
 </head>
 <body>
-<section class="admin">
-    <div class="row-grid">
-        <jsp:include page="Sidebar.jsp"/>
-        <div class="admin-content">
-            <jsp:include page="Header.jsp"/>
-            <div class="admin-content main">
-                <div class="admin-content-main-title">
-                    <h1>Thêm sản phẩm</h1>
-                </div>
-                <form action="${pageContext.request.contextPath}/admin/ProductAdd" method="post" enctype="multipart/form-data">
-                    <div class="admin-content-main-content">
-                        <div class="admin-content-main-content-product-add">
-                            <div class="admin-content-main-content-left">
-                                <div class="admin-content-main-content-two-input">
+<div class="side-menu">
+    <div class="brand-name">
+        <img src="asset/image/logo.png" alt="eyestyle" width="100px"/>
+    </div>
+    <ul style="padding: 0">
+        <li><a href="Dashboard"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
+        <li><a href="Order"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
+        <li><a href="ProductList" class="active"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
+        <li><a href="Category"><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
+        <li><a href="Promotion"><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
+        <li><a href="User"><i class="fa-solid fa-user"></i>Người dùng</a></li>
+        <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
 
-                                    <input type="text" placeholder="Tên sản phẩm " name="name">
-                                    <input type="text" placeholder="Màu" name="color">
-                                    <input type="text" placeholder="Chất liệu" name="material">
-                                    <input type="text" placeholder="Số lượng" name="quantity">
-                                    <select name="brandId"
-                                            style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;"> <%-- Lấy các thương hiệu từ cơ sở dữ liệu --%>
-                                        <c:forEach var="brand" items="${brands}">
-                                            <option value="${brand.id}">${brand.name}</option>
-                                        </c:forEach>
-                                    </select>
-
-                                    <select name="shapeId"
-                                            style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
-                                        <c:forEach var="shape" items="${frameShapes}">
-                                            <option value="${shape.id}">${shape.name}</option>
-                                        </c:forEach>
-                                    </select>
-
-                                    <select name="gender"
-                                            style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
-                                        <option value="1">Nam</option>
-                                        <option value="2">Nữ</option>
-                                        <option value="3">Trẻ em</option>
-                                        <option value="4">Unisex</option>
-                                    </select>
-
-                                    <select name="categoryId"
-                                            style="height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px;">
-                                        <c:forEach var="category" items="${categories}">
-                                            <option value="${category.id}">${category.name}</option>
-                                        </c:forEach>
-                                    </select
+    </ul>
+</div>
 
 
-                                </div>
-                                <div class="admin-content-main-content-two-input">
-                                    <input type="number" step="100.000" name="costPrice" placeholder="Giá nhập">
-                                    <input type="number" step="100.000" name="sellingPrice" placeholder="Giá bán">
-                                </div>
+<div class="container">
+    <jsp:include page="Header.jsp"/>
+    <div class="content">
+        <div class="container-fluid bg-light rounded border-secondary border-opacity-50">
+            <div class="input-form p-3">
+                <h3>Thông tin chung</h3>
+                <div class="line"></div>
 
-                                <textarea name="description" placeholder="Chi tiết sản phẩm"></textarea>
-                                <button class="main-btn" type="submit">Thêm sản phẩm</button>
+                <form id="addProductForm" enctype="multipart/form-data">
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Danh mục:</label>
+                        </div>
+                        <select class="form-select w-50 " aria-label="Default select example" name="idCategory">
+                            <option selected value="">Chọn danh mục</option>
+                            <c:forEach var="ct" items="${categories}">
+                                <option value="${ct.id}">${ct.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="line"></div>
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Thương hiệu:</label>
+                        </div>
+                        <select class="form-select w-50" aria-label="Default select example" name="idBrand">
+                            <option selected value="">Chọn thương hiệu</option>
+                            <c:forEach var="br" items="${brands}">
+                                <option value="${br.id}">${br.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Hình dáng kính:</label>
+                        </div>
+                        <select class="form-select w-50" aria-label="Default select example" name="idFrame">
+                            <option selected value="">Chọn hình dáng</option>
+                            <c:forEach var="fs" items="${frameShapes}">
+                                <option value="${fs.id}">${fs.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Mã sản phẩm:</label>
+                        </div>
+                        <div class="input-group w-50">
+                            <input type="text" class="form-control" placeholder="Mã sản phẩm" aria-label="Mã sản phẩm"
+                                   name="productName">
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Chất liệu:</label>
+                        </div>
+                        <div class="input-group w-50">
+                            <input type="text" class="form-control" placeholder="Chất liệu" aria-label="Chất liệu"
+                                   name="material">
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Giới tính:</label>
+                        </div>
+                        <select class="form-select w-50" aria-label="Default select example" name="gender">
+                            <option selected value="">Giới tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                            <option value="3">Trẻ em</option>
+                            <option value="4">Unisex</option>
+                        </select>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Màu:</label>
+                        </div>
+                        <div class="input-group w-50">
+                            <input type="text" class="form-control" placeholder="Màu" aria-label="Màu" name="color">
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Giá nhập:</label>
+                        </div>
+                        <div class="input-group w-50">
+                            <input id="gia-nhap" type="number" class="form-control" placeholder="Giá nhập"
+                                   aria-label="Giá nhập" name="costPrice">
+                        </div>
+                        <span id="gia-nhap-hien-thi" class="align-content-center ms-5" style="color: red">0 VNĐ</span>
+                    </div>
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Giá bán:</label>
+                        </div>
+                        <div class="input-group w-50">
+                            <input id="gia-ban" type="number" class="form-control" placeholder="Giá bán"
+                                   aria-label="Giá bán" name="sellingPrice">
+                        </div>
+                        <span id="gia-ban-hien-thi" class="align-content-center ms-5" style="color: red">0 VNĐ</span>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Số lượng:</label>
+                        </div>
+                        <div class="input-group w-50">
+                            <input type="number" class="form-control" placeholder="Số lượng" aria-label="Số lượng"
+                                   name="quantity">
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Mô tả:</label>
+                        </div>
+                        <div class="input-group w-50 form-floating">
+                            <textarea class="form-control" placeholder="Mô tả sản phẩm" id="editor"
+                                      name="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Chọn ảnh <strong>chính</strong>:</label>
+                        </div>
+                        <div class="input-group w-50 d-grid">
+                            <input type="file" id="file-input-main" accept="image/png, image/jpeg"
+                                   onchange="previewMain()" name="mainImage">
+                            <label for="file-input-main" class="btn btn-primary rounded w-50">
+                                <i class="fa-solid fa-upload"></i> &nbsp; Chọn ảnh
+                            </label>
+                            <p id="chooseImage" class="text-center w-50 mt-3">Chưa chọn file ảnh</p>
+                            <div id="image-main"></div>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Chọn ảnh phụ:</label>
+                        </div>
+                        <div class="input-group w-50 d-grid">
+                            <input type="file" id="file-input" accept="image/png, image/jpeg" onchange="preview()"
+                                   multiple name="subImage">
+                            <label for="file-input" class="btn btn-primary rounded w-50">
+                                <i class="fa-solid fa-upload"></i> &nbsp; Chọn ảnh
+                            </label>
+                            <p id="num-of-file" class="text-center w-50 mt-3">Chưa chọn file ảnh</p>
+                            <div id="images"></div>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label>Tùy chỉnh:</label>
+                        </div>
+                        <div class="input-group w-50">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="checkDisplayProduct">
+                                <label class="form-check-label" for="checkDisplayProduct">
+                                    Hiển thị
+                                </label>
                             </div>
-                            <div class="admin-content-main-content-right">
-                                <div class="admin-content-main-content-right-image">
-                                    <label>Ảnh chính</label>
-                                    <input name="mainImage" type="file"
-                                           style="display: block;height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
-                                </div>
-                                <div class="admin-content-main-content-right-images" style="margin-top: 50px">
-                                    <label>Ảnh phụ</label>
-                                    <input name="image1" type="file"
-                                           style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center ">
-                                    <input name="image2" type="file"
-                                           style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
-                                    <input name="image3" type="file"
-                                           style="display: block; height: 40px;border: none;background-color: var(--sub-bg-color);margin-bottom: 20px;outline: none;border-radius: var(--main-border-radius);padding-left: 6px; align-content: center">
-                                </div>
-                            </div>
+
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="input-wrapper d-flex align-items-center mt-3">
+                        <div class="label_input w-25">
+                            <label></label>
+                        </div>
+                        <div class="input-group w-50">
+                            <button type="submit" class="btn btn-primary me-3 rounded">Thêm sản phẩm</button>
+                            <button class="btn btn-primary rounded">Thoát</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
     </div>
-</section>
-<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+</div>
+<c:import url="/admin/DashboardScript.jsp"/>
+
 <script>
-    CKEDITOR.replace('description');
+    let editorInstance;
+    ClassicEditor.create(document.querySelector('#editor'))
+        .then(editor => {
+            editorInstance = editor
+        })
+        .catch(error => {
+        console.error(error);
+    });
+
+    document.getElementById(`addProductForm`).addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const plainDescription = editorInstance.editing.view.document.getRoot().getChild(0).getChild(0).data;
+        const formData = new FormData(this);
+
+        formData.set('description', plainDescription);
+
+        fetch('ProductAdd', {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+            if (data.success) {
+                Swal.fire({
+                    title: "Thêm sản phẩm thành công",
+                    text: data.message,
+                    icon: 'success',
+                    draggable: true
+                });
+                // this.reset();
+                // editorInstance.setData('');
+            } else {
+                Swal.fire("Lỗi", data.message, 'error')
+            }
+        })
+            .catch(err => {
+                Swal.fire('Lỗi!', 'Đã xảy ra lỗi khi gửi yêu cầu.', 'error');
+                console.error(err);
+            });
+    })
 </script>
-<script type="module" src="asset/main.js"></script>
-<script src="asset/js/app.js"></script>
+
 </body>
 </html>
