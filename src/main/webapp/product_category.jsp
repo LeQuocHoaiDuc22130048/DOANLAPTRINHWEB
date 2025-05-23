@@ -289,7 +289,7 @@
                        </div>
                    </div>
                     <h1>Danh sách sản phẩm</h1>
-                        <div id="data-container ">
+                        <div id="data-containerProduct ">
                             <div id="product-list" class="parent">
 
                             </div>
@@ -311,7 +311,11 @@
     <jsp:include page="Footer.jsp"/>
     <!-- ***** Footer End ***** -->
 </div>
-<c:import url="Script.jsp"/>
-<script src="${context}/assets/js/ProductFilter.js"></script>
+<script src="<c:url value='/assets/js/popper.js' />"></script>
+<script src="<c:url value='/assets/js/bootstrap@5.3.3_dist_js_bootstrap.bundle.js' />"></script>
+<script src="<c:url value='/assets/js/back_to_top.js' />"></script>
+<script src="<c:url value='/assets/js/ProductFilter.js' />"></script>
+<script src="<c:url value='/assets/js/accordions.js' />"></script>
+<script src="<c:url value='/assets/js/main.js' />"></script>
 </body>
 </html>
