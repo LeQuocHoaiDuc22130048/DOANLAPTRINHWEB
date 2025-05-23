@@ -25,7 +25,6 @@ document.addEventListener("click", function (e) {
                 } else {
                     starIcon.forEach(star => star.classList.remove("active"));
                 }
-
                 Swal.fire({
                     icon: data.action === "added" ? 'success' : 'info',
                     text: data.message,

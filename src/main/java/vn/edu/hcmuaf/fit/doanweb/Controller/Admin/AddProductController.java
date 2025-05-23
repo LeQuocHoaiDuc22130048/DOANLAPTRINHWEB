@@ -1,9 +1,13 @@
 package vn.edu.hcmuaf.fit.doanweb.Controller.Admin;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import jakarta.servlet.*;
@@ -17,19 +21,19 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Product;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductImage;
 import vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService;
 
+import javax.sound.midi.Patch;
+
 @WebServlet(name = "AddProductController", value = "/admin/ProductAdd")
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
-        maxFileSize = 1024 * 1024 * 10,
-        maxRequestSize = 1024 * 1024 * 50)
+@MultipartConfig
 public class AddProductController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final String SAVE_DIR = "assets/images";
+    private static final String SAVE_DIR = "/assets/images/Product";
 
     AdminService adminService = new AdminService();
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-//        request.setAttribute("categories", adminService.getAllCategory());
+        request.setAttribute("categories", adminService.getAllCategories());
         request.setAttribute("brands", adminService.getAllBrand());
         request.setAttribute("frameShapes", adminService.getAllFrameShape());
         request.getRequestDispatcher("/admin/ProductAdd.jsp").forward(request, response);
@@ -37,65 +41,71 @@ public class AddProductController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
 
-        // Lấy và xác thực các tham số
-        String name = request.getParameter("name");
-//        String description = request.getParameter("description");
-        String description = StringEscapeUtils.unescapeHtml4(request.getParameter("description"));
-        description = Jsoup.clean(description, Safelist.none());
-        long costPrice = Long.parseLong(request.getParameter("costPrice"));
-        long sellingPrice = Long.parseLong(request.getParameter("sellingPrice"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-        int brandId = Integer.parseInt(request.getParameter("brandId"));
-        int shapeId = Integer.parseInt(request.getParameter("shapeId"));
-        String material = request.getParameter("material");
-        int gender = Integer.parseInt(request.getParameter("gender"));
-        String color = request.getParameter("color");
+        try{
+            //Lấy dữ liệu
+            Integer idCategory = Integer.valueOf(request.getParameter("idCategory"));
+            Integer idBrand = Integer.valueOf(request.getParameter("idBrand"));
+            Integer idFrameShape = Integer.valueOf(request.getParameter("idFrame"));
+            String productName = request.getParameter("productName");
+            String material = request.getParameter("material");
+            Integer gender = Integer.valueOf(request.getParameter("gender"));
+            String color = request.getParameter("color");
+            Float costPrice = Float.valueOf(request.getParameter("costPrice"));
+            Float sellingPrice = Float.valueOf(request.getParameter("sellingPrice"));
+            Integer quantity = Integer.valueOf(request.getParameter("quantity"));
+            String description = request.getParameter("description");
 
-        Product product = new Product();
-        product.setName(name);
-        product.setDescription(description);
-        product.setCostPrice(costPrice);
-        product.setSellingPrice(sellingPrice);
-        product.setQuantity(quantity);
-        product.setCategoryId(categoryId);
-        product.setBrandId(brandId);
-        product.setShapeId(shapeId);
-        product.setMaterial(material);
-        product.setGender(gender);
-        product.setColor(color);
+            //Xử lý hình ảnh
+            String savePath = getServletContext().getRealPath(SAVE_DIR);
+            File imageDir = new File(savePath);
+            if (!imageDir.exists()) {
+                imageDir.mkdirs();
+            }
 
-        List<ProductImage> images = new ArrayList<>();
-        images.add(saveImage(request.getPart("mainImage"), 1));
-        images.add(saveImage(request.getPart("image1"), 0));
-        images.add(saveImage(request.getPart("image2"), 0));
-        images.add(saveImage(request.getPart("image3"), 0));
 
-        int success = adminService.addProduct(product, images);
-        if (success > 0) {
-            response.sendRedirect( request.getContextPath() +"/admin/AdminProductList");
-        } else {
-            response.getWriter().write("Có lỗi khi thêm sản phẩm");
+            Product product = new Product();
+            product.setCategoryId(idCategory);
+            product.setBrandId(idBrand);
+            product.setShapeId(idFrameShape);
+            product.setName(productName);
+            product.setMaterial(material);
+            product.setGender(gender);
+            product.setColor(color);
+            product.setCostPrice(costPrice);
+            product.setSellingPrice(sellingPrice);
+            product.setQuantity(quantity);
+            product.setDescription(description);
+
+            int productId = adminService.insertProduct(product);
+
+            Part mainImage = request.getPart("mainImage");
+            if(mainImage != null && mainImage.getSize() > 0){
+                String mainImageName = UUID.randomUUID() + "_" + Paths.get(mainImage.getSubmittedFileName()).getFileName().toString();
+                mainImage.write(savePath + File.separator + mainImageName);
+
+                //Lưu xuống DB
+                String mainPath = SAVE_DIR + "/" + mainImageName;
+                adminService.insertProductImage(productId, mainPath, true);
+            }
+
+            Collection<Part> parts = request.getParts();
+            for (Part part : parts) {
+                if(part.getName().equals("subImage") && part.getSize() > 0){
+                    String subImageName = UUID.randomUUID() + "_" + Paths.get(part.getSubmittedFileName()).getFileName().toString();
+                    part.write(savePath + File.separator + subImageName);
+                    String subPath = SAVE_DIR + "/" + subImageName;
+                    adminService.insertProductImage(productId, subPath, false);
+                }
+            }
+
+            response.setContentType("application/json");
+            response.getWriter().write("{\"success\":true,\"message\":\"Thêm sản phẩm thành công!\"}");
+        }catch (Exception e){
+            e.printStackTrace();
+            response.setContentType("application/json");
+            response.getWriter().write("{\"success\":false,\"message\":\"Thêm sản phẩm thất bại!\"}");
         }
     }
-
-    private ProductImage saveImage(Part imagePart, int isMain) throws IOException {
-
-        String fileName = imagePart.getSubmittedFileName();
-        String filePath = "/assets/images/" + System.currentTimeMillis() + "_" + fileName;
-        String savePath = getServletContext().getRealPath("") + filePath;
-
-        imagePart.write(savePath);
-
-        ProductImage productImage = new ProductImage();
-        productImage.setPath(filePath);
-        productImage.setIsMain(isMain);
-        return productImage;
-    }
-
-
 }

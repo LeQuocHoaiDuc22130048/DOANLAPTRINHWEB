@@ -78,14 +78,14 @@
                         </td>
                         <td>
 
-                                <button
-                                        class="btn btn-primary btn-sm view-details-btn"
-                                        type="button" data-bs-toggle="modal"
-                                        data-bs-target="#orderDetail"
-                                        data-order-id="${od.orderId}"
-                                >
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
+                                    <button
+                                            class="btn btn-primary btn-sm view-details-btn"
+                                            type="button" data-bs-toggle="modal"
+                                            data-bs-target="#orderDetail"
+                                            onclick="loadOrderDetail(${od.orderId})"
+                                    >
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
 
                                 <a href="">
                                     <button class="btn btn-warning btn-sm">
@@ -104,18 +104,17 @@
 
 <!-- Chi tiết đơn hàng -->
 <div class="modal fade" id="orderDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content" style="height: 80vh">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Chi tiết đơn hàng</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <%--Hiển thị bằng ajax--%>
-                <span class="loader"></span>
+            <div class="modal-body text-center " id="orderDetailContent">
+                <%--render by Ajax--%>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Đóng</button>
             </div>
         </div>
     </div>
@@ -124,25 +123,19 @@
 <c:import url="/admin/DashboardScript.jsp"/>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const buttons = document.querySelectorAll(".view-details-btn");
-        buttons.forEach(btn => {
-            btn.addEventListener("click", function () {
-                const orderId = this.getAttribute("data-id");
-                const detailBody = document.getElementById("orderDetailBody");
-                detailBody.innerHTML = "Đang tải...";
+    function loadOrderDetail(orderId) {
+        const content = document.getElementById('orderDetailContent');
+        content.innerHTML = '<div class="text-center"><span class="spinner-border text-primary"></span></div>';
 
-                fetch("OrderDetail?id=" + orderId)
-                    .then(res => res.text())
-                    .then(html => {
-                        detailBody.innerHTML = html;
-                    })
-                    .catch(err => {
-                        detailBody.innerHTML = "<p class='text-danger'>Lỗi tải dữ liệu</p>";
-                    });
-            });
-        });
-    });
+        fetch('OrderDetail?orderId=' + orderId)
+            .then(res => res.text())
+            .then(html =>{
+            content.innerHTML = html;
+            })
+            .catch(err => {
+                content.innerHTML = '<div class="text-danger">Không thể tải chi tiết đơn hàng.</div>';
+            })
+    }
 </script>
 
 </body>

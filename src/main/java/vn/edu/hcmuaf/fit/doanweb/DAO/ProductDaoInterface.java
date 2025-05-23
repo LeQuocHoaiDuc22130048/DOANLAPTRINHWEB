@@ -46,4 +46,8 @@ public interface ProductDaoInterface {
 
     public int getTotalBestSellerProducts();
 
+    List<ProductIndex> searchProducts(String keyword, int offset, int limit);
+
+    public int countSearchResults(String keyword);
+
 }

@@ -294,11 +294,6 @@ header
   z-index: 999;
 }
 
-.header-area .main-nav .nav li.username {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
 .header-area .main-nav .nav li.gio_hang_shop {
   pointer-events: none;
 }
@@ -357,6 +352,9 @@ header
 }
 
 .header-area .main-nav .nav li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #2a2a2a;
 }
 
@@ -377,7 +375,7 @@ header
 
 .header-area .main-nav .nav li.submenu {
   position: relative;
-  padding-right: 30px;
+  padding-right: 15px;
 }
 
 .header-area .main-nav .nav li.submenu:after {
@@ -386,7 +384,7 @@ header
   font-size: 12px;
   color: #2a2a2a;
   position: absolute;
-  right: 18px;
+  right: 5px;
   top: 12px;
 }
 

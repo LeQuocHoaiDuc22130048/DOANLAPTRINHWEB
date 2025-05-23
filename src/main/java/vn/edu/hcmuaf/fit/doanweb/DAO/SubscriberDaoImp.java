@@ -13,7 +13,8 @@ public class SubscriberDaoImp implements SubscriberDao {
     @Override
     public boolean addSubscriber(String name, String email) {
         return jdbi.withHandle(handle ->
-                handle.createUpdate("INSERT INTO newsletter_subscribers (name, email,created_at) VALUES (:name,:email,NOW())")
+                handle.createUpdate("INSERT INTO newsletter_subscribers (name, email,created_at) " +
+                                         "VALUES (:name,:email,NOW())")
                         .bind("name", name)
                         .bind("email", email)
                         .execute() > 0

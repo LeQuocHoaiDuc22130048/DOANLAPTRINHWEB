@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <c:set value="${pageContext.request.contextPath}" var="context"/>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Header</title>
 </head>
 <header class="header-area header-sticky fixed-top">
@@ -45,24 +45,66 @@
                                 <li><a href="HotLine.jsp">Liên hệ</a></li>
                             </ul>
                         </li>
+                        <li class="scroll-to-section ic_search">
+                            <a href="javascript:" id="search_icon_link" title="Tìm kiếm">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                            <!-- Search Popup -->
+                            <div id="search-popup" class="search-popup">
+                                <div class="search-container">
+                                    <form id="searchForm">
+                                        <input
+                                                type="text"
+                                                id="keywordInput"
+                                                placeholder="Tìm kiếm sản phẩm..."
+                                        />
+                                        <button type="submit">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </form>
+                                    <div class="suggestions">
+                                        <p>Gợi ý</p>
+                                        <div class="suggestion-tags">
+                                            <a href="#">Kính áp tròng</a>
+                                            <a href="#">Gọng kính</a>
+                                            <a href="#">Tròng kính</a>
+                                            <a href="#">Kính mát</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li class="username">
                             <c:choose>
                                 <c:when test="${sessionScope.avatar != null}">
                                     <div class="dropdown">
-                                        <img class=" dropdown-toggle rounded-circle user-avatar"
-                                             data-bs-toggle="dropdown"
-                                             aria-expanded="false" alt="avatar"
-                                             src="${context}${sessionScope.avatar}"/>
+                                        <img
+                                                class="dropdown-toggle rounded-circle user-avatar"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false"
+                                                alt="avatar"
+                                                src="${context}${sessionScope.avatar}"
+                                        />
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="${context}/user/updateProfile">Cập nhật hồ sơ </a></li>
-                                            <li><a class="dropdown-item" href="${context}/user/historyOrder">Lịch sử mua hàng</a></li>
-                                            <li><a class="dropdown-item" href="${context}/user/wishList">Sản phẩm đã thích </a></li>
-                                            <li><a class="dropdown-item" href="${context}/user/logout"> Đăng xuất </a></li>
+                                            <li>
+                                                <a class="dropdown-item" href="${context}/user/updateProfile">Cập nhật hồ sơ</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="${context}/user/historyOrder">Lịch sử mua hàng</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="${context}/user/wishList">Sản phẩm đã thích</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="${context}/user/logout">Đăng xuất</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="Login.jsp" id="login_link"><i class="fa-solid fa-user-large"></i></a>
+                                    <a href="Login.jsp" id="login_link"
+                                    ><i class="fa-solid fa-user-large"></i
+                                    ></a>
                                 </c:otherwise>
                             </c:choose>
                         </li>
@@ -73,7 +115,7 @@
                             </a>
                             <div class="count_div">
                                 <span class="cart-count">
-                                    ${sessionScope.cart != null ? sessionScope.cart.totalQuantity : 0}
+                                    ${sessionScope.cart != null ? sessionScope.cart.totalQuantity: 0}
                                 </span>
                             </div>
                         </li>

@@ -448,6 +448,60 @@ public class ProductDaoImp implements ProductDaoInterface {
         );
     }
 
+    @Override
+    public List<ProductIndex> searchProducts(String keyword, int offset, int limit) {
+        String searchKeyword = "%" + keyword.toLowerCase() + "%";
+        return jdbi.withHandle(handle ->
+                handle.createQuery("""
+                    SELECT p.id, p.category_id, p.brand_id, p.shape_id, p.material, 
+                           p.name, p.description, p.status, p.hot, 
+                           p.cost_price, p.selling_price, p.quantity, p.gender, 
+                           p.color, p.created_at, p.updated_at,
+                           pi.path AS path_image
+                    FROM products p
+                    LEFT JOIN brands b ON p.brand_id = b.id
+                    LEFT JOIN categories c ON p.category_id = c.id
+                    LEFT JOIN products_images pi ON pi.product_id = p.id AND pi.is_main = 1
+                    WHERE LOWER(p.name) LIKE :keyword
+                       OR LOWER(p.description) LIKE :keyword
+                       OR LOWER(p.material) LIKE :keyword
+                       OR LOWER(p.color) LIKE :keyword
+                       OR LOWER(b.name) LIKE :keyword
+                       OR LOWER(c.name) LIKE :keyword
+                    ORDER BY p.id DESC
+                    LIMIT :limit OFFSET :offset
+                """)
+                        .bind("keyword", searchKeyword)
+                        .bind("limit", limit)
+                        .bind("offset", offset)
+                        .mapToBean(ProductIndex.class)
+                        .list()
+        );
+    }
+
+
+    @Override
+    public int countSearchResults(String keyword) {
+        String searchKeyword = "%" + keyword.toLowerCase() + "%";
+        Integer count = jdbi.withHandle(handle ->
+                handle.createQuery(
+                        "SELECT COUNT(DISTINCT p.id) " +
+                        "FROM products p " +
+                        "LEFT JOIN brands b ON p.brand_id = b.id " +
+                        "LEFT JOIN categories c ON p.category_id = c.id " +
+                        "WHERE LOWER(p.name) LIKE :keyword " +
+                        "OR LOWER(p.description) LIKE :keyword " +
+                        "OR LOWER(p.material) LIKE :keyword " +
+                        "OR LOWER(p.color) LIKE :keyword " +
+                        "OR LOWER(b.name) LIKE :keyword " +
+                        "OR LOWER(c.name) LIKE :keyword"
+                )
+                .bind("keyword", searchKeyword)
+                .mapTo(Integer.class)
+                .one()
+        );
+        return count;
+    }
 
     public static void main(String[] args) {
     }
