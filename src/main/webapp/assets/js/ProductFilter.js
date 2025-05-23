@@ -1,7 +1,7 @@
-const $dataContainer = $('#data-container');
-const $paginationContainer = $('#pagination-container');
+const $dataContainerProduct = $('#data-containerProduct');
+const $paginationContainer = $('#pagination-containerProduct');
 const productGrid = $('#product-list'); // Khai báo và gán phần tử chứa sản phẩm
-let currentPage = 1;
+let currentPageProduct = 1;
 let totalPages = 1;
 const context = ""; //Giả sử context là rỗng
 
@@ -13,14 +13,14 @@ function fetchData(page, currentType, currentValue) {
         success: function (data) {
             displayProducts(data.products);
             updatePagination(data.currentPage, data.totalPages, currentType, currentValue);
-            currentPage = data.currentPage;
+            currentPageProduct = data.currentPage;
             totalPages = data.totalPages;
             console.log(totalPages);
 
         },
         error: function (error) {
             console.error('Lỗi khi gọi API:', error);
-            $dataContainer.html('Có lỗi xảy ra khi tải dữ liệu.');
+            $dataContainerProduct.html('Có lỗi xảy ra khi tải dữ liệu.');
             $paginationContainer.empty();
         }
     });
@@ -50,26 +50,27 @@ function displayProducts(products) {
 </div>
                     `;
     });
+    console.log(html);
     productGrid.html(html);
 }
 
-function updatePagination(currentPage, totalPages, currentType, currentValue) {
+function updatePagination(currentPageProduct, totalPages, currentType, currentValue) {
     let paginationHtml = '';
     $paginationContainer.empty(); // Xóa các nút phân trang cũ
 
-    if (currentPage > 1) {
+    if (currentPageProduct > 1) {
         $('<button>', {
             class: 'pagination-button m-2 bg-primary text-light',
             text: 'Trang trước',
             click: function () {
-                fetchData(currentPage - 1, currentType, currentValue);
+                fetchData(currentPageProduct - 1, currentType, currentValue);
             }
         }).appendTo($paginationContainer);
     }
 
     for (let i = 1; i <= totalPages; i++) {
         let button;
-        if (i === currentPage) {
+        if (i === currentPageProduct) {
             button = $('<span>', {
                 class: 'pagination-button current-page',
                 text: i
@@ -86,12 +87,12 @@ function updatePagination(currentPage, totalPages, currentType, currentValue) {
         button.appendTo($paginationContainer);
     }
 
-    if (currentPage < totalPages) {
+    if (currentPageProduct < totalPages) {
         $('<button>', {
             class: 'pagination-button',
             text: 'Trang sau',
             click: function () {
-                fetchData(currentPage + 1, currentType, currentValue);
+                fetchData(currentPageProduct + 1, currentType, currentValue);
             }
         }).appendTo($paginationContainer);
     }
