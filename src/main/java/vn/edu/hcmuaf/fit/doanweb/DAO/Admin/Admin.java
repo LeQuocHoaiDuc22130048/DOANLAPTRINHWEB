@@ -349,4 +349,68 @@ public class Admin {
                                 rs.getInt("total_sold"))).list());
 
     }
+
+    public List<NewsletterSubscriber> getAllNewsletterSubscribers() {
+        String sql = "SELECT * FROM newsletter_subscribers ORDER BY created_at DESC";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(sql)
+                        .mapToBean(NewsletterSubscriber.class)
+                        .list());
+    }
+
+    public boolean replyFeedback(int id, String replyContent) {
+        String sql = "UPDATE feedbacks SET response = ?, updated_at = NOW(), status = 1 WHERE id = ?";
+        int rowsAffected = jdbi.withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, replyContent)
+                        .bind(1, id)
+                        .execute()
+        );
+        return rowsAffected > 0;
+    }
+
+    public List<Banner> getAllBanners() {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT id, image_url, link_url, title, status FROM banners ORDER BY id DESC")
+                        .mapToBean(Banner.class)
+                        .list()
+        );
+    }
+
+    public boolean addBanner(String title, String linkUrl, String imageUrl) {
+        return jdbi.withHandle(handle ->
+                handle.createUpdate("INSERT INTO banners (title, link_url, image_url, status) VALUES (:title, :linkUrl, :imageUrl, 1)")
+                        .bind("title", title)
+                        .bind("linkUrl", linkUrl)
+                        .bind("imageUrl", imageUrl)
+                        .execute() > 0
+        );
+    }
+
+    public boolean updateStatusBanner(int bannerId, int status) {
+        return jdbi.withHandle(handle ->
+                handle.createUpdate("UPDATE banners SET status = :status WHERE id = :id")
+                        .bind("status", status)
+                        .bind("id", bannerId)
+                        .execute() > 0
+        );
+    }
+
+    public boolean updateBanner(int id, String title, String linkUrl, String imageUrl) {
+        String sql = imageUrl == null ?
+                "UPDATE banners SET title = :title, link_url = :linkUrl WHERE id = :id" :
+                "UPDATE banners SET title = :title, link_url = :linkUrl, image_url = :imageUrl WHERE id = :id";
+        return jdbi.withHandle(handle -> {
+            var update = handle.createUpdate(sql)
+                    .bind("title", title)
+                    .bind("linkUrl", linkUrl)
+                    .bind("id", id);
+            if (imageUrl != null) update.bind("imageUrl", imageUrl);
+            return update.execute() > 0;
+        });
+    }
+
+
+
+
 }

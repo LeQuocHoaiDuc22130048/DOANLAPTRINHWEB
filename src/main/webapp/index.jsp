@@ -16,18 +16,24 @@
 
 <body>
 <!-- ***** Preloader Start ***** -->
-<%--<div id="preloader">--%>
-<%--    <div class="jumper">--%>
-<%--        <div></div>--%>
-<%--        <div></div>--%>
-<%--        <div></div>--%>
-<%--    </div>--%>
-<%--</div>--%>
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
 <!-- ***** Preloader End ***** -->
 
 <!-- ***** Header Area Start ***** -->
 <jsp:include page="Header.jsp"/>
 <!-- ***** Header Area End ***** -->
+
+<!-- ***** Slick Carousel Area Start ***** -->
+<div id="banner-carousel" class="slider-main">
+    <!-- Nội dung banner sẽ được load bằng AJAX và slick sẽ tự thêm nút điều hướng, dots -->
+</div>
+<!-- ***** Slick Carousel Area End ***** -->
 
 <!-- ***** Main Banner Area Start ***** -->
 <div class="main-banner container" id="top">

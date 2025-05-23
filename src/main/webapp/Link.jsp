@@ -10,6 +10,8 @@
 
 <!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+<!-- Slick Carousel CSS (Banner động)-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
 <link rel="shortcut icon" href="<c:url value='/assets/images/Website/logo.png'/>" type="image/x-icon"/>
 <link rel="stylesheet" href="<c:url value='/assets/css/bootstrap-icons@1.11.3_font_bootstrap-icons.css'/>">
@@ -22,6 +24,7 @@
 <link rel="stylesheet" href="<c:url value='/assets/css/Upload.css'/>">
 <link rel="stylesheet" href="<c:url value="/assets/css/history_order.css"/>">
 <link rel="stylesheet" href="<c:url value='/assets/css/search.css'/>">
+<link rel="stylesheet" href="<c:url value='/assets/css/banner_carousel.css'/>">
 
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
