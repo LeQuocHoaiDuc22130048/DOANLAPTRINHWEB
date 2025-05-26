@@ -20,6 +20,6 @@
 <script src="<c:url value='/assets/js/main.js' />"></script>
 <script src="<c:url value='/assets/js/add_cart.js' />"></script>
 <script src="<c:url value='/assets/js/Upload.js' />"></script>
-
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<%-- error --%>
