@@ -16,7 +16,7 @@ import java.util.List;
 
 @WebServlet(name = "SanPhamDaThich", value = "/user/wishList")
 public class FavoriteProductListContr extends HttpServlet {
-    private ProductDaoInterface dao = new ProductDaoImp();
+    private final ProductDaoInterface dao = new ProductDaoImp();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

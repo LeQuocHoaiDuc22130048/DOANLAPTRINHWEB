@@ -66,24 +66,16 @@ public class Cart {
         cp.setQuantity(1);
         cp.setName(product.getName());
         cp.setPath_img(product.getPath_image());
-
         return cp;
     }
 
     // Phương thức tính số tiền giảm giá
     public double getDiscountAmount(Discounts discount) {
         double totalPrices = getTotalPrices(); // Lấy tổng giá trị giỏ hàng
-
         if (discount == null) return 0.0; // Nếu không có mã giảm giá thì trả về 0
-
         double discountAmount = totalPrices * (discount.getDiscountPercentage() / 100);
-
         // Đảm bảo số tiền giảm giá không vượt quá tổng giá trị giỏ hàng
-        if (discountAmount > totalPrices) {
-            discountAmount = totalPrices;
-        }
-
-        return discountAmount;
+        return Math.min(discountAmount, totalPrices);
     }
 
 

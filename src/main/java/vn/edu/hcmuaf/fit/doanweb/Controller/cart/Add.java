@@ -11,6 +11,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.ProductIndex;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoInterface;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
+import vn.edu.hcmuaf.fit.doanweb.Util.AjaxResponse;
 
 import java.io.IOException;
 
@@ -24,9 +25,7 @@ public class Add extends HttpServlet {
         int quantity = 1;
         String quantityParam = request.getParameter("quantity");
 
-        if(quantityParam != null && !quantityParam.isEmpty()) {
-            quantity = Integer.parseInt(quantityParam);
-        }
+        quantity = quantityParam == null ? 1 : Integer.parseInt(quantityParam);
 
         HttpSession session = request.getSession();
         Cart c = (Cart) session.getAttribute("cart");
@@ -39,12 +38,8 @@ public class Add extends HttpServlet {
         session.setAttribute("cart", c);
 
         // Trả về số lượng mới cho AJAX
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write("{\"cartQuantity\": " + c.getTotalQuantity() + "}");
-        response.getWriter().flush();  // Đảm bảo dữ liệu được gửi đi
-        response.getWriter().close();  // Đóng stream để tránh lỗi
-
+        String message = "{\"cartQuantity\": " + c.getTotalQuantity() + "}";
+        AjaxResponse.response(response, message);
     }
 
 

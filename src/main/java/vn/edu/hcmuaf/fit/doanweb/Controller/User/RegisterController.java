@@ -44,12 +44,6 @@ public class RegisterController extends HttpServlet {
         String userName = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
-        if (email == null || userName == null || password == null) {
-            request.setAttribute("Error", "Please fill all the fields");
-            request.getRequestDispatcher(SignIn).forward(request, response);
-            return;
-        }
         // encrypt password
         String EncryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt(12));
         // Check email exist
@@ -59,7 +53,6 @@ public class RegisterController extends HttpServlet {
             return;
         }
         // Check create user success
-
         if (!userDaoImp.CreateUserTemp(userName, email, EncryptedPassword)) {
             request.setAttribute("Error", SignInFailed);
             request.getRequestDispatcher(SignIn).forward(request, response);

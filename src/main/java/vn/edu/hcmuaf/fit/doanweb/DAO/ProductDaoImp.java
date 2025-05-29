@@ -6,40 +6,40 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
 import vn.edu.hcmuaf.fit.doanweb.Util.GenerateQuery;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class ProductDaoImp implements ProductDaoInterface {
     public Jdbi jdbi = JDBIConnect.get();
-
+    public ProductIndex getIndexFromRS (ResultSet rs) throws SQLException {
+        ProductIndex p = new ProductIndex();
+        p.setId(rs.getInt("id"));
+        p.setCategoryId(rs.getInt("category_id"));
+        p.setBrandId(rs.getInt("brand_id"));
+        p.setShapeId(rs.getInt("shape_id"));
+        p.setMaterial(rs.getString("material"));
+        p.setName(rs.getString("name"));
+        p.setDescription(rs.getString("description"));
+        p.setStatus(rs.getInt("status"));
+        p.setHot(rs.getByte("hot"));
+        p.setCostPrice((float) rs.getDouble("cost_price"));
+        p.setSellingPrice((float) rs.getDouble("selling_price"));
+        p.setQuantity(rs.getInt("quantity"));
+        p.setGender(rs.getInt("gender"));
+        p.setColor(rs.getString("color"));
+        return p;
+    }
     @Override
     public ProductIndex getProductById(int id) {
         ProductIndex product = jdbi.withHandle(handle ->
                 handle.createQuery(
-                                "SELECT * FROM products WHERE id = :id"
+                                GenerateQuery.getAllQuery("products" , "id")
                         )
                         .bind("id", id)
-                        .map((rs, ctx) -> {
-                            ProductIndex p = new ProductIndex();
-                            p.setId(rs.getInt("id"));
-                            p.setCategoryId(rs.getInt("category_id"));
-                            p.setBrandId(rs.getInt("brand_id"));
-                            p.setShapeId(rs.getInt("shape_id"));
-                            p.setMaterial(rs.getString("material"));
-                            p.setName(rs.getString("name"));
-                            p.setDescription(rs.getString("description"));
-                            p.setStatus(rs.getInt("status"));
-                            p.setHot(rs.getByte("hot"));
-                            p.setCostPrice(rs.getDouble("cost_price"));
-                            p.setSellingPrice(rs.getDouble("selling_price"));
-                            p.setQuantity(rs.getInt("quantity"));
-                            p.setGender(rs.getInt("gender"));
-                            p.setColor(rs.getString("color"));
-                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
-                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
-                            return p;
-                        })
+                        .map((rs, ctx) -> getIndexFromRS(rs))
                         .one() // Lấy đối tượng Product
         );
 
@@ -58,7 +58,6 @@ public class ProductDaoImp implements ProductDaoInterface {
 
         return product;
     }
-
     @Override
     public List<ProductByCondition> getProductByCondition(String type, String value) {
         List<ProductByCondition> list;
@@ -67,35 +66,15 @@ public class ProductDaoImp implements ProductDaoInterface {
                 .mapToBean(ProductByCondition.class).list()));
         return list;
     }
-
     @Override
     public List<ProductIndex> getProductsByGender(int gender) {
         // Truy vấn danh sách sản phẩm theo giới tính
         List<ProductIndex> productList = jdbi.withHandle(handle ->
                         handle.createQuery(
-                                        "SELECT * FROM products WHERE gender = :gender"
+                                        GenerateQuery.getAllQuery("products" , "gender")
                                 )
                                 .bind("gender", gender) // Gán giá trị giới tính vào câu truy vấn
-                                .map((rs, ctx) -> {
-                                    ProductIndex p = new ProductIndex();
-                                    p.setId(rs.getInt("id"));
-                                    p.setCategoryId(rs.getInt("category_id"));
-                                    p.setBrandId(rs.getInt("brand_id"));
-                                    p.setShapeId(rs.getInt("shape_id"));
-                                    p.setMaterial(rs.getString("material"));
-                                    p.setName(rs.getString("name"));
-                                    p.setDescription(rs.getString("description"));
-                                    p.setStatus(rs.getInt("status"));
-                                    p.setHot(rs.getByte("hot"));
-                                    p.setCostPrice((float) rs.getDouble("cost_price"));
-                                    p.setSellingPrice((float) rs.getDouble("selling_price"));
-                                    p.setQuantity(rs.getInt("quantity"));
-                                    p.setGender(rs.getInt("gender"));
-                                    p.setColor(rs.getString("color"));
-//                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
-//                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
-                                    return p;
-                                })
+                                .map((rs, ctx) -> getIndexFromRS(rs))
                                 .list() // Lấy danh sách sản phẩm
         );
 
@@ -115,11 +94,10 @@ public class ProductDaoImp implements ProductDaoInterface {
 
         return productList; // Trả về danh sách sản phẩm
     }
-
     @Override
     public List<ProductImage> getImagesByProductId(int productId) {
         // Truy vấn danh sách hình ảnh phụ của sản phẩm (is_main = 0)
-        List<ProductImage> images = jdbi.withHandle(handle ->
+        return jdbi.withHandle(handle ->
                 handle.createQuery(
                                 "SELECT * FROM products_images WHERE product_id = :productId AND is_main = 0"
                         )
@@ -136,10 +114,7 @@ public class ProductDaoImp implements ProductDaoInterface {
                         })
                         .list()
         );
-
-        return images;
     }
-
     @Override
     public List<ProductIndex> getProductsByCategory(int categoryId) {
         // Truy vấn danh sách sản phẩm theo category_id
@@ -148,26 +123,7 @@ public class ProductDaoImp implements ProductDaoInterface {
                                 "SELECT * FROM products WHERE category_id = :categoryId"
                         )
                         .bind("categoryId", categoryId) // Gán giá trị category_id vào câu truy vấn
-                        .map((rs, ctx) -> {
-                            ProductIndex p = new ProductIndex();
-                            p.setId(rs.getInt("id"));
-                            p.setCategoryId(rs.getInt("category_id"));
-                            p.setBrandId(rs.getInt("brand_id"));
-                            p.setShapeId(rs.getInt("shape_id"));
-                            p.setMaterial(rs.getString("material"));
-                            p.setName(rs.getString("name"));
-                            p.setDescription(rs.getString("description"));
-                            p.setStatus(rs.getInt("status"));
-                            p.setHot(rs.getByte("hot"));
-                            p.setCostPrice((float) rs.getDouble("cost_price"));
-                            p.setSellingPrice((float) rs.getDouble("selling_price"));
-                            p.setQuantity(rs.getInt("quantity"));
-                            p.setGender(rs.getInt("gender"));
-                            p.setColor(rs.getString("color"));
-                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
-                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
-                            return p;
-                        })
+                        .map((rs, ctx) -> getIndexFromRS(rs))
                         .list() // Lấy danh sách sản phẩm
         );
 
@@ -187,12 +143,11 @@ public class ProductDaoImp implements ProductDaoInterface {
 
         return productList; // Trả về danh sách sản phẩm
     }
-
-
     @Override
     // Phương thức lấy khuyến mãi có status = 1
     public Discounts getActiveDiscounts() {
-        Discounts discount = jdbi.withHandle(handle ->
+        // Lấy một khuyến mãi duy nhất
+        return jdbi.withHandle(handle ->
                 handle.createQuery(
                                 "SELECT * FROM discounts WHERE status = 1 LIMIT 1"
                         )
@@ -207,10 +162,7 @@ public class ProductDaoImp implements ProductDaoInterface {
                         })
                         .one() // Lấy một khuyến mãi duy nhất
         );
-
-        return discount;
     }
-
     @Override
     public Categories getCategoryById(int categoryId) {
         return jdbi.withHandle(handle -> {
@@ -234,45 +186,24 @@ public class ProductDaoImp implements ProductDaoInterface {
             return category;
         });
     }
-
     @Override
     public Brands getBrandById(int id) {
         return jdbi.withHandle(handle ->
-                handle.createQuery("SELECT * FROM brands WHERE id= :id")
+                handle.createQuery(GenerateQuery.getAllQuery("brands" , "id")) // select brand theo id
                         .bind("id", id)
                         .mapToBean(Brands.class)
                         .findOne()
                         .orElse(null));
     }
-
     // Truy vấn danh sách sản phẩm theo brand id
     @Override
     public List<ProductIndex> getProductsByBrandId(int brandId) {
         List<ProductIndex> productList = jdbi.withHandle(handle ->
                         handle.createQuery(
-                                        "SELECT * FROM products WHERE brand_id = :brandId"
+                                        GenerateQuery.getAllQuery("products" , "brand_id") // Tạo câu truy vấn cho từng sản phẩm
                                 )
-                                .bind("brandId", brandId)
-                                .map((rs, ctx) -> {
-                                    ProductIndex p = new ProductIndex();
-                                    p.setId(rs.getInt("id"));
-                                    p.setCategoryId(rs.getInt("category_id"));
-                                    p.setBrandId(rs.getInt("brand_id"));
-                                    p.setShapeId(rs.getInt("shape_id"));
-                                    p.setMaterial(rs.getString("material"));
-                                    p.setName(rs.getString("name"));
-                                    p.setDescription(rs.getString("description"));
-                                    p.setStatus(rs.getInt("status"));
-                                    p.setHot(rs.getByte("hot"));
-                                    p.setCostPrice((float) rs.getDouble("cost_price"));
-                                    p.setSellingPrice((float) rs.getDouble("selling_price"));
-                                    p.setQuantity(rs.getInt("quantity"));
-                                    p.setGender(rs.getInt("gender"));
-                                    p.setColor(rs.getString("color"));
-//                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
-//                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
-                                    return p;
-                                })
+                                .bind("brand_id", brandId)
+                                .map((rs, ctx) -> getIndexFromRS(rs) )
                                 .list() // Lấy danh sách sản phẩm
         );
 
@@ -289,10 +220,8 @@ public class ProductDaoImp implements ProductDaoInterface {
             );
             product.setPath_image(mainImage);
         });
-
         return productList;
     }
-
     @Override
     public List<Brands> getBrandList() {
         return jdbi.withHandle(handle ->
@@ -301,7 +230,6 @@ public class ProductDaoImp implements ProductDaoInterface {
                         .list()
         );
     }
-
     @Override
     public List<Brands> getTop18Brands() {
         return jdbi.withHandle(handle ->
@@ -310,11 +238,10 @@ public class ProductDaoImp implements ProductDaoInterface {
                         .list()
         );
     }
-
     @Override
     public FrameShapes getFrameShapeById(int shapeId) {
         return jdbi.withHandle(handle ->
-                handle.createQuery("SELECT * FROM frame_shapes WHERE id= :id")
+                handle.createQuery(GenerateQuery.getAllQuery("frame_shapes" , "id"))
                         .bind("id", shapeId)
                         .mapToBean(FrameShapes.class)
                         .findOne()
@@ -322,7 +249,6 @@ public class ProductDaoImp implements ProductDaoInterface {
 
         );
     }
-
     @Override
     public void addFavoriteProduct(int userId, int productId) {
         jdbi.useHandle(handle ->
@@ -332,7 +258,6 @@ public class ProductDaoImp implements ProductDaoInterface {
                         .execute()
         );
     }
-
     @Override
     public Set<Integer> getFavoriteProductIds(int userId) {
         Set<Integer> favoriteIds = new HashSet<>();
@@ -345,7 +270,6 @@ public class ProductDaoImp implements ProductDaoInterface {
         });
         return favoriteIds;
     }
-
     @Override
     public boolean isFavorite(int userId, int productId) {
         return jdbi.withHandle(handle ->
@@ -356,7 +280,6 @@ public class ProductDaoImp implements ProductDaoInterface {
                         .one() > 0
         );
     }
-
     @Override
     public void removeFavoriteProduct(int userId, int productId) {
         jdbi.useHandle(handle ->
@@ -366,27 +289,25 @@ public class ProductDaoImp implements ProductDaoInterface {
                         .execute()
         );
     }
-
     @Override
     public List<ProductIndex> getFavoriteByUserId(int userId) {
         return jdbi.withHandle(handle ->
                 handle.createQuery("""
-                                    SELECT p.id, p.category_id, p.brand_id, p.shape_id, p.material, 
-                                           p.name, p.description, p.status, p.hot, 
-                                           p.cost_price, p.selling_price, p.quantity, p.gender, 
+                                    SELECT p.id, p.category_id, p.brand_id, p.shape_id, p.material,\s
+                                           p.name, p.description, p.status, p.hot,\s
+                                           p.cost_price, p.selling_price, p.quantity, p.gender,\s
                                            p.color, p.created_at, p.updated_at,
                                            pi.path AS path_image
                                     FROM products p
                                     JOIN favorites f ON p.id = f.product_id
                                     LEFT JOIN products_images pi ON pi.product_id = p.id AND pi.is_main = 1
                                     WHERE f.user_id = :userId
-                                """)
+                               \s""")
                         .bind("userId", userId)
                         .mapToBean(ProductIndex.class)
                         .list()
         );
     }
-
     @Override
     public List<ProductIndex> getProducsBestSeller(int limit, int offset) {
         List<ProductIndex> productList = jdbi.withHandle(handle ->
@@ -400,29 +321,9 @@ public class ProductDaoImp implements ProductDaoInterface {
                                 )
                                 .bind("limit", limit)
                                 .bind("offset", offset)
-                                .map((rs, ctx) -> {
-                                    ProductIndex p = new ProductIndex();
-                                    p.setId(rs.getInt("id"));
-                                    p.setCategoryId(rs.getInt("category_id"));
-                                    p.setBrandId(rs.getInt("brand_id"));
-                                    p.setShapeId(rs.getInt("shape_id"));
-                                    p.setMaterial(rs.getString("material"));
-                                    p.setName(rs.getString("name"));
-                                    p.setDescription(rs.getString("description"));
-                                    p.setStatus(rs.getInt("status"));
-                                    p.setHot(rs.getByte("hot"));
-                                    p.setCostPrice((float) rs.getDouble("cost_price"));
-                                    p.setSellingPrice((float) rs.getDouble("selling_price"));
-                                    p.setQuantity(rs.getInt("quantity"));
-                                    p.setGender(rs.getInt("gender"));
-                                    p.setColor(rs.getString("color"));
-//                            p.setCreateAt(rs.getTimestamp("created_at").toLocalDateTime());
-//                            p.setUpdateAt(rs.getTimestamp("updated_at").toLocalDateTime());
-                                    return p;
-                                })
+                                .map((rs, ctx) -> getIndexFromRS(rs))
                                 .list()
         );
-
         // Lấy ảnh đại diện
         productList.forEach(product -> {
             String mainImage = jdbi.withHandle(handle ->
@@ -434,10 +335,8 @@ public class ProductDaoImp implements ProductDaoInterface {
             );
             product.setPath_image(mainImage);
         });
-
         return productList;
     }
-
     @Override
     public int getTotalBestSellerProducts() {
         return jdbi.withHandle(handle ->
@@ -447,15 +346,14 @@ public class ProductDaoImp implements ProductDaoInterface {
                 ).mapTo(Integer.class).findOne().orElse(0)
         );
     }
-
     @Override
     public List<ProductIndex> searchProducts(String keyword, int offset, int limit) {
         String searchKeyword = "%" + keyword.toLowerCase() + "%";
         return jdbi.withHandle(handle ->
                 handle.createQuery("""
-                                    SELECT p.id, p.category_id, p.brand_id, p.shape_id, p.material, 
-                                           p.name, p.description, p.status, p.hot, 
-                                           p.cost_price, p.selling_price, p.quantity, p.gender, 
+                                    SELECT p.id, p.category_id, p.brand_id, p.shape_id, p.material,\s
+                                           p.name, p.description, p.status, p.hot,\s
+                                           p.cost_price, p.selling_price, p.quantity, p.gender,\s
                                            p.color, p.created_at, p.updated_at,
                                            pi.path AS path_image
                                     FROM products p
@@ -470,7 +368,7 @@ public class ProductDaoImp implements ProductDaoInterface {
                                        OR LOWER(c.name) LIKE :keyword
                                     ORDER BY p.id DESC
                                     LIMIT :limit OFFSET :offset
-                                """)
+                               \s""")
                         .bind("keyword", searchKeyword)
                         .bind("limit", limit)
                         .bind("offset", offset)
@@ -478,12 +376,10 @@ public class ProductDaoImp implements ProductDaoInterface {
                         .list()
         );
     }
-
-
     @Override
     public int countSearchResults(String keyword) {
         String searchKeyword = "%" + keyword.toLowerCase() + "%";
-        Integer count = jdbi.withHandle(handle ->
+        return jdbi.withHandle(handle ->
                 handle.createQuery(
                                 "SELECT COUNT(DISTINCT p.id) " +
                                         "FROM products p " +
@@ -500,9 +396,7 @@ public class ProductDaoImp implements ProductDaoInterface {
                         .mapTo(Integer.class)
                         .one()
         );
-        return count;
     }
-
     @Override
     public List<Banner> getAllBanners() {
         return jdbi.withHandle(handle ->
@@ -511,8 +405,4 @@ public class ProductDaoImp implements ProductDaoInterface {
                         .list()
         );
     }
-
-    public static void main(String[] args) {
-    }
-
 }

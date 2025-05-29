@@ -7,4 +7,7 @@ public class GenerateQuery {
                 "JOIN products_images pig ON pig.product_id = p.id " +
                 "WHERE p." + col + " = :value";
     }
+    public static String getAllQuery ( String table , String col) {
+        return  "SELECT * FROM " + table + " WHERE " + col + " = :"+ col;
+    }
 }

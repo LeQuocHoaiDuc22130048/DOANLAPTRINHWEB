@@ -16,21 +16,21 @@ import java.util.List;
 import java.util.Map;
 
 public class InventoryDaoImp implements InventoryDao {
-    private Jdbi jdbi = JDBIConnect.get();
+    private final Jdbi jdbi = JDBIConnect.get();
 
     @Override
     public Map<Integer, Integer> getRealStockQuantityMap() {
         String sql = """
-                    SELECT 
+                    SELECT\s
                         s.product_id,
-                        COALESCE(SUM(s.quantity_added), 0) - 
-                        COALESCE(SUM(CASE WHEN o.status_order != 0 THEN od.quantity ELSE 0 END), 0) 
+                        COALESCE(SUM(s.quantity_added), 0) -\s
+                        COALESCE(SUM(CASE WHEN o.status_order != 0 THEN od.quantity ELSE 0 END), 0)\s
                         AS real_stock_quantity
                     FROM stock_in s
                     LEFT JOIN order_details od ON s.product_id = od.product_id
                     LEFT JOIN orders o ON od.order_id = o.id
                     GROUP BY s.product_id
-                """;
+               \s""";
         List<Map<String, Object>> rows = jdbi.withHandle(handle ->
                 handle.createQuery(sql)
                         .mapToMap()
@@ -48,11 +48,11 @@ public class InventoryDaoImp implements InventoryDao {
     @Override
     public void updateStockAfterOrder(List<CartProduct> listProducts) {
         String sql = """
-                    UPDATE inventory 
+                    UPDATE inventory\s
                     SET stock_quantity = stock_quantity - :orderQty,
                         last_updated = NOW()
                     WHERE product_id = :productId
-                """;
+               \s""";
 
         jdbi.useHandle(handle -> {
             for (CartProduct product : listProducts) {
@@ -102,7 +102,4 @@ public class InventoryDaoImp implements InventoryDao {
         }
     }
 
-//    public static void main(String args[]){
-//        new InventoryDaoImp().importFromExcel("Stock_in.xlsx");
-//    }
 }
