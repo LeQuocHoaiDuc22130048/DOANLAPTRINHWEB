@@ -27,7 +27,7 @@
     <li><a href="User"><i class="fa-solid fa-user"></i>Người dùng</a></li>
     <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
     <li><a href="Newsletter-subscriber" class="active"><i class="fa-solid fa-bell"></i>Đăng ký nhận tin</a></li>
-
+    <li><a href="Banner-carousel"><i class="fa-solid fa-image"></i>Đăng ký nhận tin</a></li>
   </ul>
 </div>
 

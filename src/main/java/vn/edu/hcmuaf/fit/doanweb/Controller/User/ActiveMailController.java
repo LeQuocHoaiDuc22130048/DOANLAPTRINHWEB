@@ -14,7 +14,6 @@ import java.util.Base64;
 @WebServlet(name = "ActiveMailController", value = "/ActiveMail")
 public class ActiveMailController extends HttpServlet {
     private UserDao userDao;
-
     @Override
     public void init() throws ServletException {
         userDao = new UserDaoImp();
@@ -23,13 +22,11 @@ public class ActiveMailController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String  param  = request.getParameter("userId");
         String decodedString = new String(Base64.getDecoder().decode(param), StandardCharsets.UTF_8);
-        System.out.println(decodedString);
        if(userDao.ActiveAccountExists(Integer.parseInt(decodedString))){
            response.sendRedirect("/DoAnWeb"+JSPPage.Index.getPage());
            return;
        }
        response.sendRedirect(JSPPage.Login.getPage());
-
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

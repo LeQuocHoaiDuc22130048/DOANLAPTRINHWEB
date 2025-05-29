@@ -77,10 +77,10 @@
                         <li class="username">
                             <c:choose>
                                 <c:when test="${sessionScope.avatar != null}">
-                                    <div class="dropdown">
+                                    <div class="dropdownUser">
                                         <img
                                                 class="dropdown-toggle rounded-circle user-avatar"
-                                                data-bs-toggle="dropdown"
+                                                data-bs-toggle="dropdownUser"
                                                 aria-expanded="false"
                                                 alt="avatar"
                                                 src="${context}${sessionScope.avatar}"

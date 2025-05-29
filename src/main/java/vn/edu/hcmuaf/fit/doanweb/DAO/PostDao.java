@@ -9,21 +9,15 @@ import java.util.Optional;
 
 public class PostDao {
     private final Jdbi jdbi = JDBIConnect.get();
-    
     // Optimized queries with proper indexing hints
     private final static String GET_ALL_POSTS =
             "SELECT id, thumbnail, created_at, title, content, url, access FROM Posts ORDER BY created_at DESC";
-    
     private final static String GET_POST_BY_ID =
             "SELECT id, thumbnail, created_at, title, content, url, access FROM Posts WHERE id = :id LIMIT 1";
-    
     private final static String GET_POSTS_BY_LIMIT =
             "SELECT id, thumbnail, created_at, title, content, url, access FROM Posts ORDER BY created_at DESC LIMIT :limit OFFSET :offset";
-    
     private final static String GET_POSTS_BY_ACCESS =
             "SELECT id, thumbnail, created_at, title, content, url, access FROM Posts WHERE access = :access ORDER BY created_at DESC";
-
-
     public List<Posts> getAllPost() {
         return jdbi.withHandle(handle ->
                 handle.createQuery(GET_ALL_POSTS)

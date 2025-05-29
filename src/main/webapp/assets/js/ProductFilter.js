@@ -30,8 +30,8 @@ function displayProducts(products) {
     let html = '';
     $.each(products, function (index, product) {
         html += `
-       <div class="product-item shadow w-100  rounded-2" data-product-id="${product.id}">
-    <img class="img-thumbnail border-0" src="${product.path}" alt="${product.name}" />
+       <div class="product-item shadow w-100 d-flex justify-content-center align-items-center flex-column  rounded-2" data-product-id="${product.id}">
+    <img class="img-thumbnail Filter-Image border-0" src="${product.path}" alt="${product.name}" />
    <div class="d-flex justify-content-between align-items-center">
     <div class="down-content p-2">
         <h6>${product.name}</h6>
@@ -45,6 +45,7 @@ function displayProducts(products) {
         <button class="btn_gio_hang border-0 text-light bg-primary me-2 rounded-1">
             <i class="fa fa-shopping-cart"></i>
         </button>
+        <input type="hidden" name="quantity" value="1">
     </form>
 </div>
 </div>

@@ -22,7 +22,7 @@ public class AvailableData {
             "Nhựa Acetate", "Nhựa Optyl", "Kim loại-Nhựa Ultem"};
     public static String [] MaterialPath ={
             "assets/images/icon_chatlieu/icon-chat-lieu-gong-nhua.jpg",
-            "assets/images/icon-kim-loai.jpg",
+            "assets/images/icon_chatlieu/icon-kim-loai.jpg",
             "assets/images/icon_chatlieu/icon-chat-lieu-gong-titanium.jpg",
             "assets/images/icon_chatlieu/icon-chat-lieu-gong-xi-ma-vang.jpg",
             "assets/images/icon_chatlieu/icon-chat-lieu-gong-nhua-deo-tr90.jpg",

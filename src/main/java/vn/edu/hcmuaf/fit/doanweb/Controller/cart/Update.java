@@ -10,6 +10,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.Model.Discounts;
 import vn.edu.hcmuaf.fit.doanweb.DAO.ProductDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.Cart;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
+import vn.edu.hcmuaf.fit.doanweb.Util.AjaxResponse;
 
 import java.io.IOException;
 
@@ -26,7 +27,7 @@ public class Update extends HttpServlet {
 
         double totalPrice = 0;
         double discountAmount = 0;
-        double totalAfterDiscount=0;
+        double totalAfterDiscount = 0;
 
         HttpSession session = request.getSession();
         if (session != null) {
@@ -36,21 +37,17 @@ public class Update extends HttpServlet {
                 session.setAttribute("cart", cart);
 
                 CartProduct product = cart.getProduct(productId);
-                if (product != null) {
-                    totalPrice = product.getTotalPrice();
-                }
+                totalPrice = (product != null) ? product.getTotalPrice() : 0;
 
                 discountAmount = cart.getDiscountAmount(discount);
                 // Tổng giá trị sau khi áp dụng giảm giá
                 totalAfterDiscount = cart.getTotalPrices() - discountAmount;
+
+                String message = "{\"totalPrice\": " + totalPrice + ", \"discountAmount\": "
+                        + discountAmount + ", \"totalAfterDiscount\": " + totalAfterDiscount + "}";
+                // response template
+                AjaxResponse.response(response, message);
             }
         }
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write("{\"totalPrice\": " + totalPrice + ", \"discountAmount\": " + discountAmount + ", \"totalAfterDiscount\": " + totalAfterDiscount + "}");
-
     }
-
-
 }

@@ -46,7 +46,7 @@ public class Index extends HttpServlet {
             request.setAttribute("favoriteIds", favoriteIds);
         }
 
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/Index.jsp").forward(request, response);
 
     }
 
