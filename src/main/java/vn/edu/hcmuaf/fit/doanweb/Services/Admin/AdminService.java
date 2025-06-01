@@ -2,14 +2,18 @@ package vn.edu.hcmuaf.fit.doanweb.Services.Admin;
 
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.Admin;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
+import vn.edu.hcmuaf.fit.doanweb.DAO.InventoryDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
+import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
 
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 public class AdminService {
     static Admin admin = new Admin();
+    static InventoryDaoImp dao= new InventoryDaoImp();
 
     public List<ProductVM> getAllProduct() {
         return admin.getAllProducts();
@@ -125,6 +129,16 @@ public class AdminService {
         return admin.updateBanner(id, title, link, imageUrl);
     }
 
+    public Map<Integer, Integer> getRealStockQuantityMap() {
+        return dao.getRealStockQuantityMap();
+    }
+
+    public void updateStockAfterOrder(List<CartProduct> listProducts){dao.updateStockAfterOrder(listProducts);
+    }
+
+    public void importFromExcel(String filename) {
+        dao.importFromExcel(filename);
+    }
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
