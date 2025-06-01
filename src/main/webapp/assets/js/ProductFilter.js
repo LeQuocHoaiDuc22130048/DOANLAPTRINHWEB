@@ -12,11 +12,10 @@ function fetchData(page, currentType, currentValue) {
         dataType: 'json',
         success: function (data) {
             displayProducts(data.products);
-            updatePagination(data.currentPage, data.totalPages, currentType, currentValue);
             currentPageProduct = data.currentPage;
             totalPages = data.totalPages;
-            console.log(totalPages);
-
+            updatePagination(currentPageProduct,totalPages, currentType, currentValue);
+            console.log(data);
         },
         error: function (error) {
             console.error('Lỗi khi gọi API:', error);
@@ -33,7 +32,7 @@ function displayProducts(products) {
        <div class="product-item shadow w-100 d-flex justify-content-center align-items-center flex-column  rounded-2" data-product-id="${product.id}">
     <img class="img-thumbnail Filter-Image border-0" src="${product.path}" alt="${product.name}" />
    <div class="d-flex justify-content-between align-items-center">
-    <div class="down-content p-2">
+    <div class="down-content p-2 w-100 px-2">
         <h6>${product.name}</h6>
         <span>${product.cost_price}đ</span>
         <ul class="stars">
@@ -48,30 +47,28 @@ function displayProducts(products) {
         <input type="hidden" name="quantity" value="1">
     </form>
 </div>
-</div>
-                    `;
+</div>             `;
     });
-    console.log(html);
     productGrid.html(html);
 }
 
-function updatePagination(currentPageProduct, totalPages, currentType, currentValue) {
+function updatePagination(currentPage, totalPages, currentType, currentValue) {
     let paginationHtml = '';
     $paginationContainer.empty(); // Xóa các nút phân trang cũ
 
-    if (currentPageProduct > 1) {
+    if (currentPage > 1) {
         $('<button>', {
-            class: 'pagination-button m-2 bg-primary text-light',
+            class: 'pagination-button btn-primary border border-0 rounded-1 p-1',
             text: 'Trang trước',
             click: function () {
-                fetchData(currentPageProduct - 1, currentType, currentValue);
+                fetchData(currentPage - 1, currentType, currentValue);
             }
         }).appendTo($paginationContainer);
     }
 
     for (let i = 1; i <= totalPages; i++) {
         let button;
-        if (i === currentPageProduct) {
+        if (i === currentPage) {
             button = $('<span>', {
                 class: 'pagination-button current-page',
                 text: i
@@ -88,18 +85,16 @@ function updatePagination(currentPageProduct, totalPages, currentType, currentVa
         button.appendTo($paginationContainer);
     }
 
-    if (currentPageProduct < totalPages) {
+    if (currentPage < totalPages) {
         $('<button>', {
             class: 'pagination-button',
             text: 'Trang sau',
             click: function () {
-                fetchData(currentPageProduct + 1, currentType, currentValue);
+                fetchData(currentPage + 1, currentType, currentValue);
             }
         }).appendTo($paginationContainer);
     }
 }
-
-
 function generateStars(productId) {
     let starsHtml = '';
     for (let i = 0; i < 5; i++) {
