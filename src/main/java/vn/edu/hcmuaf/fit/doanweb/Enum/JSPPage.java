@@ -15,3 +15,4 @@ public enum JSPPage {
         this.page = page;
     }
 }
+
