@@ -16,6 +16,7 @@
 <link rel="shortcut icon" href="<c:url value='/assets/images/Website/logo.png'/>" type="image/x-icon"/>
 <link rel="stylesheet" href="<c:url value='/assets/css/bootstrap-icons@1.11.3_font_bootstrap-icons.css'/>">
 <link rel="stylesheet" href="<c:url value='/assets/css/bootstrap@5.3.3_dist_css_bootstrap.css'/>">
+<link rel="stylesheet" href="<c:url value='/assets/css/banner_carousel.css'/>">
 <link rel="stylesheet" href="<c:url value='/assets/css/eyestyle.css?v=1.1'/>">
 <link rel="stylesheet" href="<c:url value='/assets/css/index.css'/>">
 <link rel="stylesheet" href="<c:url value='/assets/css/style-for-products.css'/>">
@@ -24,7 +25,6 @@
 <link rel="stylesheet" href="<c:url value='/assets/css/Upload.css'/>">
 <link rel="stylesheet" href="<c:url value="/assets/css/history_order.css"/>">
 <link rel="stylesheet" href="<c:url value='/assets/css/search.css'/>">
-<link rel="stylesheet" href="<c:url value='/assets/css/banner_carousel.css'/>">
 
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

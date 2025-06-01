@@ -31,6 +31,7 @@
         <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
         <li><a href="Newsletter-subscriber"><i class="fa-solid fa-bell"></i>Đăng ký nhận tin</a></li>
         <li><a href="Banner-carousel"><i class="fa-solid fa-image"></i>Banner</a></li>
+        <li><a href="InventoryList"><i class="fa-solid fa-boxes-stacked"></i>Kho hàng</a></li>
     </ul>
 </div>
 
