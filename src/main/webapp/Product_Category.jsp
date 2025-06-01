@@ -294,7 +294,7 @@
 
                             </div>
                         </div>
-                        <div id="pagination-container" class="text-center">
+                        <div id="pagination-containerProduct" class="text-center absolute_center gap-2">
                     </div>
                     <!-- Phân trang -->
                 </div>

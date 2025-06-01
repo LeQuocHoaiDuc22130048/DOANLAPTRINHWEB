@@ -477,8 +477,7 @@
                             <img src="${product.path_image}" alt="${product.name}"/>
                         </div>
                         <div class="down-content">
-                            <h4>${product.name}
-                            </h4>
+                            <h4>${product.name}</h4>
                             <span><f:formatNumber value="${product.sellingPrice}"/>đ</span>
                         </div>
                     </div>

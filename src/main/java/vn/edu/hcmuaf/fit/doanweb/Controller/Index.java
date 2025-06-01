@@ -17,9 +17,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
-@WebServlet(name = "index", value = "/")
+@WebServlet(name = "Index", value = "/")
 public class Index extends HttpServlet {
-    private ProductDaoInterface dao = new ProductDaoImp();
+    private final ProductDaoInterface dao = new ProductDaoImp();
     private String name = Index.class.getSimpleName();
 
     @Override
@@ -45,9 +45,7 @@ public class Index extends HttpServlet {
             Set<Integer> favoriteIds = dao.getFavoriteProductIds(user.getId());
             request.setAttribute("favoriteIds", favoriteIds);
         }
-
         request.getRequestDispatcher("/Index.jsp").forward(request, response);
-
     }
 
 }

@@ -127,6 +127,8 @@
     <br/><br/>
 </section>
 <c:import url="/Script.jsp"/>
+<script src="<c:url value='/assets/js/Upload.js' />"></script>
+<script src="<c:url value='/assets/js/custom.js' />"></script>
 <script src="<c:url value="/assets/js/InputList.js"/>"></script>
 </body>
 </html>
