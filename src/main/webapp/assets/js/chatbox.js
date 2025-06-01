@@ -16,7 +16,7 @@ $(document).ready(function () {
     }
 
     $.ajax({
-      url: "/DoAnWeb/send-feedback",
+      url: "/send-feedback",
       method: "POST",
       data: {
         name: name,

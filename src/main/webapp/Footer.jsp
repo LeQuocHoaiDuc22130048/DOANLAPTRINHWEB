@@ -9,49 +9,49 @@
                         <img src="assets/images/Website/logo.png" alt="eyestyle nhom 65"/>
                     </div>
                     <ul>
-                        <li><a href="/">Đại học Nông Lâm TPHCM</a></li>
-                        <li><a href="/">nhom65@company.com</a></li>
-                        <li><a href="/">0123 456 789</a></li>
+                        <li><a href="">Đại học Nông Lâm TPHCM</a></li>
+                        <li><a href="">nhom65@company.com</a></li>
+                        <li><a href="">0123 456 789</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 inf">
                 <h4>Mua sắm &amp; Danh mục</h4>
                 <ul>
-                    <li><a href="/product-category?categoryId=3">Kính mát</a></li>
-                    <li><a href="/product-category?categoryId=9">Gọng kính</a></li>
-                    <li><a href=/product-category?categoryId=5">Tròng kính</a></li>
-                    <li><a href="/product-category?categoryId=7">Kính áp tròng</a></li>
+                    <li><a href="product-category?categoryId=3">Kính mát</a></li>
+                    <li><a href="product-category?categoryId=9">Gọng kính</a></li>
+                    <li><a href="product-category?categoryId=5">Tròng kính</a></li>
+                    <li><a href="product-category?categoryId=7">Kính áp tròng</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 inf">
                 <h4>Trợ giúp &amp; Thông tin</h4>
                 <ul>
-                    <li><a href="/">Sản phẩm cập nhật</a></li>
-                    <li><a href="/Post.jsp">Đời sống</a></li>
-                    <li><a href="/ShoppingCart.jsp">Vận chuyển</a></li>
-                    <li><a href="/HotLine.jsp">Liên hệ hỗ trợ</a></li>
+                    <li><a href="">Sản phẩm bán chạy</a></li>
+                    <li><a href="Post.jsp">Đời sống</a></li>
+                    <li><a href="ShoppingCart.jsp">Vận chuyển</a></li>
+                    <li><a href="HotLine.jsp">Liên hệ hỗ trợ</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 inf">
                 <h4>Điều hướng</h4>
                 <ul>
-                    <li><a href="/">Trang chủ</a></li>
-                    <li><a href="/product-category?categoryId=3">Sản phẩm</a></li>
-                    <li><a href="/HotLine.jsp">Liên hệ</a></li>
-                    <li><a href="/Post.jsp">Bài viết</a></li>
+                    <li><a href="">Trang chủ</a></li>
+                    <li><a href="product-category?categoryId=3">Sản phẩm</a></li>
+                    <li><a href="HotLine.jsp">Liên hệ</a></li>
+                    <li><a href="Post.jsp">Bài viết</a></li>
                 </ul>
             </div>
             <div class="col-lg-12">
                 <div class="under-footer">
                     <p>Group65 © 2022 HexaShop Co., Ltd. All Rights Reserved.
-                        <br/>Design:<a href="/">Group 65</a>
+                        <br/>Design:<a href="">Group 65</a>
                     </p>
                     <ul>
-                        <li><a href="/"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="/"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="/"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="/"><i class="fa fa-behance"></i></a></li>
+                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                        <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href=""><i class="fa fa-behance"></i></a></li>
                     </ul>
                 </div>
             </div>
