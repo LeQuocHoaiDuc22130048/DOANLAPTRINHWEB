@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class OrderDaoImp implements OrderDao {
-    private Jdbi jdbi = JDBIConnect.get();
+    private final Jdbi jdbi = JDBIConnect.get();
 
     @Override
     public int saveOrder(Orders order) {

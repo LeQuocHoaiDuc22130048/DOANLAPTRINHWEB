@@ -17,22 +17,21 @@ import java.io.IOException;
 public class LoginController extends HttpServlet {
     private UserDaoImp userDaoImp;
     private final String Login = JSPPage.Login.getPage();
+
     @Override
     public void init() throws ServletException {
         userDaoImp = new UserDaoImp();
     }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         String realPassword = userDaoImp.GetUserPassword(userName);
-        if (realPassword == null ||!BCrypt.checkpw(password, realPassword ) ) {
+        if (realPassword == null || !BCrypt.checkpw(password, realPassword)) {
             request.setAttribute("Error", ErrorMessages.LoginFail.getMessage());
             request.getRequestDispatcher(Login).forward(request, response);
             return;
@@ -41,7 +40,7 @@ public class LoginController extends HttpServlet {
         if (user == null) {
             request.setAttribute("Error", ErrorMessages.ActiveMail.getMessage());
             request.getRequestDispatcher(Login).forward(request, response);
-            return ;
+            return;
         }
         // tạo token và lưu vào header
         String token = JwtUtil.generateToken(user.getId(), user.getRole(), user.getName());
@@ -50,7 +49,7 @@ public class LoginController extends HttpServlet {
         // tạo session lưu thông tin cần thiết
         HttpSession session = request.getSession();
         session.setAttribute("avatar", user.getAvatar());
-        session.setAttribute("userId", user.getId() );
+        session.setAttribute("userId", user.getId());
         session.setAttribute("user", user);
 
         String tempOrderCode = (String) session.getAttribute("temp_order_code");
@@ -66,12 +65,8 @@ public class LoginController extends HttpServlet {
         jwtCookie.setPath("/");
         response.addCookie(jwtCookie);
 
-        if (user.getRole().equals("ADMIN")) {
-            response.sendRedirect(JSPPage.AdminDashBoard.getPage());
-        }
-        else {
-            response.sendRedirect("/DoAnWeb"+JSPPage.Index.getPage());
-
-        }
+        String location = user.getRole().equals("ADMIN") ? JSPPage.AdminDashBoard.getPage()
+                : "/DoAnWev" + JSPPage.Index.getPage();
+        response.sendRedirect(location);
     }
 }

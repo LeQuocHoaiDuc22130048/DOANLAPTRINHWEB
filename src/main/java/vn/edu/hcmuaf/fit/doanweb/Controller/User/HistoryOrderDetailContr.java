@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.OrderDetails;
 import vn.edu.hcmuaf.fit.doanweb.DAO.OrderDao;
 import vn.edu.hcmuaf.fit.doanweb.DAO.OrderDaoImp;
+import vn.edu.hcmuaf.fit.doanweb.Util.AjaxResponse;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,7 +28,8 @@ public class HistoryOrderDetailContr extends HttpServlet {
         if (code == null || code.trim().isEmpty()) {
             json.addProperty("status", "error");
             json.addProperty("message", "Thiếu mã đơn hàng");
-            response.getWriter().write(json.toString());
+            String message = json.toString();
+            AjaxResponse.response(response,message);
             return;
         }
 
@@ -42,7 +44,8 @@ public class HistoryOrderDetailContr extends HttpServlet {
             json.add("data", gson.toJsonTree(details));
         }
 
-        response.getWriter().write(json.toString());
+        String message = json.toString();
+        AjaxResponse.response(response,message);
 
     }
 }

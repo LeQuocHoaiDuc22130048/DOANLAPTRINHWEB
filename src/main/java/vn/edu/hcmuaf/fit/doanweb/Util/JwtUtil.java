@@ -6,8 +6,6 @@ import java.util.Date;
 
 public class JwtUtil {
     public static final String SECRET_KEY = "WEB_EYESTYLE";
-
-
     public static String generateToken(int userId, String role, String username) {
         Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
         return JWT.create()
