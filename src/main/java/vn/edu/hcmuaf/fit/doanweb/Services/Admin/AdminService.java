@@ -2,15 +2,18 @@ package vn.edu.hcmuaf.fit.doanweb.Services.Admin;
 
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.Admin;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Admin.ViewModels.*;
+import vn.edu.hcmuaf.fit.doanweb.DAO.InventoryDaoImp;
 import vn.edu.hcmuaf.fit.doanweb.DAO.Model.*;
+import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
 
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 public class AdminService {
     static Admin admin = new Admin();
-
+    static InventoryDaoImp dao= new InventoryDaoImp();
 
     public List<ProductVM> getAllProduct() {
         return admin.getAllProducts();
@@ -41,14 +44,9 @@ public class AdminService {
         return admin.getAllFrameShapes();
     }
 
-
-
     public ProductImage getProductImageById(String id) {
         return admin.getImageById(id);
     }
-
-
-
 
     public boolean deleteProduct(int id) {
         return admin.deleteProduct(id);
@@ -70,8 +68,6 @@ public class AdminService {
     public Orders getOrderById(int orderId) {
         return admin.getOrderById(orderId);
     }
-
-
 
     public boolean deleteOrder(int orderId) {
         return admin.deleteOrder(orderId);
@@ -107,6 +103,41 @@ public class AdminService {
 
     public List<DashboardVM> getProductHot() {
         return admin.getProductHot();
+    }
+
+    public List<NewsletterSubscriber> getAllNewsletterSubscribers() {
+        return admin.getAllNewsletterSubscribers();
+    }
+
+    public boolean replyFeedback(int id, String replyContent) {
+        return admin.replyFeedback(id,replyContent);
+    }
+
+    public List<Banner> getAllBanners(){
+        return admin.getAllBanners();
+    }
+
+    public boolean addBanner(String title, String linkUrl, String imageUrl) {
+        return admin.addBanner(title,linkUrl,imageUrl);
+    }
+
+    public boolean updateStatusBanner(int bannerId, int status) {
+        return admin.updateStatusBanner(bannerId,status);
+    }
+
+    public boolean updateBanner(int id, String title, String link, String imageUrl) {
+        return admin.updateBanner(id, title, link, imageUrl);
+    }
+
+    public Map<Integer, Integer> getRealStockQuantityMap() {
+        return dao.getRealStockQuantityMap();
+    }
+
+    public void updateStockAfterOrder(List<CartProduct> listProducts){dao.updateStockAfterOrder(listProducts);
+    }
+
+    public void importFromExcel(String filename) {
+        dao.importFromExcel(filename);
     }
 
     public static void main(String[] args) {

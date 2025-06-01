@@ -24,16 +24,16 @@
                     <!-- Email input -->
                     <div data-mdb-input-init class="form-outline mb-4 w-100">
                         <label class="form-label" for="userName">Tên đăng nhập</label>
-                        <input type="text" id="userName" class="form-control" name="username"/>
+                        <input required type="text" id="userName" class="form-control" name="username"/>
                     </div>
                     <div data-mdb-input-init class="form-outline mb-4 w-100">
                         <label class="form-label" for="email">Email</label>
-                        <input type="email" id="email" class="form-control" name="email"/>
+                        <input required type="email" id="email" class="form-control" name="email"/>
                     </div>
                     <!-- Password input -->
                     <div data-mdb-input-init class="form-outline mb-4 w-100">
                         <label class="form-label" for="password">Mật khẩu </label>
-                        <input type="password" id="password" class="form-control" name="password"/>
+                        <input required type="password" id="password" class="form-control" name="password"/>
                     </div>
                     <!-- Submit button -->
                     <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block m-auto w-100">Sign up

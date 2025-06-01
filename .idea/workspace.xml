@@ -4,10 +4,601 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="fix conflict">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
+    <list default="true" id="3c4f6a49-599b-4995-bdb0-8fb33bed9b97" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/expanded/expanded.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/expanded/expanded.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/catalina.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/catalina.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/jaspic-providers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/jaspic-providers.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/server.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/tomcat-users.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/catalina.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/catalina.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/jaspic-providers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/jaspic-providers.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/server.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/tomcat-users.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/catalina.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/catalina.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/jaspic-providers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/jaspic-providers.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/server.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/tomcat-users.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DoAnWeb/conf/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL/web_eyestyle.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQL/web_eyestyle.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/AddCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/AddCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/AddProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/AddPromotionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/AddPromotionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/AdminFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/AdminFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/DeleteCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/DeleteCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/DeleteOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/DeleteOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/DeleteProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/DeleteProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Feedback/ListFeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Feedback/ListFeedbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Feedback/ReplyFeedbackContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Feedback/ReplyFeedbackContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/InvoiceOrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/InvoiceOrderServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/ListCategoriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/ListCategoriesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/ListUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/ListUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/NewsletterSubscriber/ListNewsletterSubscriberContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/NewsletterSubscriber/ListNewsletterSubscriberContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/NewsletterSubscriber/SendNewsletterAllContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/NewsletterSubscriber/SendNewsletterAllContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/NewsletterSubscriber/SendNewsletterContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/NewsletterSubscriber/SendNewsletterContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/OrderDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/OrderDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/OrderListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/OrderListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/ProductListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/ProductListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/PromotionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/PromotionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/ServletFileUpload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/ServletFileUpload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/UpdateProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/UpdateProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/DTO/ProductByCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/DTO/ProductByCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/DTO/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/DTO/UserProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Index.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Cod_Bank/ClearCartSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Cod_Bank/ClearCartSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Cod_Bank/CodBankConfirmOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Cod_Bank/CodBankConfirmOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Paypal/PayPalAuthContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Paypal/PayPalAuthContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Paypal/PayPalCaptureOrderContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Paypal/PayPalCaptureOrderContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Paypal/PayPalCreateOrderContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/Paypal/PayPalCreateOrderContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/PlaceOrderContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Payment/PlaceOrderContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/BestSellerContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/BestSellerContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/DisplayActDiscountContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/DisplayActDiscountContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/FavoriteProductContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/FavoriteProductContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/FilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/FilterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/PostsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/ProductCategoryContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/ProductCategoryContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/ProductDetailContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/ProductDetailContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/ProductListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/ProductListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/SearchContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/SearchContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/ActiveMailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/ActiveMailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/FacebookLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/FacebookLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/FavoriteProductListContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/FavoriteProductListContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/FeedbackContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/FeedbackContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/ForgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/ForgotPasswordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/GoogleLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/GoogleLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/HistoryOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/HistoryOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/HistoryOrderDetailContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/HistoryOrderDetailContr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/LogoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/LogoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/ResetPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/ResetPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/SendOTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/SendOTP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/SubscriberCtr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/SubscriberCtr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/UpdateProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/UpdateProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/UserFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/UserFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/VerifyOTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/VerifyOTP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/cart/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/cart/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/cart/Remove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/cart/Remove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/cart/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/cart/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/cart/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/cart/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/BrandVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/BrandVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/CategoriesVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/CategoriesVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/DashboardVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/DashboardVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/OrderItemVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/OrderItemVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/OrdersVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/OrdersVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/ProductVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/ProductVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/DB/DBProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/DB/DBProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/DB/JDBIConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/DB/JDBIConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/InventoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/InventoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/InventoryDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/InventoryDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Brands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Brands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Categories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Categories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Discounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Discounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/FeedBacks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/FeedBacks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/FrameShapes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/FrameShapes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Frame_Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Frame_Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Mateiral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Mateiral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/NewsletterSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/NewsletterSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/OrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/OrderDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Posts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Posts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByGender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByGender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByPriceRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByPriceRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Subscribers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Subscribers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/UserType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/UsersTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/UsersTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/OrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/OrderDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/OrderDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/PostDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/PostDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/ProductDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/ProductDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/ProductDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/ProductDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/SubscriberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/SubscriberDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/SubscriberDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/SubscriberDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/UserDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/UserDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/cart/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/cart/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/cart/CartProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/cart/CartProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Enum/ErrorMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Enum/ErrorMessages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Enum/JSPPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Enum/JSPPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Enum/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Enum/Roles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/Admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/Admin/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/SendEmailServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/SendEmailServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/AvailableData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/AvailableData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/CreateOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/CreateOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/ExchangeRate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/ExchangeRate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GenerateAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GenerateAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GenerateOTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GenerateOTP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GenerateQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GenerateQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GenerateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GenerateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GetDataFromCookie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GetDataFromCookie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GetRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GetRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/HandleGoogleToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/HandleGoogleToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/HtmlRendererOrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/HtmlRendererOrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/HttpServletResponseWrapperCapture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/HttpServletResponseWrapperCapture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/LogSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/LogSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/PdfGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/PdfGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MiddleConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MiddleConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/Roboto-VariableFont_wdth,wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-ExtraBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-ExtraLightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-SemiBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto-ThinItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-ExtraBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-ExtraLightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-SemiBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_Condensed-ThinItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-ExtraBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-ExtraLightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-SemiBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/font/Roboto/static/Roboto_SemiCondensed-ThinItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Cancel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Cancel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Checkout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ForgotPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ForgotPassword.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/HotLine.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/HotLine.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Link.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Link.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Post.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Post.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ProductDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ProductDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ResetPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ResetPassword.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Script.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Script.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ShoppingCart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ShoppingCart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Success.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/DashboardLink.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/DashboardLink.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/DashboardScript.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/DashboardScript.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Feedback.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Feedback.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ListCategories.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ListCategories.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ListUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ListUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/NewsletterSubscriber.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/NewsletterSubscriber.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/OrderDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/OrderDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/OrderInvoice.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/OrderInvoice.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ProductAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ProductAdd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ProductList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ProductList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Promotion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Promotion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/UpdateProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/UpdateProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/LICENSE-ckeditor5.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/LICENSE-ckeditor5.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5-content.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5-content.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5-editor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5-editor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/ckeditor5.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/af.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/af.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/af.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/af.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/af.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/af.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ar.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ar.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ar.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ar.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ast.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ast.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ast.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ast.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ast.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ast.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/az.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/az.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/az.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/az.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/az.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/az.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/be.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/be.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/be.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/be.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/be.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/be.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bg.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bg.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bg.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bg.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bn.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bn.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bn.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bn.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bs.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bs.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bs.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/bs.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ca.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ca.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ca.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ca.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ca.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/cs.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/cs.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/cs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/cs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/cs.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/cs.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/da.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/da.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/da.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/da.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/da.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/da.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de-ch.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de-ch.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de-ch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de-ch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de-ch.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de-ch.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/de.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/el.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/el.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/el.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/el.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/el.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/el.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-au.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-au.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-au.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-au.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-au.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-au.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-gb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-gb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-gb.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-gb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-gb.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en-gb.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/en.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eo.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eo.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eo.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eo.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es-co.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es-co.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es-co.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es-co.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es-co.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es-co.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/es.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/et.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/et.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/et.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/et.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/et.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/et.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eu.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eu.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eu.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/eu.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fa.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fa.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fa.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fa.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fa.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fi.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fi.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fi.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fi.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fr.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fr.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fr.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/fr.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gl.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gl.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gl.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gl.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gu.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gu.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gu.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/gu.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/he.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/he.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/he.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/he.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/he.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/he.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hi.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hi.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hi.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hi.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hr.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hr.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hr.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hr.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hu.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hu.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hu.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hu.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hy.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hy.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hy.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/hy.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/id.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/id.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/id.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/id.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/id.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/it.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/it.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/it.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/it.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/it.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/it.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ja.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ja.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ja.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ja.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ja.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/jv.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/jv.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/jv.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/jv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/jv.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/jv.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kk.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kk.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kk.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kk.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/km.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/km.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/km.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/km.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/km.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/km.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kn.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kn.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kn.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/kn.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ko.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ko.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ko.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ko.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ko.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ko.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ku.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ku.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ku.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ku.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ku.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ku.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lt.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lt.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lt.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lt.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lv.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lv.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lv.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lv.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/lv.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ms.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ms.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ms.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ms.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ms.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nb.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nb.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nb.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ne.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ne.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ne.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ne.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ne.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ne.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nl.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nl.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nl.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/nl.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/no.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/no.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/no.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/no.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/no.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/no.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/oc.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/oc.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/oc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/oc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/oc.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/oc.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pl.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pl.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pl.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pl.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt-br.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt-br.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt-br.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt-br.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt-br.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt-br.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/pt.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ro.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ro.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ro.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ro.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ru.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ru.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ru.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ru.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ru.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/si.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/si.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/si.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/si.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/si.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/si.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sk.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sk.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sk.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sk.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sl.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sl.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sl.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sl.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sq.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sq.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sq.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sq.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sq.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr-latn.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr-latn.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr-latn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr-latn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr-latn.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr-latn.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sr.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sv.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sv.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sv.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sv.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/sv.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/th.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/th.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/th.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/th.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/th.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/th.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ti.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ti.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ti.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ti.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ti.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ti.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tk.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tk.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tk.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tk.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tr.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tr.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tr.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tr.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/translation.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/translation.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/translation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/translation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/translation.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/translation.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tt.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tt.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tt.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/tt.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ug.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ug.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ug.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ug.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ug.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ug.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uk.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uk.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uk.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uk.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ur.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ur.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ur.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ur.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ur.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/ur.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uz.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uz.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uz.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uz.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/uz.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/vi.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/vi.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/vi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/vi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/vi.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/vi.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh-cn.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh-cn.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh-cn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh-cn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh-cn.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh-cn.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/ckeditor5/translations/zh.umd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/DisplayImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/DisplayImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/Notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/appForAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/appForAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/newsletter_subscriber.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/newsletter_subscriber.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/reply_feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/reply_feedback.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/Upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/Upload.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/bootstrap-icons@1.11.3_font_bootstrap-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/bootstrap-icons@1.11.3_font_bootstrap-icons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/bootstrap@5.3.3_dist_css_bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/bootstrap@5.3.3_dist_css_bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/eyestyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/eyestyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/flex-slider.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/font-awesome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/history_order.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/history_order.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/lightbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/lightbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/style-for-products.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/style-for-products.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/success.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/success.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/fonts/flexslider-icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/fonts/flexslider-icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/fonts/slick.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/fonts/slick.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Website/Google_2015_logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/Website/Google_2015_logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Website/discount.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/Website/discount.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/InputList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/InputList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/ProductFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/ProductFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/Upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/Upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/ViewDetailHistoryOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/ViewDetailHistoryOrder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/accordions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/accordions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/add_cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/add_cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/back_to_top.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/back_to_top.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/best_seller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/best_seller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/bootstrap@5.3.3_dist_js_bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/bootstrap@5.3.3_dist_js_bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/chat_box.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/chat_box.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/chatbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/chatbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/cod_success.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/cod_success.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/confirmRemove.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/confirmRemove.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/copy_code.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/copy_code.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/datepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/datepicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/displayInfBank.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/displayInfBank.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/doi_mau_sao.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/doi_mau_sao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/dropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/handle-buttom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/handle-buttom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/isotope.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/isotope.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/lightbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/lightbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/newsletter_subscribe.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/newsletter_subscribe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/paypal_success.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/paypal_success.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/place_order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/place_order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/plusminus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/plusminus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/popper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/popper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/quantity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/quantity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/scrollreveal.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/scrollreveal.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/slick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/slick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/toggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/toggle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/update_cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/update_cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/waypoints.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/waypoints.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/product_category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product_category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/HistoryOrder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/HistoryOrder.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/UpdateProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/UpdateProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/WishList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/WishList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,64 +610,21 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="DOANLAPTRINHWEB" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="DOANLAPTRINHWEB" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-        <option value="JavaScript File" />
-        <option value="Class" />
-        <option value="Jsp File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;LeQuocHoaiDuc22130048&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "LeQuocHoaiDuc22130048"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/LeQuocHoaiDuc22130048/DOANLAPTRINHWEB.git&quot;,
-    &quot;accountId&quot;: &quot;e4c1f6db-0b11-4ae0-9f7f-675a09a4d8e4&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/LeQuocHoaiDuc22130048/DOANLAPTRINHWEB.git",
+    "accountId": "e4c1f6db-0b11-4ae0-9f7f-675a09a4d8e4"
   }
-}</component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/TransportServlet.java" root0="SKIP_HIGHLIGHTING" />
-  </component>
+}]]></component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -84,227 +632,77 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2w4jZNiuH0eQaI90NUZ36mney1d" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2xuVpWwr0CgulQhcim61ivhXrRw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build DOANLAPTRINHWEB.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 10.1.31.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#162 on HoaiDuc&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/VisualStudioCode/DOANWEBNEW/DOANLAPTRINHWEB&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.22758621&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build DoAnWeb.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Smart Tomcat.MEOMEO.executor": "Run",
+    "git-widget-placeholder": "HoaiDuc",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="AdminService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vn.edu.hcmuaf.fit.doanweb.Services.Admin.AdminService" />
+    <configuration name="MEOMEO" type="com.poratu.idea.plugins.tomcat">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="catalinaBase" value="C:\Users\lequo\.SmartTomcat\DOANLAPTRINHWEB\DOANLAPTRINHWEB.main" />
+      <option name="contextPath" value="/DOANLAPTRINHWEB" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="extraClassPath" value="" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/10.1.34" />
+          <option name="path" value="$PROJECT_DIR$/../../../tomcat/apache-tomcat-10" />
+          <option name="version" value="10.1.34.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
       <module name="DOANLAPTRINHWEB.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vn.edu.hcmuaf.fit.doanweb.Services.Admin.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DoAnWeb [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Tomcat 10.1.31" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.31" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment>
-        <artifact name="Gradle : vn.edu.hcmuaf.fit : DoAnWeb.war">
-          <settings>
-            <option name="CONTEXT_PATH" value="/DoAnWeb" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="3fd2a721-218e-40f6-a100-fd283a333a24" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="11335" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : vn.edu.hcmuaf.fit : DoAnWeb.war" />
-        </option>
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.AdminService" />
-      <item itemvalue="Gradle.DoAnWeb [dependencies]" />
-      <item itemvalue="Tomcat Server.Tomcat 10.1.31" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.DoAnWeb [dependencies]" />
-        <item itemvalue="Application.AdminService" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="" />
-      <created>1745307799637</created>
+      <changelist id="3c4f6a49-599b-4995-bdb0-8fb33bed9b97" name="Changes" comment="" />
+      <created>1748788130150</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1745307799637</updated>
-      <workItem from="1745307803497" duration="1073000" />
-      <workItem from="1745370163475" duration="2459000" />
-      <workItem from="1745383585529" duration="519000" />
-      <workItem from="1745419167658" duration="110000" />
-      <workItem from="1745419799419" duration="1334000" />
-      <workItem from="1745423701704" duration="733000" />
-      <workItem from="1745424514130" duration="768000" />
-      <workItem from="1745472166380" duration="945000" />
-      <workItem from="1745473436514" duration="520000" />
-      <workItem from="1745486720671" duration="4890000" />
-      <workItem from="1745542371139" duration="13807000" />
-      <workItem from="1745630847437" duration="384000" />
-      <workItem from="1745664301370" duration="581000" />
-      <workItem from="1746034214313" duration="1445000" />
-      <workItem from="1746034214313" duration="2207000" />
-      <workItem from="1746070706330" duration="15020000" />
-      <workItem from="1746091479203" duration="757000" />
-      <workItem from="1746105475411" duration="495000" />
-      <workItem from="1746365046776" duration="212000" />
-      <workItem from="1746365343148" duration="1732000" />
-      <workItem from="1746371629363" duration="728000" />
-      <workItem from="1746372776802" duration="596000" />
-      <workItem from="1746374593866" duration="972000" />
-      <workItem from="1746537447855" duration="105000" />
-      <workItem from="1746727122497" duration="1987000" />
-      <workItem from="1746770496424" duration="783000" />
-      <workItem from="1746772988503" duration="5115000" />
-      <workItem from="1746798591792" duration="2860000" />
-      <workItem from="1746889066882" duration="605000" />
-      <workItem from="1747019364547" duration="310000" />
-      <workItem from="1747149517012" duration="3809000" />
-      <workItem from="1747154607362" duration="1326000" />
-      <workItem from="1747201749962" duration="14000" />
-      <workItem from="1747273705336" duration="7090000" />
-      <workItem from="1747326044933" duration="22000" />
-      <workItem from="1747539944952" duration="5427000" />
-      <workItem from="1747545675110" duration="355000" />
+      <updated>1748788130150</updated>
+      <workItem from="1748788132133" duration="122000" />
     </task>
     <servers />
   </component>

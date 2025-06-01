@@ -50,4 +50,8 @@ public interface ProductDaoInterface {
 
     public int countSearchResults(String keyword);
 
+    public List<Banner> getAllBanners();
+
+
+
 }

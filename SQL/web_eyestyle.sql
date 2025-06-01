@@ -19,6 +19,28 @@
 CREATE DATABASE IF NOT EXISTS `web_eyestyle` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `web_eyestyle`;
 
+-- Dumping structure for table web_eyestyle.banners
+CREATE TABLE IF NOT EXISTS `banners` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image_url` varchar(255) NOT NULL,
+  `link_url` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table web_eyestyle.banners: ~7 rows (approximately)
+DELETE FROM `banners`;
+INSERT INTO `banners` (`id`, `image_url`, `link_url`, `title`, `status`, `created_at`) VALUES
+	(1, 'assets/images/slider/bolon_slider.jpg', 'product-category?brandId=17', 'MẮT KÍNH THƯƠNG HIỆU BOLON', 1, '2025-05-21 20:40:08'),
+	(2, 'assets/images/slider/cartier_slider.jpg', 'product-category?brandId=2', 'MẮT KÍNH THƯƠNG HIỆU CARTIER', 1, '2025-05-21 20:42:37'),
+	(3, 'assets/images/slider/dior_slider.jpg', 'product-category?brandId=1', 'MẮT KÍNH THƯƠNG HIỆU DIOR', 1, '2025-05-21 20:43:21'),
+	(4, 'assets/images/slider/prada_slider.jpg', 'product-category?brandId=8', 'MẮT KÍNH THƯƠNG HIỆU PRADA', 1, '2025-05-21 20:43:48'),
+	(5, 'assets/images/slider/rayban_slider.jpg', 'product-category?brandId=6', 'MẮT KÍNH THƯƠNG HIỆU RAYBAN', 1, '2025-05-21 20:44:15'),
+	(6, 'assets/images/slider/summer_slider.jpg', 'product-category?categoryId=3', 'BST XUÂN HÈ 2025', 0, '2025-05-21 20:44:43'),
+	(7, 'assets/images/slider/transition_slider.jpg', 'product-category?brandId=24', 'TRÒNG KÍNH ĐỔI MÀU TRANSITION', 0, '2025-05-21 20:45:40');
+
 -- Dumping structure for table web_eyestyle.brands
 CREATE TABLE IF NOT EXISTS `brands` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -140,17 +162,14 @@ CREATE TABLE IF NOT EXISTS `favorites` (
   `product_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.favorites: ~7 rows (approximately)
+-- Dumping data for table web_eyestyle.favorites: ~3 rows (approximately)
 DELETE FROM `favorites`;
 INSERT INTO `favorites` (`id`, `user_id`, `product_id`) VALUES
-	(23, 34, 16),
-	(2, 34, 46),
-	(5, 34, 53),
-	(6, 34, 81),
-	(12, 34, 105),
-	(11, 34, 108);
+	(49, 34, 17),
+	(50, 34, 40),
+	(52, 34, 43);
 
 -- Dumping structure for table web_eyestyle.feedbacks
 CREATE TABLE IF NOT EXISTS `feedbacks` (
@@ -163,20 +182,16 @@ CREATE TABLE IF NOT EXISTS `feedbacks` (
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.feedbacks: ~9 rows (approximately)
+-- Dumping data for table web_eyestyle.feedbacks: ~4 rows (approximately)
 DELETE FROM `feedbacks`;
 INSERT INTO `feedbacks` (`id`, `name`, `email`, `message`, `response`, `status`, `created_at`, `updated_at`) VALUES
-	(2, 'Nguyễn Minh Tuấn', 'nguyenminhtuan@gmail.com', 'Chất liệu của sản phẩm là gì vậy?', NULL, 0, '2024-12-17 08:58:18', '2024-12-17 08:58:18'),
-	(4, 'Trần Quốc Đạt', 'tranquocdat@gmail.com', 'Có áp dụng mã giảm giá nào cho đơn của tôi không?', NULL, 0, '2024-12-17 08:58:18', '2024-12-17 08:58:18'),
 	(13, 'Nguyễn Thanh Trúc', 'nguyenthanhtruc@gmail.com', 'Cho tôi xin chính sách đổi trả sản phẩm.', NULL, 0, '2024-12-17 08:58:18', '2024-12-17 08:58:18'),
-	(24, 'Lê Thảo Vy', 'lethaovy@gmail.com', 'Hỗ trợ tôi kiểm tra tình trạng đơn hàng nhé!', NULL, 0, '2024-12-17 08:58:18', '2024-12-17 08:58:18'),
 	(31, 'Thuý Kiều', 'thuykieu20040@gmail.com', 'kinh mat tam gia bbn', 'Cảm ơn bạn đã quan tâm đến sản phẩm kính mắt bên Eyestyle shop mình. Với mẫu kính mắt tầm giá bình dân, shop hiện có nhiều lựa chọn chất lượng, kiểu dáng thời trang và phù hợp với nhiều nhu cầu khác nhau. Bạn có thể tham khảo thêm trên website hoặc liên hệ trực tiếp để được tư vấn cụ thể hơn nhé!', 1, '2025-05-02 14:24:01', '2025-05-02 20:26:32'),
-	(32, 'An An', 'as@gmail.com', 'Kính mát có màu trắng hông', NULL, 0, '2025-05-02 14:33:53', '2025-05-02 14:33:53'),
-	(33, 'An An', 'tch@gmail.com', 'Kính cận trẻ cận cao độ thì tốt hông', NULL, 0, '2025-05-02 14:36:10', '2025-05-02 14:36:10'),
-	(35, 'Lê Thị A', 'thuykieu20040@gmail.com', 'Kính nam có những màu nào đẹp?', 'Với dòng kính nam, hiện bên Eyestyle shop có các màu rất được ưa chuộng như:\n🔹 Đen – sang trọng, dễ phối đồ\n🔹 Xám khói – hiện đại, trẻ trung\n🔹 Nâu trà – dịu mắt khi đi nắng, cực hợp khi lái xe\n🔹 Xanh rêu hoặc xanh navy – tạo điểm nhấn cá tính mà vẫn tinh tế\n\nTùy vào phong cách bạn thích, bên em sẽ hỗ trợ chọn mẫu phù hợp nhất ạ.', 1, '2025-05-02 19:31:01', '2025-05-02 20:48:41'),
-	(36, 'Anh Đức', 'thuykieu20040@gmail.com', 'Chất liệu của kính mát bên mình làm bằng gì thế?', 'Dạ, cảm ơn anh/chị đã quan tâm đến sản phẩm bên em ạ!\nKính mát bên em thường sử dụng chất liệu:\nTròng kính: polycarbonate hoặc tròng CR-39 – nhẹ, bền, chống tia UV 400 tốt.\nGọng kính: nhựa dẻo TR90, kim loại không gỉ hoặc hợp kim titan – nhẹ, khó biến dạng, đeo lâu không đau tai.\nMỗi mẫu sẽ có mô tả riêng, nếu anh/chị cần em gửi chi tiết chất liệu của mẫu mình đang quan tâm nhé ạ! 😊\nShop sẽ tư vấn tường tận ạ. ', 1, '2025-05-02 20:58:58', '2025-05-02 21:02:19');
+	(36, 'Anh Đức', 'thuykieu20040@gmail.com', 'Chất liệu của kính mát bên mình làm bằng gì thế?', 'Dạ, cảm ơn anh/chị đã quan tâm đến sản phẩm bên em ạ!\nKính mát bên em thường sử dụng chất liệu:\nTròng kính: polycarbonate hoặc tròng CR-39 – nhẹ, bền, chống tia UV 400 tốt.\nGọng kính: nhựa dẻo TR90, kim loại không gỉ hoặc hợp kim titan – nhẹ, khó biến dạng, đeo lâu không đau tai.\nMỗi mẫu sẽ có mô tả riêng, nếu anh/chị cần em gửi chi tiết chất liệu của mẫu mình đang quan tâm nhé ạ! 😊\nShop sẽ tư vấn tường tận ạ. ', 1, '2025-05-02 20:58:58', '2025-05-02 21:02:19'),
+	(37, 'Hân Hân', '22130137@st.hcmuaf.edu.vn', 'Bên shop mình có bán kính cho trẻ em đi bơi hông', '"Dạ, shop hiện có bán mắt kính bơi dành cho trẻ em ạ. Anh/chị có thể cho em xin độ tuổi của bé hoặc nhu cầu cụ thể để em tư vấn loại phù hợp nhất nha!"', 1, '2025-05-09 09:50:57', '2025-05-09 09:53:37'),
+	(38, 'Lê Linh', 'thuykieu20040@gmail.com', 'Kính nam có những màu nào đẹp?', 'Với dòng kính nam, hiện bên Eyestyle shop có các màu rất được ưa chuộng như:\n🔹 Đen – sang trọng, dễ phối đồ\n🔹 Xám khói – hiện đại, trẻ trung\n🔹 Nâu trà – dịu mắt khi đi nắng, cực hợp khi lái xe\n🔹 Xanh rêu hoặc xanh navy – tạo điểm nhấn cá tính mà vẫn tinh tế\n\nTùy vào phong cách bạn thích, bên em sẽ hỗ trợ chọn mẫu phù hợp nhất ạ.', 1, '2025-05-12 10:00:16', '2025-05-12 10:43:07');
 
 -- Dumping structure for table web_eyestyle.frame_shapes
 CREATE TABLE IF NOT EXISTS `frame_shapes` (
@@ -214,7 +229,7 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(4, 1, 30, '2025-04-05 12:11:05'),
 	(5, 2, 30, '2025-04-05 12:11:05'),
 	(6, 3, 28, '2025-04-30 10:27:36'),
-	(7, 4, 25, '2025-04-30 16:20:53'),
+	(7, 4, 24, '2025-05-12 01:24:51'),
 	(8, 5, 30, '2025-04-05 12:11:05'),
 	(9, 6, 29, '2025-05-01 00:13:26'),
 	(10, 7, 29, '2025-04-05 14:28:25'),
@@ -230,7 +245,7 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(20, 17, 29, '2025-05-01 00:06:52'),
 	(21, 18, 30, '2025-04-05 12:11:06'),
 	(22, 19, 28, '2025-05-01 00:06:52'),
-	(23, 20, 30, '2025-04-05 12:11:06'),
+	(23, 20, 29, '2025-05-11 20:35:13'),
 	(24, 21, 30, '2025-04-05 12:11:06'),
 	(25, 22, 30, '2025-04-05 12:11:06'),
 	(26, 23, 30, '2025-04-05 12:11:06'),
@@ -252,9 +267,9 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(42, 39, 30, '2025-04-05 12:11:06'),
 	(43, 40, 30, '2025-04-05 12:11:06'),
 	(44, 41, 30, '2025-04-05 12:11:06'),
-	(45, 42, 26, '2025-05-01 00:53:05'),
-	(46, 43, 28, '2025-04-05 14:28:25'),
-	(47, 44, 28, '2025-04-30 10:13:18'),
+	(45, 42, 24, '2025-05-10 14:02:51'),
+	(46, 43, 27, '2025-05-11 20:41:27'),
+	(47, 44, 27, '2025-05-12 01:26:26'),
 	(48, 45, 28, '2025-04-30 10:13:18'),
 	(49, 46, 29, '2025-05-01 00:51:39'),
 	(50, 47, 28, '2025-05-01 00:51:39'),
@@ -263,7 +278,7 @@ INSERT INTO `inventory` (`id`, `product_id`, `stock_quantity`, `last_updated`) V
 	(53, 50, 30, '2025-04-05 12:11:06'),
 	(54, 51, 30, '2025-04-05 12:11:06'),
 	(55, 52, 30, '2025-04-05 12:11:06'),
-	(56, 53, 30, '2025-04-05 12:11:06'),
+	(56, 53, 29, '2025-05-22 08:37:05'),
 	(57, 54, 30, '2025-04-05 12:11:06'),
 	(58, 55, 30, '2025-04-05 12:11:06'),
 	(59, 56, 30, '2025-04-05 12:11:06'),
@@ -375,7 +390,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   PRIMARY KEY (`id`),
   KEY `fk_log_user` (`user_id`),
   CONSTRAINT `fk_log_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=381 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=384 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.log: ~2 rows (approximately)
 DELETE FROM `log`;
@@ -383,7 +398,10 @@ INSERT INTO `log` (`id`, `Level`, `Log_Time`, `Locate`, `user_id`, `BeforeText`,
 	(377, 'INFO', '2025-04-30 09:57:21', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
 	(378, 'WARNING', '2025-04-30 10:49:45', 'vn.edu.hcmuaf.fit.doanweb.Controller.User.RegisterController', 34, '', 'User đăng ký tài khoản với user name : thuykieu'),
 	(379, 'INFO', '2025-04-30 10:52:04', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
-	(380, 'INFO', '2025-05-01 21:41:49', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller');
+	(380, 'INFO', '2025-05-01 21:41:49', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
+	(381, 'INFO', '2025-05-17 14:54:27', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
+	(382, 'INFO', '2025-05-22 09:53:39', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
+	(383, 'INFO', '2025-05-22 23:44:46', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller');
 
 -- Dumping structure for table web_eyestyle.newsletter_subscribers
 CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (
@@ -393,13 +411,14 @@ CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (
   `created_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table web_eyestyle.newsletter_subscribers: ~2 rows (approximately)
+-- Dumping data for table web_eyestyle.newsletter_subscribers: ~3 rows (approximately)
 DELETE FROM `newsletter_subscribers`;
 INSERT INTO `newsletter_subscribers` (`id`, `name`, `email`, `created_at`) VALUES
 	(8, 'An An', 'thuykieu20040@gmail.com', '2025-04-02 23:04:39'),
-	(11, 'Bình Minh', '22130137@st.hcmuaf.edu.vn', '2025-05-02 22:43:14');
+	(11, 'Bình Minh', '22130137@st.hcmuaf.edu.vn', '2025-05-02 22:43:14'),
+	(14, 'Thanh Lê', 'kieu36830@gmail.com', '2025-05-11 19:14:03');
 
 -- Dumping structure for table web_eyestyle.orders
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -425,7 +444,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   UNIQUE KEY `order_code` (`order_code`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.orders: ~33 rows (approximately)
 DELETE FROM `orders`;
@@ -465,7 +484,13 @@ INSERT INTO `orders` (`id`, `order_code`, `user_id`, `customer_name`, `phone_num
 	(39, 'ORD1746033206347', 34, 'Thuý Kiều', '0345678922', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Xã Đắk Hà, Huyện Tu Mơ Rông, Kon Tum', 26000000, 2600000, 20500, 23420500, 1, 'cod', 0, 0, '', '2025-05-01 00:13:26', '2025-05-01 00:13:39'),
 	(40, 'ORD1746035499888', 34, 'An An', '0345678904', 'as@gmail.com', 'Phước Thiện 1, Xã Hàm Cường, Huyện Hàm Thuận Nam, Bình Thuận', 13500000, 1350000, 20500, 12170500, 2, 'bank', 0, 0, '', '2025-05-01 00:51:39', '2025-05-01 00:52:05'),
 	(41, 'ORD1746035585178', 34, 'Thuý lan', '0345678922', '22130137@st.hcmuaf.edu.vn', 'Nha Hố, Xã Hoài Châu Bắc, Thị xã Hoài Nhơn, Bình Định', 5000000, 500000, 20500, 4520500, 1, 'cod', 0, 0, '', '2025-05-01 00:53:05', '2025-05-01 00:53:05'),
-	(42, 'ORD1746071184605', 34, 'Trần Hằng', '0345678904', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Xã Lâm Sơn, Huyện Ninh Sơn, Ninh Thuận', 7800000, 780000, 20500, 7040500, 2, 'cod', 0, 0, '', '2025-05-01 10:46:24', '2025-05-01 10:46:52');
+	(42, 'ORD1746071184605', 34, 'Trần Hằng', '0345678904', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Xã Lâm Sơn, Huyện Ninh Sơn, Ninh Thuận', 7800000, 780000, 20500, 7040500, 2, 'cod', 0, 0, '', '2025-05-01 10:46:24', '2025-05-01 10:46:52'),
+	(43, '2R4006302A7553156', 34, 'Phạm Phượng', '0345678904', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Phường Hoài Đức, Thị xã Hoài Nhơn, Bình Định', 10000000, 1000000, 20500, 9020500, 2, 'paypal', 1, 1, '', '2025-05-10 14:02:51', '2025-05-10 14:02:51'),
+	(44, '0KJ07243MG716550E', NULL, 'Trần Hằng', '0345678922', '22130137@st.hcmuaf.edu.vn', 'Phước Thiện 1, Xã Huổi Mí, Huyện Mường Chà, Điện Biên', 1500000, 150000, 0, 1350000, 1, 'paypal', 1, 1, '', '2025-05-11 20:35:13', '2025-05-11 20:35:13'),
+	(45, '1Y921135HG0566806', NULL, 'Thuý lan', '0345678904', 'tch@gmail.com', 'Phước Thiện 1, Xã Nậm Mả, Huyện Văn Bàn, Lào Cai', 9500000, 950000, 20500, 8570500, 1, 'paypal', 1, 1, '', '2025-05-11 20:41:27', '2025-05-11 20:41:27'),
+	(46, 'ORD1746987890946', NULL, 'An An', '0345678922', '22130137@st.hcmuaf.edu.vn', 'Nha Hố, Xã Thanh Nông, Huyện Lạc Thủy, Hòa Bình', 24500000, 2450000, 20500, 22070500, 1, 'bank', 0, 0, '', '2025-05-12 01:24:51', '2025-05-12 01:24:51'),
+	(47, 'ORD1746987986902', NULL, 'Thuý lan', '0345678904', 'ada@jjf.com', 'Phước Thiện 1, Xã Trì Quang, Huyện Bảo Thắng, Lào Cai', 9500000, 950000, 20500, 8570500, 1, 'cod', 0, 0, '', '2025-05-12 01:26:26', '2025-05-12 01:26:26'),
+	(48, '5SC76494VB820394H', NULL, 'Thuý lan', '0345678904', 'thuykieu20040@gmail.com', 'Nha Hố, Xã Ka Lăng, Huyện Mường Tè, Lai Châu', 800000, 80000, 20500, 740500, 1, 'paypal', 1, 1, '', '2025-05-22 08:37:05', '2025-05-22 08:37:05');
 
 -- Dumping structure for table web_eyestyle.order_details
 CREATE TABLE IF NOT EXISTS `order_details` (
@@ -483,7 +508,7 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   KEY `product_id` (`product_id`),
   CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.order_details: ~51 rows (approximately)
 DELETE FROM `order_details`;
@@ -540,7 +565,13 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `product_name`, `qu
 	(50, 40, 46, 'MOD.3335-F_GB1', 1, 7500000, 7500000, '2025-05-01 00:51:39', '2025-05-01 00:51:39'),
 	(51, 40, 47, 'MOD.3316-F_108', 1, 6000000, 6000000, '2025-05-01 00:51:39', '2025-05-01 00:51:39'),
 	(52, 41, 42, '0RX5154_8375_53', 1, 5000000, 5000000, '2025-05-01 00:53:05', '2025-05-01 00:53:05'),
-	(53, 42, 81, 'VFU411J_0514', 2, 3900000, 7800000, '2025-05-01 10:46:24', '2025-05-01 10:46:24');
+	(53, 42, 81, 'VFU411J_0514', 2, 3900000, 7800000, '2025-05-01 10:46:24', '2025-05-01 10:46:24'),
+	(54, 43, 42, '0RX5154_8375_53', 2, 5000000, 10000000, '2025-05-10 14:02:51', '2025-05-10 14:02:51'),
+	(55, 44, 20, 'EF32287T_542B', 1, 1500000, 1500000, '2025-05-11 20:35:13', '2025-05-11 20:35:13'),
+	(56, 45, 43, '0PR21ZVF_15L1O1_55', 1, 9500000, 9500000, '2025-05-11 20:41:27', '2025-05-11 20:41:27'),
+	(57, 46, 4, 'VCHG39_0400', 1, 24500000, 24500000, '2025-05-12 01:24:51', '2025-05-12 01:24:51'),
+	(58, 47, 44, '0PR21ZVF_16K1O1_55', 1, 9500000, 9500000, '2025-05-12 01:26:26', '2025-05-12 01:26:26'),
+	(59, 48, 53, 'EF90451_503', 1, 800000, 800000, '2025-05-22 08:37:05', '2025-05-22 08:37:05');
 
 -- Dumping structure for table web_eyestyle.posts
 CREATE TABLE IF NOT EXISTS `posts` (
@@ -991,7 +1022,7 @@ INSERT INTO `products_images` (`id`, `product_id`, `is_main`, `path`, `created_a
 	(206, 136, 1, 'assets/images/Product/product164.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(207, 137, 1, 'assets/images/Product/product165.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(208, 138, 1, 'assets/images/Product/product166.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
-	(209, 139, 1, 'assets/images/Product/product167jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
+	(209, 139, 1, 'assets/images/Product/product167.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(210, 140, 1, 'assets/images/Product/product168.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(211, 141, 1, 'assets/images/Product/product169.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
 	(212, 142, 1, 'assets/images/Product/product170.jpg', '2024-12-18 11:15:56', '2024-12-18 11:15:56'),
@@ -1260,7 +1291,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `address`, `sta
 	(31, 'Nguyễn Hoàng Minh', 'minhnguyen@gmail.com', 'hoangminh123', '0987654321', 'Số 90, Đường Bắc Ninh, Bắc Ninh', 1, NULL, NULL, '2024-12-15 22:30:18', '2024-12-15 22:30:18'),
 	(32, 'Cao Thị Hương', 'huongcao@gmail.com', 'huongcao654', '0934567891', 'Số 100, Đường Hồ Tùng Mậu, Nghệ An', 1, NULL, NULL, '2024-12-16 23:00:56', '2024-12-16 23:00:56'),
 	(33, 'GUEST', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-03-28 11:49:48', '2025-03-28 11:49:48'),
-	(34, 'thuykieu', 'thuykieu20040@gmail.com', '$2a$12$IL9f0WGUBLjYBA2ORXMVN.B8s3ZItN2BdDnjtIjZ6mwHb3wrSVD8e', NULL, NULL, 1, 'USER', '/assets/images/Avatar/user.png', '2025-04-30 10:49:45', '2025-04-30 10:49:45'),
+	(34, 'thuykieu', 'thuykieu20040@gmail.com', '$2a$12$IL9f0WGUBLjYBA2ORXMVN.B8s3ZItN2BdDnjtIjZ6mwHb3wrSVD8e', NULL, NULL, 1, 'ADMIN', '/assets/images/Avatar/user.png', '2025-04-30 10:49:45', '2025-04-30 10:49:45'),
 	(35, 'Kiá»�u', '22130137@st.hcmuaf.edu.vn', 'https://lh3.googleusercontent.com/a/ACg8ocI5JtaaL41LAKMMICDVrwJwbDYGBFXhYmU4tXoQ3BG4PM1m5w=s96-c', NULL, NULL, 0, 'ADMIN', '/assets/images/Avatar/user.png', '2025-05-02 10:04:25', '2025-05-02 10:04:25');
 
 -- Dumping structure for table web_eyestyle.users_types

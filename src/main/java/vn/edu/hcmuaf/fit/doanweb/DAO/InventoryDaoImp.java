@@ -1,12 +1,12 @@
 package vn.edu.hcmuaf.fit.doanweb.DAO;
 
 import org.apache.poi.sl.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.jdbi.v3.core.Jdbi;
 import vn.edu.hcmuaf.fit.doanweb.DAO.DB.JDBIConnect;
 import org.apache.poi.ss.usermodel.*;
 import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
@@ -20,17 +20,13 @@ public class InventoryDaoImp implements InventoryDao {
 
     @Override
     public Map<Integer, Integer> getRealStockQuantityMap() {
-        String sql = """
-                    SELECT 
-                        s.product_id,
-                        COALESCE(SUM(s.quantity_added), 0) - 
-                        COALESCE(SUM(CASE WHEN o.status_order != 0 THEN od.quantity ELSE 0 END), 0) 
-                        AS real_stock_quantity
-                    FROM stock_in s
-                    LEFT JOIN order_details od ON s.product_id = od.product_id
-                    LEFT JOIN orders o ON od.order_id = o.id
-                    GROUP BY s.product_id
-                """;
+        String sql =  """
+                    SELECT
+                        p.id as product_id,
+                        COALESCE(i.stock_quantity, 0) as real_stock_quantity
+                    FROM products p
+                    LEFT JOIN inventory i ON p.id = i.product_id
+               """;
         List<Map<String, Object>> rows = jdbi.withHandle(handle ->
                 handle.createQuery(sql)
                         .mapToMap()
@@ -69,17 +65,30 @@ public class InventoryDaoImp implements InventoryDao {
 
 
     //Nhập hàng từ file excel
+
+    @Override
     public void importFromExcel(String filename) {
-        try {
-            InputStream is = InventoryDaoImp.class.getClassLoader().getResourceAsStream(filename);
-            Workbook workbook = new XSSFWorkbook(is);
+        System.out.println("importFromExcel trong InventoryDaoImp");
+        try (FileInputStream fis = new FileInputStream(filename);
+             Workbook workbook = WorkbookFactory.create(fis)) {
 
             Sheet sheet = (Sheet) workbook.getSheetAt(0);
             Iterator<Row> rowIterator = sheet.iterator();
-            rowIterator.next(); // bỏ qua header
+            rowIterator.next(); // Skip header row
 
             jdbi.useHandle(handle -> {
-                String sql = "INSERT INTO stock_in (product_id, quantity_added, import_date) VALUES (:productId, :quantityAdded, :importDate)";
+                String insertStockSql = """
+                    INSERT INTO stock_in (product_id, quantity_added, import_date) 
+                    VALUES (:productId, :quantityAdded, :importDate)
+                """;
+
+                String updateInventorySql = """
+                    INSERT INTO inventory (product_id, stock_quantity, last_updated)
+                    VALUES (:productId, :quantity, NOW())
+                    ON DUPLICATE KEY UPDATE 
+                        stock_quantity = stock_quantity + :quantity,
+                        last_updated = NOW()
+                """;
 
                 while (rowIterator.hasNext()) {
                     Row row = rowIterator.next();
@@ -87,10 +96,17 @@ public class InventoryDaoImp implements InventoryDao {
                     int quantityAdded = (int) row.getCell(1).getNumericCellValue();
                     LocalDateTime importDate = LocalDateTime.now();
 
-                    handle.createUpdate(sql)
+                    // Insert into stock_in
+                    handle.createUpdate(insertStockSql)
                             .bind("productId", productId)
                             .bind("quantityAdded", quantityAdded)
                             .bind("importDate", importDate)
+                            .execute();
+
+                    // Update inventory
+                    handle.createUpdate(updateInventorySql)
+                            .bind("productId", productId)
+                            .bind("quantity", quantityAdded)
                             .execute();
                 }
             });
@@ -99,6 +115,7 @@ public class InventoryDaoImp implements InventoryDao {
         } catch (IOException e) {
             System.err.println("Lỗi khi nhập kho từ Excel: " + e.getMessage());
             e.printStackTrace();
+            throw new RuntimeException("Lỗi khi nhập kho từ Excel", e);
         }
     }
 
