@@ -8,6 +8,7 @@ import vn.edu.hcmuaf.fit.doanweb.DAO.cart.CartProduct;
 
 
 import java.io.File;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public class AdminService {
         return admin.getAllProducts();
     }
 
-    public Product getProductById(String id) {
+    public Product getProductById(int id) {
         return admin.getProductById(id);
     }
 
@@ -56,6 +57,11 @@ public class AdminService {
         boolean productUpdated = admin.updateProduct(product);
         return productUpdated;
     }
+
+    public List<ProductImage> getAllProductImage(int id) {
+        return admin.getProductImagesByProductId(id);
+    }
+
 
     public List<OrdersVM> getAllOrders() {
         return admin.getAllOrders();
@@ -136,13 +142,33 @@ public class AdminService {
     public void updateStockAfterOrder(List<CartProduct> listProducts){dao.updateStockAfterOrder(listProducts);
     }
 
+    public List<Brands> getAllBrands(){return admin.getAllBrand();}
+    public int addBrand(Brands brands){
+        return admin.insertBrand(brands);
+    }
+
     public void importFromExcel(String filename) {
         dao.importFromExcel(filename);
     }
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
+
+        Brands brands = new Brands();
+        String name = "test";
+        LocalDateTime now = LocalDateTime.now();
+        String title = "test";
+        String description = "test";
+        String img= "test";
+        String icon = "test";
+
+        brands.setName(name);
+        brands.setDescription(description);
+        brands.setImg(img);
+        brands.setIcon(icon);
+        brands.setCreated_at(now);
+        brands.setUpdated_at(now);
+
+        System.out.println(adminService.addBrand(brands));
     }
-
-
 }

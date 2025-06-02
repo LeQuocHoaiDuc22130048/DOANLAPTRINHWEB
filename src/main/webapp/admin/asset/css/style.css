@@ -408,6 +408,11 @@ input:checked + .slider:before {
   margin-bottom: 10px;
 }
 
+.tr_div{
+  max-height: 150px;
+  overflow-y: auto;
+}
+
 .btn {
   padding: 6px 12px;
 }

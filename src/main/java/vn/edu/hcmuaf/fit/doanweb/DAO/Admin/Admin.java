@@ -34,13 +34,24 @@ public class Admin {
         )).list());
     }
 
-    public Product getProductById(String id) {
+    public Product getProductById(int id) {
         String sql = "SELECT id, category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, created_at, updated_at FROM products WHERE id = ?";
         return jdbi.withHandle(handle -> handle
                 .createQuery(sql)
                 .bind(0, id)
                 .mapToBean(Product.class)
                 .findFirst().orElse(null));
+    }
+
+    public List<ProductImage> getProductImagesByProductId(int id) {
+        String sql = """
+                SELECT * FROM products_images WHERE product_id = ?
+                """;
+        return jdbi.withHandle(handle -> handle
+                .createQuery(sql)
+                .bind(0,id)
+                .mapToBean(ProductImage.class)
+                .list());
     }
 
     public int insertProduct(Product product) {
@@ -75,6 +86,23 @@ public class Admin {
                         .mapTo(Integer.class)
                         .one()
         );
+    }
+
+    public int insertBrand(Brands brands){
+        LocalDateTime now = LocalDateTime.now();
+        return jdbi.withHandle(handle -> handle
+                .createUpdate("INSERT INTO brands (`name`, created_at, updated_at, title,img,`description`,icon)\n" +
+                        "VALUES (?, ?, ?, ?, ?,?, ?)")
+                .bind(0,brands.getName())
+                .bind(1,now)
+                .bind(2,now)
+                .bind(3,brands.getTitle())
+                .bind(4,brands.getImg())
+                .bind(5,brands.getDescription())
+                .bind(6,brands.getIcon())
+                .executeAndReturnGeneratedKeys("id")
+                .mapTo(Integer.class)
+                .one());
     }
 
     public void insertProductImage(int productId, String imagePath, boolean isMain){
@@ -410,6 +438,13 @@ public class Admin {
         });
     }
 
+    public List<Brands> getAllBrand(){
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM brands")
+                        .mapToBean(Brands.class)
+                        .list()
+        );
+    }
 
 
 
