@@ -32,7 +32,7 @@
                             accept="image/*"
                             required
                     />
-
+                    <button onclick="uploadImage()">Upload</button>
                 </div>
                 <div class="form-group mb-3 w-100">
                     <label for="username">User name </label>
@@ -130,5 +130,23 @@
 <script src="<c:url value='/assets/js/Upload.js' />"></script>
 <script src="<c:url value='/assets/js/custom.js' />"></script>
 <script src="<c:url value="/assets/js/InputList.js"/>"></script>
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+<script>
+    function uploadImage() {
+        const myWidget = cloudinary.createUploadWidget(
+            {
+                cloudName: 'dvi3xlou4',
+                uploadPreset: 'WebEyeStyle', // Tạo trong phần Settings > Upload > Upload presets
+            },
+            (error, result) => {
+                if (!error && result && result.event === "success") {
+                    console.log('Done! Here is the image info: ', result.info);
+                    alert(`Image uploaded: ${result.info.secure_url}`);
+                }
+            }
+        );
+        myWidget.open();
+    }
+</script>
 </body>
 </html>

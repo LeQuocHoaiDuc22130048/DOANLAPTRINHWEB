@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  webapp:
+    image: geatsix09/doanwebfinal:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: web_eyestyle
+      DB_USER: root
+      DB_PASSWORD: nhutanh09
+    container_name: jsp_webapp
+    networks:
+      - app-network
+
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: web_eyestyle
+      MYSQL_ROOT_PASSWORD: nhutanh09
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./SQL:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
+    container_name: mysql_db
+    networks:
+      - app-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
