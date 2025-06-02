@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Validation/CheckEmail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/InputList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/InputList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user/UpdateProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/UpdateProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/AjaxResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/AjaxResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +58,7 @@
         <option value="Jsp File" />
         <option value="JavaScript File" />
         <option value="Servlet" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -118,7 +122,7 @@
     &quot;Smart Tomcat Pro.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;Smart Tomcat.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.Tomcat 10.1.31.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#167 on nhutanh&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;nhutanh&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/VisualStudioCode/DOANWEBNEW/DOANLAPTRINHWEB&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -333,6 +337,9 @@
       <workItem from="1748782190888" duration="4825000" />
       <workItem from="1748788777518" duration="327000" />
       <workItem from="1748789181573" duration="1790000" />
+      <workItem from="1748834367849" duration="4378000" />
+      <workItem from="1748839822943" duration="2302000" />
+      <workItem from="1748842329515" duration="1177000" />
     </task>
     <servers />
   </component>
