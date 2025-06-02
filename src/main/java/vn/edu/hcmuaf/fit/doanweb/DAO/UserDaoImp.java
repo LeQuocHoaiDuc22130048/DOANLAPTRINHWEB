@@ -20,8 +20,8 @@ public class UserDaoImp implements UserDao {
             "VALUES (:name, :email, :password, NULL, NULL,0 , :role  , :avatar  , NOW(), NOW())";
     private final static String ActiveAccount = "UPDATE users SET status = 1 WHERE id = :id";
     private final static String GetUserId = "SELECT id FROM users WHERE email = :email LIMIT 1";
-    private final static String Login = "SELECT * FROM users WHERE name = :name AND password = :password AND status = 1  LIMIT 1";
-    private final static String GetUserPassword = "SELECT password FROM users WHERE name = :name LIMIT 1";
+    private final static String Login = "SELECT * FROM users WHERE email = :email AND password = :password AND status = 1  LIMIT 1";
+    private final static String GetUserPassword = "SELECT password FROM users WHERE email = :email";
     private final static String UserExists = "SELECT COUNT(*) FROM users WHERE name = :name";
     private final static String CheckActive = "SELECT status FROM users WHERE name = :name LIMIT 1";
     private final static String UpdateUser = "UPDATE users SET name = :name , email = " +
@@ -111,7 +111,7 @@ public class UserDaoImp implements UserDao {
     public User Login(String userName, String password) {
         return jdbi.withHandle(handle ->
                 handle.createQuery(Login)
-                        .bind("name", userName)
+                        .bind("email", userName)
                         .bind("password", password)
                         .mapToBean(User.class)
                         .findOne()
@@ -120,10 +120,10 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public String GetUserPassword(String name) {
+    public String GetUserPassword(String email) {
         return jdbi.withHandle(handle ->
                 handle.createQuery(GetUserPassword)
-                        .bind("name", name)
+                        .bind("email", email)
                         .mapTo(String.class)
                         .findOne()
                         .orElse(null)

@@ -31,11 +31,29 @@ public class LoginController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String realPassword = userDaoImp.GetUserPassword(email);
-        if (realPassword == null || !BCrypt.checkpw(password, realPassword)) {
+
+        if (realPassword == null) {
+            // user không tồn tại hoặc chưa có mật khẩu
             request.setAttribute("Error", ErrorMessages.LoginFail.getMessage());
             request.getRequestDispatcher(Login).forward(request, response);
             return;
         }
+
+        boolean passwordMatch = false;
+        try {
+            passwordMatch = BCrypt.checkpw(password, realPassword);
+        } catch (Exception e) {
+            // log lỗi để kiểm tra nếu hash không đúng định dạng
+            e.printStackTrace();
+        }
+
+        if (!passwordMatch) {
+            System.out.println("Password check result: " + passwordMatch);
+            request.setAttribute("Error", ErrorMessages.LoginFail.getMessage());
+            request.getRequestDispatcher(Login).forward(request, response);
+            return;
+        }
+
         User user = userDaoImp.Login(email, realPassword);
         if (user == null) {
             request.setAttribute("Error", ErrorMessages.ActiveMail.getMessage());
@@ -66,7 +84,7 @@ public class LoginController extends HttpServlet {
         response.addCookie(jwtCookie);
 
         String location = user.getRole().equals("ADMIN") ? JSPPage.AdminDashBoard.getPage()
-                : "/DoAnWev" + JSPPage.Index.getPage();
+                : "/DoAnWeb" + JSPPage.Index.getPage();
         response.sendRedirect(location);
     }
 }

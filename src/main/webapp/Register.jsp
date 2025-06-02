@@ -20,20 +20,22 @@
         <div class="col-6 ">
             <div class="flex-column absolute_center">
                 <h3 class="text-center mb-3 mt-5 ">Đăng nhập</h3>
-                <form action="${context}/sign-in" method="post" class="w-75">
+                <form action="${context}/sign-in" method="post" class="w-75" id="registerForm">
                     <!-- Email input -->
                     <div data-mdb-input-init class="form-outline mb-4 w-100">
                         <label class="form-label" for="userName">Tên đăng nhập</label>
-                        <input required type="text" id="userName" class="form-control" name="username"/>
+                        <input required type="text" id="userName" class="form-control" name="username" placeholder="Tên đăng nhập của bạn"/>
                     </div>
                     <div data-mdb-input-init class="form-outline mb-4 w-100">
-                        <label class="form-label" for="email">Email</label>
-                        <input required type="email" id="email" class="form-control" name="email"/>
+                        <label class="form-label" for="emailInput">Email</label>
+                        <input required type="email" id="emailInput" class="form-control" name="email" placeholder="Email của bạn"/>
+                        <span class="text-danger" id="email-error"></span>
                     </div>
                     <!-- Password input -->
                     <div data-mdb-input-init class="form-outline mb-4 w-100">
                         <label class="form-label" for="password">Mật khẩu </label>
-                        <input required type="password" id="password" class="form-control" name="password"/>
+                        <input required type="password" id="password" class="form-control" name="password"
+                        placeholder="Mật khẩu của bạn"/>
                     </div>
                     <!-- Submit button -->
                     <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block m-auto w-100">Sign up
@@ -54,5 +56,34 @@
 <script src="<c:url value='/assets/js/chatbox.js' />"></script>
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        let isEmailValid = false;
+
+        $('#emailInput').on('blur', function () {
+            const email = $(this).val();
+
+            $.ajax({
+                url: '/DoAnWeb/CheckEmail',
+                method: 'GET',
+                data: { email: email },
+                dataType: 'json', // Quan trọng!
+                success: function(response) {
+                    if (!response.isSuccess) {
+                        $('#email-error').text("");
+                        isEmailValid= response.isSuccess;
+                        console.log(isEmailValid);
+                    } else {
+                        $('#email-error').text("Email đã tồn tại"); // Email hợp lệ
+                    }
+                },
+                error: function() {
+                    $('#email-error').text("Lỗi kiểm tra email.");
+                }
+            });
+        });
+    });
+
+</script>
 </body>
 </html>
