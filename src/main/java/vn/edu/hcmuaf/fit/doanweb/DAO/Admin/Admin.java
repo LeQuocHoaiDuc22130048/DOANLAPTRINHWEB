@@ -125,9 +125,6 @@ public class Admin {
                 .findFirst().orElse(null));
     }
 
-
-
-
     public List<OrderItemVM> getOrderItems(int orderId) {
         String sql = """
                 SELECT o.id AS order_id,p.id AS product_id, pi.path AS product_image, p.name AS product_code,
@@ -282,7 +279,6 @@ public class Admin {
                 .mapToBean(FrameShapes.class).list());
     }
 
-
     public boolean addCategory(CategoriesVM categories) {
         String sql = "INSERT INTO categories (name, status) VALUES (?, ?)";
 
@@ -410,7 +406,63 @@ public class Admin {
         });
     }
 
+    public List<PostVM> getAllPosts() {
+        String query = "SELECT * FROM posts ORDER BY created_at DESC";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(query)
+                        .mapToBean(PostVM.class)
+                        .list()
+        );
+    }
 
+    public PostVM getPostById(int id) {
+        String query = "SELECT * FROM posts WHERE id = ?";
+        return jdbi.withHandle(handle ->
+                handle.createQuery(query)
+                        .bind(0, id)
+                        .mapToBean(PostVM.class)
+                        .findOne()
+                        .orElse(null)
+        );
+    }
+
+    public boolean addPost(PostVM post) {
+        String query = "INSERT INTO posts (thumbnail, created_at, title, content, url, access) VALUES (?, ?, ?, ?, ?, ?)";
+        return jdbi.withHandle(handle ->
+                handle.createUpdate(query)
+                        .bind(0, post.getThumbnail())
+                        .bind(1, post.getCreated_at())
+                        .bind(2, post.getTitle())
+                        .bind(3, post.getContent())
+                        .bind(4, post.getUrl())
+                        .bind(5, post.getAccess())
+                        .execute() > 0
+        );
+    }
+
+    public boolean updatePost(PostVM post) {
+        String query = "UPDATE posts SET thumbnail = ?, title = ?, content = ?, url = ?, access = ? WHERE id = ?";
+        return jdbi.withHandle(handle ->
+                handle.createUpdate(query)
+                        .bind(0, post.getThumbnail())
+                        .bind(1, post.getTitle())
+                        .bind(2, post.getContent())
+                        .bind(3, post.getUrl())
+                        .bind(4, post.getAccess())
+                        .bind(5, post.getId())
+                        .execute() > 0
+        );
+    }
+
+    public boolean toggleStatus(int id, int status) {
+        String query = "UPDATE posts SET access = ? WHERE id = ?";
+        return jdbi.withHandle(handle ->
+                handle.createUpdate(query)
+                        .bind(0, status)
+                        .bind(1, id)
+                        .execute() > 0
+        );
+    }
 
 
 }

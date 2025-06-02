@@ -140,9 +140,29 @@ public class AdminService {
         dao.importFromExcel(filename);
     }
 
-    public static void main(String[] args) {
-        AdminService adminService = new AdminService();
+    public List<PostVM> getAllPosts(){
+        return admin.getAllPosts();
     }
+
+    public PostVM getPostById(int id){
+        return admin.getPostById(id);
+    }
+
+    public boolean addPost(PostVM post) {
+        return admin.addPost(post);
+    }
+
+    public boolean updatePost(PostVM post){
+        return admin.updatePost(post);
+    }
+
+    public boolean toggleStatus(int id, int status){
+        return admin.toggleStatus(id,status);
+    }
+
+//    public static void main(String[] args) {
+//        AdminService adminService = new AdminService();
+//    }
 
 
 }

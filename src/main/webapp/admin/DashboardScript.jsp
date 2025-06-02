@@ -27,6 +27,9 @@
 <!-- Banner Carousel -->
 <script src="${pageContext.request.contextPath}/admin/asset/js/banner_carousel.js"></script>
 
+<!-- Post -->
+<script src="${pageContext.request.contextPath}/admin/asset/js/post.js"></script>
+
 <%--sweet alert--%>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <%--CKEDITOR--%>
