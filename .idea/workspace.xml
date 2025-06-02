@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Index.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByCategory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByColor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByGender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByMaterial.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByPriceRange.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/ProductByShape.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Link.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Link.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Product_Category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Product_Category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Script.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Script.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/ProductFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/ProductFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/InputList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/InputList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/user/UpdateProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user/UpdateProfile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +118,7 @@
     &quot;Smart Tomcat Pro.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;Smart Tomcat.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.Tomcat 10.1.31.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;nhutanh&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#167 on nhutanh&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/VisualStudioCode/DOANWEBNEW/DOANLAPTRINHWEB&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -342,6 +331,8 @@
       <workItem from="1748519389988" duration="918000" />
       <workItem from="1748525456925" duration="63000" />
       <workItem from="1748782190888" duration="4825000" />
+      <workItem from="1748788777518" duration="327000" />
+      <workItem from="1748789181573" duration="1790000" />
     </task>
     <servers />
   </component>
