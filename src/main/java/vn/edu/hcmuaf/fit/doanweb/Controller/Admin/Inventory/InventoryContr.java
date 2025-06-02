@@ -29,7 +29,6 @@ public class InventoryContr extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        System.out.println("Vào đây r nè");
         adminService = new AdminService();
         // Lấy đường dẫn tuyệt đối đến thư mục lưu trữ
         String relativePath = AppConfig.getUploadDirectory(); // upload/upload_stock_in
@@ -60,7 +59,6 @@ public class InventoryContr extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if ("import".equals(action)) {
-            System.out.println("Start import");
             handleImport(request, response);
         }
     }
@@ -68,9 +66,7 @@ public class InventoryContr extends HttpServlet {
     private void handleImport(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Part filePart = request.getPart("excelFile");
         String fileName = new File(filePart.getSubmittedFileName()).getName();
-        System.out.println("Tên file excel: "+fileName);
         String filePath = uploadDirectory + File.separator + fileName;
-        System.out.println("Path lưu excel: "+filePath);
         filePart.write(filePath);
 
         try {

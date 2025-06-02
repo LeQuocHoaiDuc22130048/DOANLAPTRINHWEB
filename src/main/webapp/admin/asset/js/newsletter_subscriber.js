@@ -45,7 +45,6 @@ function sendToAll() {
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: `content=${encodeURIComponent(content)}`
     }).then(res => {
-        alert("Trả về response");
         if (res.ok) {
             Swal.fire("Thành công", "Đã gửi đến tất cả người đăng ký!", "success")
                 .then(() => {

@@ -63,12 +63,9 @@ public class InventoryDaoImp implements InventoryDao {
         });
     }
 
-
     //Nhập hàng từ file excel
-
     @Override
     public void importFromExcel(String filename) {
-        System.out.println("importFromExcel trong InventoryDaoImp");
         try (FileInputStream fis = new FileInputStream(filename);
              Workbook workbook = WorkbookFactory.create(fis)) {
 

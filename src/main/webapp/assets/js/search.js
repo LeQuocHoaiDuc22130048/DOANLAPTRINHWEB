@@ -1,4 +1,3 @@
-const context = window.appContext;
 // Search Popup
 document.addEventListener("DOMContentLoaded", function () {
   // Search popup toggle
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault(); // Ngăn form gửi đi
       const keyword = keywordInput.value.trim();
       if (keyword) {
-        window.location.href = `${context}/search?keyword=${encodeURIComponent(keyword)}`;
+        window.location.href = `search?keyword=${encodeURIComponent(keyword)}`;
       }
     });
 
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         const keyword = e.currentTarget.textContent.trim();
         if (keywordInput) keywordInput.value = keyword;
-        window.location.href = `${context}/search?keyword=${encodeURIComponent(keyword)}`;
+        window.location.href = `search?keyword=${encodeURIComponent(keyword)}`;
       });
     });
   }

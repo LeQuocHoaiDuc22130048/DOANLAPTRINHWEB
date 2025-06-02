@@ -20,10 +20,8 @@ public class SendNewsletterAllContr extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String content = req.getParameter("content");
-        System.out.println("Content: "+content);
 
         List<NewsletterSubscriber> subscribers = service.getAllNewsletterSubscribers();
-        System.out.println("Subscribers: "+subscribers);
         boolean allSent = true;
 
         for (NewsletterSubscriber sub : subscribers) {
