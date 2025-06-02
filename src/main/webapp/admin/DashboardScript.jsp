@@ -36,7 +36,7 @@
 <script src="${pageContext.request.contextPath}/admin/asset/js/Notification.js"></script>
 <script src="${pageContext.request.contextPath}/admin/asset/js/DisplayImage.js"></script>
 <script src="${pageContext.request.contextPath}/admin/asset/js/appForAdmin.js"></script>
-
+<script src="${pageContext.request.contextPath}/admin/asset/js/brandScript.js"></script>
 <script>
     $(document).ready(function () {
         $('#table_id').DataTable({

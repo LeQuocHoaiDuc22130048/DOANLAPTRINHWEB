@@ -13,7 +13,7 @@ import vn.edu.hcmuaf.fit.doanweb.Enum.JSPPage;
 import java.io.IOException;
 
 public class GetRole {
-    public static String GetRoleFromToken(ServletRequest request, ServletResponse response) throws IOException {
+        public static String GetRoleFromToken(ServletRequest request, ServletResponse response) throws IOException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         String role = "GUEST";
@@ -56,5 +56,16 @@ public class GetRole {
             res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or expired token");
         }
         return role;
+    }
+    public static String getTokenFromToken(HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("token".equals(cookie.getName())) {
+                    return cookie.getValue(); // Trả về token nếu tìm thấy
+                }
+            }
+        }
+        return null; // Không tìm thấy token
     }
 }

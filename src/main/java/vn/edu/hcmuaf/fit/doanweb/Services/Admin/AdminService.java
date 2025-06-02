@@ -142,9 +142,19 @@ public class AdminService {
     public void updateStockAfterOrder(List<CartProduct> listProducts){dao.updateStockAfterOrder(listProducts);
     }
 
-    public List<Brands> getAllBrands(){return admin.getAllBrand();}
+    public List<BrandVM> getAllBrands(){return admin.getAllBrand();}
     public int addBrand(Brands brands){
         return admin.insertBrand(brands);
+    }
+
+
+
+    public boolean updateBrand(BrandVM brands){
+        return admin.updateBrand(brands);
+    }
+
+    public boolean deleteBrand(int id){
+        return admin.deleteBrand(id);
     }
 
     public void importFromExcel(String filename) {
@@ -153,22 +163,6 @@ public class AdminService {
 
     public static void main(String[] args) {
         AdminService adminService = new AdminService();
-
-        Brands brands = new Brands();
-        String name = "test";
-        LocalDateTime now = LocalDateTime.now();
-        String title = "test";
-        String description = "test";
-        String img= "test";
-        String icon = "test";
-
-        brands.setName(name);
-        brands.setDescription(description);
-        brands.setImg(img);
-        brands.setIcon(icon);
-        brands.setCreated_at(now);
-        brands.setUpdated_at(now);
-
-        System.out.println(adminService.addBrand(brands));
+        System.out.println(adminService.deleteBrand(25));
     }
 }

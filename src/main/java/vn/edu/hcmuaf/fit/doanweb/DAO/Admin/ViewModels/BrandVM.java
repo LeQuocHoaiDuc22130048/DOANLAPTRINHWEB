@@ -10,6 +10,4 @@ public class BrandVM {
     private String img;
     private String description;
     private String icon;
-
-
 }
