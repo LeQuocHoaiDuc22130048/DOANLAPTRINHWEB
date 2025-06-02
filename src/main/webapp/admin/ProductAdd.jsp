@@ -206,21 +206,7 @@
                     </div>
                     <div class="line"></div>
 
-                    <div class="input-wrapper d-flex align-items-center mt-3">
-                        <div class="label_input w-25">
-                            <label>Tùy chỉnh:</label>
-                        </div>
-                        <div class="input-group w-50">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="checkDisplayProduct">
-                                <label class="form-check-label" for="checkDisplayProduct">
-                                    Hiển thị
-                                </label>
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="line"></div>
                     <div class="input-wrapper d-flex align-items-center mt-3">
                         <div class="label_input w-25">
                             <label></label>

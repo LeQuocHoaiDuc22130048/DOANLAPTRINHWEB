@@ -136,6 +136,21 @@ public class AdminService {
     public void updateStockAfterOrder(List<CartProduct> listProducts){dao.updateStockAfterOrder(listProducts);
     }
 
+    public List<BrandVM> getAllBrands(){return admin.getAllBrand();}
+    public int addBrand(Brands brands){
+        return admin.insertBrand(brands);
+    }
+
+
+
+    public boolean updateBrand(BrandVM brands){
+        return admin.updateBrand(brands);
+    }
+
+    public boolean deleteBrand(int id){
+        return admin.deleteBrand(id);
+    }
+
     public void importFromExcel(String filename) {
         dao.importFromExcel(filename);
     }

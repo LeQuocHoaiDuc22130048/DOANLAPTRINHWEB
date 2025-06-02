@@ -125,6 +125,9 @@ public class Admin {
                 .findFirst().orElse(null));
     }
 
+
+
+
     public List<OrderItemVM> getOrderItems(int orderId) {
         String sql = """
                 SELECT o.id AS order_id,p.id AS product_id, pi.path AS product_image, p.name AS product_code,
@@ -279,6 +282,7 @@ public class Admin {
                 .mapToBean(FrameShapes.class).list());
     }
 
+
     public boolean addCategory(CategoriesVM categories) {
         String sql = "INSERT INTO categories (name, status) VALUES (?, ?)";
 
@@ -406,6 +410,114 @@ public class Admin {
         });
     }
 
+    public List<BrandVM> getAllBrand(){
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM brands")
+                        .mapToBean(BrandVM.class)
+                        .list()
+        );
+    }
+    public int insertBrand(Brands brands){
+        LocalDateTime now = LocalDateTime.now();
+        return jdbi.withHandle(handle -> handle
+                .createUpdate("INSERT INTO brands (`name`, created_at, updated_at, title,img,`description`,icon)\n" +
+                        "VALUES (?, ?, ?, ?, ?,?, ?)")
+                .bind(0,brands.getName())
+                .bind(1,now)
+                .bind(2,now)
+                .bind(3,brands.getTitle())
+                .bind(4,brands.getImg())
+                .bind(5,brands.getDescription())
+                .bind(6,brands.getIcon())
+                .executeAndReturnGeneratedKeys("id")
+                .mapTo(Integer.class)
+                .one());
+    }
+
+
+
+    public boolean updateBrand(BrandVM brand) {
+        try {
+            return jdbi.withHandle(handle -> {
+                // Xây dựng câu lệnh SQL cơ bản
+                StringBuilder sql = new StringBuilder(
+                        "UPDATE brands SET name = :name, title = :title, description = :description, updated_at = NOW()"
+                );
+
+                // Thêm phần cập nhật ảnh nếu có
+                if (brand.getImg() != null && !brand.getImg().isEmpty()) {
+                    sql.append(", img = :img");
+                }
+
+                // Thêm phần cập nhật icon nếu có
+                if (brand.getIcon() != null && !brand.getIcon().isEmpty()) {
+                    sql.append(", icon = :icon");
+                }
+
+                // Thêm điều kiện WHERE
+                sql.append(" WHERE id = :id");
+
+                // Tạo và thực thi câu lệnh update
+                var update = handle.createUpdate(sql.toString())
+                        .bind("id", brand.getId())
+                        .bind("name", brand.getName())
+                        .bind("title", brand.getTitle())
+                        .bind("description", brand.getDescription());
+
+                // Bind thêm img nếu có
+                if (brand.getImg() != null && !brand.getImg().isEmpty()) {
+                    update.bind("img", brand.getImg());
+                }
+
+                // Bind thêm icon nếu có
+                if (brand.getIcon() != null && !brand.getIcon().isEmpty()) {
+                    update.bind("icon", brand.getIcon());
+                }
+
+                int rowsAffected = update.execute();
+                return rowsAffected > 0;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteBrand(int brandId) {
+        try {
+            return jdbi.withHandle(handle -> {
+                // Kiểm tra xem brand có tồn tại không
+                Integer exists = handle.createQuery("SELECT COUNT(*) FROM brands WHERE id = ?")
+                        .bind(0, brandId)
+                        .mapTo(Integer.class)
+                        .one();
+
+                if (exists == 0) {
+                    return false;
+                }
+
+                // Kiểm tra xem có sản phẩm nào thuộc brand này không
+                Integer productCount = handle.createQuery("SELECT COUNT(*) FROM products WHERE brand_id = ?")
+                        .bind(0, brandId)
+                        .mapTo(Integer.class)
+                        .one();
+
+                if (productCount > 0) {
+                    throw new RuntimeException("Không thể xóa thương hiệu vì có sản phẩm liên quan");
+                }
+
+                // Thực hiện xóa brand
+                int rowsAffected = handle.createUpdate("DELETE FROM brands WHERE id = ?")
+                        .bind(0, brandId)
+                        .execute();
+
+                return rowsAffected > 0;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
     public List<PostVM> getAllPosts() {
         String query = "SELECT * FROM posts ORDER BY created_at DESC";
         return jdbi.withHandle(handle ->
