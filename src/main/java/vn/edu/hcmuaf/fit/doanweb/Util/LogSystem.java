@@ -10,7 +10,7 @@ public class LogSystem {
     private static Log instance;
     private static final Jdbi jdbi = JDBIConnect.get();
     ;
-    private final static String InsertLog = "INSERT INTO Log (Level, Log_Time, Locate, user_id, BeforeText, AfterText) " +
+    private final static String InsertLog = "INSERT INTO log (Level, Log_Time, Locate, user_id, BeforeText, AfterText) " +
             "VALUES (? , NOW(), ?, ?, ?, ?)";
 
     enum LEVEL {
