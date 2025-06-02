@@ -393,15 +393,6 @@ CREATE TABLE IF NOT EXISTS `log` (
 ) ENGINE=InnoDB AUTO_INCREMENT=384 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table web_eyestyle.log: ~2 rows (approximately)
-DELETE FROM `log`;
-INSERT INTO `log` (`id`, `Level`, `Log_Time`, `Locate`, `user_id`, `BeforeText`, `AfterText`) VALUES
-	(377, 'INFO', '2025-04-30 09:57:21', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
-	(378, 'WARNING', '2025-04-30 10:49:45', 'vn.edu.hcmuaf.fit.doanweb.Controller.User.RegisterController', 34, '', 'User đăng ký tài khoản với user name : thuykieu'),
-	(379, 'INFO', '2025-04-30 10:52:04', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
-	(380, 'INFO', '2025-05-01 21:41:49', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
-	(381, 'INFO', '2025-05-17 14:54:27', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
-	(382, 'INFO', '2025-05-22 09:53:39', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller'),
-	(383, 'INFO', '2025-05-22 23:44:46', 'vn.edu.hcmuaf.fit.doanweb.Controller.Product.PostsController', 17, '', 'User access  post controller');
 
 -- Dumping structure for table web_eyestyle.newsletter_subscribers
 CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (

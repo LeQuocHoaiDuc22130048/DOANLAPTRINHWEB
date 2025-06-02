@@ -20,8 +20,8 @@ import static vn.edu.hcmuaf.fit.doanweb.Util.LogSystem.CreateLog;
 
 @WebServlet(name = "RegisterController", value = "/sign-in")
 public class RegisterController extends HttpServlet {
-    private static final String Link = "http://localhost:8080/DoAnWeb/ActiveMail?userId=";
-    private static final String SignIn = "/DoAnWeb"+JSPPage.Register.getPage();
+    private static final String Link = "/DoAnWeb/ActiveMail?userId=";
+    private static final String SignIn = "/DoAnWeb/"+JSPPage.Register.getPage();
     private static final String EmailExist = "Email đã được sử dụng bởi người dùng khác ";
     private static final String SignInFailed = "Sign in failed";
     private static final String CreatedFailed = "Created failed";

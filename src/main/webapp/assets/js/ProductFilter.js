@@ -7,7 +7,7 @@ const context = ""; //Giả sử context là rỗng
 
 function fetchData(page, currentType, currentValue) {
     $.ajax({
-        url: "http://localhost:8080/DoAnWeb/filter?page=" + page + "&type=" + currentType + "&value=" + currentValue,
+        url: "/DoAnWeb/filter?page=" + page + "&type=" + currentType + "&value=" + currentValue,
         method: 'GET',
         dataType: 'json',
         success: function (data) {

@@ -30,14 +30,14 @@
                     <!-- Email input -->
                     <div data-mdb-input-init class="form-outline mb-4 w-100">
                         <label class="form-label" for="emailInput">Email</label>
-                        <input type="email" id="emailInput" class="form-control" name="email"/>
+                        <input type="email" id="emailInput" class="form-control" name="email" placeholder="Email của bạn"/>
                         <span class="text-danger" id="email-error"></span>
                     </div>
 
                     <!-- Password input -->
                     <div data-mdb-input-init class="form-outline mb-4 w-100">
                         <label class="form-label" for="form1Example2">Mật khẩu </label>
-                        <input type="password" id="form1Example2" class="form-control" name="password"/>
+                        <input type="password" id="form1Example2" class="form-control" name="password" placeholder="Mật khẩu của bạn"/>
                     </div>
 
                     <!-- 2 column grid layout for inline styling -->
@@ -65,7 +65,7 @@
                 </form>
                 <p class="mt-3 fs-6">Bạn chưa có tài khoản <a href="Register.jsp">Đăng ký ngay !</a></p>
                 <p class="mt-3 fs-6 text-center">Hoặc đăng nhập với <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile&
-redirect_uri=http://localhost:8080/DoAnWeb/login-Google&
+redirect_uri=/DoAnWeb/login-Google&
 response_type=code&
 client_id=800453562529-p49ttds41a496glp8j484ohuljgmcfsi.apps.googleusercontent.com&
 access_type=online"> <img style="width: 150px" class=" border-1 rounded px-1 py-2 m-1 shadow " alt="Google"
@@ -94,14 +94,15 @@ access_type=online"> <img style="width: 150px" class=" border-1 rounded px-1 py-
             const email = $(this).val();
 
             $.ajax({
-                url: 'http://localhost:8080/DoAnWeb/CheckEmail',
+                url: '/DoAnWeb/CheckEmail',
                 method: 'GET',
                 data: { email: email },
                 dataType: 'json', // Quan trọng!
                 success: function(response) {
-                    if (!response.isSuccess) {
+                    if (response.isSuccess) {
                         $('#email-error').text("");
-                        isEmailValid= true;
+                        isEmailValid= response.isSuccess;
+                        console.log(isEmailValid);
                     } else {
                         $('#email-error').text("Email chưa tồn tại"); // Email hợp lệ
                     }
@@ -110,14 +111,6 @@ access_type=online"> <img style="width: 150px" class=" border-1 rounded px-1 py-
                     $('#email-error').text("Lỗi kiểm tra email.");
                 }
             });
-        });
-
-
-        $('#loginForm').on('submit', function (e) {
-            if (!isEmailValid) {
-                e.preventDefault(); // Ngăn submit form nếu email không hợp lệ
-                $('#emailError').text('Vui lòng nhập email hợp lệ!');
-            }
         });
     });
 
