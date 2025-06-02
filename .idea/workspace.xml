@@ -7,14 +7,8 @@
     <list default="true" id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL/web_eyestyle.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQL/web_eyestyle.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/User/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/UserDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/UserDaoImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,7 +345,8 @@
       <workItem from="1748848986354" duration="7024000" />
       <workItem from="1748857667284" duration="1376000" />
       <workItem from="1748860252956" duration="126000" />
-      <workItem from="1748860592942" duration="1206000" />
+      <workItem from="1748860592942" duration="1775000" />
+      <workItem from="1748865105516" duration="2192000" />
     </task>
     <servers />
   </component>
