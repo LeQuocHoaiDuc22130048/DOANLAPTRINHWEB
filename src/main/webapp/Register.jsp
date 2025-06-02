@@ -48,5 +48,11 @@
 </div>
 <!-- ***** Footer Start ***** -->
 <c:import url="Footer.jsp"/>
+<script src="<c:url value='/assets/js/search.js' />"></script>
+<script src="<c:url value='/assets/js/best_seller.js' />"></script>
+<script src="<c:url value='/assets/js/chat_box.js' />"></script>
+<script src="<c:url value='/assets/js/chatbox.js' />"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
