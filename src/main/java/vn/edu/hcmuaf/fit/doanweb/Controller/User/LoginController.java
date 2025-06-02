@@ -28,15 +28,15 @@ public class LoginController extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userName = request.getParameter("username");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String realPassword = userDaoImp.GetUserPassword(userName);
+        String realPassword = userDaoImp.GetUserPassword(email);
         if (realPassword == null || !BCrypt.checkpw(password, realPassword)) {
             request.setAttribute("Error", ErrorMessages.LoginFail.getMessage());
             request.getRequestDispatcher(Login).forward(request, response);
             return;
         }
-        User user = userDaoImp.Login(userName, realPassword);
+        User user = userDaoImp.Login(email, realPassword);
         if (user == null) {
             request.setAttribute("Error", ErrorMessages.ActiveMail.getMessage());
             request.getRequestDispatcher(Login).forward(request, response);
