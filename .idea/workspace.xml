@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Inventory/InventoryContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Inventory/InventoryContr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/NewsletterSubscriber/SendNewsletterAllContr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/NewsletterSubscriber/SendNewsletterAllContr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/InventoryDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/InventoryDaoImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Product_Category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Product_Category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Script.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Script.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/newsletter_subscriber.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/newsletter_subscriber.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/chatbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/chatbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,8 +266,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
       </set>
     </attachedChunks>
   </component>
@@ -336,6 +328,7 @@
       <workItem from="1748519389988" duration="918000" />
       <workItem from="1748525456925" duration="63000" />
       <workItem from="1748782190888" duration="4825000" />
+      <workItem from="1748825562103" duration="415000" />
     </task>
     <servers />
   </component>
