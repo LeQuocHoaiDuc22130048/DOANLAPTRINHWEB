@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/Admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/Admin/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,11 +53,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
@@ -84,12 +73,12 @@
     }
   ]
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/LeQuocHoaiDuc22130048/DOANLAPTRINHWEB.git",
-    "accountId": "e4c1f6db-0b11-4ae0-9f7f-675a09a4d8e4"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/LeQuocHoaiDuc22130048/DOANLAPTRINHWEB.git&quot;,
+    &quot;accountId&quot;: &quot;1a2243da-0c6f-4a35-80e8-8b6f8cc64c78&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -116,16 +105,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build DOANLAPTRINHWEB.executor": "Run",
-    "Gradle.Build DoAnWeb.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Smart Tomcat Pro.Unnamed.executor": "Run",
-    "Smart Tomcat.MEOMEO.executor": "Run",
     "Smart Tomcat.Unnamed.executor": "Run",
     "Tomcat Server.Tomcat 10.1.31.executor": "Run",
-    "git-widget-placeholder": "#173 on HoaiDuc",
+    "git-widget-placeholder": "nhutanh",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/VisualStudioCode/DOANWEBNEW/DOANLAPTRINHWEB",
     "list.type.of.created.stylesheet": "CSS",
@@ -139,9 +126,14 @@
     "project.structure.side.proportion": "0.22758621",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql_aurora"
+    ]
   }
 }]]></component>
-  <component name="RunManager" selected="Smart Tomcat.MEOMEO">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.31">
     <configuration name="Unnamed" type="SmartTomcatProRunConfigurationType">
       <deployments>
         <tomcat-deployment context-path="/DoAnWeb" location="$PROJECT_DIR$/src/main/webapp" module="DOANLAPTRINHWEB" type="DIR" />
@@ -268,42 +260,16 @@
         </option>
       </method>
     </configuration>
-    <configuration name="MEOMEO" type="com.poratu.idea.plugins.tomcat">
-      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
-      <predefined_log_file enabled="true" id="Tomcat Access Log" />
-      <predefined_log_file id="Tomcat Catalina Log" />
-      <predefined_log_file id="Tomcat Manager Log" />
-      <predefined_log_file id="Tomcat Host Manager Log" />
-      <option name="catalinaBase" value="C:\Users\lequo\.SmartTomcat\DOANLAPTRINHWEB\DOANLAPTRINHWEB.main" />
-      <option name="contextPath" value="/DoAnWeb" />
-      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions">
-        <map />
-      </option>
-      <option name="extraClassPath" value="" />
-      <option name="tomcatInfo">
-        <TomcatInfo>
-          <option name="name" value="Apache Tomcat/10.1.34" />
-          <option name="path" value="$PROJECT_DIR$/../../../tomcat/apache-tomcat-10" />
-          <option name="version" value="10.1.34.0" />
-        </TomcatInfo>
-      </option>
-      <option name="vmOptions" value="" />
-      <module name="DOANLAPTRINHWEB.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Smart Tomcat.MEOMEO" />
+      <item itemvalue="Smart Tomcat Pro.Unnamed" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.31" />
     </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
       </set>
     </attachedChunks>
   </component>
@@ -369,7 +335,17 @@
       <workItem from="1748834367849" duration="4378000" />
       <workItem from="1748839822943" duration="2302000" />
       <workItem from="1748842329515" duration="1177000" />
-      <workItem from="1748910432334" duration="2107000" />
+      <workItem from="1748844096236" duration="424000" />
+      <workItem from="1748845654675" duration="1796000" />
+      <workItem from="1748848986354" duration="7024000" />
+      <workItem from="1748857667284" duration="1376000" />
+      <workItem from="1748860252956" duration="126000" />
+      <workItem from="1748860592942" duration="1775000" />
+      <workItem from="1748865105516" duration="2550000" />
+      <workItem from="1748875548160" duration="1588000" />
+      <workItem from="1748881872553" duration="187000" />
+      <workItem from="1748916484598" duration="608000" />
+      <workItem from="1748919760663" duration="824000" />
     </task>
     <servers />
   </component>
