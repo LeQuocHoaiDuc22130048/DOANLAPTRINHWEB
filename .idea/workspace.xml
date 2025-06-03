@@ -5,30 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/PostListController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/PostVM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/PostList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/PostsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/Admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/Admin/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/BannerCarousel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/BannerCarousel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/DashboardScript.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/DashboardScript.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Feedback.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Feedback.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/InventoryList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/InventoryList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ListCategories.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ListCategories.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ListUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ListUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/NewsletterSubscriber.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/NewsletterSubscriber.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Order.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ProductAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ProductAdd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ProductList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ProductList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Promotion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Promotion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/catalina.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/catalina.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/jaspic-providers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/jaspic-providers.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/server.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/tomcat-users.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/catalina.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/catalina.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/jaspic-providers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/jaspic-providers.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/server.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/tomcat-users.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Script.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Script.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Search.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,9 +137,9 @@
     "Smart Tomcat Pro.Unnamed.executor": "Run",
     "Smart Tomcat.Unnamed.executor": "Run",
     "Tomcat Server.Tomcat 10.1.31.executor": "Run",
-    "git-widget-placeholder": "Merging kiều",
+    "git-widget-placeholder": "kiều",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/VisualStudioCode/DOANWEBNEW/DOANLAPTRINHWEB",
+    "last_opened_file_path": "C:/Users/MyPC/Documents/DOANLAPTRINHWEB",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
