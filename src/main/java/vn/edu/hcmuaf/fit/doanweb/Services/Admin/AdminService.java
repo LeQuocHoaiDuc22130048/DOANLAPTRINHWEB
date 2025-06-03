@@ -19,7 +19,7 @@ public class AdminService {
         return admin.getAllProducts();
     }
 
-    public Product getProductById(String id) {
+    public Product getProductById(int id) {
         return admin.getProductById(id);
     }
 
@@ -46,6 +46,10 @@ public class AdminService {
 
     public ProductImage getProductImageById(String id) {
         return admin.getImageById(id);
+    }
+
+    public List<ProductImage> getAllProductImage(int id) {
+        return admin.getProductImage(id);
     }
 
     public boolean deleteProduct(int id) {

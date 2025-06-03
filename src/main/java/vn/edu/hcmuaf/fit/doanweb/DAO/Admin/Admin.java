@@ -34,7 +34,7 @@ public class Admin {
         )).list());
     }
 
-    public Product getProductById(String id) {
+    public Product getProductById(int id) {
         String sql = "SELECT id, category_id, brand_id, shape_id, material, name, description, status, hot, cost_price, selling_price, quantity, gender, color, created_at, updated_at FROM products WHERE id = ?";
         return jdbi.withHandle(handle -> handle
                 .createQuery(sql)
@@ -75,6 +75,14 @@ public class Admin {
                         .mapTo(Integer.class)
                         .one()
         );
+    }
+
+    public List<ProductImage> getProductImage(int productId) {
+        return jdbi.withHandle(handle -> handle
+        .createQuery("select * from product_images where product_id = ?")
+        .bind(0, productId)
+        .mapToBean(ProductImage.class)
+                .list());
     }
 
     public void insertProductImage(int productId, String imagePath, boolean isMain){
