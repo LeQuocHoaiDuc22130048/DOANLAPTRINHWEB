@@ -24,7 +24,7 @@ public class PostsController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = 17;
         try {
-            List<Posts> lists = postDao.getAllPost();
+            List<Posts> lists= postDao.getPostsByAccess(1);
             request.setAttribute("posts", lists);
             request.getRequestDispatcher("Post.jsp").forward(request, response);
         }

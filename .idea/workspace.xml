@@ -5,7 +5,154 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="088e5370-2a29-481e-a449-647f5be113a3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/catalina.policy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/catalina.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/jaspic-providers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/jaspic-providers.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/logging.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/server.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/tomcat-users.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/tomcat-users.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB.main/conf/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/catalina.policy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/catalina.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/jaspic-providers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/jaspic-providers.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/logging.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/server.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/tomcat-users.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/tomcat-users.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.smarttomcat/DOANLAPTRINHWEB/conf/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Brand/AddBrandController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Brand/BrandListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Brand/DeleteBrandController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Brand/EditBrandController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/PostListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/PostVM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/TokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/AddBrand.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/Brand.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/PostList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/brandScript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/js/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Product/AddProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/OrderDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Order/OrderDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/OrderListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Order/OrderListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/ProductListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/Product/ProductListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/UpdateProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Admin/UpdateProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Controller/Product/PostsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/BrandVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Admin/ViewModels/BrandVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Brands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/DAO/Model/Brands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/Admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Services/Admin/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GetRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/doanweb/Util/GetRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/BannerCarousel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/BannerCarousel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/DashboardScript.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/DashboardScript.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Feedback.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Feedback.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/InventoryList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/InventoryList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ListCategories.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ListCategories.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ListUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ListUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/NewsletterSubscriber.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/NewsletterSubscriber.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ProductAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ProductAdd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/ProductList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/ProductList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/Promotion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/Promotion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/UpdateProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/UpdateProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/asset/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/asset/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/00f23722-81db-4303-8e72-f5c1c27a64db_meomeme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/04d71bf3-c28b-4b5c-a37c-27b9cf6f055d_product5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/0957322f-cf8e-4b7a-87bb-5707a07fee80_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/0b7451c6-dcdd-4f02-ac9d-4d62f650bda9_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/18844669-f783-456e-9ef0-dd4c227eb77e_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/1aa261c8-e55a-47ef-a324-1af54d957231_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/205b2b56-6dbc-4182-b08d-b62c65d8f481_product11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/224bc3e7-aea0-4bf6-ba7b-32ce3bed80b1_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/2726d086-6f45-426b-8eed-23f3a732fda3_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/30ef53aa-168e-434a-bfde-5c9c0d35a5ee_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/32155bc0-ba4c-41f7-8736-4c64fbb6bedc_meomeme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/3249c3eb-7a01-4d65-908d-6f91a3763ec6_1898.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/37772863-1486-4def-b4fd-1cd9fe817787_1904.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/38a43552-0349-49d6-8911-e345b9d12b3e_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/418e2bca-23e8-4479-854b-d588d54a9739_1904.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/41fce350-5c0d-4f2e-9c19-9cde1e50954c_1906.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/48915c58-292e-474c-951d-7999f3d6e4f6_1904.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/4a7ad39c-7526-4ab6-aa97-e2559874ccc5_1904.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/4bf92ccd-6ce0-4293-87bc-344830277585_kinh_nam_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/4d9f241a-7ebc-4f01-9da4-b41d3b159646_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/4e14a625-32d9-41e1-8431-2106acf54dd3_1898.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/51ae3c01-c3f2-474f-a48b-04efabfddca4_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/53325f6b-4b92-41af-ab0f-bb8f4eb21904_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/55b1fe9a-e7e9-4b79-9935-050e789ca4de_meomeme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/58a33317-9cc0-4fd3-b92c-c7fe0c19cece_product1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/5b9a61b6-e42c-40ed-ab1c-60dc80c07e64_1904.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/5d4bb7de-b26d-4824-b6c5-14bc34ab148f_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/5e24fae6-c3c4-4a5f-a603-0258f400aa30_meomeme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/61ece963-f4d4-4e1c-8ea2-b01c519ab601_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/636e2b4d-6a65-4599-8a32-e7a0ac466456_1904.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/6946bc90-1cb7-4e09-8fbb-14f8ce278caa_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/6b87ab2b-5c30-4b99-9360-f080f280c4e3_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/6f18ed1f-8f7c-4499-9386-13c09441dfe0_bst-gong-kinh-nhua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/725a0dbb-2df0-48ac-b28d-62993c57ee09_1905.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/78504bde-f730-4c87-83d0-762dcb6e9528_bst-gong-kinh-nhua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/7dd7322a-458b-4bcc-ac66-b09aaf381d69_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/811f30ec-5314-4020-a9a2-fb5409e46299_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/81f70345-603b-4222-b90d-23ec3c2da6e0_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/868a028f-906f-4f4a-a7fa-cfa5d0d5924a_1906.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/874a6fde-d143-4c62-8fad-0b809575af0a_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/8807990e-31d6-4e3a-830c-d93255ebd46d_bst-gong-kinh-nhua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/88182b71-1aa1-43c9-8dff-fe6039742da1_1898.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/89769708-a1e9-4de4-a30f-e9750db343a0_product16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/93a2f914-9f45-4496-862a-bc3db03b8625_product10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/94995bb1-d14b-4b3d-9957-ff09f1113bc7_product6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/9a540cd2-4cab-45a9-b7fb-fb49a7d877c7_1905.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/9eab04c3-fcc5-4db2-9a48-d8654769a513_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/a0b001a4-e326-43cb-b70a-b48178de2527_bst-gong-kinh-nhua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/a2cc9cc4-92b1-45bb-bb3f-0a5d2a2be70f_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/a4b8a044-edd3-49bc-956c-18edcf73fd68_1898.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/a596d856-e6fc-4c86-bc6b-1a92de8b79d8_1906.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/a6f3a8ad-d037-4e68-8a97-0467ef7676c2_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/a7638a0f-94cf-4297-9607-e398127cf1a1_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/a7ef4f39-6f5a-4c83-be3c-5d215a75dd0d_1906.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/a849694b-d105-421d-aa9d-2b49a7134cf4_icon-mau-gong-bac.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/ab1f7001-480a-4afb-90de-798a7641f463_meomeme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/ac4acf04-f8b9-49c7-8648-6c25c28b7bba_1905.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/ac60d2f1-326f-4c52-9508-d447d238e474_kinh_nu_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/ae4492e8-28a0-4023-843f-f3b736d9e8a5_bst-gong-kinh-nhua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/b00a52dd-f3ac-45f9-8d8b-dddc9daf945f_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/b109fa7e-6976-415f-9119-414605059415_product4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/b23efd42-f7b3-4643-8452-5341a8c88d79_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/b332d1aa-4e60-400d-8c67-eb6c3856da6d_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/b5d0eb96-edce-4e3b-b7da-1ebbecd18eb7_bst-gong-kinh-tre-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/d7af6901-e838-42a4-842c-fb6b11979e76_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/d82831a1-864c-4c8a-95a2-d5317cc0121e_1905.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/dc10aeb3-8b21-4f34-acae-3fe094a089dd_bst-gong-kinh-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/dd9dc9ec-766c-40f8-b101-d37f61fe14f2_bst-gong-kinh-nhua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/e3434a13-46d9-4aad-a894-2f62c1802026_icon-kieu-gong-chu-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/e7a23576-aba4-4c96-b6b0-366462e3973d_kinh_nam_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/eb43cfff-45e0-4445-a858-2d2e803ba6f4_1898.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/ebe28b28-b1a6-4cc0-a5da-29e5305bd382_1905.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/ecc369e5-dc1e-4598-9999-676a371a7c56_1906.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/ef0ea16d-0e4f-46f2-ad89-f4358d5d2efb_bst-gong-kinh-nhua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/f13bbdc2-aab1-41c5-bc24-16e65a5dac97_1906.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/f1896984-4b3d-4979-8fc2-954ca96d06c4_bst-gong-kinh-nhua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/f1e96155-9361-40b5-93dd-3a3d996c97bd_meomeme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/f4a5fb94-2468-4207-aba9-984a58447833_product15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/f8a2903f-f858-4782-9cb5-c8057ac16f7b_1905.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/fdaf3817-bb33-4895-91b7-e1e06ec9d3b0_1898.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/ff65122a-a3bc-439c-a020-f25840969480_bst-gong-kinh-nhua.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Product/ffcddca8-564a-44a6-8890-6dda69e4b9a7_bst-gong-kinh-nhua.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +261,7 @@
     &quot;Smart Tomcat Pro.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;Smart Tomcat.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.Tomcat 10.1.31.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;nhutanh&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging nhutanh&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/VisualStudioCode/DOANWEBNEW/DOANLAPTRINHWEB&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -347,6 +494,7 @@
       <workItem from="1748875548160" duration="1588000" />
       <workItem from="1748881872553" duration="187000" />
       <workItem from="1748916484598" duration="608000" />
+      <workItem from="1748919760663" duration="495000" />
     </task>
     <servers />
   </component>

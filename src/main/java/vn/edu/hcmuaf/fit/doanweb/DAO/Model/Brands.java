@@ -13,6 +13,4 @@ public class Brands {
     private String img;
     private String description;
     private String icon;
-
-
 }

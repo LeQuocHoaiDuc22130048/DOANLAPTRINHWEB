@@ -30,11 +30,13 @@
         <li><a href="ProductList" class="active"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
         <li><a href="Category" ><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
         <li><a href="Promotion" ><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
+        <li><a href="Brand"><i class="fa-solid fa-comment"></i>Quản lý thương hiệu</a></li>
         <li><a href="User"><i class="fa-solid fa-user"></i>Người dùng</a></li>
         <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
         <li><a href="Newsletter-subscriber"><i class="fa-solid fa-bell"></i>Đăng ký nhận tin</a></li>
         <li><a href="Banner-carousel"><i class="fa-solid fa-image"></i>Banner</a></li>
         <li><a href="InventoryList"><i class="fa-solid fa-boxes-stacked"></i>Kho hàng</a></li>
+        <li><a href="PostList"><i class="fa-solid fa-pen-to-square"></i>Bài viết</a></li>
     </ul>
 </div>
 
@@ -62,14 +64,14 @@
                 <tbody>
                 <c:forEach var="product" items="${products}">
                 <tr>
-                        <td>${product.id}</td>
+                        <td name="productId">${product.id}</td>
                         <td>${product.productName}</td>
                         <td><img src="../${product.img}" width="100px"></td>
                         <td><img src="../${product.brand}" width="100px"></td>
                         <td><fmt:formatNumber value="${product.price}" type="currency" currencyCode="VND"/></td>
                         <td>${product.quantity}</td>
                         <td>
-                            <a href="">
+                            <a href="UpdateProduct?productId=${product.id}">
                                 <button class="btn btn-warning btn-sm">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>

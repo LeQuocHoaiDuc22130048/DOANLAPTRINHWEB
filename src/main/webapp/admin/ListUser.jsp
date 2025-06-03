@@ -30,12 +30,14 @@
         <li><a href="Order"><i class="fa-solid fa-scroll"></i>Đơn hàng</a></li>
         <li><a href="ProductList"><i class="fa-solid fa-weight-hanging"></i>Sản phẩm</a></li>
         <li><a href="Category" ><i class="fa-solid fa-clipboard-list"></i>Danh mục sản phẩm</a></li>
+        <li><a href="Brand"><i class="fa-solid fa-comment"></i>Quản lý thương hiệu</a></li>
         <li><a href="Promotion" ><i class="fa-solid fa-percent"></i>Khuyến mãi</a></li>
         <li><a href="User" class="active"><i class="fa-solid fa-user"></i>Người dùng</a></li>
         <li><a href="Feedback"><i class="fa-solid fa-comment"></i>Phản hồi</a></li>
         <li><a href="Newsletter-subscriber"><i class="fa-solid fa-bell"></i>Đăng ký nhận tin</a></li>
         <li><a href="Banner-carousel"><i class="fa-solid fa-image"></i>Banner</a></li>
         <li><a href="InventoryList"><i class="fa-solid fa-boxes-stacked"></i>Kho hàng</a></li>
+        <li><a href="PostList"><i class="fa-solid fa-pen-to-square"></i>Bài viết</a></li>
     </ul>
 </div>
 

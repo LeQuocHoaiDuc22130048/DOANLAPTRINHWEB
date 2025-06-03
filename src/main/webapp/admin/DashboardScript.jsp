@@ -27,6 +27,9 @@
 <!-- Banner Carousel -->
 <script src="${pageContext.request.contextPath}/admin/asset/js/banner_carousel.js"></script>
 
+<!-- Post -->
+<script src="${pageContext.request.contextPath}/admin/asset/js/post.js"></script>
+
 <%--sweet alert--%>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <%--CKEDITOR--%>
@@ -36,7 +39,7 @@
 <script src="${pageContext.request.contextPath}/admin/asset/js/Notification.js"></script>
 <script src="${pageContext.request.contextPath}/admin/asset/js/DisplayImage.js"></script>
 <script src="${pageContext.request.contextPath}/admin/asset/js/appForAdmin.js"></script>
-
+<script src="${pageContext.request.contextPath}/admin/asset/js/brandScript.js"></script>
 <script>
     $(document).ready(function () {
         $('#table_id').DataTable({

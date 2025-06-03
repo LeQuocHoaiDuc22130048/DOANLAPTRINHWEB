@@ -19,7 +19,7 @@ public class AdminService {
         return admin.getAllProducts();
     }
 
-    public Product getProductById(String id) {
+    public Product getProductById(int id) {
         return admin.getProductById(id);
     }
 
@@ -46,6 +46,10 @@ public class AdminService {
 
     public ProductImage getProductImageById(String id) {
         return admin.getImageById(id);
+    }
+
+    public List<ProductImage> getAllProductImage(int id) {
+        return admin.getProductImage(id);
     }
 
     public boolean deleteProduct(int id) {
@@ -136,13 +140,48 @@ public class AdminService {
     public void updateStockAfterOrder(List<CartProduct> listProducts){dao.updateStockAfterOrder(listProducts);
     }
 
+    public List<BrandVM> getAllBrands(){return admin.getAllBrand();}
+    public int addBrand(Brands brands){
+        return admin.insertBrand(brands);
+    }
+
+
+
+    public boolean updateBrand(BrandVM brands){
+        return admin.updateBrand(brands);
+    }
+
+    public boolean deleteBrand(int id){
+        return admin.deleteBrand(id);
+    }
+
     public void importFromExcel(String filename) {
         dao.importFromExcel(filename);
     }
 
-    public static void main(String[] args) {
-        AdminService adminService = new AdminService();
+    public List<PostVM> getAllPosts(){
+        return admin.getAllPosts();
     }
+
+    public PostVM getPostById(int id){
+        return admin.getPostById(id);
+    }
+
+    public boolean addPost(PostVM post) {
+        return admin.addPost(post);
+    }
+
+    public boolean updatePost(PostVM post){
+        return admin.updatePost(post);
+    }
+
+    public boolean toggleStatus(int id, int status){
+        return admin.toggleStatus(id,status);
+    }
+
+//    public static void main(String[] args) {
+//        AdminService adminService = new AdminService();
+//    }
 
 
 }
