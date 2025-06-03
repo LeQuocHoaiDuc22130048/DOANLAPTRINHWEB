@@ -63,14 +63,14 @@
                 <tbody>
                 <c:forEach var="product" items="${products}">
                 <tr>
-                        <td>${product.id}</td>
+                        <td name="productId">${product.id}</td>
                         <td>${product.productName}</td>
                         <td><img src="../${product.img}" width="100px"></td>
                         <td><img src="../${product.brand}" width="100px"></td>
                         <td><fmt:formatNumber value="${product.price}" type="currency" currencyCode="VND"/></td>
                         <td>${product.quantity}</td>
                         <td>
-                            <a href="">
+                            <a href="UpdateProduct?productId=${product.id}">
                                 <button class="btn btn-warning btn-sm">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
